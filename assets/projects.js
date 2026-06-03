@@ -192,16 +192,6 @@ function render(data) {
   setText('[data-live="sfsc-ref"]', shortHash(projects.sfsc.ref));
   setText('[data-live="tentatives-ref"]', shortHash(projects.tentatives.ref));
   setText('[data-live="cividx-ref"]', shortHash(projects.cividx.ref));
-
-  const summary = $('[data-summary]');
-  if (summary) {
-    summary.innerHTML = [
-      metric("SFSC rulings", formatNumber(projects.sfsc.metrics.tentativeRulings)),
-      metric("SFSC cases", formatNumber(projects.sfsc.metrics.cases)),
-      metric("Tentatives", formatNumber(projects.tentatives.metrics.tentativeRulings)),
-      metric("Cividx jurisdictions", formatNumber(projects.cividx.metrics.jurisdictions)),
-    ].join("");
-  }
 }
 
 $$('[data-sfsc-mode]').forEach((button) => {

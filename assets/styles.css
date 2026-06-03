@@ -104,7 +104,6 @@ h1 {
   font-size: 0.76rem;
 }
 
-.summary-metrics,
 .metrics {
   display: flex;
   flex-wrap: wrap;
@@ -545,11 +544,6 @@ input.mini-input {
     border-bottom: 1px solid var(--rule);
   }
 
-  .summary-metrics {
-    width: 100%;
-    justify-content: flex-start;
-    margin-left: 0;
-  }
 }
 
 @media (max-width: 620px) {
