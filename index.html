@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --text: #181818;
+      --muted: #5f646d;
+      --line: #d6dbe1;
+      --accent: #125d72;
+      --accent-2: #7a3e30;
+      --pending: #6c5a10;
+      --beta: #485f22;
+      --shadow: 0 18px 45px rgba(24, 24, 24, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      line-height: 1.5;
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 64px 0 48px;
+    }
+
+    h1 {
+      margin: 0 0 28px;
+      font-size: 4rem;
+      line-height: 0.95;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.85fr) minmax(0, 1.65fr);
+      gap: 24px;
+      padding: 22px 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .project-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font: 600 0.72rem/1.1 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status.beta {
+      color: var(--beta);
+    }
+
+    .status.pending {
+      color: var(--pending);
+    }
+
+    .status.pdf {
+      color: var(--accent-2);
+    }
+
+    .project-body {
+      min-width: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--accent-2);
+    }
+
+    .contact {
+      display: grid;
+      gap: 8px;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .contact h2 {
+      font: 700 0.82rem/1.2 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+
+    @media (max-width: 680px) {
+      main {
+        width: min(100% - 24px, 920px);
+        padding-top: 36px;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      .links,
+      .contact-links {
+        gap: 8px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Projects</h1>
+
+    <ul class="project-list">
+      <li class="project">
+        <div class="project-head">
+          <h2>SFSC</h2>
+        </div>
+        <div class="project-body">
+          <p>Public-record backup and research index for San Francisco Superior Court materials.</p>
+          <div class="links" aria-label="SFSC links">
+            <a href="https://sfsc.amyc.us/">Viewer</a>
+            <a href="https://github.com/aimesy/sfsc">Source</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <div class="project-head">
+          <h2>Tentatives</h2>
+          <span class="status beta">Beta</span>
+        </div>
+        <div class="project-body">
+          <p>California superior court tentative rulings, court calendar notes, and other perishable ruling-adjacent material.</p>
+          <div class="links" aria-label="Tentatives links">
+            <a href="https://aimesy.github.io/tentatives/">Viewer</a>
+            <a href="https://github.com/aimesy/tentatives">Source</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <div class="project-head">
+          <h2>Civil Procedural Law Index</h2>
+          <span class="status pending">Pending</span>
+        </div>
+        <div class="project-body">
+          <p>Structured civil-procedure index organized along fourteen axes.</p>
+        </div>
+      </li>
+
+      <li class="project">
+        <div class="project-head">
+          <h2>Ocilentra</h2>
+          <span class="status pdf">PDF</span>
+        </div>
+        <div class="project-body">
+          <p>PDF copy of <cite>Ocilentra: Central Aimela, Book One</cite>.</p>
+          <div class="links" aria-label="Ocilentra links">
+            <a href="assets/ocilentra.pdf">Download PDF</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <section class="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:me@amyc.us">me@amyc.us</a>
+        <a href="mailto:amy@chattopadhyay.org">amy@chattopadhyay.org</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
