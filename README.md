@@ -1,3 +1,3 @@
 # amyc.us
 
-Static project index for amyc.us.
+Static project and fiction index for amyc.us.

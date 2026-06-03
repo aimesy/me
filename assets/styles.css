@@ -171,6 +171,12 @@ h1 {
   white-space: nowrap;
 }
 
+.toolbar .hbtn.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
 .chip.good {
   color: var(--ok);
   border-color: #b5ccb0;
@@ -536,6 +542,10 @@ input.mini-input {
   border: 1px solid var(--rule);
   border-radius: 2px;
   background: #fff;
+}
+
+.fiction-project .pdf-embed {
+  min-height: 640px;
 }
 
 .contact {
