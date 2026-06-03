@@ -131,6 +131,15 @@
       font-size: 0.95rem;
     }
 
+    .pdf-embed {
+      width: 100%;
+      height: 640px;
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #ffffff;
+    }
+
     a {
       color: var(--accent);
       text-decoration-thickness: 1px;
@@ -183,6 +192,10 @@
       .contact-links {
         gap: 8px 14px;
       }
+
+      .pdf-embed {
+        height: 520px;
+      }
     }
   </style>
 </head>
@@ -234,10 +247,13 @@
           <span class="status pdf">PDF</span>
         </div>
         <div class="project-body">
-          <p>PDF copy of <cite>Ocilentra: Central Aimela, Book One</cite>.</p>
+          <p>PDF copy of <cite>Ocilentra: Central Aimela, Book One</cite>, a science fiction book I wrote as a teenager.</p>
           <div class="links" aria-label="Ocilentra links">
             <a href="assets/ocilentra.pdf">Download PDF</a>
           </div>
+          <object class="pdf-embed" data="assets/ocilentra.pdf" type="application/pdf" aria-label="Embedded PDF copy of Ocilentra: Central Aimela, Book One">
+            <p><a href="assets/ocilentra.pdf">Open the PDF</a>.</p>
+          </object>
         </div>
       </li>
     </ul>
