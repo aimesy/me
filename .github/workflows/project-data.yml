@@ -21,12 +21,18 @@ jobs:
         with:
           path: site
 
+      - name: Require project repo token
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: test -n "$GH_TOKEN"
+
       - name: Check out SFSC
         uses: actions/checkout@v4
         with:
           repository: aimesy/sfsc
           ref: master
           path: sfsc
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Check out Tentatives
         uses: actions/checkout@v4
@@ -34,16 +40,15 @@ jobs:
           repository: aimesy/tentatives
           ref: master
           path: tentatives
+          token: ${{ secrets.GH_TOKEN }}
 
-      - name: Check out Cividx if token is available
-        env:
-          PROJECT_REPO_TOKEN: ${{ secrets.PROJECT_REPO_TOKEN }}
-        run: |
-          if [ -n "$PROJECT_REPO_TOKEN" ]; then
-            git clone --depth 1 "https://x-access-token:${PROJECT_REPO_TOKEN}@github.com/aimesy/cividx.git" cividx
-          else
-            echo "PROJECT_REPO_TOKEN unavailable; keeping existing Cividx tracker data."
-          fi
+      - name: Check out Cividx
+        uses: actions/checkout@v4
+        with:
+          repository: aimesy/cividx
+          ref: master
+          path: cividx
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Build tracker JSON
         working-directory: site

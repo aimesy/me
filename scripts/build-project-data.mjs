@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -20,6 +20,8 @@ const config = {
     ref: process.env.CIVIDX_REF || "",
   },
 };
+
+const SEARCH_SAMPLE_LIMIT = 80;
 
 function runGit(repo, args) {
   return execFileSync("git", ["-C", repo, ...args], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
@@ -146,9 +148,80 @@ function parseSfsc(readme) {
   return { departments, tentativeRulings };
 }
 
+function summarizeText(value, max = 96) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (text.length <= max) return text;
+  return `${text.slice(0, max - 1).trim()}...`;
+}
+
+function sfscViewerUrl(hash = "") {
+  return `https://sfsc.amyc.us/${hash}`;
+}
+
+function buildDocketSamples(casesIndex, limit = SEARCH_SAMPLE_LIMIT) {
+  const rows = [];
+  for (const line of casesIndex.split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    try {
+      const indexRow = JSON.parse(line);
+      const caseNumber = indexRow.case_number;
+      if (!caseNumber) continue;
+      const caseJson = readRepoFile(config.sfsc, `archive/cases/${caseNumber}.json`);
+      if (!caseJson) continue;
+      const record = JSON.parse(caseJson);
+      const entries = Array.isArray(record.docket_entries) ? record.docket_entries : [];
+      const latest = entries
+        .filter((entry) => entry && (entry.date_filed || entry.description))
+        .sort((a, b) => String(b.date_filed || "").localeCompare(String(a.date_filed || "")))[0];
+      rows.push({
+        caseNumber,
+        title: summarizeText(record.case_title || record.cause_of_action || caseNumber, 74),
+        meta: `${entries.length || Number(indexRow.n_entries || 0)} ROA / ${Number(indexRow.n_documents || 0)} docs`,
+        detail: summarizeText(latest?.description || record.cause_of_action || "", 112),
+        href: sfscViewerUrl(`#/case/${encodeURIComponent(caseNumber)}`),
+      });
+    } catch {
+      // Skip malformed or missing case records; the tracker should still build.
+    }
+    if (rows.length >= limit) break;
+  }
+  return rows;
+}
+
+function buildRulingSamples(limit = SEARCH_SAMPLE_LIMIT) {
+  const rawFiles = listRepoFiles(config.sfsc, "raw")
+    .filter((file) => /^raw\/dept\d+\/.+\.json$/.test(file));
+  const step = Math.max(1, Math.floor(rawFiles.length / Math.ceil(limit / 2)));
+  const sampleFiles = rawFiles.filter((_, index) => index % step === 0);
+  const rows = [];
+  for (const file of sampleFiles) {
+    const text = readRepoFile(config.sfsc, file);
+    if (!text) continue;
+    try {
+      const page = JSON.parse(text);
+      const department = page.department ? `Dept. ${page.department}` : "SFSC";
+      for (const ruling of (page.rulings || []).slice(0, 2)) {
+        const caseNumber = ruling["Case Number"] || "";
+        const title = ruling["Case Title"] || caseNumber || "Tentative ruling";
+        rows.push({
+          caseNumber,
+          title: summarizeText(title, 74),
+          meta: `${department} / ${summarizeText(ruling["Court Date"] || "", 28)}`,
+          detail: summarizeText(ruling["Calendar Matter"] || ruling.Rulings || "", 112),
+          href: sfscViewerUrl(caseNumber ? `#case_number=${encodeURIComponent(caseNumber)}` : ""),
+        });
+        if (rows.length >= limit) return rows;
+      }
+    } catch {
+      // Ignore malformed sample pages and keep looking.
+    }
+  }
+  return rows;
+}
+
 function parseTentatives(readme) {
   const counties = [];
-  const re = /<summary>([^<]+)\s+-\s+([\d,]+)\s+rulings\s+across\s+([\d,]+)\s+PDFs<\/summary>/g;
+  const re = /<summary>([^<]+)\s+-\s+([\d,]+)\s+rulings\s+across\s+([\d,]+)\s+(?:PDFs?|source hashes)<\/summary>/g;
   for (const match of readme.matchAll(re)) {
     counties.push({ label: match[1], value: numberText(match[2]), pdfs: numberText(match[3]) });
   }
@@ -189,6 +262,10 @@ function buildSfsc() {
     },
     charts: {
       rulingsByDepartment: parsed.departments,
+    },
+    searchSamples: {
+      dockets: buildDocketSamples(casesIndex),
+      rulings: buildRulingSamples(),
     },
   };
 }
@@ -249,15 +326,6 @@ function buildCividx(previous) {
   };
 }
 
-function buildOcilentra() {
-  const pdf = path.join(repoRoot, "assets", "ocilentra.pdf");
-  return {
-    metrics: {
-      pdfBytes: existsSync(pdf) ? statSync(pdf).size : 0,
-    },
-  };
-}
-
 const dataPath = path.join(repoRoot, "assets", "project-data.json");
 let previous = null;
 if (existsSync(dataPath)) {
@@ -275,7 +343,6 @@ const output = {
     sfsc: buildSfsc(),
     tentatives: buildTentatives(),
     cividx: buildCividx(previous),
-    ocilentra: buildOcilentra(),
   },
 };
 

@@ -4,21 +4,15 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 
 const formatNumber = (value) => new Intl.NumberFormat("en-US").format(Number(value || 0));
-const formatBytes = (bytes) => {
-  const value = Number(bytes || 0);
-  if (!value) return "0 B";
-  const units = ["B", "KB", "MB", "GB"];
-  let size = value;
-  let unit = 0;
-  while (size >= 1024 && unit < units.length - 1) {
-    size /= 1024;
-    unit += 1;
-  }
-  return `${size.toFixed(unit === 0 ? 0 : 1)} ${units[unit]}`;
-};
 
 const shortHash = (hash) => (hash ? hash.slice(0, 7) : "unknown");
 const formatLabel = (value) => String(value || "").replaceAll("-", " ");
+const compactChartLabel = (value) => formatLabel(value)
+  .replace(/^Dept\. /, "")
+  .replace("Civil Law and Motion", "Civil L&M")
+  .replace("Asbestos Law and Motion", "Asbestos L&M")
+  .replace("Real Property Court", "Real Property")
+  .replace("Asbestos Discovery", "Asbestos Disc.");
 
 function metric(label, value, note = "") {
   return `
@@ -29,6 +23,9 @@ function metric(label, value, note = "") {
     </div>
   `;
 }
+
+let sfscSearchMode = "dockets";
+let projectData = null;
 
 function renderMetrics(target, metrics) {
   const container = $(`[data-metrics="${target}"]`);
@@ -46,7 +43,7 @@ function renderMetrics(target, metrics) {
     container.innerHTML = [
       metric("rulings", formatNumber(metrics.tentativeRulings)),
       metric("counties", formatNumber(metrics.parsedCounties)),
-      metric("PDFs", formatNumber(metrics.sourcePdfs)),
+      metric("sources", formatNumber(metrics.sourcePdfs)),
     ].join("");
   }
 
@@ -59,35 +56,31 @@ function renderMetrics(target, metrics) {
     ].join("");
   }
 
-  if (target === "ocilentra") {
-    container.innerHTML = [
-      metric("PDF", formatBytes(metrics.pdfBytes)),
-      metric("book", "1"),
-    ].join("");
-  }
 }
 
 function renderBars(selector, rows, { maxItems = 8 } = {}) {
   const svg = $(selector);
   if (!svg) return;
   const data = rows.slice(0, maxItems).filter((row) => Number(row.value) >= 0);
-  const width = 560;
-  const rowHeight = 30;
-  const height = Math.max(70, data.length * rowHeight + 20);
-  const left = 176;
-  const right = 18;
-  const barMax = width - left - right;
+  const width = 500;
+  const rowHeight = 23;
+  const height = Math.max(58, data.length * rowHeight + 14);
+  const left = 128;
+  const valueWidth = 102;
+  const right = 8;
+  const barMax = width - left - valueWidth - right;
+  const valueX = left + barMax + 8;
   const max = Math.max(...data.map((row) => Number(row.value)), 1);
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.innerHTML = data.map((row, index) => {
-    const y = 14 + index * rowHeight;
-    const barWidth = Math.max(2, Math.round((Number(row.value) / max) * barMax));
+    const y = 8 + index * rowHeight;
+    const barWidth = Math.max(Number(row.value) ? 2 : 0, Math.round((Number(row.value) / max) * barMax));
     return `
       <g>
-        <text x="0" y="${y + 13}" class="bar-label">${escapeHtml(formatLabel(row.label))}</text>
-        <rect x="${left}" y="${y}" width="${barMax}" height="18" class="bar-track"></rect>
-        <rect x="${left}" y="${y}" width="${barWidth}" height="18" class="bar-fill"></rect>
-        <text x="${left + barWidth + 6}" y="${y + 13}" class="bar-value">${formatNumber(row.value)}</text>
+        <text x="0" y="${y + 12}" class="bar-label">${escapeHtml(compactChartLabel(row.label))}</text>
+        <rect x="${left}" y="${y}" width="${barMax}" height="16" class="bar-track"></rect>
+        <rect x="${left}" y="${y}" width="${barWidth}" height="16" class="bar-fill"></rect>
+        <text x="${valueX}" y="${y + 12}" class="bar-value">${formatNumber(row.value)}</text>
       </g>
     `;
   }).join("");
@@ -116,6 +109,48 @@ function renderMiniList(selector, rows, formatter = formatNumber) {
   `).join("");
 }
 
+function rowMatches(row, query) {
+  if (!query) return true;
+  const haystack = [row.caseNumber, row.title, row.meta, row.detail].join(" ").toLowerCase();
+  return query.toLowerCase().split(/\s+/).every((term) => haystack.includes(term));
+}
+
+function renderSfscArchiveSearch() {
+  const container = $('[data-sfsc-results]');
+  const input = $('[data-sfsc-search]');
+  if (!container || !projectData) return;
+
+  const samples = projectData.projects.sfsc.searchSamples || {};
+  const rows = samples[sfscSearchMode] || [];
+  const query = input?.value?.trim() || "";
+  const filtered = rows.filter((row) => rowMatches(row, query)).slice(0, 5);
+  const label = sfscSearchMode === "dockets" ? "court dockets" : "tentative rulings";
+
+  if (input) input.placeholder = `search ${label}`;
+
+  $$('[data-sfsc-mode]').forEach((button) => {
+    const active = button.dataset.sfscMode === sfscSearchMode;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+
+  if (!filtered.length) {
+    container.innerHTML = `<div class="mini-empty">No ${label} matched this search.</div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map((row) => `
+    <div class="mini-result">
+      <div class="mini-result-main">
+        <div class="mini-result-title">${escapeHtml(row.title || row.caseNumber || "Untitled")}</div>
+        <div class="mini-result-meta">${escapeHtml([row.caseNumber, row.meta].filter(Boolean).join(" / "))}</div>
+        <div class="mini-result-detail">${escapeHtml(row.detail || "")}</div>
+      </div>
+      <a class="mini-result-link" href="${escapeHtml(row.href || "https://sfsc.amyc.us/")}">View</a>
+    </div>
+  `).join("");
+}
+
 function setText(selector, text) {
   const node = $(selector);
   if (node) node.textContent = text;
@@ -128,18 +163,18 @@ async function loadData() {
 }
 
 function render(data) {
+  projectData = data;
   const { projects } = data;
   renderMetrics("sfsc", projects.sfsc.metrics);
   renderMetrics("tentatives", projects.tentatives.metrics);
   renderMetrics("cividx", projects.cividx.metrics);
-  renderMetrics("ocilentra", projects.ocilentra.metrics);
 
   renderBars('[data-chart="sfsc-departments"]', topRows(projects.sfsc.charts.rulingsByDepartment, 6));
   renderBars('[data-chart="tentatives-counties"]', topRows(projects.tentatives.charts.rulingsByCounty, 7));
   renderBars('[data-chart="cividx-sources"]', projects.cividx.charts.sourceMix);
   renderBars('[data-chart="cividx-jurisdictions"]', projects.cividx.charts.jurisdictionTypes || []);
 
-  renderMiniList('[data-mini-list="sfsc"]', topRows(projects.sfsc.charts.rulingsByDepartment, 4));
+  renderSfscArchiveSearch();
   renderMiniList('[data-mini-list="tentatives"]', topRows(projects.tentatives.charts.rulingsByCounty, 4));
   renderMiniList('[data-mini-list="cividx"]', topRows(projects.cividx.charts.jurisdictionTypes || [], 4));
 
@@ -168,6 +203,17 @@ function render(data) {
     ].join("");
   }
 }
+
+$$('[data-sfsc-mode]').forEach((button) => {
+  button.addEventListener("click", () => {
+    sfscSearchMode = button.dataset.sfscMode || "dockets";
+    const input = $('[data-sfsc-search]');
+    if (input) input.value = "";
+    renderSfscArchiveSearch();
+  });
+});
+
+$('[data-sfsc-search]')?.addEventListener("input", renderSfscArchiveSearch);
 
 loadData()
   .then(render)
