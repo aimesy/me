@@ -382,6 +382,21 @@ h2 {
   cursor: pointer;
 }
 
+.mini-pill {
+  align-self: center;
+  padding: 0.08rem 0.3rem;
+  border: 1px solid #dac58c;
+  border-radius: 999px;
+  background: #fbf3df;
+  color: #725414;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 .mini-button.active {
   background: var(--ink);
   border-color: var(--ink);
