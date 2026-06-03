@@ -3,268 +3,731 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
+  >
   <title>Projects</title>
   <style>
     :root {
       color-scheme: light;
-      --bg: #f6f7f9;
-      --panel: #ffffff;
-      --text: #181818;
-      --muted: #5f646d;
-      --line: #d6dbe1;
-      --accent: #125d72;
-      --accent-2: #7a3e30;
-      --pending: #6c5a10;
-      --beta: #485f22;
-      --shadow: 0 18px 45px rgba(24, 24, 24, 0.08);
+      --paper: #fbfaf6;
+      --paper-2: #f2efe7;
+      --paper-3: #e7e1d5;
+      --ink: #27231f;
+      --ink-2: #514b43;
+      --ink-3: #7c7468;
+      --ink-4: #a9a094;
+      --rule: #d8d0c3;
+      --rule-2: #ebe5dc;
+      --accent: #604716;
+      --accent-2: #7a5a16;
+      --link: #365765;
+      --warn: #8b2f24;
+      --ok: #1e6237;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
 
-    html {
-      font-size: 16px;
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
     }
 
     body {
-      margin: 0;
-      min-height: 100vh;
-      background: var(--bg);
-      color: var(--text);
-      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      line-height: 1.5;
+      background: var(--paper-2);
+      color: var(--ink);
+      font: 13px/1.45 var(--font-sans);
     }
 
-    main {
-      width: min(920px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 64px 0 48px;
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .status-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      padding: 0.24rem 0.85rem;
+      background: #24211d;
+      color: #d8d2c5;
+      border-bottom: 1px solid #171511;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .status-strip strong {
+      color: #caa85a;
+    }
+
+    .status-strip .grow {
+      flex: 1;
+    }
+
+    .status-strip a {
+      color: #d8d2c5;
+    }
+
+    .entity-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.55rem 0.85rem;
+      background: var(--paper-2);
+    }
+
+    .title-block {
+      min-width: 220px;
     }
 
     h1 {
-      margin: 0 0 28px;
-      font-size: 4rem;
-      line-height: 0.95;
-      font-weight: 600;
+      margin: 0 0 0.12rem;
+      font: 700 1.08rem/1.15 var(--font-serif);
       letter-spacing: 0;
     }
 
-    .project-list {
-      display: grid;
-      gap: 14px;
+    .lede {
+      max-width: 86ch;
       margin: 0;
-      padding: 0;
-      list-style: none;
+      color: var(--ink-3);
+      font-size: 0.76rem;
     }
 
-    .project {
-      display: grid;
-      grid-template-columns: minmax(180px, 0.85fr) minmax(0, 1.65fr);
-      gap: 24px;
-      padding: 22px 24px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .project-head {
+    .summary-metrics,
+    .metrics {
       display: flex;
       flex-wrap: wrap;
-      align-content: flex-start;
+      gap: 0.35rem;
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+
+    .metric {
+      min-width: 88px;
+      padding: 0.28rem 0.44rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      text-align: right;
+      font-family: var(--font-mono);
+    }
+
+    .metric b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.86rem;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric span,
+    .metric small {
+      display: block;
+      margin-top: 0.12rem;
+      color: var(--ink-3);
+      font-size: 0.58rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .toolbar {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      min-width: 0;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      padding: 0.42rem 0.85rem;
+      background: var(--paper-2);
+      border-top: 1px solid var(--rule-2);
+      border-bottom: 1px solid var(--rule);
     }
 
-    h2 {
-      margin: 0;
-      font-size: 1.35rem;
-      line-height: 1.15;
-      font-weight: 600;
-      letter-spacing: 0;
-      overflow-wrap: anywhere;
-    }
-
-    .status {
+    .hbtn,
+    .chip {
       display: inline-flex;
       align-items: center;
+      gap: 0.25rem;
       min-height: 24px;
-      padding: 2px 8px;
-      border: 1px solid currentColor;
-      border-radius: 999px;
-      font: 600 0.72rem/1.1 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      letter-spacing: 0;
+      padding: 0.18rem 0.48rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--ink-2);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
-    .status.beta {
-      color: var(--beta);
+    .chip.good {
+      color: var(--ok);
+      border-color: #b5ccb0;
+      background: #f4f8ed;
     }
 
-    .status.pending {
-      color: var(--pending);
+    .chip.warn {
+      color: #725414;
+      border-color: #dac58c;
+      background: #fbf3df;
     }
 
-    .status.pdf {
-      color: var(--accent-2);
+    .app-shell {
+      display: grid;
+      gap: 0.85rem;
+      padding: 0.85rem;
     }
 
-    .project-body {
-      min-width: 0;
+    .project {
+      display: grid;
+      grid-template-columns: minmax(370px, 0.9fr) minmax(420px, 1.1fr);
+      gap: 0.75rem;
+      align-items: stretch;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
     }
 
-    p {
+    .project-copy {
+      display: grid;
+      gap: 0.7rem;
+      padding: 0.65rem;
+      border-right: 1px solid var(--rule);
+      background: var(--paper);
+    }
+
+    .project-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule-2);
+    }
+
+    h2 {
+      margin: 0 0 0.12rem;
+      font: 700 1.02rem/1.15 var(--font-serif);
+      letter-spacing: 0;
+    }
+
+    .project-copy p {
       margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
+      max-width: 78ch;
+      color: var(--ink-3);
+      font-size: 0.78rem;
     }
 
     .links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 12px;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.95rem;
+      gap: 0.35rem;
+    }
+
+    .tracker {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .tracker-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      color: var(--ink-3);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .chart-grid {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .chart-box {
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: #fff;
+    }
+
+    .chart-box h3 {
+      margin: 0;
+      padding: 0.38rem 0.5rem;
+      border-bottom: 1px solid var(--rule-2);
+      background: var(--paper-2);
+      color: var(--ink-2);
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .bar-chart {
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 0.3rem;
+      font-family: var(--font-mono);
+    }
+
+    .bar-label {
+      fill: var(--ink-2);
+      font-size: 11px;
+    }
+
+    .bar-value {
+      fill: var(--ink-3);
+      font-size: 10px;
+    }
+
+    .bar-track {
+      fill: var(--paper-2);
+    }
+
+    .bar-fill {
+      fill: #9a7a35;
+    }
+
+    .preview-stack {
+      display: grid;
+      gap: 0.55rem;
+      padding: 0.65rem;
+      background: var(--paper-2);
+    }
+
+    .mini-ui {
+      overflow: hidden;
+      min-height: 210px;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      background: var(--paper);
+    }
+
+    .mini-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.22rem 0.45rem;
+      background: #24211d;
+      color: #d8d2c5;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mini-strip strong {
+      color: #caa85a;
+    }
+
+    .mini-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: space-between;
+      padding: 0.42rem 0.5rem;
+      border-bottom: 1px solid var(--rule);
+      background: var(--paper-2);
+    }
+
+    .mini-title b {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+    }
+
+    .mini-statline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.28rem;
+      color: var(--ink-3);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+    }
+
+    .mini-tools {
+      display: flex;
+      gap: 0.28rem;
+      flex-wrap: wrap;
+      padding: 0.4rem 0.5rem;
+      border-bottom: 1px solid var(--rule-2);
+      background: var(--paper);
+    }
+
+    .mini-input,
+    .mini-button {
+      min-height: 21px;
+      padding: 0.16rem 0.38rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: var(--paper);
+      color: var(--ink-2);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+    }
+
+    .mini-input {
+      flex: 1;
+      min-width: 140px;
+      color: var(--ink-4);
+    }
+
+    .mini-table {
+      display: grid;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+    }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.5rem;
+      padding: 0.34rem 0.5rem;
+      border-bottom: 1px solid var(--rule-2);
+    }
+
+    .mini-row:nth-child(even) {
+      background: #fdfcf8;
+    }
+
+    .mini-row span {
+      min-width: 0;
+      overflow: hidden;
+      color: var(--ink-2);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mini-row b {
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .mini-pdf {
+      display: grid;
+      gap: 0.45rem;
+      padding: 0.55rem;
+      background: #fff;
+    }
+
+    .pdf-page {
+      min-height: 190px;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--rule);
+      background: #fffdf9;
+      box-shadow: inset 0 0 0 1px #f5efe3;
+      font-family: var(--font-serif);
+    }
+
+    .pdf-page h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    .pdf-line {
+      height: 7px;
+      margin: 0.24rem 0;
+      background: var(--rule-2);
+    }
+
+    .pdf-line.short {
+      width: 68%;
     }
 
     .pdf-embed {
       width: 100%;
-      height: 640px;
-      margin-top: 16px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #ffffff;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.18em;
-    }
-
-    a:hover,
-    a:focus-visible {
-      color: var(--accent-2);
+      height: 560px;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: #fff;
     }
 
     .contact {
-      display: grid;
-      gap: 8px;
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    .contact h2 {
-      font: 700 0.82rem/1.2 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .contact-links {
       display: flex;
+      align-items: center;
+      gap: 0.65rem;
       flex-wrap: wrap;
-      gap: 10px 18px;
+      padding: 0.7rem 0.85rem 1.1rem;
+      color: var(--ink-3);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
     }
 
-    @media (max-width: 680px) {
-      main {
-        width: min(100% - 24px, 920px);
-        padding-top: 36px;
-      }
-
+    @media (max-width: 940px) {
       .project {
         grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 18px;
       }
 
-      h1 {
-        font-size: 2.4rem;
+      .project-copy {
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
       }
 
-      .links,
-      .contact-links {
-        gap: 8px 14px;
+      .summary-metrics {
+        width: 100%;
+        justify-content: flex-start;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .entity-bar,
+      .toolbar,
+      .app-shell,
+      .contact {
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+      }
+
+      .project-head {
+        display: grid;
+      }
+
+      .metrics {
+        justify-content: flex-start;
+        margin-left: 0;
       }
 
       .pdf-embed {
-        height: 520px;
+        height: 440px;
       }
     }
   </style>
+  <script src="assets/projects.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>Projects</h1>
+  <header>
+    <div class="status-strip">
+      <strong>AMYC.US</strong>
+      <span>Project index</span>
+      <span class="grow"></span>
+      <span>Data refreshed <span data-live="generated">loading</span></span>
+    </div>
+    <div class="entity-bar">
+      <div class="title-block">
+        <h1>Projects</h1>
+        <p class="lede">Public project surfaces, generated trackers, and compact interface renderings.</p>
+      </div>
+      <div class="summary-metrics" data-summary aria-label="Project summary metrics"></div>
+    </div>
+    <nav class="toolbar" aria-label="Project links">
+      <a class="hbtn" href="#sfsc">SFSC</a>
+      <a class="hbtn" href="#tentatives">Tentatives</a>
+      <a class="hbtn" href="#cividx">Civil Procedure</a>
+      <a class="hbtn" href="#ocilentra">Ocilentra</a>
+      <span class="chip good">Generated from repos</span>
+    </nav>
+  </header>
 
-    <ul class="project-list">
-      <li class="project">
+  <main class="app-shell">
+    <section class="project" id="sfsc">
+      <div class="project-copy">
         <div class="project-head">
-          <h2>SFSC</h2>
+          <div>
+            <h2>SFSC</h2>
+            <p>Public record backup and research index for San Francisco Superior Court materials.</p>
+          </div>
+          <span class="chip good">Live tracker</span>
         </div>
-        <div class="project-body">
-          <p>Public record backup and research index for San Francisco Superior Court materials.</p>
-          <div class="links" aria-label="SFSC links">
-            <a href="https://sfsc.amyc.us/">Viewer</a>
-            <a href="https://github.com/aimesy/sfsc">Source</a>
+        <div class="metrics" data-metrics="sfsc"></div>
+        <div class="tracker">
+          <div class="tracker-head">
+            <span>Repo aimesy/sfsc</span>
+            <span>Ref <span data-live="sfsc-ref">loading</span></span>
+          </div>
+          <div class="chart-grid">
+            <div class="chart-box">
+              <h3>Rulings by department</h3>
+              <svg class="bar-chart" data-chart="sfsc-departments" role="img" aria-label="SFSC rulings by department"></svg>
+            </div>
           </div>
         </div>
-      </li>
-
-      <li class="project">
-        <div class="project-head">
-          <h2>Tentatives</h2>
-          <span class="status beta">Beta</span>
+        <div class="links" aria-label="SFSC links">
+          <a class="hbtn" href="https://sfsc.amyc.us/">Viewer</a>
+          <a class="hbtn" href="https://github.com/aimesy/sfsc">Source</a>
         </div>
-        <div class="project-body">
-          <p>California superior court tentative rulings, court calendar notes, and other perishable materials related to rulings.</p>
-          <div class="links" aria-label="Tentatives links">
-            <a href="https://aimesy.github.io/tentatives/">Viewer</a>
-            <a href="https://github.com/aimesy/tentatives">Source</a>
+      </div>
+      <div class="preview-stack" aria-label="SFSC interface rendering">
+        <div class="mini-ui">
+          <div class="mini-strip"><strong>SFSC</strong><span>Record archive</span></div>
+          <div class="mini-title">
+            <b>San Francisco Superior Court</b>
+            <div class="mini-statline">
+              <span><span data-live="sfsc-rulings">...</span> rulings</span>
+              <span><span data-live="sfsc-cases">...</span> cases</span>
+              <span><span data-live="sfsc-docs">...</span> documents</span>
+            </div>
+          </div>
+          <div class="mini-tools">
+            <div class="mini-input">case, party, motion, tag</div>
+            <div class="mini-button">CSV</div>
+            <div class="mini-button">Columns</div>
+          </div>
+          <div class="mini-table" data-mini-list="sfsc"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project" id="tentatives">
+      <div class="project-copy">
+        <div class="project-head">
+          <div>
+            <h2>Tentatives</h2>
+            <p>California superior court tentative rulings, court calendar notes, and other perishable materials related to rulings.</p>
+          </div>
+          <span class="chip warn">Beta</span>
+        </div>
+        <div class="metrics" data-metrics="tentatives"></div>
+        <div class="tracker">
+          <div class="tracker-head">
+            <span>Repo aimesy/tentatives</span>
+            <span>Ref <span data-live="tentatives-ref">loading</span></span>
+          </div>
+          <div class="chart-grid">
+            <div class="chart-box">
+              <h3>Rulings by county</h3>
+              <svg class="bar-chart" data-chart="tentatives-counties" role="img" aria-label="Tentatives rulings by county"></svg>
+            </div>
           </div>
         </div>
-      </li>
-
-      <li class="project">
-        <div class="project-head">
-          <h2>Civil Procedural Law Index</h2>
-          <span class="status pending">Pending</span>
+        <div class="links" aria-label="Tentatives links">
+          <a class="hbtn" href="https://aimesy.github.io/tentatives/">Viewer</a>
+          <a class="hbtn" href="https://github.com/aimesy/tentatives">Source</a>
         </div>
-        <div class="project-body">
-          <p>Structured civil procedure index organized along fourteen axes.</p>
-        </div>
-      </li>
-
-      <li class="project">
-        <div class="project-head">
-          <h2>Ocilentra</h2>
-          <span class="status pdf">PDF</span>
-        </div>
-        <div class="project-body">
-          <p>PDF copy of <cite>Ocilentra: Central Aimela, Book One</cite>, a science fiction book I wrote as a teenager.</p>
-          <div class="links" aria-label="Ocilentra links">
-            <a href="assets/ocilentra.pdf">Download PDF</a>
+      </div>
+      <div class="preview-stack" aria-label="Tentatives interface rendering">
+        <div class="mini-ui">
+          <div class="mini-strip"><strong>Tentatives</strong><span>California rulings</span></div>
+          <div class="mini-title">
+            <b>County viewer</b>
+            <div class="mini-statline">
+              <span><span data-live="tentatives-rulings">...</span> rulings</span>
+              <span><span data-live="tentatives-counties">...</span> counties</span>
+            </div>
           </div>
-          <object class="pdf-embed" data="assets/ocilentra.pdf" type="application/pdf" aria-label="Embedded PDF copy of Ocilentra: Central Aimela, Book One">
-            <p><a href="assets/ocilentra.pdf">Open the PDF</a>.</p>
-          </object>
+          <div class="mini-tools">
+            <div class="mini-input">county, division, judge</div>
+            <div class="mini-button">All</div>
+            <div class="mini-button">Columns</div>
+          </div>
+          <div class="mini-table" data-mini-list="tentatives"></div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </section>
 
-    <section class="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <div class="contact-links">
-        <a href="mailto:me@amyc.us">me@amyc.us</a>
-        <a href="mailto:amy@chattopadhyay.org">amy@chattopadhyay.org</a>
+    <section class="project" id="cividx">
+      <div class="project-copy">
+        <div class="project-head">
+          <div>
+            <h2>Civil Procedural Law Index</h2>
+            <p>Structured civil procedure index organized along fourteen axes.</p>
+          </div>
+          <span class="chip warn">Pending</span>
+        </div>
+        <div class="metrics" data-metrics="cividx"></div>
+        <div class="tracker">
+          <div class="tracker-head">
+            <span>Repo aimesy/cividx</span>
+            <span>Ref <span data-live="cividx-ref">loading</span></span>
+          </div>
+          <div class="chart-grid">
+            <div class="chart-box">
+              <h3>Source mix</h3>
+              <svg class="bar-chart" data-chart="cividx-sources" role="img" aria-label="Civil procedure source mix"></svg>
+            </div>
+            <div class="chart-box">
+              <h3>Jurisdictions by type</h3>
+              <svg class="bar-chart" data-chart="cividx-jurisdictions" role="img" aria-label="Civil procedure jurisdictions by type"></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-stack" aria-label="Civil Procedural Law Index interface rendering">
+        <div class="mini-ui">
+          <div class="mini-strip"><strong>Cividx</strong><span>Comparative procedure</span></div>
+          <div class="mini-title">
+            <b>Ranked table</b>
+            <div class="mini-statline">
+              <span><span data-live="cividx-jurisdictions">...</span> jurisdictions</span>
+              <span><span data-live="cividx-sources">...</span> sources</span>
+            </div>
+          </div>
+          <div class="mini-tools">
+            <div class="mini-input">jurisdiction, feature, source</div>
+            <div class="mini-button">Feature</div>
+            <div class="mini-button">Type</div>
+          </div>
+          <div class="mini-table" data-mini-list="cividx"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project" id="ocilentra">
+      <div class="project-copy">
+        <div class="project-head">
+          <div>
+            <h2>Ocilentra</h2>
+            <p>PDF copy of <cite>Ocilentra: Central Aimela, Book One</cite>, a science fiction book I wrote as a teenager.</p>
+          </div>
+          <span class="chip">PDF</span>
+        </div>
+        <div class="metrics" data-metrics="ocilentra"></div>
+        <div class="links" aria-label="Ocilentra links">
+          <a class="hbtn" href="assets/ocilentra.pdf">Download PDF</a>
+        </div>
+        <object class="pdf-embed" data="assets/ocilentra.pdf" type="application/pdf" aria-label="Embedded PDF copy of Ocilentra: Central Aimela, Book One">
+          <p><a href="assets/ocilentra.pdf">Open the PDF</a>.</p>
+        </object>
+      </div>
+      <div class="preview-stack" aria-label="Ocilentra PDF rendering">
+        <div class="mini-ui mini-pdf">
+          <div class="pdf-page">
+            <h3>OCILENTRA</h3>
+            <div class="pdf-line short"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line short"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line short"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line"></div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer class="contact">
+    <span>Contact</span>
+    <a href="mailto:me@amyc.us">me@amyc.us</a>
+    <a href="mailto:amy@chattopadhyay.org">amy@chattopadhyay.org</a>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,177 @@
+{
+  "generatedAt": "2026-06-03T16:03:10.674Z",
+  "generator": "scripts/build-project-data.mjs",
+  "projects": {
+    "sfsc": {
+      "repo": "aimesy/sfsc",
+      "ref": "51bda969ec558af657db2d8480b687d77aa42224",
+      "updatedAt": "2026-06-03T16:03:11.335Z",
+      "metrics": {
+        "tentativeRulings": 256134,
+        "cases": 619,
+        "documents": 16661
+      },
+      "charts": {
+        "rulingsByDepartment": [
+          {
+            "label": "Dept. 204 - Probate",
+            "value": 133031
+          },
+          {
+            "label": "Dept. 301 - Discovery",
+            "value": 4218
+          },
+          {
+            "label": "Dept. 302 - Civil Law and Motion",
+            "value": 83706
+          },
+          {
+            "label": "Dept. 304 - Asbestos Law and Motion",
+            "value": 275
+          },
+          {
+            "label": "Dept. 304 - Asbestos Discovery",
+            "value": 0
+          },
+          {
+            "label": "Dept. 501 - Real Property Court",
+            "value": 34904
+          }
+        ]
+      }
+    },
+    "tentatives": {
+      "repo": "aimesy/tentatives",
+      "ref": "85be3f412b0a2c32baf30fd84e93274315ad77ca",
+      "updatedAt": "2026-06-03T16:03:11.545Z",
+      "metrics": {
+        "tentativeRulings": 1314,
+        "parsedCounties": 7,
+        "sourcePdfs": 149
+      },
+      "charts": {
+        "rulingsByCounty": [
+          {
+            "label": "Amador",
+            "value": 11,
+            "pdfs": 2
+          },
+          {
+            "label": "Nevada",
+            "value": 589,
+            "pdfs": 60
+          },
+          {
+            "label": "Orange",
+            "value": 296,
+            "pdfs": 36
+          },
+          {
+            "label": "San Francisco",
+            "value": 175,
+            "pdfs": 23
+          },
+          {
+            "label": "Santa Clara",
+            "value": 73,
+            "pdfs": 12
+          },
+          {
+            "label": "Shasta",
+            "value": 133,
+            "pdfs": 9
+          },
+          {
+            "label": "Solano",
+            "value": 37,
+            "pdfs": 7
+          }
+        ]
+      }
+    },
+    "cividx": {
+      "repo": "aimesy/cividx",
+      "ref": "9b8ae60aedd9c6e5fc3721d2876039d3e16648fa",
+      "updatedAt": "2026-06-03T16:03:12.164Z",
+      "metrics": {
+        "jurisdictions": 95,
+        "primarySources": 265,
+        "secondarySources": 28,
+        "sourceNotes": 100
+      },
+      "charts": {
+        "sourceMix": [
+          {
+            "label": "Primary",
+            "value": 265
+          },
+          {
+            "label": "Secondary",
+            "value": 28
+          },
+          {
+            "label": "Source notes",
+            "value": 100
+          }
+        ],
+        "jurisdictionTypes": [
+          {
+            "label": "state",
+            "value": 50
+          },
+          {
+            "label": "tribal",
+            "value": 20
+          },
+          {
+            "label": "specialty state",
+            "value": 8
+          },
+          {
+            "label": "federal",
+            "value": 7
+          },
+          {
+            "label": "territorial",
+            "value": 5
+          },
+          {
+            "label": "specialty federal",
+            "value": 4
+          },
+          {
+            "label": "sub state",
+            "value": 1
+          }
+        ],
+        "primaryCategories": [
+          {
+            "label": "forms",
+            "value": 89
+          },
+          {
+            "label": "official rules",
+            "value": 60
+          },
+          {
+            "label": "opinions",
+            "value": 53
+          },
+          {
+            "label": "tribal",
+            "value": 41
+          },
+          {
+            "label": "special courts",
+            "value": 22
+          }
+        ]
+      }
+    },
+    "ocilentra": {
+      "metrics": {
+        "pdfBytes": 2995543
+      }
+    }
+  }
+}
