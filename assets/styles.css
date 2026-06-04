@@ -106,13 +106,16 @@ h1 {
 
 .metrics {
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 0.35rem;
+  align-self: start;
   margin-left: auto;
   justify-content: flex-end;
 }
 
 .metric {
+  flex: 0 0 auto;
   min-width: 88px;
   padding: 0.28rem 0.44rem;
   background: var(--paper);
@@ -212,6 +215,8 @@ h1 {
 .project-copy {
       min-width: 0;
       display: grid;
+      align-content: start;
+      grid-auto-rows: max-content;
       gap: 0.55rem;
       padding: 0.65rem;
       border-right: 1px solid var(--rule);
@@ -246,12 +251,15 @@ h2 {
 
 .links {
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 0.35rem;
+  align-self: start;
 }
 
     .tracker {
       display: grid;
+      align-self: start;
       gap: 0.36rem;
     }
 
