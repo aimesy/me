@@ -48,12 +48,6 @@
             <span>Repo aimesy/sfsc</span>
             <span>Ref <span data-live="sfsc-ref">loading</span></span>
           </div>
-          <div class="chart-grid">
-            <div class="chart-box">
-              <h3>Rulings by department</h3>
-              <svg class="bar-chart" data-chart="sfsc-departments" role="img" aria-label="SFSC rulings by department"></svg>
-            </div>
-          </div>
         </div>
         <div class="links" aria-label="SFSC links">
           <a class="hbtn" href="https://sfsc.amyc.us/">Viewer</a>
@@ -97,12 +91,6 @@
             <span>Repo aimesy/tentatives</span>
             <span>Ref <span data-live="tentatives-ref">loading</span></span>
           </div>
-          <div class="chart-grid">
-            <div class="chart-box">
-              <h3>Rulings by county</h3>
-              <svg class="bar-chart" data-chart="tentatives-counties" role="img" aria-label="Tentatives rulings by county"></svg>
-            </div>
-          </div>
         </div>
         <div class="links" aria-label="Tentatives links">
           <a class="hbtn" href="https://aimesy.github.io/tentatives/">Viewer</a>
@@ -120,16 +108,16 @@
             </div>
           </div>
           <div class="mini-tools">
-            <div class="mini-input">county, division, judge</div>
-            <div class="mini-button">All</div>
-            <div class="mini-button">Columns</div>
+            <input class="mini-input" type="search" data-mini-search="tentatives" placeholder="search counties">
+            <a class="mini-button" data-mini-open="tentatives" href="https://aimesy.github.io/tentatives/">Open</a>
+            <button class="mini-button" type="button" data-mini-clear="tentatives">Clear</button>
           </div>
           <div class="mini-table" data-mini-list="tentatives"></div>
         </div>
       </div>
     </section>
 
-    <section class="project" id="cividx">
+    <section class="project no-preview" id="cividx">
       <div class="project-copy">
         <div class="project-head">
           <div>
@@ -144,34 +132,6 @@
             <span>Repo aimesy/cividx</span>
             <span>Ref <span data-live="cividx-ref">loading</span></span>
           </div>
-          <div class="chart-grid">
-            <div class="chart-box">
-              <h3>Source mix</h3>
-              <svg class="bar-chart" data-chart="cividx-sources" role="img" aria-label="Civil procedure source mix"></svg>
-            </div>
-            <div class="chart-box">
-              <h3>Jurisdictions by type</h3>
-              <svg class="bar-chart" data-chart="cividx-jurisdictions" role="img" aria-label="Civil procedure jurisdictions by type"></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="preview-stack" aria-label="Civil Procedural Law Index interface rendering">
-        <div class="mini-ui">
-          <div class="mini-strip"><strong>Cividx</strong><span>Comparative procedure</span></div>
-          <div class="mini-title">
-            <b>Ranked table</b>
-            <div class="mini-statline">
-              <span><span data-live="cividx-jurisdictions">...</span> jurisdictions</span>
-              <span><span data-live="cividx-sources">...</span> sources</span>
-            </div>
-          </div>
-          <div class="mini-tools">
-            <div class="mini-input">jurisdiction, feature, source</div>
-            <div class="mini-button">Feature</div>
-            <div class="mini-button">Type</div>
-          </div>
-          <div class="mini-table" data-mini-list="cividx"></div>
         </div>
       </div>
     </section>

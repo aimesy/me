@@ -7,12 +7,6 @@ const formatNumber = (value) => new Intl.NumberFormat("en-US").format(Number(val
 
 const shortHash = (hash) => (hash ? hash.slice(0, 7) : "unknown");
 const formatLabel = (value) => String(value || "").replaceAll("-", " ");
-const compactChartLabel = (value) => formatLabel(value)
-  .replace(/^Dept\. /, "")
-  .replace("Civil Law and Motion", "Civil L&M")
-  .replace("Asbestos Law and Motion", "Asbestos L&M")
-  .replace("Real Property Court", "Real Property")
-  .replace("Asbestos Discovery", "Asbestos Disc.");
 
 function metric(label, value, note = "") {
   return `
@@ -58,34 +52,6 @@ function renderMetrics(target, metrics) {
 
 }
 
-function renderBars(selector, rows, { maxItems = 8 } = {}) {
-  const svg = $(selector);
-  if (!svg) return;
-  const data = rows.slice(0, maxItems).filter((row) => Number(row.value) >= 0);
-  const width = 500;
-  const rowHeight = 23;
-  const height = Math.max(58, data.length * rowHeight + 14);
-  const left = 128;
-  const valueWidth = 102;
-  const right = 8;
-  const barMax = width - left - valueWidth - right;
-  const valueX = left + barMax + 8;
-  const max = Math.max(...data.map((row) => Number(row.value)), 1);
-  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
-  svg.innerHTML = data.map((row, index) => {
-    const y = 8 + index * rowHeight;
-    const barWidth = Math.max(Number(row.value) ? 2 : 0, Math.round((Number(row.value) / max) * barMax));
-    return `
-      <g>
-        <text x="0" y="${y + 12}" class="bar-label">${escapeHtml(compactChartLabel(row.label))}</text>
-        <rect x="${left}" y="${y}" width="${barMax}" height="16" class="bar-track"></rect>
-        <rect x="${left}" y="${y}" width="${barWidth}" height="16" class="bar-fill"></rect>
-        <text x="${valueX}" y="${y + 12}" class="bar-value">${formatNumber(row.value)}</text>
-      </g>
-    `;
-  }).join("");
-}
-
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -98,21 +64,72 @@ function topRows(rows, limit) {
   return [...rows].sort((a, b) => Number(b.value) - Number(a.value)).slice(0, limit);
 }
 
-function renderMiniList(selector, rows, formatter = formatNumber) {
+function renderMiniList(selector, rows, formatter = formatNumber, options = {}) {
   const container = $(selector);
   if (!container) return;
-  container.innerHTML = rows.map((row) => `
-    <div class="mini-row">
+  const { empty = "No matches.", hrefFor = null } = options;
+
+  if (!rows.length) {
+    container.innerHTML = `<div class="mini-empty">${escapeHtml(empty)}</div>`;
+    return;
+  }
+
+  container.innerHTML = rows.map((row) => {
+    const content = `
       <span>${escapeHtml(formatLabel(row.label))}</span>
-      <b>${formatter(row.value)}</b>
-    </div>
-  `).join("");
+      <b>${escapeHtml(formatter(row.value, row))}</b>
+    `;
+
+    if (hrefFor) {
+      return `<a class="mini-row mini-row-link" href="${escapeHtml(hrefFor(row))}">${content}</a>`;
+    }
+
+    return `<div class="mini-row">${content}</div>`;
+  }).join("");
 }
 
 function rowMatches(row, query) {
   if (!query) return true;
   const haystack = [row.caseNumber, row.title, row.meta, row.detail].join(" ").toLowerCase();
   return query.toLowerCase().split(/\s+/).every((term) => haystack.includes(term));
+}
+
+function countySlug(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replaceAll("&", "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function tentativesViewerUrl(row = null, query = "") {
+  const url = new URL("https://aimesy.github.io/tentatives/");
+  if (row) url.searchParams.set("counties", countySlug(row.label));
+  if (query) url.searchParams.set("q", query);
+  return url.toString();
+}
+
+function renderTentativesSearch() {
+  const input = $('[data-mini-search="tentatives"]');
+  const openLink = $('[data-mini-open="tentatives"]');
+  const query = input?.value?.trim() || "";
+  const rows = projectData?.projects?.tentatives?.charts?.rulingsByCounty || [];
+  const filtered = topRows(rows.filter((row) => {
+    const haystack = [row.label, row.value, row.pdfs].join(" ").toLowerCase();
+    return query.toLowerCase().split(/\s+/).every((term) => haystack.includes(term));
+  }), 5);
+
+  if (openLink) openLink.href = tentativesViewerUrl(null, query);
+
+  renderMiniList(
+    '[data-mini-list="tentatives"]',
+    filtered,
+    (value) => `${formatNumber(value)} rulings`,
+    {
+      empty: "No counties matched this search.",
+      hrefFor: (row) => tentativesViewerUrl(row, query),
+    },
+  );
 }
 
 function renderSfscArchiveSearch() {
@@ -169,22 +186,14 @@ function render(data) {
   renderMetrics("tentatives", projects.tentatives.metrics);
   renderMetrics("cividx", projects.cividx.metrics);
 
-  renderBars('[data-chart="sfsc-departments"]', topRows(projects.sfsc.charts.rulingsByDepartment, 6));
-  renderBars('[data-chart="tentatives-counties"]', topRows(projects.tentatives.charts.rulingsByCounty, 7));
-  renderBars('[data-chart="cividx-sources"]', projects.cividx.charts.sourceMix);
-  renderBars('[data-chart="cividx-jurisdictions"]', projects.cividx.charts.jurisdictionTypes || []);
-
   renderSfscArchiveSearch();
-  renderMiniList('[data-mini-list="tentatives"]', topRows(projects.tentatives.charts.rulingsByCounty, 4));
-  renderMiniList('[data-mini-list="cividx"]', topRows(projects.cividx.charts.jurisdictionTypes || [], 4));
+  renderTentativesSearch();
 
   setText('[data-live="sfsc-rulings"]', formatNumber(projects.sfsc.metrics.tentativeRulings));
   setText('[data-live="sfsc-cases"]', formatNumber(projects.sfsc.metrics.cases));
   setText('[data-live="sfsc-docs"]', formatNumber(projects.sfsc.metrics.documents));
   setText('[data-live="tentatives-rulings"]', formatNumber(projects.tentatives.metrics.tentativeRulings));
   setText('[data-live="tentatives-counties"]', formatNumber(projects.tentatives.metrics.parsedCounties));
-  setText('[data-live="cividx-jurisdictions"]', formatNumber(projects.cividx.metrics.jurisdictions));
-  setText('[data-live="cividx-sources"]', formatNumber(projects.cividx.metrics.primarySources + projects.cividx.metrics.secondarySources));
   setText('[data-live="generated"]', new Date(data.generatedAt).toLocaleString([], {
     dateStyle: "medium",
     timeStyle: "short",
@@ -204,6 +213,15 @@ $$('[data-sfsc-mode]').forEach((button) => {
 });
 
 $('[data-sfsc-search]')?.addEventListener("input", renderSfscArchiveSearch);
+
+$('[data-mini-search="tentatives"]')?.addEventListener("input", renderTentativesSearch);
+
+$('[data-mini-clear="tentatives"]')?.addEventListener("click", () => {
+  const input = $('[data-mini-search="tentatives"]');
+  if (input) input.value = "";
+  renderTentativesSearch();
+  input?.focus();
+});
 
 loadData()
   .then(render)
