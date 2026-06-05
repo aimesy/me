@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
+    content="default-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'none'"
   >
   <title>Fiction</title>
   <link rel="stylesheet" href="assets/styles.css">
@@ -20,7 +20,7 @@
     <div class="entity-bar">
       <div class="title-block">
         <h1>Fiction</h1>
-        <p class="lede">Long-form and experimental writing.</p>
+        <p class="lede">Ocilentra, a science fiction book I completed in 2015 as a teenager.</p>
       </div>
     </div>
     <nav class="toolbar" aria-label="Site sections">
@@ -35,7 +35,7 @@
         <div class="project-head">
           <div>
             <h2>Ocilentra</h2>
-            <p>PDF copy of <cite>Ocilentra: Central Aimela, Book One</cite>, a science fiction book I wrote as a teenager.</p>
+            <p>PDF copy of <cite>Ocilentra: Central Aimela, Book One</cite>, a science fiction book I completed in 2015 as a teenager.</p>
           </div>
           <span class="chip">PDF</span>
         </div>
@@ -46,20 +46,33 @@
           <p><a href="assets/ocilentra.pdf">Open the PDF</a>.</p>
         </object>
       </div>
-      <div class="preview-stack" aria-label="Ocilentra rendering">
-        <div class="mini-ui mini-pdf">
-          <div class="pdf-page">
-            <h3>OCILENTRA</h3>
-            <div class="pdf-line short"></div>
-            <div class="pdf-line"></div>
-            <div class="pdf-line"></div>
-            <div class="pdf-line short"></div>
-            <div class="pdf-line"></div>
-            <div class="pdf-line"></div>
-            <div class="pdf-line"></div>
-            <div class="pdf-line short"></div>
-            <div class="pdf-line"></div>
-            <div class="pdf-line"></div>
+      <div class="preview-stack" aria-label="Ocilentra maps and supplement">
+        <div class="map-switcher">
+          <input class="map-radio" type="radio" name="ocilentra-view" id="ocilentra-view-political" checked>
+          <input class="map-radio" type="radio" name="ocilentra-view" id="ocilentra-view-linguistic">
+          <input class="map-radio" type="radio" name="ocilentra-view" id="ocilentra-view-supplement">
+          <div class="map-toggle" role="tablist" aria-label="Ocilentra supplemental views">
+            <label class="map-tab" for="ocilentra-view-political" role="tab">Political</label>
+            <label class="map-tab" for="ocilentra-view-linguistic" role="tab">Linguistic</label>
+            <label class="map-tab" for="ocilentra-view-supplement" role="tab">Supplement</label>
+          </div>
+          <div class="map-panels">
+            <a class="map-panel map-panel-political" href="assets/ocilentra-map.svg" aria-label="Open political map of Ocilentra">
+              <svg class="map-frame" viewBox="600 430 1140 2440" role="img" aria-label="Political map of Ocilentra preview">
+                <image href="assets/ocilentra-map.svg" x="0" y="0" width="2384" height="3371"></image>
+              </svg>
+            </a>
+            <a class="map-panel map-panel-linguistic" href="assets/ocilentra-linguistic-map.svg" aria-label="Open linguistic map of Ocilentra">
+              <svg class="map-frame" viewBox="610 0 1240 2851" role="img" aria-label="Linguistic map of Ocilentra preview">
+                <image href="assets/ocilentra-linguistic-map.svg" x="0" y="0" width="2384" height="2851"></image>
+              </svg>
+            </a>
+            <div class="map-panel map-panel-supplement">
+              <object class="supplement-embed" data="assets/ocilentra-throne-v-tarasintiene-dar-parquisant.pdf" type="application/pdf" aria-label="Embedded supplemental Ocilentra document">
+                <p><a href="assets/ocilentra-throne-v-tarasintiene-dar-parquisant.pdf">Open the supplemental document</a>.</p>
+              </object>
+              <a class="mini-button supplement-link" href="assets/ocilentra-throne-v-tarasintiene-dar-parquisant.pdf">Open PDF</a>
+            </div>
           </div>
         </div>
       </div>

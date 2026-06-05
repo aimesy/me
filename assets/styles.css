@@ -594,7 +594,120 @@ input.mini-input {
 }
 
 .fiction-project .pdf-embed {
-  min-height: 640px;
+  height: min(68vh, 660px);
+  min-height: 480px;
+}
+
+.fiction-project {
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 270px);
+}
+
+.fiction-project .project-copy {
+  min-height: 0;
+}
+
+.fiction-project .preview-stack {
+  align-self: start;
+  position: sticky;
+  top: 0.75rem;
+  max-height: calc(100vh - 1.5rem);
+  overflow: hidden;
+  padding: 0.45rem;
+}
+
+.map-switcher {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.map-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.map-toggle {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.map-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 0.22rem 0.18rem;
+  border-right: 1px solid var(--rule);
+  color: var(--ink-2);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.map-tab:last-child {
+  border-right: 0;
+}
+
+#ocilentra-view-political:checked ~ .map-toggle label[for="ocilentra-view-political"],
+#ocilentra-view-linguistic:checked ~ .map-toggle label[for="ocilentra-view-linguistic"],
+#ocilentra-view-supplement:checked ~ .map-toggle label[for="ocilentra-view-supplement"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.map-panels {
+  display: grid;
+}
+
+.map-panel {
+  display: none;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.25rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: #fff;
+  text-decoration: none;
+}
+
+#ocilentra-view-political:checked ~ .map-panels .map-panel-political,
+#ocilentra-view-linguistic:checked ~ .map-panels .map-panel-linguistic,
+#ocilentra-view-supplement:checked ~ .map-panels .map-panel-supplement {
+  display: grid;
+}
+
+.map-panel:hover,
+.map-panel:focus-visible {
+  background: #fdfcf8;
+  text-decoration: none;
+}
+
+.map-frame {
+  display: block;
+  width: 100%;
+  height: clamp(330px, 58vh, 540px);
+  border: 1px solid var(--rule-2);
+  background: #fff;
+}
+
+.map-panel-supplement {
+  gap: 0.35rem;
+}
+
+.supplement-embed {
+  width: 100%;
+  height: clamp(330px, 58vh, 540px);
+  border: 1px solid var(--rule-2);
+  background: #fff;
+}
+
+.supplement-link {
+  justify-self: start;
+  text-decoration: none;
 }
 
 .contact {
@@ -613,9 +726,18 @@ input.mini-input {
         grid-template-columns: 1fr;
       }
 
+  .fiction-project {
+    grid-template-columns: minmax(0, 1fr) minmax(210px, 240px);
+  }
+
   .project-copy {
     border-right: 0;
     border-bottom: 1px solid var(--rule);
+  }
+
+  .fiction-project .project-copy {
+    border-right: 1px solid var(--rule);
+    border-bottom: 0;
   }
 
   .project.no-preview .project-copy {
@@ -644,5 +766,24 @@ input.mini-input {
 
   .pdf-embed {
     height: 440px;
+  }
+
+  .fiction-project {
+    grid-template-columns: 1fr;
+  }
+
+  .fiction-project .project-copy {
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .fiction-project .preview-stack {
+    position: static;
+    max-height: none;
+  }
+
+  .map-frame,
+  .supplement-embed {
+    height: 280px;
   }
 }
