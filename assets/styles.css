@@ -249,6 +249,23 @@ h2 {
   font-size: 0.78rem;
 }
 
+.project-note {
+  display: grid;
+  gap: 0.42rem;
+  max-width: 95ch;
+  color: var(--ink-2);
+}
+
+.project-note p {
+  max-width: none;
+  font-size: 0.76rem;
+}
+
+.project-note strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .links {
   display: flex;
   align-items: flex-start;

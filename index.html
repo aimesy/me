@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
+    content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src blob:; style-src 'self'; connect-src 'self' blob: https://sfsc.amyc.us https://cdn.jsdelivr.net https://extensions.duckdb.org; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
   >
   <title>Projects</title>
   <link rel="stylesheet" href="assets/styles.css">
@@ -36,9 +36,13 @@
       <div class="project-copy">
         <div class="project-head">
           <div>
-            <h2>SFSC</h2>
+            <h2>San Francisco Superior Court Database</h2>
             <p>Public database and research index for San Francisco Superior Court materials.</p>
           </div>
+        </div>
+        <div class="project-note">
+          <p>The San Francisco Superior Court is unusually open among California superior courts: its public site lets users look up civil cases by case number or party name, and its Register of Actions and almost all civil case documents are viewable online. Nonetheless, the limitations on these searches make it mostly useless for, for example, a pro se litigant looking for form motions or a researcher attempting to substantiate trends.</p>
+          <p>The viewer adds docket and tentative ruling search, filters by department, date, judge, and motion type, per case pages, document lists, case histories, issue reporting, and links back to the public docket. Litigants, attorneys, and judges each have profiles allowing lookup of all documents filed by or on behalf of them, as well as the cases and rulings associated with them.</p>
         </div>
         <div class="metrics" data-metrics="sfsc"></div>
         <div class="tracker">
@@ -49,14 +53,13 @@
         </div>
         <div class="links" aria-label="SFSC links">
           <a class="hbtn" href="https://sfsc.amyc.us/">Viewer</a>
-          <a class="hbtn" href="https://github.com/aimesy/sfsc">Source</a>
+          <a class="hbtn" href="https://github.com/aimesy/sfsc">Repository</a>
         </div>
       </div>
       <div class="preview-stack" aria-label="SFSC interface rendering">
         <div class="mini-ui">
           <div class="mini-strip"><strong>SFSC</strong><span>Database</span></div>
           <div class="mini-title">
-            <b>San Francisco Superior Court</b>
             <div class="mini-statline">
               <span><span data-live="sfsc-rulings">...</span> rulings</span>
               <span><span data-live="sfsc-cases">...</span> cases</span>
@@ -78,10 +81,14 @@
       <div class="project-copy">
         <div class="project-head">
           <div>
-            <h2>Tentatives</h2>
+            <h2>California Tentative Decisions Database</h2>
             <p>California superior court tentative rulings, court calendar notes, and other perishable materials related to rulings.</p>
           </div>
           <span class="chip warn">Alpha</span>
+        </div>
+        <div class="project-note">
+          <p>I once took a class with Judge Bishay of the Alameda Superior Court, who said judges in Southern California generally award custody to the mother, while judges in Northern California generally award it equally. Because California state courts do not generally publish all of their decisions on motions, there is essentially no way to empirically verify this without access to privileged information.</p>
+          <p>Los Angeles, Orange, Alameda, and Riverside charge for online name searches; several courts also charge for document images. But there is one infrequent exception: tentative rulings. These tentative rulings, which usually become the decision of the Court, are usually freely available and are usually posted as PDFs or portal pages, then purged or displaced after the hearing. For many counties, therefore, tentative rulings are the best public record of how specific judges apply the law. I have therefore compiled as many records of these rulings as are available, and have set up routines to automatically comb more when possible.</p>
         </div>
         <div class="metrics" data-metrics="tentatives"></div>
         <div class="tracker">
@@ -92,14 +99,13 @@
         </div>
         <div class="links" aria-label="Tentatives links">
           <a class="hbtn" href="https://aimesy.github.io/tentatives/">Viewer</a>
-          <a class="hbtn" href="https://github.com/aimesy/tentatives">Source</a>
+          <a class="hbtn" href="https://github.com/aimesy/tentatives">Repository</a>
         </div>
       </div>
       <div class="preview-stack" aria-label="Tentatives interface rendering">
         <div class="mini-ui">
-          <div class="mini-strip"><strong>Tentatives</strong><span>California rulings</span></div>
+          <div class="mini-strip"><strong>California Tentative Rulings Database</strong></div>
           <div class="mini-title">
-            <b>County viewer</b>
             <div class="mini-statline">
               <span><span data-live="tentatives-rulings">...</span> rulings</span>
               <span><span data-live="tentatives-counties">...</span> counties</span>
