@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-06-05T14:00:26.827Z",
+  "generatedAt": "2026-06-05T18:21:17.461Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "34b400710c5952596a15480ca7fc0f6cdb656830",
-      "updatedAt": "2026-06-05T14:00:28.574Z",
+      "ref": "dcdd6e9373d18ffe844988be69725755d43f3e9c",
+      "updatedAt": "2026-06-05T18:21:19.880Z",
       "metrics": {
         "tentativeRulings": 256134,
-        "cases": 1467,
-        "documents": 44188,
-        "documentBytes": 51741545592
+        "cases": 1492,
+        "documents": 48451,
+        "documentBytes": 57873582455
       },
       "charts": {
         "rulingsByDepartment": [
@@ -980,13 +980,13 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "355642dc305e49449810b60e7f5ebf62b31e35ae",
-      "updatedAt": "2026-06-05T14:01:00.870Z",
+      "ref": "e0cc07ab4fc54c0d4132ebb16106b4f16efc5b95",
+      "updatedAt": "2026-06-05T18:21:33.277Z",
       "metrics": {
-        "tentativeRulings": 5848,
-        "parsedCounties": 10,
-        "documents": 544,
-        "documentBytes": 528274000
+        "tentativeRulings": 16671,
+        "parsedCounties": 17,
+        "documents": 1386,
+        "documentBytes": 530698826
       },
       "charts": {
         "rulingsByCounty": [
@@ -996,24 +996,39 @@
             "documents": 31
           },
           {
+            "label": "Calaveras",
+            "value": 9197,
+            "documents": 576
+          },
+          {
             "label": "Contra Costa",
             "value": 2004,
             "documents": 137
           },
           {
             "label": "El Dorado",
-            "value": 549,
-            "documents": 58
+            "value": 606,
+            "documents": 66
+          },
+          {
+            "label": "Fresno",
+            "value": 147,
+            "documents": 34
+          },
+          {
+            "label": "Merced",
+            "value": 208,
+            "documents": 15
           },
           {
             "label": "Nevada",
-            "value": 589,
-            "documents": 60
+            "value": 674,
+            "documents": 69
           },
           {
             "label": "Orange",
-            "value": 737,
-            "documents": 84
+            "value": 1292,
+            "documents": 144
           },
           {
             "label": "Placer",
@@ -1021,24 +1036,44 @@
             "documents": 19
           },
           {
-            "label": "San Francisco",
-            "value": 187,
-            "documents": 25
+            "label": "Plumas",
+            "value": 84,
+            "documents": 5
+          },
+          {
+            "label": "Riverside",
+            "value": 33,
+            "documents": 12
+          },
+          {
+            "label": "San Bernardino",
+            "value": 102,
+            "documents": 80
+          },
+          {
+            "label": "San Francisco UFC",
+            "value": 231,
+            "documents": 32
           },
           {
             "label": "Santa Clara",
-            "value": 376,
-            "documents": 56
+            "value": 484,
+            "documents": 72
           },
           {
             "label": "Shasta",
-            "value": 866,
-            "documents": 47
+            "value": 987,
+            "documents": 52
           },
           {
             "label": "Solano",
-            "value": 103,
-            "documents": 27
+            "value": 168,
+            "documents": 41
+          },
+          {
+            "label": "Tuolumne",
+            "value": 17,
+            "documents": 1
           }
         ]
       }
@@ -1046,7 +1081,7 @@
     "cividx": {
       "repo": "aimesy/cividx",
       "ref": "5f2019d678b6cfae25bded26ca4fa0f3f3493315",
-      "updatedAt": "2026-06-05T14:01:01.131Z",
+      "updatedAt": "2026-06-05T18:21:33.506Z",
       "metrics": {
         "jurisdictions": 95,
         "citations": 576
