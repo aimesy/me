@@ -3,11 +3,20 @@ const SFSC_BASE_URL = "https://sfsc.amyc.us/";
 const SFSC_CASE_INDEX_URL = `${SFSC_BASE_URL}archive/cases-index.ndjson`;
 const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const DUCKDB_WASM_URL = "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.33.1-dev45.0/+esm";
+const SFSC_DOCKET_RESULT_LIMIT = 5;
+const SFSC_DOCKET_SEARCH_CONCURRENCY = 6;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 
 const formatNumber = (value) => new Intl.NumberFormat("en-US").format(Number(value || 0));
+const formatMegabytes = (bytes) => {
+  const value = Number(bytes || 0) / (1024 * 1024);
+  const options = value >= 10
+    ? { maximumFractionDigits: 0 }
+    : { minimumFractionDigits: 1, maximumFractionDigits: 1 };
+  return new Intl.NumberFormat("en-US", options).format(value);
+};
 
 const shortHash = (hash) => (hash ? hash.slice(0, 7) : "unknown");
 const formatLabel = (value) => String(value || "").replaceAll("-", " ");
@@ -54,6 +63,7 @@ function renderMetrics(target, metrics) {
       metric("rulings", formatNumber(metrics.tentativeRulings)),
       metric("cases", formatNumber(metrics.cases)),
       metric("documents", formatNumber(metrics.documents)),
+      metric("MB", formatMegabytes(metrics.documentBytes)),
     ].join("");
   }
 
@@ -61,16 +71,15 @@ function renderMetrics(target, metrics) {
     container.innerHTML = [
       metric("rulings", formatNumber(metrics.tentativeRulings)),
       metric("counties", formatNumber(metrics.parsedCounties)),
-      metric("sources", formatNumber(metrics.sourcePdfs)),
+      metric("documents", formatNumber(metrics.documents)),
+      metric("MB", formatMegabytes(metrics.documentBytes)),
     ].join("");
   }
 
   if (target === "cividx") {
     container.innerHTML = [
       metric("jurisdictions", formatNumber(metrics.jurisdictions)),
-      metric("primary sources", formatNumber(metrics.primarySources)),
-      metric("secondary sources", formatNumber(metrics.secondarySources)),
-      metric("source notes", formatNumber(metrics.sourceNotes)),
+      metric("citations", formatNumber(metrics.citations)),
     ].join("");
   }
 }
@@ -126,18 +135,6 @@ function renderMiniList(selector, rows, formatter = formatNumber, options = {}) 
   }).join("");
 }
 
-function rowMatches(row, query) {
-  if (!query) return true;
-  const haystack = [
-    row.caseNumber,
-    row.title,
-    row.meta,
-    row.detail,
-    row.searchText,
-  ].join(" ").toLowerCase();
-  return query.toLowerCase().split(/\s+/).filter(Boolean).every((term) => haystack.includes(term));
-}
-
 function countySlug(value) {
   return String(value || "")
     .toLowerCase()
@@ -159,7 +156,7 @@ function renderTentativesSearch() {
   const query = input?.value?.trim() || "";
   const rows = projectData?.projects?.tentatives?.charts?.rulingsByCounty || [];
   const filtered = topRows(rows.filter((row) => {
-    const haystack = [row.label, row.value, row.pdfs].join(" ").toLowerCase();
+    const haystack = [row.label, row.value, row.documents].join(" ").toLowerCase();
     return query.toLowerCase().split(/\s+/).filter(Boolean).every((term) => haystack.includes(term));
   }), rows.length);
 
@@ -193,6 +190,82 @@ function sfscSafeCaseName(caseNumber) {
 
 function sfscCaseUrl(caseNumber) {
   return `${SFSC_BASE_URL}#/case/${encodeURIComponent(caseNumber || "")}`;
+}
+
+function asArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function cleanText(value) {
+  return String(value ?? "")
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function sfscRecordCaseNumber(record, indexRow = {}) {
+  return cleanText(record?.case_number || record?.docket?.case_number || indexRow.case_number);
+}
+
+function sfscDocketEntries(record) {
+  return asArray(record?.docket_entries);
+}
+
+function sfscDocumentRows(record) {
+  return asArray(record?.documents);
+}
+
+function sfscCaseTitle(record, indexRow = {}) {
+  return cleanText(record?.case_title || indexRow.case_title || sfscRecordCaseNumber(record, indexRow));
+}
+
+function latestSfscDocketEntry(entries) {
+  return [...entries]
+    .filter((entry) => entry && (entry.date_filed || entry.description))
+    .sort((a, b) => String(b.date_filed || "").localeCompare(String(a.date_filed || "")))[0] || null;
+}
+
+function sfscDocketSearchText(record, indexRow = {}) {
+  const parts = [
+    indexRow.case_number,
+    indexRow.case_title,
+    record?.case_number,
+    record?.docket?.case_number,
+    record?.case_title,
+    record?.cause_of_action,
+    record?.case_type,
+    record?.category,
+    record?.court,
+  ];
+  for (const entry of sfscDocketEntries(record)) {
+    parts.push(entry.date_filed, entry.description, entry.doc_id, entry.fee);
+  }
+  for (const doc of sfscDocumentRows(record)) {
+    parts.push(doc.description, doc.title, doc.doc_id, doc.filed, doc.date_filed, doc.sha256, doc.source_url);
+  }
+  for (const party of asArray(record?.parties)) {
+    parts.push(party.name, party.party, party.party_type, party.type, party.roles, party.aliases, party.attorneys);
+  }
+  for (const attorney of asArray(record?.attorneys)) {
+    parts.push(
+      attorney.name,
+      attorney.display_name,
+      attorney.bar_number,
+      attorney.bar,
+      attorney.address,
+      attorney.contact_block,
+      attorney.parties_represented,
+    );
+  }
+  for (const calendar of asArray(record?.calendar)) {
+    parts.push(calendar.judge, calendar.judicial_officer, calendar.officer, calendar.department, calendar.location, calendar.matters);
+  }
+  return cleanText(parts.flat(Infinity).filter(Boolean).join(" ")).toLowerCase();
+}
+
+function sfscQueryMatches(text, query) {
+  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+  return terms.every((term) => text.includes(term));
 }
 
 function sfscRulingUrl(row, query) {
@@ -274,7 +347,7 @@ async function loadSfscDockets() {
   return state.promise;
 }
 
-async function loadSfscCaseSummary(caseNumber) {
+async function loadSfscCaseRecord(caseNumber) {
   const key = sfscSafeCaseName(caseNumber);
   const state = sfscData.dockets;
   if (!key) return null;
@@ -284,39 +357,62 @@ async function loadSfscCaseSummary(caseNumber) {
     const response = await fetch(`${SFSC_BASE_URL}archive/cases/${key}.json`, { cache: "no-cache" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
-  })()
-    .then((record) => ({
-      caseTitle: record.case_title || "",
-      cause: record.cause_of_action || "",
-      detail: record.docket_entries?.find((entry) => entry?.description)?.description
-        || record.cause_of_action
-        || "",
-    }))
-    .catch(() => null);
+  })().catch(() => null);
 
   state.caseCache.set(key, promise);
   return promise;
 }
 
 async function hydrateSfscDocketRows(rows) {
-  const summaries = await Promise.all(rows.map((row) => loadSfscCaseSummary(row.case_number)));
-  return rows.map((row, index) => {
-    const summary = summaries[index] || {};
-    const meta = [
-      row.n_entries != null ? plural(row.n_entries, "docket entry", "docket entries") : "",
-      row.n_documents != null ? plural(row.n_documents, "document") : "",
-    ].filter(Boolean).join(" / ");
-    const captured = row.captured_at ? `captured ${formatDate(row.captured_at)}` : "";
+  const records = await Promise.all(rows.map((row) => loadSfscCaseRecord(row.case_number)));
+  return rows.map((row, index) => sfscDocketDisplayRow(row, records[index]));
+}
 
-    return {
-      caseNumber: row.case_number || "",
-      title: summary.caseTitle || row.case_title || row.case_number || "Untitled",
-      meta,
-      detail: summary.detail || summary.cause || captured,
-      href: sfscCaseUrl(row.case_number),
-      searchText: [row.case_number, row.case_title, row.n_entries, row.n_documents, row.captured_at].join(" "),
-    };
-  });
+function sfscDocketDisplayRow(row, record = null) {
+  const entries = record ? sfscDocketEntries(record) : [];
+  const docs = record ? sfscDocumentRows(record) : [];
+  const latest = latestSfscDocketEntry(entries);
+  const caseNumber = sfscRecordCaseNumber(record, row);
+  const entryCount = entries.length || Number(row.n_entries || 0);
+  const documentCount = docs.length || Number(row.n_documents || 0);
+  const captured = row.captured_at ? `captured ${formatDate(row.captured_at)}` : "";
+  const meta = [
+    plural(entryCount, "docket entry", "docket entries"),
+    plural(documentCount, "document"),
+  ].join(" / ");
+
+  return {
+    caseNumber,
+    title: sfscCaseTitle(record, row) || caseNumber || "Untitled",
+    meta,
+    detail: cleanText(latest?.description || record?.cause_of_action || captured),
+    href: sfscCaseUrl(caseNumber),
+    searchText: sfscDocketSearchText(record || {}, row),
+  };
+}
+
+async function searchSfscDockets(query, progress = () => {}) {
+  const rows = await loadSfscDockets();
+  if (!query) return hydrateSfscDocketRows(rows.slice(0, SFSC_DOCKET_RESULT_LIMIT));
+
+  progress("Searching court dockets...");
+  const queue = [...rows];
+  const matches = [];
+  const worker = async () => {
+    while (queue.length && matches.length < SFSC_DOCKET_RESULT_LIMIT) {
+      const row = queue.shift();
+      if (!row?.case_number) continue;
+      const record = await loadSfscCaseRecord(row.case_number);
+      if (!record) continue;
+      const displayRow = sfscDocketDisplayRow(row, record);
+      if (sfscQueryMatches(displayRow.searchText, query)) matches.push(displayRow);
+    }
+  };
+  await Promise.all(Array.from(
+    { length: Math.min(SFSC_DOCKET_SEARCH_CONCURRENCY, queue.length) },
+    worker,
+  ));
+  return matches.sort((a, b) => String(b.caseNumber || "").localeCompare(String(a.caseNumber || "")));
 }
 
 function tableNameForSfscDept(department) {
@@ -450,15 +546,11 @@ async function renderSfscArchiveSearch() {
   if (sfscSearchMode === "dockets") {
     container.innerHTML = `<div class="mini-empty">Loading court dockets...</div>`;
     try {
-      const rows = await loadSfscDockets();
-      if (renderId !== sfscSearchRenderId) return;
-      const filtered = rows.filter((row) => rowMatches({
-        caseNumber: row.case_number,
-        title: row.case_title,
-        meta: [row.n_entries, row.n_documents].join(" "),
-        detail: row.captured_at,
-      }, query)).slice(0, 5);
-      const displayRows = await hydrateSfscDocketRows(filtered);
+      const displayRows = await searchSfscDockets(query, (message) => {
+        if (renderId === sfscSearchRenderId) {
+          container.innerHTML = `<div class="mini-empty">${escapeHtml(message)}</div>`;
+        }
+      });
       if (renderId !== sfscSearchRenderId) return;
       renderSfscResultRows(container, displayRows, label);
     } catch (error) {
@@ -516,8 +608,11 @@ function render(data) {
   setText('[data-live="sfsc-rulings"]', formatNumber(projects.sfsc.metrics.tentativeRulings));
   setText('[data-live="sfsc-cases"]', formatNumber(projects.sfsc.metrics.cases));
   setText('[data-live="sfsc-docs"]', formatNumber(projects.sfsc.metrics.documents));
+  setText('[data-live="sfsc-mb"]', formatMegabytes(projects.sfsc.metrics.documentBytes));
   setText('[data-live="tentatives-rulings"]', formatNumber(projects.tentatives.metrics.tentativeRulings));
   setText('[data-live="tentatives-counties"]', formatNumber(projects.tentatives.metrics.parsedCounties));
+  setText('[data-live="tentatives-docs"]', formatNumber(projects.tentatives.metrics.documents));
+  setText('[data-live="tentatives-mb"]', formatMegabytes(projects.tentatives.metrics.documentBytes));
   setText('[data-live="generated"]', new Date(data.generatedAt).toLocaleString([], {
     dateStyle: "medium",
     timeStyle: "short",

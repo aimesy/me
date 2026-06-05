@@ -1,14 +1,22 @@
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "..");
+const GIT_MAX_BUFFER = 256 * 1024 * 1024;
+
+function firstExistingRepo(...candidates) {
+  return candidates.find((repo) => existsSync(path.join(repo, ".git"))) || candidates[0];
+}
 
 const config = {
   sfsc: {
-    repo: process.env.SFSC_REPO || path.resolve(repoRoot, "..", "..", "projects", "sfsc-tentatives"),
+    repo: process.env.SFSC_REPO || firstExistingRepo(
+      path.resolve(repoRoot, "..", "..", "projects", "sfsc"),
+      path.resolve(repoRoot, "..", "..", "projects", "sfsc-tentatives"),
+    ),
     ref: process.env.SFSC_REF || "",
   },
   tentatives: {
@@ -24,7 +32,11 @@ const config = {
 const SEARCH_SAMPLE_LIMIT = 80;
 
 function runGit(repo, args) {
-  return execFileSync("git", ["-C", repo, ...args], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+  return execFileSync("git", ["-C", repo, ...args], {
+    encoding: "utf8",
+    maxBuffer: GIT_MAX_BUFFER,
+    stdio: ["ignore", "pipe", "ignore"],
+  });
 }
 
 function repoAvailable(repo) {
@@ -34,24 +46,28 @@ function repoAvailable(repo) {
 function readRepoFile({ repo, ref }, filePath) {
   if (!repoAvailable(repo)) return "";
   try {
-    if (ref) return runGit(repo, ["show", `${ref}:${filePath}`]);
     const fullPath = path.join(repo, filePath);
-    return existsSync(fullPath) ? readFileSync(fullPath, "utf8") : "";
+    if (!ref && existsSync(fullPath)) return readFileSync(fullPath, "utf8");
+    return runGit(repo, ["show", `${ref || "HEAD"}:${filePath}`]);
   } catch {
     return "";
   }
 }
 
-function listRepoFiles({ repo, ref }, prefix = "") {
+function listRepoFiles({ repo, ref }, prefix = "", options = {}) {
   if (!repoAvailable(repo)) return [];
   try {
-    if (ref) {
-      return runGit(repo, ["ls-tree", "-r", "--name-only", ref, prefix])
+    if (ref || options.tree) {
+      return runGit(repo, ["ls-tree", "-r", "--name-only", ref || "HEAD", prefix])
         .split(/\r?\n/)
         .filter(Boolean);
     }
     const root = path.join(repo, prefix);
-    if (!existsSync(root)) return [];
+    if (!existsSync(root)) {
+      return runGit(repo, ["ls-tree", "-r", "--name-only", "HEAD", prefix])
+        .split(/\r?\n/)
+        .filter(Boolean);
+    }
     const files = [];
     const walk = (dir) => {
       for (const entry of readdirSync(dir, { withFileTypes: true })) {
@@ -63,7 +79,37 @@ function listRepoFiles({ repo, ref }, prefix = "") {
     walk(root);
     return files;
   } catch {
-    return [];
+    try {
+      return runGit(repo, ["ls-tree", "-r", "--name-only", "HEAD", prefix])
+        .split(/\r?\n/)
+        .filter(Boolean);
+    } catch {
+      return [];
+    }
+  }
+}
+
+function repoFileSize({ repo, ref }, filePath) {
+  if (!repoAvailable(repo)) return 0;
+  try {
+    const fullPath = path.join(repo, filePath);
+    if (!ref && existsSync(fullPath)) return statSync(fullPath).size;
+    return Number(runGit(repo, ["cat-file", "-s", `${ref || "HEAD"}:${filePath}`]).trim()) || 0;
+  } catch {
+    return 0;
+  }
+}
+
+function sumRepoFileSizes(repoConfig, files) {
+  return files.reduce((sum, file) => sum + repoFileSize(repoConfig, file), 0);
+}
+
+function parseJson(text) {
+  if (!text) return null;
+  try {
+    return JSON.parse(text);
+  } catch {
+    return null;
   }
 }
 
@@ -78,11 +124,6 @@ function repoHead({ repo, ref }) {
 
 function numberText(value) {
   return Number(String(value).replaceAll(",", "")) || 0;
-}
-
-function countLines(text) {
-  if (!text.trim()) return 0;
-  return text.trimEnd().split(/\r?\n/).length;
 }
 
 function parseCsv(text) {
@@ -223,13 +264,82 @@ function parseTentatives(readme) {
   const counties = [];
   const re = /<summary>([^<]+)\s+-\s+([\d,]+)\s+rulings\s+across\s+([\d,]+)\s+(?:PDFs?|source hashes)<\/summary>/g;
   for (const match of readme.matchAll(re)) {
-    counties.push({ label: match[1], value: numberText(match[2]), pdfs: numberText(match[3]) });
+    counties.push({ label: match[1], value: numberText(match[2]), documents: numberText(match[3]) });
   }
   return {
     counties,
     tentativeRulings: counties.reduce((sum, item) => sum + item.value, 0),
-    pdfs: counties.reduce((sum, item) => sum + item.pdfs, 0),
+    documents: counties.reduce((sum, item) => sum + item.documents, 0),
   };
+}
+
+function sfscCaseIndexStats(casesIndex) {
+  const uniqueCases = new Set();
+  let docketDocumentRefs = 0;
+  for (const line of casesIndex.split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    try {
+      const record = JSON.parse(line);
+      if (record.case_number) uniqueCases.add(record.case_number);
+      docketDocumentRefs += Number(record.n_documents || 0);
+    } catch {
+      // Preserve generation even if one append-only index row is malformed.
+    }
+  }
+  return { cases: uniqueCases.size, docketDocumentRefs };
+}
+
+function sfscDocumentIndexStats(documentIndex) {
+  let documents = 0;
+  let documentBytes = 0;
+  for (const line of documentIndex.split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    try {
+      const record = JSON.parse(line);
+      documents += 1;
+      documentBytes += Number(record.bytes_len || 0);
+    } catch {
+      // Ignore malformed document-index rows and keep the page building.
+    }
+  }
+  return { documents, documentBytes };
+}
+
+function tentativesCaptureStats() {
+  const captureFiles = [];
+  const archiveRoot = path.join(config.tentatives.repo, "archive");
+  if (!config.tentatives.ref && existsSync(archiveRoot)) {
+    for (const entry of readdirSync(archiveRoot, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const candidate = path.join("archive", entry.name, "captures.ndjson").replaceAll(path.sep, "/");
+      if (existsSync(path.join(config.tentatives.repo, candidate))) captureFiles.push(candidate);
+    }
+  } else {
+    captureFiles.push(
+      ...listRepoFiles(config.tentatives, "archive", { tree: true })
+        .filter((file) => /\/captures\.ndjson$/.test(file)),
+    );
+  }
+
+  const seen = new Set();
+  let documentBytes = 0;
+  for (const file of captureFiles) {
+    const text = readRepoFile(config.tentatives, file);
+    for (const line of text.split(/\r?\n/)) {
+      if (!line.trim()) continue;
+      try {
+        const row = JSON.parse(line);
+        const key = row.source_sha256 || `${file}:${row.source_url || row.discovered_filename || line}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        documentBytes += Number(row.content_length || row.bytes_len || 0);
+      } catch {
+        // Capture files are append-only; skip malformed rows without losing the build.
+      }
+    }
+  }
+
+  return { documents: seen.size, documentBytes };
 }
 
 function buildSfsc() {
@@ -237,28 +347,19 @@ function buildSfsc() {
   const parsed = parseSfsc(readme);
   const caseFiles = listRepoFiles(config.sfsc, "archive/cases").filter((file) => file.endsWith(".json")).length;
   const casesIndex = readRepoFile(config.sfsc, "archive/cases-index.ndjson");
-  const uniqueCases = new Set();
-  let documentsFromCases = 0;
-  for (const line of casesIndex.split(/\r?\n/)) {
-    if (!line.trim()) continue;
-    try {
-      const record = JSON.parse(line);
-      if (record.case_number) uniqueCases.add(record.case_number);
-      documentsFromCases += Number(record.n_documents || 0);
-    } catch {
-      // Preserve generation even if one append-only index row is malformed.
-    }
-  }
+  const caseStats = sfscCaseIndexStats(casesIndex);
   const documentIndex = readRepoFile(config.sfsc, "archive/document-index.ndjson");
-  const indexedDocuments = countLines(documentIndex) || documentsFromCases;
+  const documentStats = sfscDocumentIndexStats(documentIndex);
+  const indexedDocuments = documentStats.documents || caseStats.docketDocumentRefs;
   return {
     repo: "aimesy/sfsc",
     ref: repoHead(config.sfsc),
     updatedAt: new Date().toISOString(),
     metrics: {
       tentativeRulings: parsed.tentativeRulings,
-      cases: uniqueCases.size || caseFiles,
+      cases: caseStats.cases || caseFiles,
       documents: indexedDocuments,
+      documentBytes: documentStats.documentBytes || repoFileSize(config.sfsc, "data/documents.parquet"),
     },
     charts: {
       rulingsByDepartment: parsed.departments,
@@ -273,6 +374,9 @@ function buildSfsc() {
 function buildTentatives() {
   const readme = readRepoFile(config.tentatives, "README.md");
   const parsed = parseTentatives(readme);
+  const captureStats = tentativesCaptureStats();
+  const parquetFiles = listRepoFiles(config.tentatives, "data", { tree: true })
+    .filter((file) => /\/rulings\.parquet$/.test(file));
   return {
     repo: "aimesy/tentatives",
     ref: repoHead(config.tentatives),
@@ -280,12 +384,26 @@ function buildTentatives() {
     metrics: {
       tentativeRulings: parsed.tentativeRulings,
       parsedCounties: parsed.counties.length,
-      sourcePdfs: parsed.pdfs,
+      documents: parsed.documents || captureStats.documents,
+      documentBytes: captureStats.documentBytes || sumRepoFileSizes(config.tentatives, parquetFiles),
     },
     charts: {
       rulingsByCounty: parsed.counties,
     },
   };
+}
+
+function countCividxCitationsFromManifests() {
+  const citations = new Set();
+  const manifestFiles = listRepoFiles(config.cividx, "data/parquet/manifests", { tree: true })
+    .filter((file) => file.endsWith(".csv"));
+  for (const file of manifestFiles) {
+    for (const row of parseCsv(readRepoFile(config.cividx, file))) {
+      const citation = String(row.citation || "").trim();
+      if (citation) citations.add(citation);
+    }
+  }
+  return citations.size;
 }
 
 function buildCividx(previous) {
@@ -294,34 +412,24 @@ function buildCividx(previous) {
       repo: "aimesy/cividx",
       ref: null,
       updatedAt: null,
-      metrics: { jurisdictions: 0, primarySources: 0, secondarySources: 0, sourceNotes: 0 },
-      charts: { sourceMix: [], jurisdictionTypes: [] },
+      metrics: { jurisdictions: 0, citations: 0 },
+      charts: { jurisdictionTypes: [] },
     };
   }
 
   const jurisdictions = parseCsv(readRepoFile(config.cividx, "data/jurisdictions-table.csv"));
-  const primarySources = parseCsv(readRepoFile(config.cividx, "source/ORIGINALS-MANIFEST.csv"));
-  const secondarySources = parseCsv(readRepoFile(config.cividx, "data/bibliography/BIBLIOGRAPHY.csv"));
-  const sourceNotes = listRepoFiles(config.cividx, "source-notes").filter((file) => file.endsWith(".md")).length;
-  const capturedPrimary = primarySources.filter((row) => !row.status || row.status === "captured");
+  const citationStats = parseJson(readRepoFile(config.cividx, "data/citation-stats.json"));
+  const citations = Number(citationStats?.citations || 0) || countCividxCitationsFromManifests();
   return {
     repo: "aimesy/cividx",
     ref: repoHead(config.cividx),
     updatedAt: new Date().toISOString(),
     metrics: {
       jurisdictions: jurisdictions.length,
-      primarySources: capturedPrimary.length,
-      secondarySources: secondarySources.length,
-      sourceNotes,
+      citations,
     },
     charts: {
-      sourceMix: [
-        { label: "Primary", value: capturedPrimary.length },
-        { label: "Secondary", value: secondarySources.length },
-        { label: "Source notes", value: sourceNotes },
-      ],
       jurisdictionTypes: groupCount(jurisdictions, "type"),
-      primaryCategories: groupCount(capturedPrimary, "category").slice(0, 8),
     },
   };
 }

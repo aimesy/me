@@ -1,15 +1,16 @@
 {
-  "generatedAt": "2026-06-05T13:46:54.100Z",
+  "generatedAt": "2026-06-05T14:00:26.827Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "d2d80a46fad390dabf31df86d1b3567e15745886",
-      "updatedAt": "2026-06-05T13:46:54.448Z",
+      "ref": "34b400710c5952596a15480ca7fc0f6cdb656830",
+      "updatedAt": "2026-06-05T14:00:28.574Z",
       "metrics": {
         "tentativeRulings": 256134,
-        "cases": 1463,
-        "documents": 44131
+        "cases": 1467,
+        "documents": 44188,
+        "documentBytes": 51741545592
       },
       "charts": {
         "rulingsByDepartment": [
@@ -980,92 +981,77 @@
     "tentatives": {
       "repo": "aimesy/tentatives",
       "ref": "355642dc305e49449810b60e7f5ebf62b31e35ae",
-      "updatedAt": "2026-06-05T13:46:54.718Z",
+      "updatedAt": "2026-06-05T14:01:00.870Z",
       "metrics": {
         "tentativeRulings": 5848,
         "parsedCounties": 10,
-        "sourcePdfs": 544
+        "documents": 544,
+        "documentBytes": 528274000
       },
       "charts": {
         "rulingsByCounty": [
           {
             "label": "Amador",
             "value": 206,
-            "pdfs": 31
+            "documents": 31
           },
           {
             "label": "Contra Costa",
             "value": 2004,
-            "pdfs": 137
+            "documents": 137
           },
           {
             "label": "El Dorado",
             "value": 549,
-            "pdfs": 58
+            "documents": 58
           },
           {
             "label": "Nevada",
             "value": 589,
-            "pdfs": 60
+            "documents": 60
           },
           {
             "label": "Orange",
             "value": 737,
-            "pdfs": 84
+            "documents": 84
           },
           {
             "label": "Placer",
             "value": 231,
-            "pdfs": 19
+            "documents": 19
           },
           {
             "label": "San Francisco",
             "value": 187,
-            "pdfs": 25
+            "documents": 25
           },
           {
             "label": "Santa Clara",
             "value": 376,
-            "pdfs": 56
+            "documents": 56
           },
           {
             "label": "Shasta",
             "value": 866,
-            "pdfs": 47
+            "documents": 47
           },
           {
             "label": "Solano",
             "value": 103,
-            "pdfs": 27
+            "documents": 27
           }
         ]
       }
     },
     "cividx": {
       "repo": "aimesy/cividx",
-      "ref": "9b8ae60aedd9c6e5fc3721d2876039d3e16648fa",
-      "updatedAt": "2026-06-05T13:46:54.726Z",
+      "ref": "5f2019d678b6cfae25bded26ca4fa0f3f3493315",
+      "updatedAt": "2026-06-05T14:01:01.131Z",
       "metrics": {
         "jurisdictions": 95,
-        "primarySources": 265,
-        "secondarySources": 28,
-        "sourceNotes": 100
+        "citations": 576
       },
       "charts": {
-        "sourceMix": [
-          {
-            "label": "Primary",
-            "value": 265
-          },
-          {
-            "label": "Secondary",
-            "value": 28
-          },
-          {
-            "label": "Source notes",
-            "value": 100
-          }
-        ],
         "jurisdictionTypes": [
           {
             "label": "state",
@@ -1094,28 +1080,6 @@
           {
             "label": "sub state",
             "value": 1
-          }
-        ],
-        "primaryCategories": [
-          {
-            "label": "forms",
-            "value": 89
-          },
-          {
-            "label": "official rules",
-            "value": 60
-          },
-          {
-            "label": "opinions",
-            "value": 53
-          },
-          {
-            "label": "tribal",
-            "value": 41
-          },
-          {
-            "label": "special courts",
-            "value": 22
           }
         ]
       }
