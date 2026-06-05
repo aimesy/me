@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src blob:; style-src 'self'; connect-src 'self' blob: https://sfsc.amyc.us https://cdn.jsdelivr.net https://extensions.duckdb.org; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
+    content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src blob:; style-src 'self' 'unsafe-inline'; connect-src 'self' blob: https://sfsc.amyc.us https://cdn.jsdelivr.net https://extensions.duckdb.org; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
   >
   <title>Projects</title>
   <meta name="description" content="Public project index for SFSC, California tentative rulings, and civil procedure research tools.">
@@ -19,7 +19,8 @@
   <meta name="twitter:title" content="Projects | AMYC.US">
   <meta name="twitter:description" content="Public project index for SFSC, California tentative rulings, and civil procedure research tools.">
   <meta name="theme-color" content="#24211d">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=theme-spectrum-sand">
+  <script src="assets/theme.js?v=theme-spectrum-sand" defer></script>
   <script src="assets/projects.js" defer></script>
 </head>
 <body>
@@ -29,6 +30,15 @@
       <span>Project index</span>
       <span class="grow"></span>
       <span>Data refreshed <span data-live="generated">loading</span></span>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Theme spectrum" title="Theme spectrum">
+        <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3a9 9 0 0 0 0 18h1.2a1.9 1.9 0 0 0 1.4-3.2 1.9 1.9 0 0 1 1.4-3.2h1.1A4.9 4.9 0 0 0 21 9.8C21 6 17 3 12 3Z"></path>
+          <circle cx="7.7" cy="10.2" r="1"></circle>
+          <circle cx="10.5" cy="6.9" r="1"></circle>
+          <circle cx="14.7" cy="7.4" r="1"></circle>
+          <circle cx="16.6" cy="11" r="1"></circle>
+        </svg>
+      </button>
     </div>
     <div class="entity-bar">
       <div class="title-block">
