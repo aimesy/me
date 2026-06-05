@@ -61,7 +61,7 @@ function renderMetrics(target, metrics) {
   if (target === "sfsc") {
     container.innerHTML = [
       metric("rulings", formatNumber(metrics.tentativeRulings)),
-      metric("cases", formatNumber(metrics.cases)),
+      metric("dockets", formatNumber(metrics.cases)),
       metric("documents", formatNumber(metrics.documents)),
       metric("MB", formatMegabytes(metrics.documentBytes)),
     ].join("");
