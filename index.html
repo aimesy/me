@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src blob:; style-src 'self' 'unsafe-inline'; connect-src 'self' blob: https://sfsc.amyc.us https://cdn.jsdelivr.net https://extensions.duckdb.org; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
+    content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src blob:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' blob: https://sfsc.amyc.us https://cdn.jsdelivr.net https://extensions.duckdb.org; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
   >
   <title>Projects</title>
   <meta name="description" content="Public project index for SFSC, California tentative rulings, and civil procedure research tools.">
@@ -20,7 +20,8 @@
   <meta name="twitter:description" content="Public project index for SFSC, California tentative rulings, and civil procedure research tools.">
   <meta name="theme-color" content="#24211d">
   <link rel="stylesheet" href="assets/styles.css?v=theme-spectrum-sand">
-  <script src="assets/theme.js?v=theme-spectrum-sand" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@main/src/theme.css">
+  <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@main/src/theme.js" defer></script>
   <script src="assets/projects.js" defer></script>
 </head>
 <body>
