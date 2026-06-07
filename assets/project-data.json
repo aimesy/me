@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-06T11:59:28.485Z",
+  "generatedAt": "2026-06-07T12:13:52.328Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "be3a01ddd3ebae3b47e72c859dcb42aa23cefd59",
-      "updatedAt": "2026-06-06T11:59:28.694Z",
+      "ref": "7a5464acfe8584320264839a68e68c48bdea18b3",
+      "updatedAt": "2026-06-07T12:13:53.049Z",
       "metrics": {
-        "tentativeRulings": 306373,
-        "cases": 1502,
-        "documents": 50322,
-        "documentBytes": 61358662936
+        "tentativeRulings": 366101,
+        "cases": 18896,
+        "documents": 50570,
+        "documentBytes": 61485681199
       },
       "charts": {
         "rulingsByDepartment": [
           {
             "label": "Dept. 204 - Probate",
-            "value": 162337
+            "value": 197856
           },
           {
             "label": "Dept. 301 - Discovery",
@@ -24,15 +24,15 @@
           },
           {
             "label": "Dept. 302 - Civil Law and Motion",
-            "value": 104065
+            "value": 121424
           },
           {
             "label": "Dept. 304 - Asbestos Law and Motion",
-            "value": 849
+            "value": 6324
           },
           {
             "label": "Dept. 304 - Asbestos Discovery",
-            "value": 0
+            "value": 1375
           },
           {
             "label": "Dept. 501 - Real Property Court",
@@ -605,367 +605,367 @@
         ],
         "rulings": [
           {
-            "caseNumber": "PES92258584",
-            "title": "EST. OF HWA YING KO",
-            "meta": "Dept. 204 / 2008-08-27 09:00 AM",
-            "detail": "ADDED TO CALENDAR FOR Status On Administration",
-            "href": "https://sfsc.amyc.us/#case_number=PES92258584"
+            "caseNumber": "PES89149862",
+            "title": "EST. OF WORTHEN BRADLEY",
+            "meta": "Dept. 204 / 2002-10-15 09:00 AM",
+            "detail": "ACCOUNTING PETITION RE: ACCOUNTING #21, REPORT",
+            "href": "https://sfsc.amyc.us/#case_number=PES89149862"
           },
           {
-            "caseNumber": "PES96267286",
-            "title": "EST. OF THERESA ISABELLE FRAHER",
-            "meta": "Dept. 204 / 2008-08-27 09:00 AM",
-            "detail": "ACCOUNTING PETITION RE: ACCOUNTING #1, FEES, FINAL DISTRIBUTION",
-            "href": "https://sfsc.amyc.us/#case_number=PES96267286"
+            "caseNumber": "PCN83236034",
+            "title": "CONS. OF SAM BAZZONE JR",
+            "meta": "Dept. 204 / 2002-10-15 09:00 AM",
+            "detail": "Petition Of Court-Appointed Counsel For Conservatee To Terminate Lmited Conservatorship Of The Person And Estate",
+            "href": "https://sfsc.amyc.us/#case_number=PCN83236034"
+          },
+          {
+            "caseNumber": "PES79224663",
+            "title": "TRUST OF REGINA ZEILER",
+            "meta": "Dept. 204 / 2007-10-03 09:00 AM",
+            "detail": "PETITION FOR INSTRUCTIONS",
+            "href": "https://sfsc.amyc.us/#case_number=PES79224663"
+          },
+          {
+            "caseNumber": "PCN89235802",
+            "title": "CONS. OF ROBERT ANTHONY MCMAHON",
+            "meta": "Dept. 204 / 2007-10-03 09:00 AM",
+            "detail": "ADDED TO CALENDAR FOR Status Hearing Re: Conservator'S Monitoring Of Conservatee'S Spending",
+            "href": "https://sfsc.amyc.us/#case_number=PCN89235802"
+          },
+          {
+            "caseNumber": "PGN94262985",
+            "title": "GUARDIANSHIP OF MICHAEL R. LALANNE ET AL",
+            "meta": "Dept. 204 / 2010-03-29 09:00 AM",
+            "detail": "ACCOUNTING PETITION RE: FEES",
+            "href": "https://sfsc.amyc.us/#case_number=PGN94262985"
           },
           {
             "caseNumber": "PES94263787",
             "title": "SALEEM H. TOTAH - TESTAMENTARY TRUST",
-            "meta": "Dept. 204 / 2012-01-03 09:00 AM",
-            "detail": "ACCOUNTING PETITION RE: ACCOUNTING #10, REPORT, FEES",
+            "meta": "Dept. 204 / 2010-03-29 09:00 AM",
+            "detail": "Distribution Of Saleem H Totah Irrevocable Trust, To The Seven Children According To The Will",
             "href": "https://sfsc.amyc.us/#case_number=PES94263787"
           },
           {
-            "caseNumber": "PCN00280534",
-            "title": "CONSERVATORSHIP OF ALBINA C. CERRUTI",
-            "meta": "Dept. 204 / 2012-01-03 09:00 AM",
-            "detail": "ACCOUNTING PETITION RE: ACCOUNTING #1, REPORT, FEES",
-            "href": "https://sfsc.amyc.us/#case_number=PCN00280534"
+            "caseNumber": "PTR99273030",
+            "title": "IN RE: THE GOODALL TRUST",
+            "meta": "Dept. 204 / 2012-09-20 14:30 PM",
+            "detail": "Trustee Bank Of America N.A.'S Notice Of Motion And Motion For Sanctions Pursuant To Code Of Civil Procedure Se...",
+            "href": "https://sfsc.amyc.us/#case_number=PTR99273030"
           },
           {
-            "caseNumber": "PES86243274",
-            "title": "THE ESTATE OF LIN GUNG",
-            "meta": "Dept. 204 / 2015-05-27 09:00 AM",
-            "detail": "Petition Ofr Order Reopening Estate, Reappointing Personal Rept. And Request For Instructions To Distribute Aft...",
-            "href": "https://sfsc.amyc.us/#case_number=PES86243274"
+            "caseNumber": "PTR09292793",
+            "title": "IN THE MATTER OF THE BERNARD AND ALICE GICOVATE FAMILY TRUST U/A/D APRIL...",
+            "meta": "Dept. 204 / 2012-09-20 14:30 PM",
+            "detail": "Notice Of Motion And Motion To Correct And Amend Order Approving 2nd Account & Report Of Successor Trustee And...",
+            "href": "https://sfsc.amyc.us/#case_number=PTR09292793"
           },
           {
-            "caseNumber": "PTR05288124",
-            "title": "IN THE MATTER OF THE LINA M. ASARO TRUST",
-            "meta": "Dept. 204 / 2015-05-27 09:00 AM",
-            "detail": "ACCOUNTING PETITION RE: ACCOUNTING #9, REPORT, FEES",
-            "href": "https://sfsc.amyc.us/#case_number=PTR05288124"
+            "caseNumber": "PES84237198",
+            "title": "EST. OF EMMIE HANDA",
+            "meta": "Dept. 204 / 2015-04-01 09:00 AM",
+            "detail": "PETITION FOR LETTERS OF ADMINISTRATION WITH WILL ANNEXED, APPOINTMENT UNDER IAEA",
+            "href": "https://sfsc.amyc.us/#case_number=PES84237198"
           },
           {
-            "caseNumber": "PCN97269620",
-            "title": "CONSERVATORSHIP OF ROBERT O. PURVIS",
-            "meta": "Dept. 204 / 2017-03-06 09:00 AM",
-            "detail": "ADDED TO CALENDAR FOR Status Of Petition To Terminate Conservatorship And Of The Final Accounting Due To The De...",
-            "href": "https://sfsc.amyc.us/#case_number=PCN97269620"
+            "caseNumber": "PES97269635",
+            "title": "IN RE:C.A.B.COX SPECIAL NEEDS TRUST*****CASE TRANSFERRED TO CONTRA COSTA...",
+            "meta": "Dept. 204 / 2015-04-01 09:00 AM",
+            "detail": "FUTURE ACCOUNTING",
+            "href": "https://sfsc.amyc.us/#case_number=PES97269635"
           },
           {
-            "caseNumber": "PES01282305",
-            "title": "THE ESTATE OF VIRGINIA MOLINARI",
-            "meta": "Dept. 204 / 2017-03-06 09:00 AM",
-            "detail": "ACCOUNTING PETITION RE: ACCOUNTING #3, REPORT",
-            "href": "https://sfsc.amyc.us/#case_number=PES01282305"
+            "caseNumber": "PCN76214428",
+            "title": "***TRANSFERRED TO CONTRA COSTA***CONSERVATORSHIP OF ALLEN GREGORY",
+            "meta": "Dept. 204 / 2017-11-08 09:00 AM",
+            "detail": "PETITION TO TRANSFER TO CONTRA COSTA COUNTY",
+            "href": "https://sfsc.amyc.us/#case_number=PCN76214428"
           },
           {
-            "caseNumber": "PCN01282497",
-            "title": "CONSERVATORSHIP OF MARGARET G MCGARY",
-            "meta": "Dept. 204 / 2020-09-14 09:00 AM",
-            "detail": "ADDED TO CALENDAR FOR Status Of Declaration Of Conservator Due To Death Of Conservatee {Person Only]",
-            "href": "https://sfsc.amyc.us/#case_number=PCN01282497"
+            "caseNumber": "PTR02282957",
+            "title": "IN THE MATTER OF THE HAGAN FAMILY TRUST",
+            "meta": "Dept. 204 / 2017-11-08 09:00 AM",
+            "detail": "Petition For Payment Of Attorneys Fees And Costs By The Hagan Family Trust",
+            "href": "https://sfsc.amyc.us/#case_number=PTR02282957"
           },
           {
-            "caseNumber": "PES03285285",
-            "title": "THE ESTATE OF MARIA L. MOLLERSTROM",
-            "meta": "Dept. 204 / 2020-09-14 09:00 AM",
-            "detail": "ACCOUNTING PETITION RE: Final Distribution",
-            "href": "https://sfsc.amyc.us/#case_number=PES03285285"
+            "caseNumber": "PES01281183",
+            "title": "THE ESTATE OF CHIEH C KWONG",
+            "meta": "Dept. 204 / 2020-06-29 09:00 AM",
+            "detail": "Petition For Order Suspending Administrator, Appointing Special Administrator, Or Alternatively For Instruction...",
+            "href": "https://sfsc.amyc.us/#case_number=PES01281183"
           },
           {
-            "caseNumber": "PES91257611",
-            "title": "EST. OF RICHARD STEVENS",
-            "meta": "Dept. 204 / 2022-06-27 09:00 AM",
-            "detail": "ACCOUNTING PETITION RE: Report, Fees, Final Distribution",
-            "href": "https://sfsc.amyc.us/#case_number=PES91257611"
+            "caseNumber": "PES01281183",
+            "title": "THE ESTATE OF CHIEH C KWONG",
+            "meta": "Dept. 204 / 2020-06-29 09:00 AM",
+            "detail": "PETITION FOR INSTRUCTIONS",
+            "href": "https://sfsc.amyc.us/#case_number=PES01281183"
           },
           {
-            "caseNumber": "PES02282738",
-            "title": "THE ESTATE OF ANASTASIA MCCARTHY",
-            "meta": "Dept. 204 / 2022-06-27 09:00 AM",
-            "detail": "ADDED TO CALENDAR FOR Status On Close Of Estate",
-            "href": "https://sfsc.amyc.us/#case_number=PES02282738"
+            "caseNumber": "PES20303566",
+            "title": "THE ESTATE OF MIKE ANGEL LEON",
+            "meta": "Dept. 204 / 2023-02-16 14:00 PM",
+            "detail": "ADDED TO CALENDAR FOR Notice Of Motion And Motion To Disqualify Thomas E. Smurro As Attorney For San Francisco...",
+            "href": "https://sfsc.amyc.us/#case_number=PES20303566"
           },
           {
-            "caseNumber": "PES91257449",
-            "title": "EST. OF JOSEPH A. GAGGERO",
-            "meta": "Dept. 204 / 2024-04-08 09:00 AM",
-            "detail": "ADDED TO CALENDAR FOR Status On Close Of Estate",
-            "href": "https://sfsc.amyc.us/#case_number=PES91257449"
+            "caseNumber": "PES20303566",
+            "title": "THE ESTATE OF MIKE ANGEL LEON",
+            "meta": "Dept. 204 / 2023-02-16 14:00 PM",
+            "detail": "Notice Of Motion And Motion To Disqualify Thomas E. Smurro As Attorney For San Francisco Eagle Bar, Llc And Jes...",
+            "href": "https://sfsc.amyc.us/#case_number=PES20303566"
           },
           {
-            "caseNumber": "PES94262373",
-            "title": "EST. OF ANNA MARIA FRANCO",
-            "meta": "Dept. 204 / 2024-04-08 09:00 AM",
-            "detail": "ADDED TO CALENDAR FOR Status On Close Of Estate",
-            "href": "https://sfsc.amyc.us/#case_number=PES94262373"
+            "caseNumber": "CGC19579883",
+            "title": "FOLSOM STREET INVESTMENTS, LLC ET AL VS. MICHAEL B. ROTHENBERG ET AL",
+            "meta": "Dept. 301 / 2026-01-20 09:00 AM",
+            "detail": "Notice Of Motion And Motion For Terminating Sanctions Against Defendant Michael B. Rothenberg",
+            "href": "https://sfsc.amyc.us/#case_number=CGC19579883"
           },
           {
-            "caseNumber": "PTR23306599",
-            "title": "IN THE MATTER OF THE THE CHUNG HOP WONG AND KING TSUI LAU WONG REVOCABL T...",
-            "meta": "Dept. 204 / 2025-12-04 14:00 PM",
-            "detail": "ADDED TO CALENDAR FOR Motion To Quash Deposition Subpoena For Production Of Consumer/Business Records; Request...",
-            "href": "https://sfsc.amyc.us/#case_number=PTR23306599"
+            "caseNumber": "CGC23606531",
+            "title": "JAMAL KAZEMI VS. ANDREW WATT MD ET AL",
+            "meta": "Dept. 301 / 2026-01-20 09:00 AM",
+            "detail": "MOTION FOR SUMMARY JUDGMENT , Or In The Alternative, Summary Adjudication",
+            "href": "https://sfsc.amyc.us/#case_number=CGC23606531"
           },
           {
-            "caseNumber": "PTR23306599",
-            "title": "IN THE MATTER OF THE THE CHUNG HOP WONG AND KING TSUI LAU WONG REVOCABL T...",
-            "meta": "Dept. 204 / 2025-12-04 14:00 PM",
-            "detail": "ADDED TO CALENDAR FOR Motion To Quash Deposition Subpoena For Production Of Business Records (Added For Posting...",
-            "href": "https://sfsc.amyc.us/#case_number=PTR23306599"
-          },
-          {
-            "caseNumber": "CPF15514357",
-            "title": "PEOPLE OF THE STATE OF CALIFORNIA VS. PROPERTY SUBJECT TO DISPOSITION: $6...",
-            "meta": "Dept. 301 / 2025-06-18 09:00 AM",
+            "caseNumber": "CGC99302378",
+            "title": "DAVIS VS A.P. GREEN INDUSTRIES, INC.",
+            "meta": "Dept. 302 / 2002-05-03 09:30 AM",
             "detail": "MOTION FOR SUMMARY JUDGMENT",
-            "href": "https://sfsc.amyc.us/#case_number=CPF15514357"
+            "href": "https://sfsc.amyc.us/#case_number=CGC99302378"
           },
           {
-            "caseNumber": "CPF24518647",
-            "title": "PEOPLE OF THE STATE OF CALIFORNIA VS. PROPERTY SUBJECT TO DISPOSITION; $2...",
-            "meta": "Dept. 301 / 2025-06-18 09:00 AM",
-            "detail": "Notice Of Motion And Motion For Default Judgment Of Forfeiture; Memorandum Of Points And Authorities; Declarati...",
-            "href": "https://sfsc.amyc.us/#case_number=CPF24518647"
-          },
-          {
-            "caseNumber": "CGC00311904",
-            "title": "APPLIED REMEDIAL TECH VS 899 GUERRERO ST",
-            "meta": "Dept. 302 / 2006-05-23 09:30 AM",
-            "detail": "Mtn For Reconsideration",
-            "href": "https://sfsc.amyc.us/#case_number=CGC00311904"
-          },
-          {
-            "caseNumber": "CGC02409736",
-            "title": "EMERY JESSEN VS. ASBESTOS DEFENDANTS (BHC)AS REFLECTED ON EXHIBITS et al",
-            "meta": "Dept. 302 / 2006-05-23 09:30 AM",
+            "caseNumber": "CGC99303182",
+            "title": "ANHOLABEHERE VS AP GREEN INDUSTRIES INC*",
+            "meta": "Dept. 302 / 2002-05-03 09:30 AM",
             "detail": "MOTION FOR SUMMARY JUDGMENT",
-            "href": "https://sfsc.amyc.us/#case_number=CGC02409736"
+            "href": "https://sfsc.amyc.us/#case_number=CGC99303182"
           },
           {
-            "caseNumber": "CGC07274342",
-            "title": "ALVA RANSFORD VS. AC AND S, INC. et al",
-            "meta": "Dept. 302 / 2008-01-24 09:30 AM",
-            "detail": "MOTION To Strike Portions Of Plaintiffs Complaint By Old Orchard Industrial Corp., Individually And As Successo...",
-            "href": "https://sfsc.amyc.us/#case_number=CGC07274342"
+            "caseNumber": "CGC01320784",
+            "title": "CELIA VS CHEN",
+            "meta": "Dept. 302 / 2004-10-27 09:30 AM",
+            "detail": "Motion For Satisfaction Of Judgment",
+            "href": "https://sfsc.amyc.us/#case_number=CGC01320784"
           },
           {
-            "caseNumber": "CGC00309664",
-            "title": "CCSF VS GIUSTO",
-            "meta": "Dept. 302 / 2008-01-24 09:30 AM",
-            "detail": "Ntc And Motion For Appointment Of Receiver",
-            "href": "https://sfsc.amyc.us/#case_number=CGC00309664"
+            "caseNumber": "CGC02406864",
+            "title": "BARBARA A HUGHEY et al VS. A.W. CHESTERTON COMPANY",
+            "meta": "Dept. 302 / 2004-10-27 09:30 AM",
+            "detail": "AMENDED MOTION FOR SUMMARY JUDGMENT",
+            "href": "https://sfsc.amyc.us/#case_number=CGC02406864"
           },
           {
-            "caseNumber": "CGC07274144",
-            "title": "JOHN LULL VS. ASBESTOS DEFENDANTS (B/P)AS REFLECTED ON EXHIBITS et al",
-            "meta": "Dept. 302 / 2009-09-28 09:30 AM",
+            "caseNumber": "CGC05443890",
+            "title": "KATHERINE D. CHAMBERLINE VS. ELECTRONICS BOUTIQUE HOLDINGS CORPORATION A...",
+            "meta": "Dept. 302 / 2007-04-23 09:30 AM",
+            "detail": "Notice Of Motion And Motion For Preliminary Approval Of Class Settlement",
+            "href": "https://sfsc.amyc.us/#case_number=CGC05443890"
+          },
+          {
+            "caseNumber": "CGC05446066",
+            "title": "CHERYL MORONG VS. ALLIED PACKING et al",
+            "meta": "Dept. 302 / 2007-04-23 09:30 AM",
+            "detail": "Amended Joinder By Defendant Eaton Electrical Inc. Fka Cutler-Hammer Inc. And Erroneously Sued Herein As Eaton...",
+            "href": "https://sfsc.amyc.us/#case_number=CGC05446066"
+          },
+          {
+            "caseNumber": "CGC05444852",
+            "title": "ALBERT RICE VS. ASBESTOS DEFENDANTS (B*P) AS REFLECTED ON EXHIBITS et al",
+            "meta": "Dept. 302 / 2009-10-15 09:30 AM",
             "detail": "MOTION FOR SUMMARY JUDGMENT",
-            "href": "https://sfsc.amyc.us/#case_number=CGC07274144"
+            "href": "https://sfsc.amyc.us/#case_number=CGC05444852"
           },
           {
-            "caseNumber": "CGC09275228",
-            "title": "ROBERT HOLDERBEIN SR et al VS. AC AND S, INC. et al",
-            "meta": "Dept. 302 / 2009-09-28 09:30 AM",
-            "detail": "MOTION FOR SUMMARY JUDGMENT",
-            "href": "https://sfsc.amyc.us/#case_number=CGC09275228"
-          },
-          {
-            "caseNumber": "CGC01320200",
-            "title": "VINFORMATION INC VS DEMARTINI",
-            "meta": "Dept. 302 / 2011-06-01 09:30 AM",
-            "detail": "Notice And Motion To Unseal Documents Sealed On June 30, 2003",
-            "href": "https://sfsc.amyc.us/#case_number=CGC01320200"
-          },
-          {
-            "caseNumber": "CGC08470932",
-            "title": "ZOILA SORIANO VS. FOODS CO., et al",
-            "meta": "Dept. 302 / 2011-06-01 09:00 AM",
-            "detail": "Hearing Re: Compliance With Court'S Order",
-            "href": "https://sfsc.amyc.us/#case_number=CGC08470932"
-          },
-          {
-            "caseNumber": "CGC02409906",
-            "title": "THE BEST SERVICE CO., A PARTNERSHIP VS. CHANH CU et al",
-            "meta": "Dept. 302 / 2013-02-01 09:30 AM",
-            "detail": "Ntc Of Mtn And Mtn To Amend Renewal Of Judgment",
-            "href": "https://sfsc.amyc.us/#case_number=CGC02409906"
-          },
-          {
-            "caseNumber": "CGC09493115",
-            "title": "ANNE W. THAYER VS. TRINITY PROPERTIES, INC. et al",
-            "meta": "Dept. 302 / 2013-02-01 09:00 AM",
-            "detail": "Notice Of Motion And Motion To Compel Answers To Specially Prepared Interrogatorires",
-            "href": "https://sfsc.amyc.us/#case_number=CGC09493115"
-          },
-          {
-            "caseNumber": "CPF09509768",
-            "title": "DANIEL BOREEN VS. CITY AND COUNTY OF SAN FRANCISCO et al",
-            "meta": "Dept. 302 / 2014-08-21 09:00 AM",
-            "detail": "Notice Of Motion And Motion To Quash Subpoenas",
-            "href": "https://sfsc.amyc.us/#case_number=CPF09509768"
-          },
-          {
-            "caseNumber": "CPF09509768",
-            "title": "DANIEL BOREEN VS. CITY AND COUNTY OF SAN FRANCISCO et al",
-            "meta": "Dept. 302 / 2014-08-21 09:30 AM",
-            "detail": "Ntc Of Mtn Of Petition For Administrative Mandamus",
-            "href": "https://sfsc.amyc.us/#case_number=CPF09509768"
-          },
-          {
-            "caseNumber": "CGC01320995",
-            "title": "STEWARD VS GOGGIN & GOGGIN",
-            "meta": "Dept. 302 / 2016-04-01 09:30 AM",
-            "detail": "Notice Of Motion To Vacate Judgment And The Alternative To Modify Judgment",
-            "href": "https://sfsc.amyc.us/#case_number=CGC01320995"
-          },
-          {
-            "caseNumber": "CPF15514477",
-            "title": "CAL200 ET AL VS. APPLE VALLEY UNIFIED ET AL",
-            "meta": "Dept. 302 / 2016-04-01 09:30 AM",
-            "detail": "DEMURRER TO PETITION FOR WRIT OF MANDATE/ PROHIBITION/ CERTIFICATION",
-            "href": "https://sfsc.amyc.us/#case_number=CPF15514477"
-          },
-          {
-            "caseNumber": "CPF25519336",
-            "title": "ELEN MEDER VS. STATE OF CALIFORNIA - DEPARTMENT OF",
-            "meta": "Dept. 302 / 2025-10-31 09:00 AM",
-            "detail": "Notice Of Motion And Motion To Seal Record",
-            "href": "https://sfsc.amyc.us/#case_number=CPF25519336"
-          },
-          {
-            "caseNumber": "CGC24616044",
-            "title": "ELISE OMAITS ET AL VS. SPORA HEALTH, INC. ET AL",
-            "meta": "Dept. 302 / 2025-10-31 09:00 AM",
-            "detail": "Motion To File Documents Under Seal",
-            "href": "https://sfsc.amyc.us/#case_number=CGC24616044"
-          },
-          {
-            "caseNumber": "CUD11637884",
-            "title": "BANK OF AMERICA, N.A. VS. ZHI QUAN WU et al",
-            "meta": "Dept. 501 / 2012-04-30 09:30 AM",
-            "detail": "Notice Of Motion To Set Aside Order Compelling Response To Pltf'S Form Interrogatories Set No 1 And For Monetar...",
-            "href": "https://sfsc.amyc.us/#case_number=CUD11637884"
-          },
-          {
-            "caseNumber": "CUD11637884",
-            "title": "BANK OF AMERICA, N.A. VS. ZHI QUAN WU et al",
-            "meta": "Dept. 501 / 2012-04-30 09:30 AM",
-            "detail": "Notice Of Motion To Set Aside Order Compelling Response To Pltf'S Request For Document Production Set No 1 And...",
-            "href": "https://sfsc.amyc.us/#case_number=CUD11637884"
-          },
-          {
-            "caseNumber": "CGC10503332",
-            "title": "COMMONWEALTH LAND TITLE INSURANCE COMPANY VS. FEDEX OFFICE AND PRINT SERV...",
-            "meta": "Dept. 501 / 2014-01-02 09:30 AM",
-            "detail": "Mtn For Leave To Amend Complaints",
-            "href": "https://sfsc.amyc.us/#case_number=CGC10503332"
-          },
-          {
-            "caseNumber": "CUD13646639",
-            "title": "WORKING DIRT LLC VS. ANNE RONCE et al",
-            "meta": "Dept. 501 / 2014-01-02 09:30 AM",
-            "detail": "HEARING ON CLAIM OF RIGHT TO POSSESSION",
-            "href": "https://sfsc.amyc.us/#case_number=CUD13646639"
-          },
-          {
-            "caseNumber": "CGC13536307",
-            "title": "PURE ENTERTAINMENT LLC, A CALIFORNIA LIMITED VS. SHUI KING KWON HOM et al",
-            "meta": "Dept. 501 / 2015-10-05 09:30 AM",
-            "detail": "Vlad Coods Notice Of Motion And Motion For Judgment On The Pleadings",
-            "href": "https://sfsc.amyc.us/#case_number=CGC13536307"
-          },
-          {
-            "caseNumber": "CGC14543004",
-            "title": "DAMIEN QUINN VS. SARATOGA FUND I, LLC ET AL",
-            "meta": "Dept. 501 / 2015-10-05 09:30 AM",
-            "detail": "DEMURRER TO 1ST AMENDED COMPLAINT",
-            "href": "https://sfsc.amyc.us/#case_number=CGC14543004"
-          },
-          {
-            "caseNumber": "CGC16555927",
-            "title": "CHARLES HARB VS. DEREK SENE",
-            "meta": "Dept. 501 / 2017-07-14 09:30 AM",
-            "detail": "Notice Of Motion And Special Anti-Slapp Motion To Strike Plaintiffs Complaint",
-            "href": "https://sfsc.amyc.us/#case_number=CGC16555927"
-          },
-          {
-            "caseNumber": "CGC17556638",
-            "title": "FRANKLIN ESCOBAR VS. GINA HUGHES ET AL",
-            "meta": "Dept. 501 / 2017-07-14 09:30 AM",
-            "detail": "DEMURRER TO 1ST AMENDED COMPLAINT",
-            "href": "https://sfsc.amyc.us/#case_number=CGC17556638"
-          },
-          {
-            "caseNumber": "CGC15546152",
-            "title": "CITY AND COUNTY OF SAN FRANCISCO, A MUNICIPAL ET AL VS. ANNE KIHAGI ET AL",
-            "meta": "Dept. 501 / 2019-04-25 09:30 AM",
+            "caseNumber": "CGC07461148",
+            "title": "JANNA SUNDEYEVA VS. ALLA MANUSOVA et al",
+            "meta": "Dept. 302 / 2009-10-15 09:30 AM",
             "detail": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "href": "https://sfsc.amyc.us/#case_number=CGC15546152"
+            "href": "https://sfsc.amyc.us/#case_number=CGC07461148"
           },
           {
-            "caseNumber": "CGC15546152",
-            "title": "CITY AND COUNTY OF SAN FRANCISCO, A MUNICIPAL ET AL VS. ANNE KIHAGI ET AL",
-            "meta": "Dept. 501 / 2019-04-25 09:30 AM",
-            "detail": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "href": "https://sfsc.amyc.us/#case_number=CGC15546152"
+            "caseNumber": "CGC08480287",
+            "title": "THE METROPOLITAN ASSOCIATION, A CALIFORNIA VS. ALAN ARGOSINO et al",
+            "meta": "Dept. 302 / 2012-04-10 09:30 AM",
+            "detail": "Mtn To Determine That Narog Is A Vexatious Litigant; Req For Judicial Notice",
+            "href": "https://sfsc.amyc.us/#case_number=CGC08480287"
           },
           {
-            "caseNumber": "CUD20667199",
-            "title": "THE TIDES CENTER, A CALIFORNIA NON-PROFIT VS. GILBERTO CORDOVA ET AL",
-            "meta": "Dept. 501 / 2021-02-01 09:30 AM",
-            "detail": "MOTION FOR SUMMARY JUDGMENT .",
-            "href": "https://sfsc.amyc.us/#case_number=CUD20667199"
+            "caseNumber": "CGC09494557",
+            "title": "EDWARD ELMS VS. 1124 STANYAN SF, LLC et al",
+            "meta": "Dept. 302 / 2012-04-10 09:30 AM",
+            "detail": "DEMURRER TO 1ST AMENDED COMPLAINT",
+            "href": "https://sfsc.amyc.us/#case_number=CGC09494557"
           },
           {
-            "caseNumber": "CUD20667405",
-            "title": "MICHAEL SLADE VS. JEREMY GARDNER ET AL",
-            "meta": "Dept. 501 / 2021-02-01 09:30 AM",
+            "caseNumber": "CGC09486774",
+            "title": "MONICA DONG et al VS. DALE A FODE et al",
+            "meta": "Dept. 302 / 2014-08-20 09:30 AM",
+            "detail": "Mtn For Clarification And To Enforce Settlement Agreement",
+            "href": "https://sfsc.amyc.us/#case_number=CGC09486774"
+          },
+          {
+            "caseNumber": "CGC12521602",
+            "title": "ELVIA JUAREZ VS. ANTHONY E NOVAK et al",
+            "meta": "Dept. 302 / 2014-08-20 09:30 AM",
+            "detail": "Notice Of Motion And Motion To Compel Answers To Special Interrogatories And For Monetary, Issue And Evidence S...",
+            "href": "https://sfsc.amyc.us/#case_number=CGC12521602"
+          },
+          {
+            "caseNumber": "CPF15514368",
+            "title": "ITC FINANCIAL LICENSES, INC. VS. STAN SCHULDINER",
+            "meta": "Dept. 302 / 2019-02-11 09:30 AM",
+            "detail": "Cross-Defendant Itc Financial License, Inc.'S Motion To Compel Mr. Schuldiner To Accept The Gift Cards To Provi...",
+            "href": "https://sfsc.amyc.us/#case_number=CPF15514368"
+          },
+          {
+            "caseNumber": "CPF15514368",
+            "title": "ITC FINANCIAL LICENSES, INC. VS. STAN SCHULDINER",
+            "meta": "Dept. 302 / 2019-02-11 09:30 AM",
+            "detail": "Respondent'S New Trial",
+            "href": "https://sfsc.amyc.us/#case_number=CPF15514368"
+          },
+          {
+            "caseNumber": "CPF25519300",
+            "title": "IN RE: J.G. WENTWORTH ORIGINATIONS LLC",
+            "meta": "Dept. 302 / 2025-10-02 09:00 AM",
+            "detail": "Notice Of Hearing On Petition For Approval For Transfer Of Payment Rights",
+            "href": "https://sfsc.amyc.us/#case_number=CPF25519300"
+          },
+          {
+            "caseNumber": "CGC22603294",
+            "title": "RICHARD R. VS. DOE 1, AN INDIVIDUAL ET AL",
+            "meta": "Dept. 302 / 2025-10-02 09:00 AM",
+            "detail": "MOTION FOR LEAVE TO File A First Amended Complaint; Declaration Of Alex M. Valenzuela",
+            "href": "https://sfsc.amyc.us/#case_number=CGC22603294"
+          },
+          {
+            "caseNumber": "CGC08274548",
+            "title": "DALE RIGG et al VS. ASTENJOHNSON, INC., 'F/K/A ASTEN INC et al",
+            "meta": "Dept. 304 / 2010-03-11 09:30 AM",
             "detail": "MOTION FOR SUMMARY JUDGMENT",
-            "href": "https://sfsc.amyc.us/#case_number=CUD20667405"
+            "href": "https://sfsc.amyc.us/#case_number=CGC08274548"
           },
           {
-            "caseNumber": "CPF21517393",
-            "title": "ROBERT KORMAN ET AL VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
-            "meta": "Dept. 501 / 2022-11-07 09:30 AM",
-            "detail": "APPLICATION FOR A STAY OF ENFORCEMENT PENDING A DECISION ON THEIR PETITION FOR WRIT OF MANDATE UNDER CCP 1085 A...",
-            "href": "https://sfsc.amyc.us/#case_number=CPF21517393"
+            "caseNumber": "CGC09275204",
+            "title": "CARLOS PARRA et al VS. ASBESTOS DEFENDANTS (BP) AS REFLECTED ON EXHIBITS...",
+            "meta": "Dept. 304 / 2010-03-11 09:30 AM",
+            "detail": "MOTION FOR CHANGE OF VENUE",
+            "href": "https://sfsc.amyc.us/#case_number=CGC09275204"
           },
           {
-            "caseNumber": "CGC16553702",
-            "title": "TONY FU VS. DEMAS YAN ET AL",
-            "meta": "Dept. 501 / 2022-11-07 09:30 AM",
-            "detail": "Notice Of Motiona And Motion For Reconsideration And To Void Order Granting Defendant Kaman Liu'S Motion For Ma...",
-            "href": "https://sfsc.amyc.us/#case_number=CGC16553702"
+            "caseNumber": "CGC08274845",
+            "title": "WILLIAM DUTY,ET AL VS. ASBESTOS DEFENDANTS (B/P)AS REFLECTED ON EXHIBITS...",
+            "meta": "Dept. 304 / 2012-09-04 09:30 AM",
+            "detail": "MOTION FOR SUMMARY JUDGMENT",
+            "href": "https://sfsc.amyc.us/#case_number=CGC08274845"
           },
           {
-            "caseNumber": "CPF20517292",
-            "title": "T&C PROPERTIES, LLC VS. ST. JAMES PROPERTY CO., LLC",
-            "meta": "Dept. 501 / 2024-08-19 09:30 AM",
-            "detail": "Notice Of Renewed Motion And Renewed Motion For Award Of Attorneys Fees And Costs (Code Civ. Proc. Section 1008...",
-            "href": "https://sfsc.amyc.us/#case_number=CPF20517292"
+            "caseNumber": "CGC09275174",
+            "title": "ALLEN KULIKOFF VS. ASBESTOS DEFENDANTS (BP) AS REFLECTED ON EXHIBITS et al",
+            "meta": "Dept. 304 / 2012-09-04 09:30 AM",
+            "detail": "MOTION FOR SUMMARY JUDGMENT",
+            "href": "https://sfsc.amyc.us/#case_number=CGC09275174"
           },
           {
-            "caseNumber": "CPF24518546",
-            "title": "IN RE: STEPHANIE CHU",
-            "meta": "Dept. 501 / 2024-08-19 09:30 AM",
-            "detail": "MOTION To Grant And Order To Remove An Illegal Lien On 182 Dublin St. Sf, Ca 94112",
-            "href": "https://sfsc.amyc.us/#case_number=CPF24518546"
+            "caseNumber": "CGC12524073",
+            "title": "HESTER MICHAEL VS. LILY NG et al",
+            "meta": "Dept. 501 / 2013-03-15 09:30 AM",
+            "detail": "DEMURRER TO 1ST AMENDED COMPLAINT",
+            "href": "https://sfsc.amyc.us/#case_number=CGC12524073"
+          },
+          {
+            "caseNumber": "CGC12524073",
+            "title": "HESTER MICHAEL VS. LILY NG et al",
+            "meta": "Dept. 501 / 2013-03-15 09:30 AM",
+            "detail": "MOTION TO STRIKE 1ST AMENDED COMPLAINT",
+            "href": "https://sfsc.amyc.us/#case_number=CGC12524073"
+          },
+          {
+            "caseNumber": "CGC13527706",
+            "title": "SHELDON FONG VS. EAST WEST BANK",
+            "meta": "Dept. 501 / 2015-10-08 09:30 AM",
+            "detail": "Motionfora\\Vard Of Attorneys Fees And Statutory Costs Pursuant To Judgment",
+            "href": "https://sfsc.amyc.us/#case_number=CGC13527706"
+          },
+          {
+            "caseNumber": "CGC13527706",
+            "title": "SHELDON FONG VS. EAST WEST BANK",
+            "meta": "Dept. 501 / 2015-10-08 09:30 AM",
+            "detail": "Notice Of Motion And Motion To Strike Or Tax Costs",
+            "href": "https://sfsc.amyc.us/#case_number=CGC13527706"
+          },
+          {
+            "caseNumber": "CGC16553964",
+            "title": "LUZ AL-DIJAILI ET AL VS. SHREE JALARAMBAPA HOTEL, L.P. ET AL",
+            "meta": "Dept. 501 / 2018-05-25 09:30 AM",
+            "detail": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "href": "https://sfsc.amyc.us/#case_number=CGC16553964"
+          },
+          {
+            "caseNumber": "CGC16555730",
+            "title": "JESSICA KOERNER ET AL VS. DENNIS GALLAGHER ET AL",
+            "meta": "Dept. 501 / 2018-05-25 09:30 AM",
+            "detail": "Motion For Order Permitting Discovery Of Profits And Financial Condition",
+            "href": "https://sfsc.amyc.us/#case_number=CGC16555730"
+          },
+          {
+            "caseNumber": "CGC16553493",
+            "title": "ALLISON LESHEFSKY VS. RENKA PROP, LLC ET AL",
+            "meta": "Dept. 501 / 2021-01-13 09:30 AM",
+            "detail": "Notice Of Motion For Leave To Amend Answer To Complaint",
+            "href": "https://sfsc.amyc.us/#case_number=CGC16553493"
+          },
+          {
+            "caseNumber": "CGC16553493",
+            "title": "ALLISON LESHEFSKY VS. RENKA PROP, LLC ET AL",
+            "meta": "Dept. 501 / 2021-01-13 09:30 AM",
+            "detail": "Motion For Leave To Bring Permissive Cross Complaint",
+            "href": "https://sfsc.amyc.us/#case_number=CGC16553493"
+          },
+          {
+            "caseNumber": "CGC20587604",
+            "title": "KAHN & ASSOCIATES VS. CHRIS GRUWELL ET AL",
+            "meta": "Dept. 501 / 2023-08-30 09:30 AM",
+            "detail": "Notice Of Motion And Motion To Compel Arbitration; Memorandum Of Points And Authorities In Support Thereof",
+            "href": "https://sfsc.amyc.us/#case_number=CGC20587604"
+          },
+          {
+            "caseNumber": "CGC21590805",
+            "title": "MILA POPOV VS. BRYAN KELTNER ET AL",
+            "meta": "Dept. 501 / 2023-08-30 09:30 AM",
+            "detail": "DEMURRER to Amended COMPLAINT",
+            "href": "https://sfsc.amyc.us/#case_number=CGC21590805"
+          },
+          {
+            "caseNumber": "CGC24611418",
+            "title": "HIU TUNG YIP VS. 655 POWELL I5, LP ET AL",
+            "meta": "Dept. 501 / 2026-04-24 09:30 AM",
+            "detail": "Amended MOTION FOR SUMMARY JUDGMENT / Amended Notice Of Motion And Motion Of Cross-Defendant Bay Area Community...",
+            "href": "https://sfsc.amyc.us/#case_number=CGC24611418"
+          },
+          {
+            "caseNumber": "CGC24611418",
+            "title": "HIU TUNG YIP VS. 655 POWELL I5, LP ET AL",
+            "meta": "Dept. 501 / 2026-04-24 09:30 AM",
+            "detail": "MOTION FOR SUMMARY ADJUDICATION Against Plaintiff Hiu Tung Yip",
+            "href": "https://sfsc.amyc.us/#case_number=CGC24611418"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "a5081e5780f813331345619005615ebb669e18a1",
-      "updatedAt": "2026-06-06T11:59:28.845Z",
+      "ref": "f642aeee9c457bf0c6f89780d1427fb1b3a889ea",
+      "updatedAt": "2026-06-07T12:13:53.358Z",
       "metrics": {
         "tentativeRulings": 16671,
         "parsedCounties": 17,
         "documents": 1386,
-        "documentBytes": 582386077
+        "documentBytes": 582666659
       },
       "charts": {
         "rulingsByCounty": [
@@ -1059,8 +1059,8 @@
     },
     "cividx": {
       "repo": "aimesy/cividx",
-      "ref": "9a3e752117e89adadcb4c15ed7ab42888cc37cc2",
-      "updatedAt": "2026-06-06T11:59:28.850Z",
+      "ref": "2d123db6c226aa5d850377528bf607c956ac8440",
+      "updatedAt": "2026-06-07T12:13:53.364Z",
       "metrics": {
         "jurisdictions": 95,
         "citations": 576
