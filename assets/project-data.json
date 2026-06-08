@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-06-07T12:13:52.328Z",
+  "generatedAt": "2026-06-08T13:26:47.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "7a5464acfe8584320264839a68e68c48bdea18b3",
-      "updatedAt": "2026-06-07T12:13:53.049Z",
+      "ref": "83bad84d86a2f2699eb95252b807081cb8e72242",
+      "updatedAt": "2026-06-08T06:19:28-07:00",
       "metrics": {
         "tentativeRulings": 366101,
-        "cases": 18896,
-        "documents": 50570,
-        "documentBytes": 61485681199
+        "cases": 25324,
+        "documents": 50792,
+        "documentBytes": 61647824033
       },
       "charts": {
         "rulingsByDepartment": [
@@ -959,13 +959,13 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "f642aeee9c457bf0c6f89780d1427fb1b3a889ea",
-      "updatedAt": "2026-06-07T12:13:53.358Z",
+      "ref": "3cf69d43312c8e10b0316846cda703293743b454",
+      "updatedAt": "2026-06-08T05:30:30-07:00",
       "metrics": {
         "tentativeRulings": 16671,
         "parsedCounties": 17,
         "documents": 1386,
-        "documentBytes": 582666659
+        "documentBytes": 147646213
       },
       "charts": {
         "rulingsByCounty": [
@@ -1059,8 +1059,8 @@
     },
     "cividx": {
       "repo": "aimesy/cividx",
-      "ref": "2d123db6c226aa5d850377528bf607c956ac8440",
-      "updatedAt": "2026-06-07T12:13:53.364Z",
+      "ref": "8bea69fa06bc313fdb7158d8a8f8f6a3eb35c412",
+      "updatedAt": "2026-06-08T06:26:47-07:00",
       "metrics": {
         "jurisdictions": 95,
         "citations": 576

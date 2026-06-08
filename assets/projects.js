@@ -725,12 +725,19 @@ function applyLiveMetrics(key, table) {
     if (bytes) metrics.documentBytes = bytes;
     metrics.coverage = table.get("hearing-date coverage") || metrics.coverage;
   }
+
+  if (key === "cividx") {
+    metrics.jurisdictions = parseCount(table.get("jurisdictions")) || metrics.jurisdictions;
+    metrics.citations = parseCount(table.get("citations")) || metrics.citations;
+    metrics.documents = parseCount(table.get("documents")) || metrics.documents;
+  }
 }
 
 function renderLiveMetricValues() {
   const projects = projectData.projects;
   renderMetrics("sfsc", projects.sfsc.metrics);
   renderMetrics("tentatives", projects.tentatives.metrics);
+  renderMetrics("cividx", projects.cividx.metrics);
 
   setText('[data-live="sfsc-rulings"]', formatNumber(projects.sfsc.metrics.tentativeRulings));
   setText('[data-live="sfsc-cases"]', formatNumber(projects.sfsc.metrics.cases));

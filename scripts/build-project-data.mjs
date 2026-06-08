@@ -122,6 +122,15 @@ function repoHead({ repo, ref }) {
   }
 }
 
+function repoUpdatedAt({ repo, ref }) {
+  if (!repoAvailable(repo)) return null;
+  try {
+    return runGit(repo, ["show", "-s", "--format=%cI", ref || "HEAD"]).trim();
+  } catch {
+    return null;
+  }
+}
+
 function numberText(value) {
   return Number(String(value).replaceAll(",", "")) || 0;
 }
@@ -354,7 +363,7 @@ function buildSfsc() {
   return {
     repo: "aimesy/sfsc",
     ref: repoHead(config.sfsc),
-    updatedAt: new Date().toISOString(),
+    updatedAt: repoUpdatedAt(config.sfsc),
     metrics: {
       tentativeRulings: parsed.tentativeRulings,
       cases: caseStats.cases || caseFiles,
@@ -380,7 +389,7 @@ function buildTentatives() {
   return {
     repo: "aimesy/tentatives",
     ref: repoHead(config.tentatives),
-    updatedAt: new Date().toISOString(),
+    updatedAt: repoUpdatedAt(config.tentatives),
     metrics: {
       tentativeRulings: parsed.tentativeRulings,
       parsedCounties: parsed.counties.length,
@@ -423,7 +432,7 @@ function buildCividx(previous) {
   return {
     repo: "aimesy/cividx",
     ref: repoHead(config.cividx),
-    updatedAt: new Date().toISOString(),
+    updatedAt: repoUpdatedAt(config.cividx),
     metrics: {
       jurisdictions: jurisdictions.length,
       citations,
@@ -444,14 +453,23 @@ if (existsSync(dataPath)) {
   }
 }
 
+const projects = {
+  sfsc: buildSfsc(),
+  tentatives: buildTentatives(),
+  cividx: buildCividx(previous),
+};
+const projectDates = Object.values(projects)
+  .map((project) => project.updatedAt)
+  .filter(Boolean)
+  .map((value) => new Date(value))
+  .filter((date) => !Number.isNaN(date.getTime()));
+
 const output = {
-  generatedAt: new Date().toISOString(),
+  generatedAt: projectDates.length
+    ? new Date(Math.max(...projectDates.map((date) => date.getTime()))).toISOString()
+    : new Date().toISOString(),
   generator: "scripts/build-project-data.mjs",
-  projects: {
-    sfsc: buildSfsc(),
-    tentatives: buildTentatives(),
-    cividx: buildCividx(previous),
-  },
+  projects,
 };
 
 mkdirSync(path.dirname(dataPath), { recursive: true });
