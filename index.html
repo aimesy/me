@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src blob:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' blob: https://sfsc.amyc.us https://cdn.jsdelivr.net https://extensions.duckdb.org; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
+    content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src blob:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' blob: https://sfsc.amyc.us https://cdn.jsdelivr.net https://extensions.duckdb.org https://api.github.com https://raw.githubusercontent.com; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
   >
   <title>Projects</title>
   <meta name="description" content="Public project index for SFSC, California tentative rulings, and civil procedure research tools.">
@@ -32,7 +32,7 @@
       <strong>AMYC.US</strong>
       <span>Project index</span>
       <span class="grow"></span>
-      <span>Data refreshed <span data-live="generated">loading</span></span>
+      <span>LIVE <span data-live="generated">loading</span></span>
       <button class="bug-report-trigger" type="button" data-bug-report data-bug-report-app="AMYC Projects" data-bug-report-repo="aimesy/me" data-bug-report-labels="bug,site-report" aria-label="Report a bug" title="Report a bug">
         <svg class="bug-report-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M8 8h8v8.5a4 4 0 0 1-8 0V8Z"></path>
@@ -86,6 +86,7 @@
           <div class="tracker-head">
             <span>Repo aimesy/sfsc</span>
             <span>Ref <span data-live="sfsc-ref">loading</span></span>
+            <span>Updated <span data-live="sfsc-updated">loading</span></span>
           </div>
         </div>
         <div class="links" aria-label="SFSC links">
@@ -133,6 +134,7 @@
           <div class="tracker-head">
             <span>Repo aimesy/tentatives</span>
             <span>Ref <span data-live="tentatives-ref">loading</span></span>
+            <span>Updated <span data-live="tentatives-updated">loading</span></span>
           </div>
         </div>
         <div class="links" aria-label="Tentatives links">
@@ -175,6 +177,7 @@
           <div class="tracker-head">
             <span>Repo aimesy/cividx</span>
             <span>Ref <span data-live="cividx-ref">loading</span></span>
+            <span>Updated <span data-live="cividx-updated">loading</span></span>
           </div>
         </div>
       </div>
