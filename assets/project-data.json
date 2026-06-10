@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-09T13:59:52.000Z",
+  "generatedAt": "2026-06-10T03:47:10.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -959,13 +959,13 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "bd0ff6a5446c2117e29ed615a193a77052436fd2",
-      "updatedAt": "2026-06-09T03:32:03Z",
+      "ref": "054383091ab4f90dd1f894ebc4001c3c04b46269",
+      "updatedAt": "2026-06-10T03:47:10Z",
       "metrics": {
         "tentativeRulings": 16671,
         "parsedCounties": 17,
         "documents": 1386,
-        "documentBytes": 601083701
+        "documentBytes": 614974462
       },
       "charts": {
         "rulingsByCounty": [
