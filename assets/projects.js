@@ -387,6 +387,15 @@ function parseNdjson(text) {
   return rows;
 }
 
+function applySfscDocketIndexMetrics(rows) {
+  const metrics = projectData?.projects?.sfsc?.metrics;
+  if (!metrics || !Array.isArray(rows) || !rows.length) return;
+  metrics.cases = rows.length;
+  metrics.documents = rows.reduce((sum, row) => sum + Number(row?.n_documents || 0), 0);
+  metrics.docketEntries = rows.reduce((sum, row) => sum + Number(row?.n_entries || 0), 0);
+  renderLiveMetricValues();
+}
+
 async function loadSfscDockets() {
   const state = sfscData.dockets;
   if (state.status === "loaded") return state.rows;
@@ -400,6 +409,7 @@ async function loadSfscDockets() {
       const rows = parseNdjson(await response.text())
         .sort((a, b) => String(b.captured_at || "").localeCompare(String(a.captured_at || "")));
       state.rows = rows;
+      applySfscDocketIndexMetrics(rows);
       state.status = "loaded";
       state.error = "";
       return rows;
