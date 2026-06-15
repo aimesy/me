@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-06-15T21:47:15.000Z",
+  "generatedAt": "2026-06-15T22:07:18.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "1df3594f87c9a33e40ef0e91b392de61936f6cda",
-      "updatedAt": "2026-06-15T16:47:15-05:00",
+      "ref": "0fabb2204bf924b7b37d4108b611ab536136b110",
+      "updatedAt": "2026-06-15T22:07:18Z",
       "metrics": {
         "tentativeRulings": 366101,
-        "cases": 37601,
+        "cases": 38223,
         "documents": 65415,
         "documentBytes": 71218973746
       },
