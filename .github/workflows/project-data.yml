@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: project-data
@@ -15,6 +17,9 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Check out page repo
         uses: actions/checkout@v4
@@ -59,6 +64,7 @@ jobs:
         run: node scripts/build-project-data.mjs
 
       - name: Commit tracker data
+        id: commit
         working-directory: site
         run: |
           git config user.name "github-actions[bot]"
@@ -66,7 +72,24 @@ jobs:
           git add assets/project-data.json
           if git diff --cached --quiet; then
             echo "Project data already current."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Refresh project data"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Configure Pages
+        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy site
+        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        id: deployment
+        uses: actions/deploy-pages@v4

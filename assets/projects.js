@@ -750,20 +750,28 @@ function renderLiveMetricValues() {
 }
 
 async function loadLiveRepo(key, config) {
-  const [liveResponse, commitResponse] = await Promise.all([
-    fetch(githubRawUrl(config), { cache: "no-store" }),
-    fetch(githubCommitsUrl(config), { cache: "no-store" }),
-  ]);
+  const liveResponse = await fetch(githubRawUrl(config), { cache: "no-store" });
   if (!liveResponse.ok) throw new Error(`${key} LIVE fetch failed: ${liveResponse.status}`);
-  if (!commitResponse.ok) throw new Error(`${key} commit fetch failed: ${commitResponse.status}`);
 
   const markdown = await liveResponse.text();
-  const commits = await commitResponse.json();
-  const commit = Array.isArray(commits) ? commits[0] : null;
-  const updatedAt = commit?.commit?.committer?.date || commit?.commit?.author?.date || new Date().toISOString();
-  const ref = commit?.sha || projectData?.projects?.[key]?.ref || "";
-
   applyLiveMetrics(key, parseLiveTable(markdown));
+
+  let updatedAt = projectData?.projects?.[key]?.updatedAt || new Date().toISOString();
+  let ref = projectData?.projects?.[key]?.ref || "";
+  try {
+    const commitResponse = await fetch(githubCommitsUrl(config), { cache: "no-store" });
+    if (commitResponse.ok) {
+      const commits = await commitResponse.json();
+      const commit = Array.isArray(commits) ? commits[0] : null;
+      updatedAt = commit?.commit?.committer?.date || commit?.commit?.author?.date || updatedAt;
+      ref = commit?.sha || ref;
+    } else {
+      console.warn(`${key} commit metadata unavailable: ${commitResponse.status}`);
+    }
+  } catch (error) {
+    console.warn(`${key} commit metadata unavailable`, error);
+  }
+
   projectData.projects[key].ref = ref;
   projectData.projects[key].updatedAt = updatedAt;
   liveStatus.projects[key] = { updatedAt, ref };

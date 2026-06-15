@@ -4,13 +4,13 @@
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "5d5ce45a607bfd270cf3ca98267591439ac650de",
-      "updatedAt": "2026-06-14T23:43:18Z",
+      "ref": "177d0612d716af51d89f796f5d3ba6d648c9478e",
+      "updatedAt": "2026-06-15T00:53:00Z",
       "metrics": {
         "tentativeRulings": 366101,
-        "cases": 28333,
-        "documents": 64112,
-        "documentBytes": 70498372780
+        "cases": 29048,
+        "documents": 1044962,
+        "documentBytes": 70790414336
       },
       "charts": {
         "rulingsByDepartment": [
