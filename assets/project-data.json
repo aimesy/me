@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-06-16T23:56:22.000Z",
+  "generatedAt": "2026-06-17T04:13:50.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "c0cd57c3180ca9d4ab7fbe441eb7e46a7f0d247a",
-      "updatedAt": "2026-06-16T23:56:22Z",
+      "ref": "7e69fe817cc158798c2f35bfa40aff3d42554496",
+      "updatedAt": "2026-06-17T04:13:50Z",
       "metrics": {
         "tentativeRulings": 366101,
-        "cases": 53154,
+        "cases": 60635,
         "documents": 65415,
         "documentBytes": 71218973746
       },
@@ -127,13 +127,6 @@
             "href": "https://sfsc.amyc.us/#/case/CGC02403816"
           },
           {
-            "caseNumber": "FPT19377669",
-            "title": "FPT19377669",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/FPT19377669"
-          },
-          {
             "caseNumber": "963660",
             "title": "963660",
             "meta": "35 ROA / 0 docs",
@@ -202,13 +195,6 @@
             "meta": "1391 ROA / 0 docs",
             "detail": "REMITTITUR DISMISSED A157501 DIV 2",
             "href": "https://sfsc.amyc.us/#/case/FDI03753770"
-          },
-          {
-            "caseNumber": "FPT15376950",
-            "title": "FPT15376950",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/FPT15376950"
           },
           {
             "caseNumber": "975192",
@@ -365,32 +351,11 @@
             "href": "https://sfsc.amyc.us/#/case/CSM12841879"
           },
           {
-            "caseNumber": "400044",
-            "title": "400044",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/400044"
-          },
-          {
-            "caseNumber": "301591",
-            "title": "301591",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/301591"
-          },
-          {
             "caseNumber": "CGC12517400",
             "title": "ROBERT HARTMAN VS. JULIANA DROUS",
             "meta": "42 ROA / 21 docs",
             "detail": "MASTER JURY CALENDAR SET FOR JUN-24-2013 VACATED. JUDGMENT OF DISMISSAL FILED ON 4/11/13. (206)",
             "href": "https://sfsc.amyc.us/#/case/CGC12517400"
-          },
-          {
-            "caseNumber": "301591",
-            "title": "301591",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/301591"
           },
           {
             "caseNumber": "CGC02405248",
@@ -589,18 +554,53 @@
             "href": "https://sfsc.amyc.us/#/case/927001"
           },
           {
-            "caseNumber": "CDC09485317",
-            "title": "CDC09485317",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CDC09485317"
-          },
-          {
             "caseNumber": "CGC07467638",
             "title": "JANET STANFORD VS. KAISER FOUNDATION HOSPITALS - HUMAN RESOURCES",
             "meta": "26 ROA / 7 docs",
             "detail": "EX PARTE APPLICATION FOR ORDER TO PUT CASE BACK ON CALENDAR FILED BY PLAINTIFF STANFORD, JANET",
             "href": "https://sfsc.amyc.us/#/case/CGC07467638"
+          },
+          {
+            "caseNumber": "CGC26632289",
+            "title": "ROBERT STEWART VS. ERICA PYCH KURIEN D.O.",
+            "meta": "39 ROA / 29 docs",
+            "detail": "LAW AND MOTION 301, PLAINTIFF'S MOTION TO SET ASIDE PROPOSED ORDER GRANTING MOTION TO STRIKE. ARGUED AND THE CO...",
+            "href": "https://sfsc.amyc.us/#/case/CGC26632289"
+          },
+          {
+            "caseNumber": "CUD24674832",
+            "title": "CUD24674832",
+            "meta": "0 ROA / 0 docs",
+            "detail": "",
+            "href": "https://sfsc.amyc.us/#/case/CUD24674832"
+          },
+          {
+            "caseNumber": "CUD24676980",
+            "title": "CUD24676980",
+            "meta": "0 ROA / 0 docs",
+            "detail": "",
+            "href": "https://sfsc.amyc.us/#/case/CUD24676980"
+          },
+          {
+            "caseNumber": "CUD24677098",
+            "title": "CUD24677098",
+            "meta": "0 ROA / 0 docs",
+            "detail": "",
+            "href": "https://sfsc.amyc.us/#/case/CUD24677098"
+          },
+          {
+            "caseNumber": "CUD25677378",
+            "title": "CUD25677378",
+            "meta": "0 ROA / 0 docs",
+            "detail": "",
+            "href": "https://sfsc.amyc.us/#/case/CUD25677378"
+          },
+          {
+            "caseNumber": "CUD26680951",
+            "title": "CUD26680951",
+            "meta": "0 ROA / 0 docs",
+            "detail": "",
+            "href": "https://sfsc.amyc.us/#/case/CUD26680951"
           }
         ],
         "rulings": [
@@ -959,13 +959,13 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "f5b292a4f0852560a974b488a8561a9acadd6a6b",
-      "updatedAt": "2026-06-16T04:10:03Z",
+      "ref": "cbd68857f328502f9e1c586709ba7011faf42bd1",
+      "updatedAt": "2026-06-17T04:09:37Z",
       "metrics": {
         "tentativeRulings": 16671,
         "parsedCounties": 17,
         "documents": 1386,
-        "documentBytes": 666933864
+        "documentBytes": 675798085
       },
       "charts": {
         "rulingsByCounty": [
