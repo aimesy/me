@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-06-18T01:31:20.000Z",
+  "generatedAt": "2026-06-18T06:15:46.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "eeefa924866b865d6da829fc864e4b01f93d89d8",
-      "updatedAt": "2026-06-18T01:31:20Z",
+      "ref": "9ec0215e269769bab7221ac3056d41e3e433045c",
+      "updatedAt": "2026-06-18T06:15:46Z",
       "metrics": {
         "tentativeRulings": 366101,
-        "cases": 78950,
+        "cases": 88508,
         "documents": 65415,
         "documentBytes": 71218973746
       },
@@ -959,13 +959,13 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "cbd68857f328502f9e1c586709ba7011faf42bd1",
-      "updatedAt": "2026-06-17T04:09:37Z",
+      "ref": "7dd073a75c6b0460d1a14ecf57157feeba3b7642",
+      "updatedAt": "2026-06-18T04:01:40Z",
       "metrics": {
         "tentativeRulings": 16671,
         "parsedCounties": 17,
         "documents": 1386,
-        "documentBytes": 675798085
+        "documentBytes": 684925191
       },
       "charts": {
         "rulingsByCounty": [
