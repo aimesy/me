@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-06-19T22:36:05.000Z",
+  "generatedAt": "2026-06-19T23:27:19.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "a08064eab49a4ab2ec5fa8b1ccd9cfddc040c6a4",
-      "updatedAt": "2026-06-19T22:36:05Z",
+      "ref": "99548b29926327960cb08ea0e57700f5c4d1d155",
+      "updatedAt": "2026-06-19T23:27:19Z",
       "metrics": {
         "tentativeRulings": 366101,
-        "cases": 140845,
-        "documents": 65517,
-        "documentBytes": 71253778787
+        "cases": 143565,
+        "documents": 65943,
+        "documentBytes": 71418230191
       },
       "charts": {
         "rulingsByDepartment": [
@@ -162,20 +162,6 @@
             "href": "https://sfsc.amyc.us/#/case/CGC22599780"
           },
           {
-            "caseNumber": "CGC06459078",
-            "title": "NEW YORK CHOCOLATE & CONFECTIONS COMPANY, A VS. OUSMANNE GBANE et al",
-            "meta": "183 ROA / 40 docs",
-            "detail": "WRIT OF ATTACHMENT (EX PARTE) ISSUED TO SAN FRANCISCO COUNTY RETURNED UNSATISFIED; FILED BY PLAINTIFF NEW YORK...",
-            "href": "https://sfsc.amyc.us/#/case/CGC06459078"
-          },
-          {
-            "caseNumber": "CGC06459078",
-            "title": "NEW YORK CHOCOLATE & CONFECTIONS COMPANY, A VS. OUSMANNE GBANE et al",
-            "meta": "183 ROA / 40 docs",
-            "detail": "WRIT OF ATTACHMENT (EX PARTE) ISSUED TO SAN FRANCISCO COUNTY RETURNED UNSATISFIED; FILED BY PLAINTIFF NEW YORK...",
-            "href": "https://sfsc.amyc.us/#/case/CGC06459078"
-          },
-          {
             "caseNumber": "407114",
             "title": "407114",
             "meta": "103 ROA / 22 docs",
@@ -279,27 +265,6 @@
             "meta": "19 ROA / 9 docs",
             "detail": "ORDER DECLARING BOWAN FU (AKA: PO WAN FU, P.W. FU AND PW FU) A VEXATIOUS LITIGANT",
             "href": "https://sfsc.amyc.us/#/case/CSM12840515"
-          },
-          {
-            "caseNumber": "CGC06459078",
-            "title": "NEW YORK CHOCOLATE & CONFECTIONS COMPANY, A VS. OUSMANNE GBANE et al",
-            "meta": "183 ROA / 40 docs",
-            "detail": "WRIT OF ATTACHMENT (EX PARTE) ISSUED TO SAN FRANCISCO COUNTY RETURNED UNSATISFIED; FILED BY PLAINTIFF NEW YORK...",
-            "href": "https://sfsc.amyc.us/#/case/CGC06459078"
-          },
-          {
-            "caseNumber": "FDI22796021",
-            "title": "ERIC DUNN VS. LEIASA BECKHAM",
-            "meta": "357 ROA / 0 docs",
-            "detail": "PROOF OF SERVICE BY ELECTRONIC MAIL (TRANSACTION ID # 78864826) FILED BY PETITIONER DUNN, ERIC",
-            "href": "https://sfsc.amyc.us/#/case/FDI22796021"
-          },
-          {
-            "caseNumber": "CGC02403816",
-            "title": "JEROME BERG VS. THE HARTFORD INSURANCE COMPANY et al",
-            "meta": "45 ROA / 11 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF FEB-21-2003 IS OFF CALENDAR. DISMISSED BY COURT. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC02403816"
           },
           {
             "caseNumber": "CSM12840883",
@@ -419,13 +384,6 @@
             "meta": "36 ROA / 20 docs",
             "detail": "ORDER CONCLUDING MR. MAGEE'S REQUEST TO FILE HIS WRIT PETITION SHOULD BE DENIED. MR. MAGEE HAS FAILED TO SHOW A...",
             "href": "https://sfsc.amyc.us/#/case/CGC11516165"
-          },
-          {
-            "caseNumber": "CGC06455369",
-            "title": "ROBERTO LOBO FILHO VS. 24 HR FITNESS",
-            "meta": "43 ROA / 9 docs",
-            "detail": "REMOVED FROM MASTER COURT CALENDAR SET FOR AUG-27-2007 - APPEARANCE BY DEFENDANT. NO APPEARANCE BY PLAINTIFF. C...",
-            "href": "https://sfsc.amyc.us/#/case/CGC06455369"
           },
           {
             "caseNumber": "CSM12841625",
@@ -601,6 +559,48 @@
             "meta": "0 ROA / 0 docs",
             "detail": "",
             "href": "https://sfsc.amyc.us/#/case/CUD26680951"
+          },
+          {
+            "caseNumber": "FDV19814465",
+            "title": "CHRISTOFFER STANFORD THYGESEN VS. KAILIN WANG (VEXATIOUS LITIGANT)",
+            "meta": "2643 ROA / 0 docs",
+            "detail": "APPEAL RECORD CERTIFIED TO THE COURT OF APPEAL COURT OF APPEAL RECEIVED ENTIRE RECORD ON 10/16/25 FROM APPELLAN...",
+            "href": "https://sfsc.amyc.us/#/case/FDV19814465"
+          },
+          {
+            "caseNumber": "PES24307994",
+            "title": "THE ESTATE OF JANIE KATHLEEN LINDSAY BRAY",
+            "meta": "15 ROA / 4 docs",
+            "detail": "PETITION FOR LETTERS OF ADMINISTRATION, CALENDAR OF AUG-26-2025, OFF CALENDAR PER COURT",
+            "href": "https://sfsc.amyc.us/#/case/PES24307994"
+          },
+          {
+            "caseNumber": "PES25308956",
+            "title": "THE ESTATE OF SUM WING POON",
+            "meta": "8 ROA / 4 docs",
+            "detail": "PETITION FOR SPOUSAL PROPERTY CONTINUED FROM MAY-27-2026 TO JUN-10-2026 AT 09:00 AM IN DEPT 204 PER COURT",
+            "href": "https://sfsc.amyc.us/#/case/PES25308956"
+          },
+          {
+            "caseNumber": "PGN16300112",
+            "title": "GUARDIANSHIP OF ALEXIS URBINA CHOW",
+            "meta": "162 ROA / 0 docs",
+            "detail": "PETITION FOR TERMINATION OF GUARDIANSHIP OF ESTATE, CALENDAR OF MAY-13-2026, DENIED",
+            "href": "https://sfsc.amyc.us/#/case/PGN16300112"
+          },
+          {
+            "caseNumber": "191581",
+            "title": "191581",
+            "meta": "37 ROA / 2 docs",
+            "detail": "NOTICE OF RULING ON ALARON'S MOTION TO DETERMINE PLAINTIFF A VEXATIOUS LITIGANT AND FOR A PREFILING ORDER",
+            "href": "https://sfsc.amyc.us/#/case/191581"
+          },
+          {
+            "caseNumber": "944947",
+            "title": "944947",
+            "meta": "55 ROA / 0 docs",
+            "detail": "PROCEEDINGS REPORTED BY JOE VICKSTEIN",
+            "href": "https://sfsc.amyc.us/#/case/944947"
           }
         ],
         "rulings": [
