@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-06-20T01:49:52.000Z",
+  "generatedAt": "2026-06-20T06:36:46.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "a67b15634476d5c5762225d1fc8a007807ddb19a",
-      "updatedAt": "2026-06-20T01:49:52Z",
+      "ref": "51bdaa6b3257bd23419a450b93075289947858f6",
+      "updatedAt": "2026-06-20T06:36:46Z",
       "metrics": {
         "tentativeRulings": 366101,
-        "cases": 143565,
-        "documents": 66232,
-        "documentBytes": 71709989114
+        "cases": 165070,
+        "documents": 66335,
+        "documentBytes": 71787235558
       },
       "charts": {
         "rulingsByDepartment": [
@@ -43,165 +43,32 @@
       "searchSamples": {
         "dockets": [
           {
-            "caseNumber": "CGC26635883",
-            "title": "AMERICAN EXPRESS NATIONAL BANK VS. MICHAEL GUMORA ET AL",
-            "meta": "4 ROA / 4 docs",
-            "detail": "SUMMONS ISSUED (TRANSACTION ID # 79042050) TO PLAINTIFF AMERICAN EXPRESS NATIONAL BANK",
-            "href": "https://sfsc.amyc.us/#/case/CGC26635883"
+            "caseNumber": "159275",
+            "title": "159275",
+            "meta": "58 ROA / 0 docs",
+            "detail": "IT IS ALSO ORDERED IN THE APPELLATE COURT THAT COSTS ARE HEREBY AWARDED TO THE PREVAILING PARTY, PURSUANT TO SE...",
+            "href": "https://sfsc.amyc.us/#/case/159275"
           },
           {
-            "caseNumber": "CGC25626953",
-            "title": "U.S. BANK NATIONAL ASSOCIATION VS. IGNACIO ORDONEZ",
-            "meta": "15 ROA / 15 docs",
-            "detail": "ORDER TO SHOW CAUSE OF APR-21-2026 IS OFF CALENDAR. DISMISSAL ON FILE. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC25626953"
+            "caseNumber": "183518",
+            "title": "183518",
+            "meta": "48 ROA / 0 docs",
+            "detail": "REMITTITUR FILED ORDER IN RE DISMISSAL OF APPEAL, A MOTION FOR RELIEF FROM DEFAULT PURSUANT TO RULE 104, CALIFO...",
+            "href": "https://sfsc.amyc.us/#/case/183518"
           },
           {
-            "caseNumber": "CGC25627892",
-            "title": "VELOCITY INVESTMENTS, LLC VS. JOSHUA RESSIO ET AL",
-            "meta": "5 ROA / 5 docs",
-            "detail": "ORDER TO SHOW CAUSE SET FOR MAR-24-2026 CONTINUED TO JUN-23-2026 AT 10:30 AM IN DEPARTMENT 610 FOR FAILURE TO F...",
-            "href": "https://sfsc.amyc.us/#/case/CGC25627892"
+            "caseNumber": "191581",
+            "title": "191581",
+            "meta": "37 ROA / 2 docs",
+            "detail": "NOTICE OF RULING ON ALARON'S MOTION TO DETERMINE PLAINTIFF A VEXATIOUS LITIGANT AND FOR A PREFILING ORDER",
+            "href": "https://sfsc.amyc.us/#/case/191581"
           },
           {
-            "caseNumber": "CGC21591780",
-            "title": "MICHAEL RIZK VS. JOSE MANUEL LOPEZ ET AL",
-            "meta": "7 ROA / 6 docs",
-            "detail": "REFUND FROM THE ELIMINATION OF LOCAL SURHARGES (GC 70625) OF $15.00",
-            "href": "https://sfsc.amyc.us/#/case/CGC21591780"
-          },
-          {
-            "caseNumber": "CGC25630886",
-            "title": "JPMORGAN CHASE BANK, N.A. VS. ROSA BALTODANO",
-            "meta": "7 ROA / 7 docs",
-            "detail": "ORDER TO SHOW CAUSE RE DISMISSAL PURSUANT TO CRC 3.1385 SET FOR MAY-25-2027 AT 10:30 AM IN DEPARTMENT 610. NOTI...",
-            "href": "https://sfsc.amyc.us/#/case/CGC25630886"
-          },
-          {
-            "caseNumber": "CGC19576218",
-            "title": "FLEXIBLE FUNDING LTD, LIABILITY CO. VS. TIJUANA'S PRODUCE, INC. ET AL",
-            "meta": "184 ROA / 156 docs",
-            "detail": "ORDER TO SHOW CAUSE OF DEC-03-2024 IS OFF CALENDAR. JUDGMENT ON FILE. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC19576218"
-          },
-          {
-            "caseNumber": "CGC25628950",
-            "title": "CAVALRY SPV I, LLC VS. JIA-HUI LIN ET AL",
-            "meta": "11 ROA / 10 docs",
-            "detail": "THE COURT ORDERED THE FOLLOWING JUDGMENT ENTERED: IT IS ADJUDGED THAT PLAINTIFF CAVALRY SPV I, LLC AS ASSIGNEE...",
-            "href": "https://sfsc.amyc.us/#/case/CGC25628950"
-          },
-          {
-            "caseNumber": "CNC00312215",
-            "title": "IN RE: MARY ELIZABETH BOGLE",
-            "meta": "0 ROA / 0 docs",
-            "detail": "PETITION FOR CHANGE OF NAME",
-            "href": "https://sfsc.amyc.us/#/case/CNC00312215"
-          },
-          {
-            "caseNumber": "CSM95746611",
-            "title": "SAN FRANCISCO COMERCIAL CLUB VS HAMNER JOHN DAVID",
-            "meta": "0 ROA / 0 docs",
-            "detail": "MONEY",
-            "href": "https://sfsc.amyc.us/#/case/CSM95746611"
-          },
-          {
-            "caseNumber": "CGC06459078",
-            "title": "NEW YORK CHOCOLATE & CONFECTIONS COMPANY, A VS. OUSMANNE GBANE et al",
-            "meta": "183 ROA / 40 docs",
-            "detail": "WRIT OF ATTACHMENT (EX PARTE) ISSUED TO SAN FRANCISCO COUNTY RETURNED UNSATISFIED; FILED BY PLAINTIFF NEW YORK...",
-            "href": "https://sfsc.amyc.us/#/case/CGC06459078"
-          },
-          {
-            "caseNumber": "FDI22796021",
-            "title": "ERIC DUNN VS. LEIASA BECKHAM",
-            "meta": "357 ROA / 0 docs",
-            "detail": "PROOF OF SERVICE BY ELECTRONIC MAIL (TRANSACTION ID # 78864826) FILED BY PETITIONER DUNN, ERIC",
-            "href": "https://sfsc.amyc.us/#/case/FDI22796021"
-          },
-          {
-            "caseNumber": "CGC02403816",
-            "title": "JEROME BERG VS. THE HARTFORD INSURANCE COMPANY et al",
-            "meta": "45 ROA / 11 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF FEB-21-2003 IS OFF CALENDAR. DISMISSED BY COURT. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC02403816"
-          },
-          {
-            "caseNumber": "963660",
-            "title": "963660",
-            "meta": "35 ROA / 0 docs",
-            "detail": "PTR1, ST/CF 4-28-95 @ 8:30 AM, OFF CALENDAR: DISMISSED,",
-            "href": "https://sfsc.amyc.us/#/case/963660"
-          },
-          {
-            "caseNumber": "CGC07463744",
-            "title": "JANIE COLLINS VS. CITY AND COUNTY OF SAN FRANCISCO DEPARTMENT OF et al",
-            "meta": "73 ROA / 24 docs",
-            "detail": "ABSTRACT OF JUDGMENT ISSUED TO PLAINTIFF COLLINS, JANIE",
-            "href": "https://sfsc.amyc.us/#/case/CGC07463744"
-          },
-          {
-            "caseNumber": "CGC26277406",
-            "title": "DONNA L. DILLON ET AL VS. CHATTEM INC. ET AL",
-            "meta": "112 ROA / 95 docs",
-            "detail": "ASBESTOS LAW AND MOTION TENTATIVE RULINGS FOR MAY 26, 2026 (TRANSACTION ID # 79540651).",
-            "href": "https://sfsc.amyc.us/#/case/CGC26277406"
-          },
-          {
-            "caseNumber": "CGC26634935",
-            "title": "VELOCITY INVESTMENTS, LLC VS. TIMOTHY LEWIS",
-            "meta": "6 ROA / 6 docs",
-            "detail": "SUMMONS ON COMPLAINT (TRANSACTION ID # 79050317) FILED BY PLAINTIFF VELOCITY INVESTMENTS, LLC SERVED APR-04-202...",
-            "href": "https://sfsc.amyc.us/#/case/CGC26634935"
-          },
-          {
-            "caseNumber": "CGC22599780",
-            "title": "BROOKWOOD LOANS OF CALIFORNIA, LLC VS. DIANA LLYN ROTHERMEL",
-            "meta": "13 ROA / 12 docs",
-            "detail": "DEFAULT JUDGMENT REJECTED, E-FILING REJECT, (TRANSACTION ID # 210026012) SUBMITTED BY PLAINTIFF BROOKWOOD LOANS...",
-            "href": "https://sfsc.amyc.us/#/case/CGC22599780"
-          },
-          {
-            "caseNumber": "407114",
-            "title": "407114",
-            "meta": "103 ROA / 22 docs",
-            "detail": "CASE MANAGEMENT STATEMENT FILED BY PLAINTIFF CHURCH, TOM JURY DEMANDED, ESTIMATED TIME FOR TRIAL: 5.0 DAYS",
-            "href": "https://sfsc.amyc.us/#/case/407114"
-          },
-          {
-            "caseNumber": "CGC03416312",
-            "title": "STORM EARL JENKINS et al VS. ASIA APPAREL , LLC et al",
-            "meta": "150 ROA / 24 docs",
-            "detail": "NOTICE OF ENTRY OF ORDER/NOTICE OF RULING FILED DENYING MTN TO RECONSIDER ORDER DECLARING PLTFS VEXATIOUS LITIG...",
-            "href": "https://sfsc.amyc.us/#/case/CGC03416312"
-          },
-          {
-            "caseNumber": "FDI03753770",
-            "title": "M.WANG VS. A.CUNNINGHAM-DECLARED:VEXATIOUS LITIGANT(*405 CASE RESO*170.6...",
-            "meta": "1391 ROA / 0 docs",
-            "detail": "REMITTITUR DISMISSED A157501 DIV 2",
-            "href": "https://sfsc.amyc.us/#/case/FDI03753770"
-          },
-          {
-            "caseNumber": "975192",
-            "title": "975192",
-            "meta": "180 ROA / 0 docs",
-            "detail": "ORDER DISMISSING APPEAL FILED 7/29/97 A077834",
-            "href": "https://sfsc.amyc.us/#/case/975192"
-          },
-          {
-            "caseNumber": "FDI20793792",
-            "title": "JEFFREY DUBSICK VS. MONICA ARRIOLA",
-            "meta": "664 ROA / 0 docs",
-            "detail": "PROOF OF SERVICE BY MAIL FILED BY RESPONDENT ARRIOLA, MONICA",
-            "href": "https://sfsc.amyc.us/#/case/FDI20793792"
-          },
-          {
-            "caseNumber": "CGC08476903",
-            "title": "RAINER J FAERBER VS. REY HASSAN et al",
-            "meta": "36 ROA / 16 docs",
-            "detail": "CASE DISMISSED AS TO ENTIRE ACTION BY COURT AT ORDER TO SHOW CAUSE HEARING JUN-11-2009 AT 10:30AM. THE COURT FI...",
-            "href": "https://sfsc.amyc.us/#/case/CGC08476903"
+            "caseNumber": "259017",
+            "title": "259017",
+            "meta": "252 ROA / 0 docs",
+            "detail": "EX PARTE PETITION FOR FINAL DISCHARGE AND ORDER FILED BY CONSERVATOR HALLAK, LINDA",
+            "href": "https://sfsc.amyc.us/#/case/259017"
           },
           {
             "caseNumber": "315225",
@@ -211,193 +78,11 @@
             "href": "https://sfsc.amyc.us/#/case/315225"
           },
           {
-            "caseNumber": "CGC06458176",
-            "title": "ROBERTO LOBO FILHO VS. SAN QUENTIN STATE PRISON",
-            "meta": "33 ROA / 10 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF JUL-27-2007 IS OFF CALENDAR, DISMISSAL FILED. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC06458176"
-          },
-          {
-            "caseNumber": "CGC06455369",
-            "title": "ROBERTO LOBO FILHO VS. 24 HR FITNESS",
-            "meta": "43 ROA / 0 docs",
-            "detail": "REMOVED FROM MASTER COURT CALENDAR SET FOR AUG-27-2007 - APPEARANCE BY DEFENDANT. NO APPEARANCE BY PLAINTIFF. C...",
-            "href": "https://sfsc.amyc.us/#/case/CGC06455369"
-          },
-          {
-            "caseNumber": "CGC12522565",
-            "title": "P. W. FU VS. JUDGE LESLIE NICHOLS SUPERIOR COURT",
-            "meta": "0 ROA / 0 docs",
-            "detail": "OTHER NON EXEMPT COMPLAINTS (unprofessionalism)",
-            "href": "https://sfsc.amyc.us/#/case/CGC12522565"
-          },
-          {
-            "caseNumber": "CGC12523134",
-            "title": "P. W. FU VS. JUDGE CYNTHIA MING-MEI LEE",
-            "meta": "37 ROA / 20 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF JAN-09-2013 IS OFF CALENDAR, JUDGMENT ON FILE. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC12523134"
-          },
-          {
-            "caseNumber": "CGC12523169",
-            "title": "P. W. FU VS. JUDGE RICHARD B. ULMER, JR.",
-            "meta": "34 ROA / 16 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF JAN-09-2013 IS OFF CALENDAR, JUDGMENT ON FILE. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC12523169"
-          },
-          {
-            "caseNumber": "CGC12523173",
-            "title": "P. W. FU VS. T. MICHAEL YUEN",
-            "meta": "33 ROA / 15 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF JAN-09-2013 IS OFF CALENDAR, JUDGMENT ON FILE. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC12523173"
-          },
-          {
-            "caseNumber": "CGC12523946",
-            "title": "P. W. FU VS. KATHERINE FEINSTEIN",
-            "meta": "26 ROA / 12 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF FEB-06-2013 IS OFF CALENDAR - JUDGMENT ON FILE. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC12523946"
-          },
-          {
-            "caseNumber": "CSM12840515",
-            "title": "PO WAN FU VS. FRONTIER AIRLINES INC.",
-            "meta": "19 ROA / 9 docs",
-            "detail": "ORDER DECLARING BOWAN FU (AKA: PO WAN FU, P.W. FU AND PW FU) A VEXATIOUS LITIGANT",
-            "href": "https://sfsc.amyc.us/#/case/CSM12840515"
-          },
-          {
-            "caseNumber": "CSM12840883",
-            "title": "PO WAN FU VS. DONALD MITCHELL JUD",
-            "meta": "27 ROA / 10 docs",
-            "detail": "ORDER SC-105A ORDER ON REQUEST FOR COURT ORDER-PLAINTIFF'S SC-105 REQUEST OF 9-11-12 IS DENIED.",
-            "href": "https://sfsc.amyc.us/#/case/CSM12840883"
-          },
-          {
-            "caseNumber": "CSM12841182",
-            "title": "PO WAN FU VS. CARLOS AYALA et al",
-            "meta": "34 ROA / 16 docs",
-            "detail": "ORDER SC-105A ORDER ON REQUEST FOR COURT ORDER-PLAINTIFF'S SC-105 REQUEST OF 8-10-12 IS DENIED.",
-            "href": "https://sfsc.amyc.us/#/case/CSM12841182"
-          },
-          {
-            "caseNumber": "CSM12841215",
-            "title": "P W FU VS. CAPTAIN IDETA, FIELD SERVICE DIRECTOR",
-            "meta": "23 ROA / 10 docs",
-            "detail": "EXHIBITS FROM EXHIBIT REPORT DATED OCT-01-2012 ORDERED DESTROYED",
-            "href": "https://sfsc.amyc.us/#/case/CSM12841215"
-          },
-          {
-            "caseNumber": "CSM12841574",
-            "title": "P W FU VS. CAPTAIN IDETA",
-            "meta": "24 ROA / 10 docs",
-            "detail": "RECEIVED RETURNED MAIL SENT TO PLAINTIFF: SMALL CLAIMS ORDER OF DISMISSAL OF ENTIRE ACTION FILED ON NOV-13-2012...",
-            "href": "https://sfsc.amyc.us/#/case/CSM12841574"
-          },
-          {
-            "caseNumber": "CSM12841577",
-            "title": "P W FU VS. ROSE GONZALES et al",
-            "meta": "27 ROA / 15 docs",
-            "detail": "RETURNED MAIL SENT TO PO WA FU RETURN TO SENDER-ATTEMPTED NOT KNOWN-UNABLE TO FORWARD. WRITTEN \"RETURN TO SENDE...",
-            "href": "https://sfsc.amyc.us/#/case/CSM12841577"
-          },
-          {
-            "caseNumber": "CSM12841627",
-            "title": "P W FU VS. JUDGE CYNTHIA MING-MEI LEE",
-            "meta": "20 ROA / 9 docs",
-            "detail": "RETURNED MAIL SENT TO PLAINTIFF: SMALL CLAIMS CONTINUE ORDER. RETURN TO SENDER NO LONGER HERE.",
-            "href": "https://sfsc.amyc.us/#/case/CSM12841627"
-          },
-          {
-            "caseNumber": "CSM12841879",
-            "title": "P W FU VS. MEREDITH GRIER",
-            "meta": "13 ROA / 6 docs",
-            "detail": "RETURN MAIL - OFF CALERNDAR ORDER /SENT TO PLAINTIFF - UNABLE TO FORWARD",
-            "href": "https://sfsc.amyc.us/#/case/CSM12841879"
-          },
-          {
-            "caseNumber": "CGC12517400",
-            "title": "ROBERT HARTMAN VS. JULIANA DROUS",
-            "meta": "42 ROA / 21 docs",
-            "detail": "MASTER JURY CALENDAR SET FOR JUN-24-2013 VACATED. JUDGMENT OF DISMISSAL FILED ON 4/11/13. (206)",
-            "href": "https://sfsc.amyc.us/#/case/CGC12517400"
-          },
-          {
-            "caseNumber": "CGC02405248",
-            "title": "ALMA JEAN CALDWELL VS. JUL NIEMIER et al",
-            "meta": "224 ROA / 51 docs",
-            "detail": "REMITTITUR AFFIRMED",
-            "href": "https://sfsc.amyc.us/#/case/CGC02405248"
-          },
-          {
-            "caseNumber": "CGC10496656",
-            "title": "MARTIN ENG VS. GREGORY YOCH et al",
-            "meta": "87 ROA / 34 docs",
-            "detail": "ORDER FROM COURT OF APPEAL DISMISSING APPEAL FILED JULY 9, 2025 (SEE SCAN FOR DETAILS) (A173931 DIV V)",
-            "href": "https://sfsc.amyc.us/#/case/CGC10496656"
-          },
-          {
-            "caseNumber": "CGC12525017",
-            "title": "ANDRE PATTERSON VS. CHARLES BYRD et al",
-            "meta": "68 ROA / 28 docs",
-            "detail": "ORDER TO SHOW CAUSE OF FEB-25-2014 IS OFF CALENDAR. DISMISSAL ON FILE. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC12525017"
-          },
-          {
-            "caseNumber": "CGC13535903",
-            "title": "SEGLENDA CRIGLER VS. SAFEWAY",
-            "meta": "35 ROA / 14 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF AUG-20-2014 IS OFF CALENDAR - JUDGMENT ON FILE. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC13535903"
-          },
-          {
-            "caseNumber": "CGC06450461",
-            "title": "MALINKA MOYE VS. LYDIA BACA",
-            "meta": "256 ROA / 146 docs",
-            "detail": "DECLARATION OF MALINKA TACUMA WADE MOYE FILED BY PLAINTIFF MOYE, MALINKA *** IFP/SEE NOTES ***",
-            "href": "https://sfsc.amyc.us/#/case/CGC06450461"
-          },
-          {
-            "caseNumber": "CGC10500974",
-            "title": "DAVID GRASSI VS. JULIEN SIGNES et al",
-            "meta": "280 ROA / 87 docs",
-            "detail": "ORDER FOR EXAMINATION AS TO DEFENDANT JULIEN SIGNES, ON APR-17-2014 OFF CALENDAR PER REQUEST OF MOVING PARTY. (...",
-            "href": "https://sfsc.amyc.us/#/case/CGC10500974"
-          },
-          {
-            "caseNumber": "CGC12523705",
-            "title": "FELITA SAMPLE VS. COMMUNITY HOUSING PARTNERSHIP et al",
-            "meta": "80 ROA / 27 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF AUG-28-2013 IS OFF CALENDAR - JUDGMENT ON FILE. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC12523705"
-          },
-          {
-            "caseNumber": "CGC09485317",
-            "title": "JOE PAT HAWKINS et al VS. TRAVELERS PROPERTY CASUALTY INSURANCE et al",
-            "meta": "259 ROA / 70 docs",
-            "detail": "NOTICE OF CHANGE OF ADDRESS FILED BY PRO PER HAWKINS, JOE PAT",
-            "href": "https://sfsc.amyc.us/#/case/CGC09485317"
-          },
-          {
-            "caseNumber": "CGC11516165",
-            "title": "RUCHELL CINQUE MAGEE VS. WILLIAM KWONG et al",
-            "meta": "36 ROA / 20 docs",
-            "detail": "ORDER CONCLUDING MR. MAGEE'S REQUEST TO FILE HIS WRIT PETITION SHOULD BE DENIED. MR. MAGEE HAS FAILED TO SHOW A...",
-            "href": "https://sfsc.amyc.us/#/case/CGC11516165"
-          },
-          {
-            "caseNumber": "CSM12841625",
-            "title": "P W FU VS. DENNIS TOYAMA",
-            "meta": "22 ROA / 9 docs",
-            "detail": "RETURNED MAIL SENT TO PLAINTIFF: SMALL CLAIMS CONTINUE ORDER. RETURN TO SENDER NO LONGER HERE.",
-            "href": "https://sfsc.amyc.us/#/case/CSM12841625"
-          },
-          {
-            "caseNumber": "159275",
-            "title": "159275",
-            "meta": "58 ROA / 0 docs",
-            "detail": "IT IS ALSO ORDERED IN THE APPELLATE COURT THAT COSTS ARE HEREBY AWARDED TO THE PREVAILING PARTY, PURSUANT TO SE...",
-            "href": "https://sfsc.amyc.us/#/case/159275"
+            "caseNumber": "324105",
+            "title": "324105",
+            "meta": "44 ROA / 8 docs",
+            "detail": "STATUS CONFERENCE OF FEB-01-2002 IS OFF CALENDAR, DISMISSED BY COURT ON DEC-20-2001. NOTICE SENT BY COURT.",
+            "href": "https://sfsc.amyc.us/#/case/324105"
           },
           {
             "caseNumber": "400264",
@@ -407,95 +92,25 @@
             "href": "https://sfsc.amyc.us/#/case/400264"
           },
           {
-            "caseNumber": "964214",
-            "title": "964214",
-            "meta": "45 ROA / 0 docs",
-            "detail": "REQUEST FOR ISSUE DOCUMENT ORDER ON PETITION FOR SET ASIDE DISMISSAL, & NOTIFY ITS ENTER",
-            "href": "https://sfsc.amyc.us/#/case/964214"
+            "caseNumber": "407114",
+            "title": "407114",
+            "meta": "103 ROA / 22 docs",
+            "detail": "CASE MANAGEMENT STATEMENT FILED BY PLAINTIFF CHURCH, TOM JURY DEMANDED, ESTIMATED TIME FOR TRIAL: 5.0 DAYS",
+            "href": "https://sfsc.amyc.us/#/case/407114"
           },
           {
-            "caseNumber": "CCH24587023",
-            "title": "CCH24587023",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CCH24587023"
+            "caseNumber": "457890",
+            "title": "457890",
+            "meta": "251 ROA / 56 docs",
+            "detail": "BALANCE OF CASE DISMISSED BY COURT AT ORDER TO SHOW CAUSE HEARING AUG-26-2010 AT 10:30AM. NOTICE SENT BY COURT.",
+            "href": "https://sfsc.amyc.us/#/case/457890"
           },
           {
-            "caseNumber": "CGC07461894",
-            "title": "LAYLA MANN VS. SPORTS CLUB L.A. et al",
-            "meta": "22 ROA / 6 docs",
-            "detail": "CASE MANAGEMENT CONFERENCE OF AUG-31-2007 IS OFF CALENDAR, DISMISSAL FILED. NOTICE SENT BY COURT.",
-            "href": "https://sfsc.amyc.us/#/case/CGC07461894"
-          },
-          {
-            "caseNumber": "CGC23608615",
-            "title": "RAUL SANCHEZ VS. ROBERT WAGGENER ET AL",
-            "meta": "13 ROA / 12 docs",
-            "detail": "NOTICE OF CONTINUED HARASSMENT CONDUCTED BY COURT OFFICIALS; THREATS OF INCARCERATION AND USE OF FORCE WITHOUT...",
-            "href": "https://sfsc.amyc.us/#/case/CGC23608615"
-          },
-          {
-            "caseNumber": "CSM12841592",
-            "title": "P.W. FU VS. DEBRA JANE DOE ET AL.",
-            "meta": "28 ROA / 12 docs",
-            "detail": "RETURNED MAIL SENT TO PO WAN FU OF SC-105A-RETURN TO SENDER-NOT DELIVERABLE AS ADDRESSED-UNABLE TO FORWARD",
-            "href": "https://sfsc.amyc.us/#/case/CSM12841592"
-          },
-          {
-            "caseNumber": "CUD23672688",
-            "title": "CUD23672688",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CUD23672688"
-          },
-          {
-            "caseNumber": "CUD24675543",
-            "title": "CUD24675543",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CUD24675543"
-          },
-          {
-            "caseNumber": "CUD24676090",
-            "title": "CUD24676090",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CUD24676090"
-          },
-          {
-            "caseNumber": "CUD25678493",
-            "title": "CUD25678493",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CUD25678493"
-          },
-          {
-            "caseNumber": "FDI21794827",
-            "title": "RICARDO RAUCH VS. MORA KESTELMAN",
-            "meta": "895 ROA / 0 docs",
-            "detail": "STATUS CONFERENCE STATEMENT (TRANSACTION ID # 79550176) FILED BY PETITIONER RAUCH, RICARDO",
-            "href": "https://sfsc.amyc.us/#/case/FDI21794827"
-          },
-          {
-            "caseNumber": "PES25309011",
-            "title": "IN RE MARRIAGE OF BRIAN WING REZOWALLI",
-            "meta": "8 ROA / 3 docs",
-            "detail": "COPYING FEES (1 PAGE, 1 CERTIFIED COPY) PAID BY RESPONDENT REZOWALLI, BRIAN WING",
-            "href": "https://sfsc.amyc.us/#/case/PES25309011"
-          },
-          {
-            "caseNumber": "PGN21304372",
-            "title": "GUARDIANSHIP OF LIAN ANAIS JEONG ENGLE ET AL",
-            "meta": "105 ROA / 0 docs",
-            "detail": "COPYING FEES (1 PAGE, 1 CERTIFIED COPY) PAID BY PETITIONER JEONG, MICHELLE",
-            "href": "https://sfsc.amyc.us/#/case/PGN21304372"
-          },
-          {
-            "caseNumber": "259017",
-            "title": "259017",
-            "meta": "252 ROA / 0 docs",
-            "detail": "EX PARTE PETITION FOR FINAL DISCHARGE AND ORDER FILED BY CONSERVATOR HALLAK, LINDA",
-            "href": "https://sfsc.amyc.us/#/case/259017"
+            "caseNumber": "903465",
+            "title": "903465",
+            "meta": "547 ROA / 9 docs",
+            "detail": "$100 NOTICE OF APPEAL FEE ESCHEATED TO CCSF",
+            "href": "https://sfsc.amyc.us/#/case/903465"
           },
           {
             "caseNumber": "920844",
@@ -512,88 +127,11 @@
             "href": "https://sfsc.amyc.us/#/case/927001"
           },
           {
-            "caseNumber": "CGC07467638",
-            "title": "JANET STANFORD VS. KAISER FOUNDATION HOSPITALS - HUMAN RESOURCES",
-            "meta": "26 ROA / 7 docs",
-            "detail": "EX PARTE APPLICATION FOR ORDER TO PUT CASE BACK ON CALENDAR FILED BY PLAINTIFF STANFORD, JANET",
-            "href": "https://sfsc.amyc.us/#/case/CGC07467638"
-          },
-          {
-            "caseNumber": "CGC26632289",
-            "title": "ROBERT STEWART VS. ERICA PYCH KURIEN D.O.",
-            "meta": "39 ROA / 29 docs",
-            "detail": "LAW AND MOTION 301, PLAINTIFF'S MOTION TO SET ASIDE PROPOSED ORDER GRANTING MOTION TO STRIKE. ARGUED AND THE CO...",
-            "href": "https://sfsc.amyc.us/#/case/CGC26632289"
-          },
-          {
-            "caseNumber": "CUD24674832",
-            "title": "CUD24674832",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CUD24674832"
-          },
-          {
-            "caseNumber": "CUD24676980",
-            "title": "CUD24676980",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CUD24676980"
-          },
-          {
-            "caseNumber": "CUD24677098",
-            "title": "CUD24677098",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CUD24677098"
-          },
-          {
-            "caseNumber": "CUD25677378",
-            "title": "CUD25677378",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CUD25677378"
-          },
-          {
-            "caseNumber": "CUD26680951",
-            "title": "CUD26680951",
-            "meta": "0 ROA / 0 docs",
-            "detail": "",
-            "href": "https://sfsc.amyc.us/#/case/CUD26680951"
-          },
-          {
-            "caseNumber": "FDV19814465",
-            "title": "CHRISTOFFER STANFORD THYGESEN VS. KAILIN WANG (VEXATIOUS LITIGANT)",
-            "meta": "2643 ROA / 0 docs",
-            "detail": "APPEAL RECORD CERTIFIED TO THE COURT OF APPEAL COURT OF APPEAL RECEIVED ENTIRE RECORD ON 10/16/25 FROM APPELLAN...",
-            "href": "https://sfsc.amyc.us/#/case/FDV19814465"
-          },
-          {
-            "caseNumber": "PES24307994",
-            "title": "THE ESTATE OF JANIE KATHLEEN LINDSAY BRAY",
-            "meta": "15 ROA / 4 docs",
-            "detail": "PETITION FOR LETTERS OF ADMINISTRATION, CALENDAR OF AUG-26-2025, OFF CALENDAR PER COURT",
-            "href": "https://sfsc.amyc.us/#/case/PES24307994"
-          },
-          {
-            "caseNumber": "PES25308956",
-            "title": "THE ESTATE OF SUM WING POON",
-            "meta": "8 ROA / 4 docs",
-            "detail": "PETITION FOR SPOUSAL PROPERTY CONTINUED FROM MAY-27-2026 TO JUN-10-2026 AT 09:00 AM IN DEPT 204 PER COURT",
-            "href": "https://sfsc.amyc.us/#/case/PES25308956"
-          },
-          {
-            "caseNumber": "PGN16300112",
-            "title": "GUARDIANSHIP OF ALEXIS URBINA CHOW",
-            "meta": "162 ROA / 0 docs",
-            "detail": "PETITION FOR TERMINATION OF GUARDIANSHIP OF ESTATE, CALENDAR OF MAY-13-2026, DENIED",
-            "href": "https://sfsc.amyc.us/#/case/PGN16300112"
-          },
-          {
-            "caseNumber": "191581",
-            "title": "191581",
-            "meta": "37 ROA / 2 docs",
-            "detail": "NOTICE OF RULING ON ALARON'S MOTION TO DETERMINE PLAINTIFF A VEXATIOUS LITIGANT AND FOR A PREFILING ORDER",
-            "href": "https://sfsc.amyc.us/#/case/191581"
+            "caseNumber": "937699",
+            "title": "937699",
+            "meta": "115 ROA / 0 docs",
+            "detail": "AT-ISSUE MEMO/ARBITRATION CONFERENCE STATEMENT",
+            "href": "https://sfsc.amyc.us/#/case/937699"
           },
           {
             "caseNumber": "944947",
@@ -601,6 +139,468 @@
             "meta": "55 ROA / 0 docs",
             "detail": "PROCEEDINGS REPORTED BY JOE VICKSTEIN",
             "href": "https://sfsc.amyc.us/#/case/944947"
+          },
+          {
+            "caseNumber": "946688",
+            "title": "946688",
+            "meta": "64 ROA / 0 docs",
+            "detail": "REMITTITUR-DISMISSING APPEAL MICROFILMED R/B F: 131-07",
+            "href": "https://sfsc.amyc.us/#/case/946688"
+          },
+          {
+            "caseNumber": "955399",
+            "title": "955399",
+            "meta": "52 ROA / 0 docs",
+            "detail": "PTR1, ST/CF 9-16-94 @ 8:30 AM, OFF CALENDAR: DISMISSED,",
+            "href": "https://sfsc.amyc.us/#/case/955399"
+          },
+          {
+            "caseNumber": "963660",
+            "title": "963660",
+            "meta": "35 ROA / 0 docs",
+            "detail": "PTR1, ST/CF 4-28-95 @ 8:30 AM, OFF CALENDAR: DISMISSED,",
+            "href": "https://sfsc.amyc.us/#/case/963660"
+          },
+          {
+            "caseNumber": "964214",
+            "title": "964214",
+            "meta": "45 ROA / 0 docs",
+            "detail": "REQUEST FOR ISSUE DOCUMENT ORDER ON PETITION FOR SET ASIDE DISMISSAL, & NOTIFY ITS ENTER",
+            "href": "https://sfsc.amyc.us/#/case/964214"
+          },
+          {
+            "caseNumber": "964377",
+            "title": "964377",
+            "meta": "154 ROA / 0 docs",
+            "detail": "ORDER DENYING MO TO VACATE ORDER JULY 6, 1996",
+            "href": "https://sfsc.amyc.us/#/case/964377"
+          },
+          {
+            "caseNumber": "965774",
+            "title": "965774",
+            "meta": "221 ROA / 3 docs",
+            "detail": "COURT RECORDING REQUEST AT ALL PROCEEDINGS FILED BY PLAINTIFF MCCOLM, PATRICIA A (PP)",
+            "href": "https://sfsc.amyc.us/#/case/965774"
+          },
+          {
+            "caseNumber": "975192",
+            "title": "975192",
+            "meta": "180 ROA / 0 docs",
+            "detail": "ORDER DISMISSING APPEAL FILED 7/29/97 A077834",
+            "href": "https://sfsc.amyc.us/#/case/975192"
+          },
+          {
+            "caseNumber": "980671",
+            "title": "980671",
+            "meta": "56 ROA / 0 docs",
+            "detail": "AMENDED PETITION TO VACATE ORDER OF 11/22/96 FOR FRAUD & DECEIT UPON THE COURT IN CASE NO 980671",
+            "href": "https://sfsc.amyc.us/#/case/980671"
+          },
+          {
+            "caseNumber": "982275",
+            "title": "982275",
+            "meta": "105 ROA / 0 docs",
+            "detail": "ORDER OF COURT RE: MO TO DISMISS",
+            "href": "https://sfsc.amyc.us/#/case/982275"
+          },
+          {
+            "caseNumber": "983241",
+            "title": "983241",
+            "meta": "110 ROA / 0 docs",
+            "detail": "MEMORANDUM OF COSTS (SUMMARY)",
+            "href": "https://sfsc.amyc.us/#/case/983241"
+          },
+          {
+            "caseNumber": "APP19008515",
+            "title": "HUSAIN RESAN VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CASE...",
+            "meta": "26 ROA / 24 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008515"
+          },
+          {
+            "caseNumber": "APP19008516",
+            "title": "REYNARDO SPRINGFIELD VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEA...",
+            "meta": "30 ROA / 28 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008516"
+          },
+          {
+            "caseNumber": "APP19008542",
+            "title": "NELVIS A. REYES-CRUZ VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEA...",
+            "meta": "17 ROA / 15 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008542"
+          },
+          {
+            "caseNumber": "APP19008543",
+            "title": "CAMERON JAMES CARDA VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEAN...",
+            "meta": "25 ROA / 23 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008543"
+          },
+          {
+            "caseNumber": "APP19008559",
+            "title": "MARCO DELOSSANTOSSANTAMARIA VS. THE PEOPLE OF THE STATE OF CALIFORNIA - M...",
+            "meta": "18 ROA / 17 docs",
+            "detail": "REMITTITUR FILED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008559"
+          },
+          {
+            "caseNumber": "APP19008560",
+            "title": "ROGER LEE KEEN VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CA...",
+            "meta": "24 ROA / 22 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008560"
+          },
+          {
+            "caseNumber": "APP19008574",
+            "title": "PHONG VO VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CASE NO...",
+            "meta": "10 ROA / 8 docs",
+            "detail": "REMITTITUR FILED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008574"
+          },
+          {
+            "caseNumber": "APP19008575",
+            "title": "AMERICA MINJARES VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR...",
+            "meta": "21 ROA / 18 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008575"
+          },
+          {
+            "caseNumber": "APP19008595",
+            "title": "JOSEPH L MCCANN VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR C...",
+            "meta": "16 ROA / 14 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008595"
+          },
+          {
+            "caseNumber": "APP19008596",
+            "title": "IAN S HARPER VS. THE STATE OF CALIFORNIA - MISDEMEANOR CASE NO 16004836",
+            "meta": "21 ROA / 19 docs",
+            "detail": "REMITTITUR FILED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008596"
+          },
+          {
+            "caseNumber": "APP19008612",
+            "title": "MOISES A. BALTAZAR VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANO...",
+            "meta": "25 ROA / 23 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008612"
+          },
+          {
+            "caseNumber": "APP19008613",
+            "title": "PEOPLE OF THE STATE OF CALIFORNIA VS. CLIFFORD EDWARDS - MISDEMEANOR CASE...",
+            "meta": "23 ROA / 22 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP19008613"
+          },
+          {
+            "caseNumber": "APP20008631",
+            "title": "TYRRELL JOHNSON VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR C...",
+            "meta": "36 ROA / 34 docs",
+            "detail": "STATEMENT REGARDING RESPONDENT'S REQUEST FOR PUBLICATION(CAL. RULES OF COURT, RULE 8.1120(B)(1)",
+            "href": "https://sfsc.amyc.us/#/case/APP20008631"
+          },
+          {
+            "caseNumber": "APP20008635",
+            "title": "DONALD HAMILTON VS. THE PEOPLE OF THE STATE OF CALIFORNIA - TRAFFIC CASE...",
+            "meta": "11 ROA / 8 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008635"
+          },
+          {
+            "caseNumber": "APP20008636",
+            "title": "PATRICK MA VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CASE N...",
+            "meta": "17 ROA / 15 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008636"
+          },
+          {
+            "caseNumber": "APP20008637",
+            "title": "OSCAR ARMANDO LOPEZ-RIZO VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISD...",
+            "meta": "10 ROA / 9 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008637"
+          },
+          {
+            "caseNumber": "APP20008638",
+            "title": "ANNDRE GOMEZ VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CASE...",
+            "meta": "9 ROA / 7 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008638"
+          },
+          {
+            "caseNumber": "APP20008639",
+            "title": "EDIN VELIZSANCHEZ VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR...",
+            "meta": "25 ROA / 23 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008639"
+          },
+          {
+            "caseNumber": "APP20008640",
+            "title": "KEVIN RIVASGALDAMEZ VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEAN...",
+            "meta": "13 ROA / 12 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008640"
+          },
+          {
+            "caseNumber": "APP20008641",
+            "title": "MARIA BELL VS. SUPERIOR COURT OF THE CITY & CO. OF SAN FRANCISCO",
+            "meta": "3 ROA / 3 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008641"
+          },
+          {
+            "caseNumber": "APP20008642",
+            "title": "JESUS RESENDEZ VS. SUPERIOR COURT OF THE CITY AND COUNTY OF S.F.",
+            "meta": "2 ROA / 2 docs",
+            "detail": "ORDER DENYING PETITION FOR WRIT OF MANDATE",
+            "href": "https://sfsc.amyc.us/#/case/APP20008642"
+          },
+          {
+            "caseNumber": "APP20008643",
+            "title": "DOMINIC MARTINEZ-GIANFERMO VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MI...",
+            "meta": "19 ROA / 17 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008643"
+          },
+          {
+            "caseNumber": "APP20008644",
+            "title": "ALEX ROBERT JORDAN VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANO...",
+            "meta": "27 ROA / 25 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008644"
+          },
+          {
+            "caseNumber": "APP20008645",
+            "title": "HORGAN EDET VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CASE...",
+            "meta": "11 ROA / 10 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008645"
+          },
+          {
+            "caseNumber": "APP20008646",
+            "title": "JOSHUA RICO TENEBIMBO VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEME...",
+            "meta": "22 ROA / 20 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008646"
+          },
+          {
+            "caseNumber": "APP20008647",
+            "title": "DEON A JOHNSON VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CA...",
+            "meta": "8 ROA / 7 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008647"
+          },
+          {
+            "caseNumber": "APP20008648",
+            "title": "RAUL MEJIA VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CASE N...",
+            "meta": "19 ROA / 17 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008648"
+          },
+          {
+            "caseNumber": "APP20008649",
+            "title": "SHEGUN OLADIPO VS. THE PEOPLE OF THE STATE OF CALIFORNIA - TRAFFIC CASE N...",
+            "meta": "9 ROA / 8 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008649"
+          },
+          {
+            "caseNumber": "APP20008651",
+            "title": "SHANETRIA FRAZIER VS. SUPERIOR COURT OF THE CITY AND CO OF SAN FRANCISCO",
+            "meta": "3 ROA / 3 docs",
+            "detail": "ORDER DENYING PETITION FOR WRIT OF MANDATE",
+            "href": "https://sfsc.amyc.us/#/case/APP20008651"
+          },
+          {
+            "caseNumber": "APP20008657",
+            "title": "NAI SAETERN VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CASE...",
+            "meta": "29 ROA / 27 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008657"
+          },
+          {
+            "caseNumber": "APP20008658",
+            "title": "CLIFFORD GRANT VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CA...",
+            "meta": "25 ROA / 22 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008658"
+          },
+          {
+            "caseNumber": "APP20008659",
+            "title": "ANDREW STEWART VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CA...",
+            "meta": "27 ROA / 25 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008659"
+          },
+          {
+            "caseNumber": "APP20008660",
+            "title": "ANDREW STEWART VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CA...",
+            "meta": "12 ROA / 11 docs",
+            "detail": "ORDER GRANTING MOTION TO CONSOLIDATE CASES APP-20-008659 AND APP-20-008660",
+            "href": "https://sfsc.amyc.us/#/case/APP20008660"
+          },
+          {
+            "caseNumber": "APP20008665",
+            "title": "DARYN CARTAGENA VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR C...",
+            "meta": "32 ROA / 28 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008665"
+          },
+          {
+            "caseNumber": "APP20008666",
+            "title": "KEITH GREEN VS. THE PEOPLE OF THE STATE OF CALIFORNIA - TRAFFIC CASE NO C...",
+            "meta": "9 ROA / 8 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008666"
+          },
+          {
+            "caseNumber": "APP20008667",
+            "title": "BENSHENG LI VS. THE PEOPLE OF THE STATE OF CALIFORNIA - TRAFFIC CASE NO C...",
+            "meta": "9 ROA / 6 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008667"
+          },
+          {
+            "caseNumber": "APP20008677",
+            "title": "LUKE BRUNER VS. THE PEOPLE OF THE STATE OF CALIFORNIA - TRAFFIC CASE NO 0...",
+            "meta": "8 ROA / 7 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008677"
+          },
+          {
+            "caseNumber": "APP20008678",
+            "title": "OSCAR TORRES-ROSALES VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEA...",
+            "meta": "23 ROA / 22 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008678"
+          },
+          {
+            "caseNumber": "APP20008679",
+            "title": "ABEL TEWELDE VS. THE PEOPLE OF THE STATE OF CALIFORNIA - TRAFFIC CASE NO...",
+            "meta": "9 ROA / 8 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008679"
+          },
+          {
+            "caseNumber": "APP20008680",
+            "title": "ROBERT WILKES VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CAS...",
+            "meta": "17 ROA / 15 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP20008680"
+          },
+          {
+            "caseNumber": "APP21008688",
+            "title": "SABRINA LEIBA VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CAS...",
+            "meta": "48 ROA / 45 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP21008688"
+          },
+          {
+            "caseNumber": "APP21008689",
+            "title": "JOANNA L. PFEISTER VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANO...",
+            "meta": "8 ROA / 8 docs",
+            "detail": "ORDER DENYING MOTION TO RECALL REMITTITUR",
+            "href": "https://sfsc.amyc.us/#/case/APP21008689"
+          },
+          {
+            "caseNumber": "APP21008690",
+            "title": "PANKAJ PAREKH VS. THE PEOPLE OF THE STATE OF CALIFORNIA - TRAFFIC CASE NO...",
+            "meta": "8 ROA / 7 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP21008690"
+          },
+          {
+            "caseNumber": "APP21008693",
+            "title": "ANGELINA GATES VS. SUPERIOR COURT OF THE CITY & CO. OF SAN FRANCISCO",
+            "meta": "3 ROA / 3 docs",
+            "detail": "ABANDONMENT OF APPEAL FILED (TRANSACTION ID # 66777360) BY APPELLANT GATES, ANGELINA",
+            "href": "https://sfsc.amyc.us/#/case/APP21008693"
+          },
+          {
+            "caseNumber": "APP21008694",
+            "title": "FERNANDO BACAB VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CA...",
+            "meta": "23 ROA / 20 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP21008694"
+          },
+          {
+            "caseNumber": "APP21008695",
+            "title": "RONALD CAIN VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CASE...",
+            "meta": "36 ROA / 34 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP21008695"
+          },
+          {
+            "caseNumber": "APP21008696",
+            "title": "ALBERE J. CORREA VS. SUPERIOR COURT OF THE CITY AND CO OF SAN FRANCISCO",
+            "meta": "2 ROA / 2 docs",
+            "detail": "ORDER DENYING PETITION FOR WRIT OF MANDATE",
+            "href": "https://sfsc.amyc.us/#/case/APP21008696"
+          },
+          {
+            "caseNumber": "APP21008698",
+            "title": "YEGANEH BAKHTIARI VS. SUPERIOR COURT OF THE CITY AND CO OF SAN FRANCISCO",
+            "meta": "2 ROA / 2 docs",
+            "detail": "ORDER DENYING PETITION OF WRIT OF MANDATE",
+            "href": "https://sfsc.amyc.us/#/case/APP21008698"
+          },
+          {
+            "caseNumber": "APP21008699",
+            "title": "RENE CAMPOS VS. SUPERIOR COURT OF THE CITY AND CO OF SAN FRANCISCO",
+            "meta": "2 ROA / 2 docs",
+            "detail": "ORDER DENYING PETITION FOR WRIT OF MANDATE",
+            "href": "https://sfsc.amyc.us/#/case/APP21008699"
+          },
+          {
+            "caseNumber": "APP21008700",
+            "title": "VASILI IVAN PANIN VS. SUPERIOR COURT OF THE CITY & CO. OF SAN FRANCISCO",
+            "meta": "8 ROA / 6 docs",
+            "detail": "DECLARATION FILED BY OTHER MOYE, MALINKA TACUMA WADE",
+            "href": "https://sfsc.amyc.us/#/case/APP21008700"
+          },
+          {
+            "caseNumber": "APP22008709",
+            "title": "ALLA KARABACH VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR CAS...",
+            "meta": "28 ROA / 26 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP22008709"
+          },
+          {
+            "caseNumber": "APP22008710",
+            "title": "PEOPLE OF THE STATE OF CALIFORNIA VS. DENIS KOBZEV - MISDEMEANOR CASE NO...",
+            "meta": "18 ROA / 17 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP22008710"
+          },
+          {
+            "caseNumber": "APP22008711",
+            "title": "CHRISTOPHER BLUEFORD VS. SUPERIOR COURT OF THE CITY AND CO.OF SAN FRANCIS...",
+            "meta": "2 ROA / 2 docs",
+            "detail": "ORDER TRANSFERRING PETITION FOR WRIT OF HABEAS CORPUS TO CRIMINAL DIVISION IN DEPARTMENT 22 OF THE SAN FRANCISC...",
+            "href": "https://sfsc.amyc.us/#/case/APP22008711"
+          },
+          {
+            "caseNumber": "APP22008718",
+            "title": "JESUS GUERRERO-VILLALOBOS VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MIS...",
+            "meta": "25 ROA / 24 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP22008718"
+          },
+          {
+            "caseNumber": "APP22008719",
+            "title": "BRANDON RAMIREZ VS. THE PEOPLE OF THE STATE OF CALIFORNIA - MISDEMEANOR C...",
+            "meta": "31 ROA / 29 docs",
+            "detail": "REMITTITUR ISSUED",
+            "href": "https://sfsc.amyc.us/#/case/APP22008719"
+          },
+          {
+            "caseNumber": "APP23008722",
+            "title": "THE PEOPLE OF THE STATE OF CALIFORNIA VS. SUPERIOR COURT OF CITY & CO OF...",
+            "meta": "7 ROA / 7 docs",
+            "detail": "ORDER (SEE SCAN FOR DETAILS)",
+            "href": "https://sfsc.amyc.us/#/case/APP23008722"
           }
         ],
         "rulings": [
@@ -959,13 +959,13 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "230b1441805cedd69c2b3017590a8f6e6de2cc52",
-      "updatedAt": "2026-06-19T04:22:28Z",
+      "ref": "1f1db79905838ac93057f8e338720273c0efd024",
+      "updatedAt": "2026-06-20T03:43:39Z",
       "metrics": {
         "tentativeRulings": 16671,
         "parsedCounties": 17,
         "documents": 1386,
-        "documentBytes": 693846653
+        "documentBytes": 697518462
       },
       "charts": {
         "rulingsByCounty": [
