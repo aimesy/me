@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-23T14:34:23.000Z",
+  "generatedAt": "2026-06-23T17:16:58.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "4ca9878234dc97a20f06aefde9a4f45e37191391",
-      "updatedAt": "2026-06-23T14:34:23Z",
+      "ref": "dfb862a4999469118aac525b953d5d91d281c6d4",
+      "updatedAt": "2026-06-23T09:09:02-07:00",
       "metrics": {
         "tentativeRulings": 366101,
         "cases": 0,
@@ -147,8 +147,8 @@
     },
     "cividx": {
       "repo": "aimesy/cividx",
-      "ref": "8bea69fa06bc313fdb7158d8a8f8f6a3eb35c412",
-      "updatedAt": "2026-06-08T06:26:47-07:00",
+      "ref": "a9f6d537c142e1248c2557fe38d40e526cc5ecbf",
+      "updatedAt": "2026-06-23T10:16:58-07:00",
       "metrics": {
         "jurisdictions": 95,
         "citations": 576
