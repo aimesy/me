@@ -5,9 +5,13 @@ const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const DUCKDB_WASM_URL = "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.33.1-dev45.0/+esm";
 const SFSC_DOCKET_RESULT_LIMIT = 5;
 const SFSC_DOCKET_SEARCH_CONCURRENCY = 6;
+const PROJECT_KEYS = ["sfsc", "tentatives", "cividx", "ndcs", "nysc"];
 const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
   tentatives: { repo: "aimesy/tentatives", branch: "master", path: "LIVE.md" },
+  cividx: { repo: "aimesy/cividx" },
+  ndcs: { repo: "aimesy/ndcs" },
+  nysc: { repo: "aimesy/nysc-data" },
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -89,7 +93,7 @@ function renderLiveAges() {
     setLiveText("generated", `fallback ${formatAgo(fallbackDate)}`, fallbackDate.toLocaleString());
   }
 
-  for (const key of ["sfsc", "tentatives", "cividx"]) {
+  for (const key of PROJECT_KEYS) {
     const updatedAt = liveStatus.projects[key]?.updatedAt || projectData?.projects?.[key]?.updatedAt;
     const date = updatedAt ? new Date(updatedAt) : null;
     setLiveText(`${key}-updated`, date ? formatAgo(date) : "unknown", date ? date.toLocaleString() : "");
@@ -147,6 +151,14 @@ function renderMetrics(target, metrics) {
     container.innerHTML = [
       metric("jurisdictions", formatNumber(metrics.jurisdictions)),
       metric("citations", formatNumber(metrics.citations)),
+    ].join("");
+  }
+
+  if (target === "ndcs" || target === "nysc") {
+    container.innerHTML = [
+      metric("cases", formatNumber(metrics.cases)),
+      metric("documents", formatNumber(metrics.documents)),
+      metric("MB", formatMegabytes(metrics.documentBytes)),
     ].join("");
   }
 }
@@ -673,11 +685,13 @@ async function loadData() {
 }
 
 function githubRawUrl({ repo, branch, path }) {
-  return `https://raw.githubusercontent.com/${repo}/${branch}/${path}?v=${Date.now()}`;
+  return `https://raw.githubusercontent.com/${repo}/${branch || "HEAD"}/${path}?v=${Date.now()}`;
 }
 
 function githubCommitsUrl({ repo, branch, path }) {
-  const params = new URLSearchParams({ sha: branch, path, per_page: "1" });
+  const params = new URLSearchParams({ per_page: "1" });
+  if (branch) params.set("sha", branch);
+  if (path) params.set("path", path);
   return `https://api.github.com/repos/${repo}/commits?${params.toString()}`;
 }
 
@@ -741,13 +755,21 @@ function applyLiveMetrics(key, table) {
     metrics.citations = parseCount(table.get("citations")) || metrics.citations;
     metrics.documents = parseCount(table.get("documents")) || metrics.documents;
   }
+
+  if (key === "ndcs" || key === "nysc") {
+    metrics.cases = parseCount(table.get("cases")) || metrics.cases;
+    metrics.documents = parseCount(table.get("documents")) || metrics.documents;
+    metrics.snapshots = parseCount(table.get("snapshots")) || metrics.snapshots;
+    const bytes = parseBytes(table.get("archive size"));
+    if (bytes) metrics.documentBytes = bytes;
+  }
 }
 
 function renderLiveMetricValues() {
   const projects = projectData.projects;
-  renderMetrics("sfsc", projects.sfsc.metrics);
-  renderMetrics("tentatives", projects.tentatives.metrics);
-  renderMetrics("cividx", projects.cividx.metrics);
+  for (const key of PROJECT_KEYS) {
+    if (projects[key]) renderMetrics(key, projects[key].metrics);
+  }
 
   setText('[data-live="sfsc-rulings"]', formatNumber(projects.sfsc.metrics.tentativeRulings));
   setText('[data-live="sfsc-cases"]', formatNumber(projects.sfsc.metrics.cases));
@@ -760,13 +782,21 @@ function renderLiveMetricValues() {
 }
 
 async function loadLiveRepo(key, config) {
-  const liveResponse = await fetch(githubRawUrl(config), { cache: "no-store" });
-  if (!liveResponse.ok) throw new Error(`${key} LIVE fetch failed: ${liveResponse.status}`);
+  if (config.path) {
+    try {
+      const liveResponse = await fetch(githubRawUrl(config), { cache: "no-store" });
+      if (liveResponse.ok) {
+        const markdown = await liveResponse.text();
+        applyLiveMetrics(key, parseLiveTable(markdown));
+      } else {
+        console.warn(`${key} LIVE fetch unavailable: ${liveResponse.status}`);
+      }
+    } catch (error) {
+      console.warn(`${key} LIVE fetch unavailable`, error);
+    }
+  }
 
-  const markdown = await liveResponse.text();
-  applyLiveMetrics(key, parseLiveTable(markdown));
-
-  let updatedAt = projectData?.projects?.[key]?.updatedAt || new Date().toISOString();
+  let updatedAt = projectData?.projects?.[key]?.updatedAt || null;
   let ref = projectData?.projects?.[key]?.ref || "";
   try {
     const commitResponse = await fetch(githubCommitsUrl(config), { cache: "no-store" });
@@ -802,14 +832,12 @@ function render(data) {
   projectData = data;
   const { projects } = data;
   liveStatus.generatedAt = data.generatedAt;
-  liveStatus.projects = {
-    sfsc: { updatedAt: projects.sfsc.updatedAt, ref: projects.sfsc.ref },
-    tentatives: { updatedAt: projects.tentatives.updatedAt, ref: projects.tentatives.ref },
-    cividx: { updatedAt: projects.cividx.updatedAt, ref: projects.cividx.ref },
-  };
-  renderMetrics("sfsc", projects.sfsc.metrics);
-  renderMetrics("tentatives", projects.tentatives.metrics);
-  renderMetrics("cividx", projects.cividx.metrics);
+  liveStatus.projects = Object.fromEntries(PROJECT_KEYS
+    .filter((key) => projects[key])
+    .map((key) => [key, { updatedAt: projects[key].updatedAt, ref: projects[key].ref }]));
+  for (const key of PROJECT_KEYS) {
+    if (projects[key]) renderMetrics(key, projects[key].metrics);
+  }
 
   renderSfscArchiveSearch();
   renderTentativesSearch();
@@ -825,6 +853,8 @@ function render(data) {
   setText('[data-live="sfsc-ref"]', shortHash(projects.sfsc.ref));
   setText('[data-live="tentatives-ref"]', shortHash(projects.tentatives.ref));
   setText('[data-live="cividx-ref"]', shortHash(projects.cividx.ref));
+  setText('[data-live="ndcs-ref"]', shortHash(projects.ndcs?.ref));
+  setText('[data-live="nysc-ref"]', shortHash(projects.nysc?.ref));
   startLiveAgeTimer();
   refreshLiveRepos().catch((error) => console.error(error));
 }

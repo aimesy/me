@@ -55,12 +55,31 @@ jobs:
           path: cividx
           token: ${{ secrets.GH_TOKEN }}
 
+      - name: Check out NDCS
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: aimesy/ndcs
+          path: ndcs
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Check out NYSC data
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: aimesy/nysc-data
+          ref: main
+          path: nysc-data
+          token: ${{ secrets.GH_TOKEN }}
+
       - name: Build tracker JSON
         working-directory: site
         env:
           SFSC_REPO: ../sfsc
           TENTATIVES_REPO: ../tentatives
           CIVIDX_REPO: ../cividx
+          NDCS_REPO: ../ndcs
+          NYSC_REPO: ../nysc-data
         run: node scripts/build-project-data.mjs
 
       - name: Commit tracker data

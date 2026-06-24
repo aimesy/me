@@ -27,6 +27,14 @@ const config = {
     repo: process.env.CIVIDX_REPO || path.resolve(repoRoot, "..", "..", "projects", "cividx"),
     ref: process.env.CIVIDX_REF || "",
   },
+  ndcs: {
+    repo: process.env.NDCS_REPO || path.resolve(repoRoot, "..", "..", "projects", "ndcs"),
+    ref: process.env.NDCS_REF || "",
+  },
+  nysc: {
+    repo: process.env.NYSC_REPO || path.resolve(repoRoot, "..", "..", "projects", "nysc-data"),
+    ref: process.env.NYSC_REF || "",
+  },
 };
 
 const SEARCH_SAMPLE_LIMIT = 80;
@@ -175,6 +183,67 @@ function parseCsv(text) {
   return rows
     .filter((items) => items.some((item) => item.trim()))
     .map((items) => Object.fromEntries(header.map((name, index) => [name, items[index] ?? ""])));
+}
+
+function parseNdjson(text) {
+  const rows = [];
+  for (const line of String(text || "").split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    try {
+      rows.push(JSON.parse(line));
+    } catch {
+      // Preserve generation if one append-only record is malformed.
+    }
+  }
+  return rows;
+}
+
+function caseKeyFromRecord(record) {
+  const direct = [
+    record.case_number,
+    record.caseNumber,
+    record.index_number,
+    record.index_display,
+    record.case_id,
+    record.caseId,
+  ].filter(Boolean).join("|");
+  if (direct) return direct;
+
+  const ref = Array.isArray(record.source_refs) ? record.source_refs[0] : null;
+  if (!ref) return "";
+  return [
+    ref.court,
+    ref.year_filed,
+    ref.index_number,
+    ref.index_display,
+  ].filter(Boolean).join("|");
+}
+
+function documentArchiveStats(repoConfig) {
+  const rows = parseNdjson(readRepoFile(repoConfig, "archive/document-index.ndjson"));
+  const cases = new Set();
+  let documentBytes = 0;
+  for (const row of rows) {
+    const key = caseKeyFromRecord(row);
+    if (key) cases.add(key);
+    documentBytes += Number(row.bytes_len || row.content_length || 0);
+  }
+
+  return {
+    cases: cases.size,
+    documents: rows.length,
+    documentBytes,
+  };
+}
+
+function publicDataDefault(repo) {
+  return {
+    repo,
+    ref: null,
+    updatedAt: null,
+    metrics: { cases: 0, documents: 0, documentBytes: 0, snapshots: 0 },
+    charts: {},
+  };
 }
 
 function groupCount(rows, key) {
@@ -443,6 +512,31 @@ function buildCividx(previous) {
   };
 }
 
+function buildPublicDataProject(previous, key, repoName, repoConfig) {
+  if (!repoAvailable(repoConfig.repo)) {
+    return previous?.projects?.[key] || publicDataDefault(repoName);
+  }
+
+  const documentStats = documentArchiveStats(repoConfig);
+  const caseIndexRows = parseNdjson(readRepoFile(repoConfig, "archive/cases-index.ndjson"));
+  const caseKeys = new Set(caseIndexRows.map(caseKeyFromRecord).filter(Boolean));
+  const archiveFiles = listRepoFiles(repoConfig, "archive", { tree: true });
+  const snapshotFiles = archiveFiles.filter((file) => /\.(?:json|jsonl|ndjson|csv)$/i.test(file));
+
+  return {
+    repo: repoName,
+    ref: repoHead(repoConfig),
+    updatedAt: repoUpdatedAt(repoConfig),
+    metrics: {
+      cases: caseKeys.size || documentStats.cases,
+      documents: documentStats.documents,
+      documentBytes: documentStats.documentBytes,
+      snapshots: snapshotFiles.length,
+    },
+    charts: {},
+  };
+}
+
 const dataPath = path.join(repoRoot, "assets", "project-data.json");
 let previous = null;
 if (existsSync(dataPath)) {
@@ -457,6 +551,8 @@ const projects = {
   sfsc: buildSfsc(),
   tentatives: buildTentatives(),
   cividx: buildCividx(previous),
+  ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs", config.ndcs),
+  nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc),
 };
 const projectDates = Object.values(projects)
   .map((project) => project.updatedAt)
