@@ -220,6 +220,30 @@
         ]
       }
     },
+    "ndcs": {
+      "repo": "aimesy/ndcs",
+      "ref": null,
+      "updatedAt": null,
+      "metrics": {
+        "cases": 0,
+        "documents": 0,
+        "documentBytes": 0,
+        "snapshots": 0
+      },
+      "charts": {}
+    },
+    "nysc": {
+      "repo": "aimesy/nysc-data",
+      "ref": "c482c24350013fe082d4de8b40bb36adeb49205a",
+      "updatedAt": "2026-06-24T01:53:59Z",
+      "metrics": {
+        "cases": 11,
+        "documents": 17,
+        "documentBytes": 2305410,
+        "snapshots": 371
+      },
+      "charts": {}
+    },
     "cividx": {
       "repo": "aimesy/cividx",
       "ref": "4e9343ad3cd2b87a48d0e4cc941b7a6e28eba014",
@@ -260,30 +284,6 @@
           }
         ]
       }
-    },
-    "ndcs": {
-      "repo": "aimesy/ndcs",
-      "ref": null,
-      "updatedAt": null,
-      "metrics": {
-        "cases": 0,
-        "documents": 0,
-        "documentBytes": 0,
-        "snapshots": 0
-      },
-      "charts": {}
-    },
-    "nysc": {
-      "repo": "aimesy/nysc-data",
-      "ref": "c482c24350013fe082d4de8b40bb36adeb49205a",
-      "updatedAt": "2026-06-24T01:53:59Z",
-      "metrics": {
-        "cases": 11,
-        "documents": 17,
-        "documentBytes": 2305410,
-        "snapshots": 371
-      },
-      "charts": {}
     }
   }
 }

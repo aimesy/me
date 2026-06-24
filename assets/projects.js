@@ -5,7 +5,7 @@ const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const DUCKDB_WASM_URL = "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.33.1-dev45.0/+esm";
 const SFSC_DOCKET_RESULT_LIMIT = 5;
 const SFSC_DOCKET_SEARCH_CONCURRENCY = 6;
-const PROJECT_KEYS = ["sfsc", "tentatives", "cividx", "ndcs", "nysc"];
+const PROJECT_KEYS = ["sfsc", "tentatives", "ndcs", "nysc", "cividx"];
 const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
   tentatives: { repo: "aimesy/tentatives", branch: "master", path: "LIVE.md" },

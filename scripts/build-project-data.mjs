@@ -550,9 +550,9 @@ if (existsSync(dataPath)) {
 const projects = {
   sfsc: buildSfsc(),
   tentatives: buildTentatives(),
-  cividx: buildCividx(previous),
   ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs", config.ndcs),
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc),
+  cividx: buildCividx(previous),
 };
 const projectDates = Object.values(projects)
   .map((project) => project.updatedAt)
