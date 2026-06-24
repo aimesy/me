@@ -10,7 +10,7 @@ const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
   tentatives: { repo: "aimesy/tentatives", branch: "master", path: "LIVE.md" },
   cividx: { repo: "aimesy/cividx" },
-  ndcs: { repo: "aimesy/ndcs" },
+  ndcs: { repo: "aimesy/ndcs-data" },
   nysc: { repo: "aimesy/nysc-data" },
 };
 
@@ -157,7 +157,7 @@ function renderMetrics(target, metrics) {
   if (target === "ndcs" || target === "nysc") {
     container.innerHTML = [
       metric("cases", formatNumber(metrics.cases)),
-      metric("documents", formatNumber(metrics.documents)),
+      metric("files", formatNumber(metrics.mirroredFiles || metrics.documents)),
       metric("MB", formatMegabytes(metrics.documentBytes)),
     ].join("");
   }
@@ -759,6 +759,9 @@ function applyLiveMetrics(key, table) {
   if (key === "ndcs" || key === "nysc") {
     metrics.cases = parseCount(table.get("cases")) || metrics.cases;
     metrics.documents = parseCount(table.get("documents")) || metrics.documents;
+    metrics.mirroredFiles = parseCount(table.get("mirrored files"))
+      || parseCount(table.get("files"))
+      || metrics.mirroredFiles;
     metrics.snapshots = parseCount(table.get("snapshots")) || metrics.snapshots;
     const bytes = parseBytes(table.get("archive size"));
     if (bytes) metrics.documentBytes = bytes;

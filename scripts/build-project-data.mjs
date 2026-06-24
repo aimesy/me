@@ -28,7 +28,7 @@ const config = {
     ref: process.env.CIVIDX_REF || "",
   },
   ndcs: {
-    repo: process.env.NDCS_REPO || path.resolve(repoRoot, "..", "..", "projects", "ndcs"),
+    repo: process.env.NDCS_REPO || path.resolve(repoRoot, "..", "..", "projects", "ndcs-data"),
     ref: process.env.NDCS_REF || "",
   },
   nysc: {
@@ -236,12 +236,21 @@ function documentArchiveStats(repoConfig) {
   };
 }
 
+function dataManifestStats(repoConfig) {
+  const manifest = parseJson(readRepoFile(repoConfig, "data/manifest.json"));
+  const runs = Array.isArray(manifest?.promoted_runs) ? manifest.promoted_runs : [];
+  return runs.reduce((stats, run) => ({
+    mirroredFiles: stats.mirroredFiles + Number(run.promoted_file_count || 0),
+    mirroredBytes: stats.mirroredBytes + Number(run.promoted_bytes || 0),
+  }), { mirroredFiles: 0, mirroredBytes: 0 });
+}
+
 function publicDataDefault(repo) {
   return {
     repo,
     ref: null,
     updatedAt: null,
-    metrics: { cases: 0, documents: 0, documentBytes: 0, snapshots: 0 },
+    metrics: { cases: 0, documents: 0, mirroredFiles: 0, documentBytes: 0, snapshots: 0 },
     charts: {},
   };
 }
@@ -518,6 +527,7 @@ function buildPublicDataProject(previous, key, repoName, repoConfig) {
   }
 
   const documentStats = documentArchiveStats(repoConfig);
+  const manifestStats = dataManifestStats(repoConfig);
   const caseIndexRows = parseNdjson(readRepoFile(repoConfig, "archive/cases-index.ndjson"));
   const caseKeys = new Set(caseIndexRows.map(caseKeyFromRecord).filter(Boolean));
   const archiveFiles = listRepoFiles(repoConfig, "archive", { tree: true });
@@ -530,7 +540,8 @@ function buildPublicDataProject(previous, key, repoName, repoConfig) {
     metrics: {
       cases: caseKeys.size || documentStats.cases,
       documents: documentStats.documents,
-      documentBytes: documentStats.documentBytes,
+      mirroredFiles: manifestStats.mirroredFiles || documentStats.documents,
+      documentBytes: documentStats.documentBytes || manifestStats.mirroredBytes,
       snapshots: snapshotFiles.length,
     },
     charts: {},
@@ -550,7 +561,7 @@ if (existsSync(dataPath)) {
 const projects = {
   sfsc: buildSfsc(),
   tentatives: buildTentatives(),
-  ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs", config.ndcs),
+  ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc),
   cividx: buildCividx(previous),
 };
