@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-23T22:47:38.000Z",
+  "generatedAt": "2026-06-24T05:26:32.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "dfb862a4999469118aac525b953d5d91d281c6d4",
-      "updatedAt": "2026-06-23T09:09:02-07:00",
+      "ref": "4e889e2257a3b12bb426b444b3d002a9cc2df5a4",
+      "updatedAt": "2026-06-23T20:15:15-07:00",
       "metrics": {
         "tentativeRulings": 366101,
         "cases": 0,
@@ -47,100 +47,175 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "ea9a630cc04100acc7f01fbcc15d547f2d28efdb",
-      "updatedAt": "2026-06-23T22:47:38Z",
+      "ref": "d24569abf55145a4b0c9fd4bb6fe81d9be633a95",
+      "updatedAt": "2026-06-24T05:26:32Z",
       "metrics": {
-        "tentativeRulings": 16671,
-        "parsedCounties": 17,
-        "documents": 1386,
-        "documentBytes": 767326011
+        "tentativeRulings": 18076,
+        "parsedCounties": 32,
+        "documents": 2409,
+        "documentBytes": 819041544
       },
       "charts": {
         "rulingsByCounty": [
           {
             "label": "Amador",
-            "value": 206,
+            "value": 203,
             "documents": 31
           },
           {
+            "label": "Butte",
+            "value": 308,
+            "documents": 20
+          },
+          {
             "label": "Calaveras",
-            "value": 9197,
-            "documents": 576
+            "value": 5509,
+            "documents": 374
           },
           {
             "label": "Contra Costa",
-            "value": 2004,
-            "documents": 137
+            "value": 2367,
+            "documents": 165
           },
           {
             "label": "El Dorado",
-            "value": 606,
-            "documents": 66
+            "value": 821,
+            "documents": 91
           },
           {
             "label": "Fresno",
-            "value": 147,
-            "documents": 34
+            "value": 278,
+            "documents": 68
+          },
+          {
+            "label": "Los Angeles",
+            "value": 398,
+            "documents": 152
+          },
+          {
+            "label": "Marin",
+            "value": 52,
+            "documents": 8
           },
           {
             "label": "Merced",
-            "value": 208,
-            "documents": 15
+            "value": 326,
+            "documents": 29
+          },
+          {
+            "label": "Monterey",
+            "value": 7,
+            "documents": 7
+          },
+          {
+            "label": "Napa",
+            "value": 48,
+            "documents": 11
           },
           {
             "label": "Nevada",
-            "value": 674,
-            "documents": 69
+            "value": 760,
+            "documents": 77
           },
           {
             "label": "Orange",
-            "value": 1292,
-            "documents": 144
+            "value": 1982,
+            "documents": 256
           },
           {
             "label": "Placer",
-            "value": 231,
-            "documents": 19
+            "value": 541,
+            "documents": 45
           },
           {
             "label": "Plumas",
-            "value": 84,
-            "documents": 5
+            "value": 178,
+            "documents": 8
           },
           {
             "label": "Riverside",
-            "value": 33,
-            "documents": 12
+            "value": 339,
+            "documents": 86
+          },
+          {
+            "label": "San Benito",
+            "value": 24,
+            "documents": 4
           },
           {
             "label": "San Bernardino",
-            "value": 102,
-            "documents": 80
+            "value": 196,
+            "documents": 137
           },
           {
-            "label": "San Francisco UFC",
-            "value": 231,
-            "documents": 32
+            "label": "San Francisco",
+            "value": 325,
+            "documents": 44
+          },
+          {
+            "label": "San Luis Obispo",
+            "value": 80,
+            "documents": 11
+          },
+          {
+            "label": "San Mateo",
+            "value": 120,
+            "documents": 22
+          },
+          {
+            "label": "Santa Barbara",
+            "value": 403,
+            "documents": 403
           },
           {
             "label": "Santa Clara",
-            "value": 484,
-            "documents": 72
+            "value": 808,
+            "documents": 124
+          },
+          {
+            "label": "Santa Cruz",
+            "value": 11,
+            "documents": 3
           },
           {
             "label": "Shasta",
-            "value": 987,
-            "documents": 52
+            "value": 1305,
+            "documents": 68
+          },
+          {
+            "label": "Sierra",
+            "value": 1,
+            "documents": 1
           },
           {
             "label": "Solano",
-            "value": 168,
-            "documents": 41
+            "value": 370,
+            "documents": 70
+          },
+          {
+            "label": "Sonoma",
+            "value": 208,
+            "documents": 28
+          },
+          {
+            "label": "Stanislaus",
+            "value": 10,
+            "documents": 2
+          },
+          {
+            "label": "Tulare",
+            "value": 21,
+            "documents": 3
           },
           {
             "label": "Tuolumne",
             "value": 17,
             "documents": 1
+          },
+          {
+            "label": "Ventura",
+            "value": 60,
+            "documents": 60
           }
         ]
       }
