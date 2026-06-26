@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-26T15:02:36.000Z",
+  "generatedAt": "2026-06-26T23:23:27.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -235,14 +235,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "8f3e15a028dedb568c3a7d0fd90a6de910d407af",
-      "updatedAt": "2026-06-26T15:02:36Z",
+      "ref": "0ef0315787bd94ea961592ee953ae208b78a6532",
+      "updatedAt": "2026-06-26T23:23:27Z",
       "metrics": {
-        "cases": 2766,
-        "documents": 4761,
-        "mirroredFiles": 4761,
-        "documentBytes": 814899294,
-        "snapshots": 102906
+        "cases": 2771,
+        "documents": 4770,
+        "mirroredFiles": 4770,
+        "documentBytes": 815892326,
+        "snapshots": 103073
       },
       "charts": {}
     },
