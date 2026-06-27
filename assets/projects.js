@@ -700,9 +700,9 @@ function parseLiveTable(markdown) {
   for (const line of String(markdown || "").split(/\r?\n/)) {
     const match = line.match(/^\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$/);
     if (!match) continue;
-    const label = match[1].trim();
+    const label = normalizeMetricLabel(match[1]);
     const value = match[2].trim();
-    if (!label || label === "Metric" || /^-+$/.test(label)) continue;
+    if (!label || label === "metric" || /^-+$/.test(label)) continue;
     metrics.set(label.toLowerCase(), value);
   }
   return metrics;
@@ -711,19 +711,39 @@ function parseLiveTable(markdown) {
 function parseCount(value) {
   const text = String(value || "").replace(/,/g, "");
   const match = text.match(/-?\d+(?:\.\d+)?/);
-  return match ? Number(match[0]) : 0;
+  return match ? Number(match[0]) : null;
+}
+
+function normalizeMetricLabel(label) {
+  return String(label || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, " ");
 }
 
 function parseBytes(value) {
   const text = String(value || "").replace(/,/g, "").trim();
   const match = text.match(/(-?\d+(?:\.\d+)?)\s*(gb|mb|kb|bytes?|b)?/i);
-  if (!match) return 0;
+  if (!match) return null;
   const number = Number(match[1]);
   const unit = (match[2] || "bytes").toLowerCase();
+  if (Number.isNaN(number)) return null;
   if (unit === "gb") return number * 1024 * 1024 * 1024;
   if (unit === "mb") return number * 1024 * 1024;
   if (unit === "kb") return number * 1024;
   return number;
+}
+
+function pickLiveMetric(metrics, keys, parser = parseCount) {
+  for (const key of keys) {
+    const normalized = normalizeMetricLabel(key);
+    if (!metrics.has(normalized)) continue;
+    const value = parser(metrics.get(normalized));
+    if (value === null || Number.isNaN(value)) continue;
+    return value;
+  }
+  return null;
 }
 
 function applyLiveMetrics(key, table) {
@@ -732,39 +752,37 @@ function applyLiveMetrics(key, table) {
   const metrics = project.metrics;
 
   if (key === "sfsc") {
-    metrics.tentativeRulings = parseCount(table.get("tentative rulings")) || metrics.tentativeRulings;
-    metrics.cases = parseCount(table.get("dockets")) || metrics.cases;
-    metrics.documents = parseCount(table.get("case documents")) || metrics.documents;
-    metrics.docketEntries = parseCount(table.get("docket entries")) || metrics.docketEntries;
-    const bytes = parseBytes(table.get("archive size"));
-    if (bytes) metrics.documentBytes = bytes;
+    metrics.tentativeRulings = pickLiveMetric(table, ["tentative rulings"], parseCount) ?? metrics.tentativeRulings;
+    metrics.cases = pickLiveMetric(table, ["dockets", "cases"], parseCount) ?? metrics.cases;
+    metrics.documents = pickLiveMetric(table, ["case documents", "documents indexed", "documents archived", "documents"], parseCount) ?? metrics.documents;
+    metrics.docketEntries = pickLiveMetric(table, ["docket entries"], parseCount) ?? metrics.docketEntries;
+    const bytes = pickLiveMetric(table, ["archive size"], parseBytes);
+    if (bytes !== null) metrics.documentBytes = bytes;
   }
 
   if (key === "tentatives") {
-    metrics.tentativeRulings = parseCount(table.get("parsed rulings")) || metrics.tentativeRulings;
-    metrics.parsedCounties = parseCount(table.get("parsed counties")) || metrics.parsedCounties;
-    metrics.documents = parseCount(table.get("source documents")) || metrics.documents;
-    metrics.archivedFiles = parseCount(table.get("archived files")) || metrics.archivedFiles;
-    const bytes = parseBytes(table.get("archive size"));
-    if (bytes) metrics.documentBytes = bytes;
+    metrics.tentativeRulings = pickLiveMetric(table, ["parsed rulings", "tentative rulings"], parseCount) ?? metrics.tentativeRulings;
+    metrics.parsedCounties = pickLiveMetric(table, ["parsed counties", "counties"], parseCount) ?? metrics.parsedCounties;
+    metrics.documents = pickLiveMetric(table, ["source documents", "documents"], parseCount) ?? metrics.documents;
+    metrics.archivedFiles = pickLiveMetric(table, ["archived files", "archived documents"], parseCount) ?? metrics.archivedFiles;
+    const bytes = pickLiveMetric(table, ["archive size"], parseBytes);
+    if (bytes !== null) metrics.documentBytes = bytes;
     metrics.coverage = table.get("hearing-date coverage") || metrics.coverage;
   }
 
   if (key === "cividx") {
-    metrics.jurisdictions = parseCount(table.get("jurisdictions")) || metrics.jurisdictions;
-    metrics.citations = parseCount(table.get("citations")) || metrics.citations;
-    metrics.documents = parseCount(table.get("documents")) || metrics.documents;
+    metrics.jurisdictions = pickLiveMetric(table, ["jurisdictions"], parseCount) ?? metrics.jurisdictions;
+    metrics.citations = pickLiveMetric(table, ["citations"], parseCount) ?? metrics.citations;
+    metrics.documents = pickLiveMetric(table, ["documents"], parseCount) ?? metrics.documents;
   }
 
   if (key === "ndcs" || key === "nysc") {
-    metrics.cases = parseCount(table.get("cases")) || metrics.cases;
-    metrics.documents = parseCount(table.get("documents")) || metrics.documents;
-    metrics.mirroredFiles = parseCount(table.get("mirrored files"))
-      || parseCount(table.get("files"))
-      || metrics.mirroredFiles;
-    metrics.snapshots = parseCount(table.get("snapshots")) || metrics.snapshots;
-    const bytes = parseBytes(table.get("archive size"));
-    if (bytes) metrics.documentBytes = bytes;
+    metrics.cases = pickLiveMetric(table, ["cases"], parseCount) ?? metrics.cases;
+    metrics.documents = pickLiveMetric(table, ["documents"], parseCount) ?? metrics.documents;
+    metrics.mirroredFiles = pickLiveMetric(table, ["mirrored files", "files"], parseCount) ?? metrics.mirroredFiles;
+    metrics.snapshots = pickLiveMetric(table, ["snapshots"], parseCount) ?? metrics.snapshots;
+    const bytes = pickLiveMetric(table, ["archive size"], parseBytes);
+    if (bytes !== null) metrics.documentBytes = bytes;
   }
 }
 
