@@ -1,1 +1,291 @@
-{  "generatedAt": "2026-06-27T01:28:37.000Z",  "generator": "scripts/build-project-data.mjs",  "projects": {    "sfsc": {      "repo": "aimesy/sfsc",      "ref": "dd3694987837f3eb5bdb3e629220b18c0091c1e2",      "updatedAt": "2026-06-25T09:11:42-07:00",      "metrics": {        "tentativeRulings": 366101,        "cases": 0,        "documents": 0,        "documentBytes": 0      },      "charts": {        "rulingsByDepartment": [          {            "label": "Dept. 204 - Probate",            "value": 197856          },          {            "label": "Dept. 301 - Discovery",            "value": 4218          },          {            "label": "Dept. 302 - Civil Law and Motion",            "value": 121424          },          {            "label": "Dept. 304 - Asbestos Law and Motion",            "value": 6324          },          {            "label": "Dept. 304 - Asbestos Discovery",            "value": 1375          },          {            "label": "Dept. 501 - Real Property Court",            "value": 34904          }        ]      },      "searchSamples": {        "dockets": [],        "rulings": []      }    },    "tentatives": {      "repo": "aimesy/tentatives",      "ref": "c41a507f2433bcbe0fc7e1bafeaf1044d9f7d443",      "updatedAt": "2026-06-26T04:23:09Z",      "metrics": {        "tentativeRulings": 18076,        "parsedCounties": 32,        "documents": 2409,        "documentBytes": 860804535      },      "charts": {        "rulingsByCounty": [          {            "label": "Amador",            "value": 203,            "documents": 31          },          {            "label": "Butte",            "value": 308,            "documents": 20          },          {            "label": "Calaveras",            "value": 5509,            "documents": 374          },          {            "label": "Contra Costa",            "value": 2367,            "documents": 165          },          {            "label": "El Dorado",            "value": 821,            "documents": 91          },          {            "label": "Fresno",            "value": 278,            "documents": 68          },          {            "label": "Los Angeles",            "value": 398,            "documents": 152          },          {            "label": "Marin",            "value": 52,            "documents": 8          },          {            "label": "Merced",            "value": 326,            "documents": 29          },          {            "label": "Monterey",            "value": 7,            "documents": 7          },          {            "label": "Napa",            "value": 48,            "documents": 11          },          {            "label": "Nevada",            "value": 760,            "documents": 77          },          {            "label": "Orange",            "value": 1982,            "documents": 256          },          {            "label": "Placer",            "value": 541,            "documents": 45          },          {            "label": "Plumas",            "value": 178,            "documents": 8          },          {            "label": "Riverside",            "value": 339,            "documents": 86          },          {            "label": "San Benito",            "value": 24,            "documents": 4          },          {            "label": "San Bernardino",            "value": 196,            "documents": 137          },          {            "label": "San Francisco",            "value": 325,            "documents": 44          },          {            "label": "San Luis Obispo",            "value": 80,            "documents": 11          },          {            "label": "San Mateo",            "value": 120,            "documents": 22          },          {            "label": "Santa Barbara",            "value": 403,            "documents": 403          },          {            "label": "Santa Clara",            "value": 808,            "documents": 124          },          {            "label": "Santa Cruz",            "value": 11,            "documents": 3          },          {            "label": "Shasta",            "value": 1305,            "documents": 68          },          {            "label": "Sierra",            "value": 1,            "documents": 1          },          {            "label": "Solano",            "value": 370,            "documents": 70          },          {            "label": "Sonoma",            "value": 208,            "documents": 28          },          {            "label": "Stanislaus",            "value": 10,            "documents": 2          },          {            "label": "Tulare",            "value": 21,            "documents": 3          },          {            "label": "Tuolumne",            "value": 17,            "documents": 1          },          {            "label": "Ventura",            "value": 60,            "documents": 60          }        ]      }    },    "ndcs": {      "repo": "aimesy/ndcs-data",      "ref": "9638971e0e95c6bd5ba302ba70351de0dc450b14",      "updatedAt": "2026-06-24T13:58:38-07:00",      "metrics": {        "cases": 0,        "documents": 0,        "mirroredFiles": 447,        "documentBytes": 4028161,        "snapshots": 0      },      "charts": {}    },    "nysc": {      "repo": "aimesy/nysc-data",      "ref": "bb46ce2add890e60c23deadf5a31307d98832420",      "updatedAt": "2026-06-27T01:28:37Z",      "metrics": {        "cases": 2790,        "documents": 4804,        "mirroredFiles": 4804,        "documentBytes": 822239890,        "snapshots": 104733      },      "charts": {}    },    "cividx": {      "repo": "aimesy/cividx",      "ref": "4e9343ad3cd2b87a48d0e4cc941b7a6e28eba014",      "updatedAt": "2026-06-23T14:33:49-07:00",      "metrics": {        "jurisdictions": 95,        "citations": 576      },      "charts": {        "jurisdictionTypes": [          {            "label": "state",            "value": 50          },          {            "label": "tribal",            "value": 20          },          {            "label": "specialty state",            "value": 8          },          {            "label": "federal",            "value": 7          },          {            "label": "territorial",            "value": 5          },          {            "label": "specialty federal",            "value": 4          },          {            "label": "sub state",            "value": 1          }        ]      }    }  }}
+{
+  "generatedAt": "2026-06-27T01:28:37.000Z",
+  "generator": "scripts/build-project-data.mjs",
+  "projects": {
+    "sfsc": {
+      "repo": "aimesy/sfsc",
+      "ref": "dd3694987837f3eb5bdb3e629220b18c0091c1e2",
+      "updatedAt": "2026-06-25T09:11:42-07:00",
+      "metrics": {
+        "tentativeRulings": 366101,
+        "cases": 0,
+        "documents": 0,
+        "documentBytes": 0
+      },
+      "charts": {
+        "rulingsByDepartment": [
+          {
+            "label": "Dept. 204 - Probate",
+            "value": 197856
+          },
+          {
+            "label": "Dept. 301 - Discovery",
+            "value": 4218
+          },
+          {
+            "label": "Dept. 302 - Civil Law and Motion",
+            "value": 121424
+          },
+          {
+            "label": "Dept. 304 - Asbestos Law and Motion",
+            "value": 6324
+          },
+          {
+            "label": "Dept. 304 - Asbestos Discovery",
+            "value": 1375
+          },
+          {
+            "label": "Dept. 501 - Real Property Court",
+            "value": 34904
+          }
+        ]
+      },
+      "searchSamples": {
+        "dockets": [],
+        "rulings": []
+      }
+    },
+    "tentatives": {
+      "repo": "aimesy/tentatives",
+      "ref": "c41a507f2433bcbe0fc7e1bafeaf1044d9f7d443",
+      "updatedAt": "2026-06-26T04:23:09Z",
+      "metrics": {
+        "tentativeRulings": 18076,
+        "parsedCounties": 32,
+        "documents": 2409,
+        "documentBytes": 860804535
+      },
+      "charts": {
+        "rulingsByCounty": [
+          {
+            "label": "Amador",
+            "value": 203,
+            "documents": 31
+          },
+          {
+            "label": "Butte",
+            "value": 308,
+            "documents": 20
+          },
+          {
+            "label": "Calaveras",
+            "value": 5509,
+            "documents": 374
+          },
+          {
+            "label": "Contra Costa",
+            "value": 2367,
+            "documents": 165
+          },
+          {
+            "label": "El Dorado",
+            "value": 821,
+            "documents": 91
+          },
+          {
+            "label": "Fresno",
+            "value": 278,
+            "documents": 68
+          },
+          {
+            "label": "Los Angeles",
+            "value": 398,
+            "documents": 152
+          },
+          {
+            "label": "Marin",
+            "value": 52,
+            "documents": 8
+          },
+          {
+            "label": "Merced",
+            "value": 326,
+            "documents": 29
+          },
+          {
+            "label": "Monterey",
+            "value": 7,
+            "documents": 7
+          },
+          {
+            "label": "Napa",
+            "value": 48,
+            "documents": 11
+          },
+          {
+            "label": "Nevada",
+            "value": 760,
+            "documents": 77
+          },
+          {
+            "label": "Orange",
+            "value": 1982,
+            "documents": 256
+          },
+          {
+            "label": "Placer",
+            "value": 541,
+            "documents": 45
+          },
+          {
+            "label": "Plumas",
+            "value": 178,
+            "documents": 8
+          },
+          {
+            "label": "Riverside",
+            "value": 339,
+            "documents": 86
+          },
+          {
+            "label": "San Benito",
+            "value": 24,
+            "documents": 4
+          },
+          {
+            "label": "San Bernardino",
+            "value": 196,
+            "documents": 137
+          },
+          {
+            "label": "San Francisco",
+            "value": 325,
+            "documents": 44
+          },
+          {
+            "label": "San Luis Obispo",
+            "value": 80,
+            "documents": 11
+          },
+          {
+            "label": "San Mateo",
+            "value": 120,
+            "documents": 22
+          },
+          {
+            "label": "Santa Barbara",
+            "value": 403,
+            "documents": 403
+          },
+          {
+            "label": "Santa Clara",
+            "value": 808,
+            "documents": 124
+          },
+          {
+            "label": "Santa Cruz",
+            "value": 11,
+            "documents": 3
+          },
+          {
+            "label": "Shasta",
+            "value": 1305,
+            "documents": 68
+          },
+          {
+            "label": "Sierra",
+            "value": 1,
+            "documents": 1
+          },
+          {
+            "label": "Solano",
+            "value": 370,
+            "documents": 70
+          },
+          {
+            "label": "Sonoma",
+            "value": 208,
+            "documents": 28
+          },
+          {
+            "label": "Stanislaus",
+            "value": 10,
+            "documents": 2
+          },
+          {
+            "label": "Tulare",
+            "value": 21,
+            "documents": 3
+          },
+          {
+            "label": "Tuolumne",
+            "value": 17,
+            "documents": 1
+          },
+          {
+            "label": "Ventura",
+            "value": 60,
+            "documents": 60
+          }
+        ]
+      }
+    },
+    "ndcs": {
+      "repo": "aimesy/ndcs-data",
+      "ref": "9638971e0e95c6bd5ba302ba70351de0dc450b14",
+      "updatedAt": "2026-06-24T13:58:38-07:00",
+      "metrics": {
+        "cases": 0,
+        "documents": 0,
+        "mirroredFiles": 447,
+        "documentBytes": 4028161,
+        "snapshots": 0
+      },
+      "charts": {}
+    },
+    "nysc": {
+      "repo": "aimesy/nysc-data",
+      "ref": "bb46ce2add890e60c23deadf5a31307d98832420",
+      "updatedAt": "2026-06-27T01:28:37Z",
+      "metrics": {
+        "cases": 2790,
+        "documents": 4804,
+        "mirroredFiles": 4804,
+        "documentBytes": 822239890,
+        "snapshots": 104733
+      },
+      "charts": {}
+    },
+    "cividx": {
+      "repo": "aimesy/cividx",
+      "ref": "4e9343ad3cd2b87a48d0e4cc941b7a6e28eba014",
+      "updatedAt": "2026-06-23T14:33:49-07:00",
+      "metrics": {
+        "jurisdictions": 95,
+        "citations": 576
+      },
+      "charts": {
+        "jurisdictionTypes": [
+          {
+            "label": "state",
+            "value": 50
+          },
+          {
+            "label": "tribal",
+            "value": 20
+          },
+          {
+            "label": "specialty state",
+            "value": 8
+          },
+          {
+            "label": "federal",
+            "value": 7
+          },
+          {
+            "label": "territorial",
+            "value": 5
+          },
+          {
+            "label": "specialty federal",
+            "value": 4
+          },
+          {
+            "label": "sub state",
+            "value": 1
+          }
+        ]
+      }
+    }
+  }
+}

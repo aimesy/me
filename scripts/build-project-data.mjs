@@ -121,57 +121,6 @@ function parseJson(text) {
   }
 }
 
-function normalizeLiveMetricLabel(value) {
-  return String(value || "")
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/\s+/g, " ");
-}
-
-function parseLiveTableMetrics(markdown) {
-  const metrics = new Map();
-  for (const line of String(markdown || "").split(/\r?\n/)) {
-    const match = line.match(/^\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$/);
-    if (!match) continue;
-    const label = normalizeLiveMetricLabel(match[1]);
-    const value = match[2].trim();
-    if (!label || label === "metric" || /^-+$/.test(label)) continue;
-    metrics.set(label, value);
-  }
-  return metrics;
-}
-
-function parseLiveCount(value) {
-  const text = String(value || "").replace(/,/g, "").trim();
-  const match = text.match(/-?\d+(?:\.\d+)?/);
-  return match ? Number(match[0]) : null;
-}
-
-function parseLiveBytes(value) {
-  const text = String(value || "").replace(/,/g, "").trim();
-  const match = text.match(/(-?\d+(?:\.\d+)?)\s*(gb|mb|kb|bytes?|b)?/i);
-  if (!match) return null;
-  const number = Number(match[1]);
-  const unit = (match[2] || "bytes").toLowerCase();
-  if (Number.isNaN(number)) return null;
-  if (unit === "gb") return number * 1024 * 1024 * 1024;
-  if (unit === "mb") return number * 1024 * 1024;
-  if (unit === "kb") return number * 1024;
-  return number;
-}
-
-function pickLiveMetric(metrics, candidates, parser = parseLiveCount) {
-  for (const candidate of candidates) {
-    const key = normalizeLiveMetricLabel(candidate);
-    if (!metrics.has(key)) continue;
-    const value = parser(metrics.get(key));
-    if (value === null || Number.isNaN(value)) continue;
-    return value;
-  }
-  return null;
-}
-
 function repoHead({ repo, ref }) {
   if (!repoAvailable(repo)) return null;
   try {
@@ -489,20 +438,15 @@ function buildSfsc() {
   const documentIndex = readRepoFile(config.sfsc, "archive/document-index.ndjson");
   const documentStats = sfscDocumentIndexStats(documentIndex);
   const indexedDocuments = documentStats.documents || caseStats.docketDocumentRefs;
-  const liveMetrics = parseLiveTableMetrics(readRepoFile(config.sfsc, "LIVE.md"));
-  const liveTentativeRulings = pickLiveMetric(liveMetrics, ["tentative rulings"]);
-  const liveCases = pickLiveMetric(liveMetrics, ["dockets", "cases"]);
-  const liveDocuments = pickLiveMetric(liveMetrics, ["documents indexed", "case documents", "documents archived", "documents"]);
-  const liveArchiveBytes = pickLiveMetric(liveMetrics, ["archive size"], parseLiveBytes);
   return {
     repo: "aimesy/sfsc",
     ref: repoHead(config.sfsc),
     updatedAt: repoUpdatedAt(config.sfsc),
     metrics: {
-      tentativeRulings: liveTentativeRulings === null ? parsed.tentativeRulings : liveTentativeRulings,
-      cases: liveCases === null ? (caseStats.cases || caseFiles) : liveCases,
-      documents: liveDocuments === null ? indexedDocuments : liveDocuments,
-      documentBytes: liveArchiveBytes === null ? (documentStats.documentBytes || repoFileSize(config.sfsc, "data/documents.parquet")) : liveArchiveBytes,
+      tentativeRulings: parsed.tentativeRulings,
+      cases: caseStats.cases || caseFiles,
+      documents: indexedDocuments,
+      documentBytes: documentStats.documentBytes || repoFileSize(config.sfsc, "data/documents.parquet"),
     },
     charts: {
       rulingsByDepartment: parsed.departments,
