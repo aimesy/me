@@ -35,6 +35,10 @@ const config = {
     repo: process.env.NYSC_REPO || path.resolve(repoRoot, "..", "..", "projects", "nysc-data"),
     ref: process.env.NYSC_REF || "",
   },
+  kcsc: {
+    repo: process.env.KCSC_REPO || path.resolve(repoRoot, "..", "..", "projects", "kcsc-data"),
+    ref: process.env.KCSC_REF || "",
+  },
 };
 
 const SEARCH_SAMPLE_LIMIT = 80;
@@ -239,10 +243,27 @@ function documentArchiveStats(repoConfig) {
 function dataManifestStats(repoConfig) {
   const manifest = parseJson(readRepoFile(repoConfig, "data/manifest.json"));
   const runs = Array.isArray(manifest?.promoted_runs) ? manifest.promoted_runs : [];
-  return runs.reduce((stats, run) => ({
+  const promotedStats = runs.reduce((stats, run) => ({
     mirroredFiles: stats.mirroredFiles + Number(run.promoted_file_count || 0),
     mirroredBytes: stats.mirroredBytes + Number(run.promoted_bytes || 0),
   }), { mirroredFiles: 0, mirroredBytes: 0 });
+  const tables = Object.values(manifest?.tables || {});
+  const tableFiles = tables.filter((table) => table?.path).length;
+  const tableBytes = tables.reduce((sum, table) => sum + Number(table?.size_bytes || 0), 0);
+  const archiveCases = Number(
+    manifest?.archive?.cases
+      || manifest?.archive?.cases_index_rows
+      || manifest?.normalization?.tables?.cases
+      || 0,
+  );
+  const archiveIndexFiles = manifest?.archive?.cases_index ? 1 : 0;
+  const archiveFiles = Number(manifest?.archive?.cases_index_rows || manifest?.archive?.cases || 0) + archiveIndexFiles;
+  return {
+    cases: archiveCases,
+    mirroredFiles: promotedStats.mirroredFiles || archiveFiles + tableFiles,
+    mirroredBytes: promotedStats.mirroredBytes || tableBytes,
+    snapshots: archiveFiles,
+  };
 }
 
 function publicDataDefault(repo) {
@@ -532,17 +553,18 @@ function buildPublicDataProject(previous, key, repoName, repoConfig) {
   const caseKeys = new Set(caseIndexRows.map(caseKeyFromRecord).filter(Boolean));
   const archiveFiles = listRepoFiles(repoConfig, "archive", { tree: true });
   const snapshotFiles = archiveFiles.filter((file) => /\.(?:json|jsonl|ndjson|csv)$/i.test(file));
+  const snapshotBytes = snapshotFiles.length <= 5000 ? sumRepoFileSizes(repoConfig, snapshotFiles) : 0;
 
   return {
     repo: repoName,
     ref: repoHead(repoConfig),
     updatedAt: repoUpdatedAt(repoConfig),
     metrics: {
-      cases: caseKeys.size || documentStats.cases,
+      cases: caseKeys.size || manifestStats.cases || documentStats.cases,
       documents: documentStats.documents,
-      mirroredFiles: manifestStats.mirroredFiles || documentStats.documents,
-      documentBytes: documentStats.documentBytes || manifestStats.mirroredBytes,
-      snapshots: snapshotFiles.length,
+      mirroredFiles: manifestStats.mirroredFiles || documentStats.documents || snapshotFiles.length,
+      documentBytes: documentStats.documentBytes || ((snapshotBytes || 0) + (manifestStats.mirroredBytes || 0)) || manifestStats.mirroredBytes,
+      snapshots: snapshotFiles.length || manifestStats.snapshots || 0,
     },
     charts: {},
   };
@@ -563,6 +585,7 @@ const projects = {
   tentatives: buildTentatives(),
   ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc),
+  kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc-data", config.kcsc),
   cividx: buildCividx(previous),
 };
 const projectDates = Object.values(projects)

@@ -80,6 +80,19 @@ jobs:
             archive/promotions/*
           sparse-checkout-cone-mode: false
 
+      - name: Check out KCSC data
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: aimesy/kcsc-data
+          ref: master
+          path: kcsc-data
+          token: ${{ secrets.GH_TOKEN }}
+          sparse-checkout: |
+            archive/cases-index.ndjson
+            data/manifest.json
+          sparse-checkout-cone-mode: false
+
       - name: Build tracker JSON
         working-directory: site
         env:
@@ -88,6 +101,7 @@ jobs:
           CIVIDX_REPO: ../cividx
           NDCS_REPO: ../ndcs-data
           NYSC_REPO: ../nysc-data
+          KCSC_REPO: ../kcsc-data
         run: node scripts/build-project-data.mjs
 
       - name: Commit tracker data

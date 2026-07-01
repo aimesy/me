@@ -5,13 +5,15 @@ const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const DUCKDB_WASM_URL = "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.33.1-dev45.0/+esm";
 const SFSC_DOCKET_RESULT_LIMIT = 5;
 const SFSC_DOCKET_SEARCH_CONCURRENCY = 6;
-const PROJECT_KEYS = ["sfsc", "tentatives", "ndcs", "nysc", "cividx"];
+const PROJECT_KEYS = ["sfsc", "tentatives", "ndcs", "nysc", "kcsc", "cividx"];
+const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
   tentatives: { repo: "aimesy/tentatives", branch: "master", path: "LIVE.md" },
   cividx: { repo: "aimesy/cividx" },
   ndcs: { repo: "aimesy/ndcs-data" },
   nysc: { repo: "aimesy/nysc-data" },
+  kcsc: { repo: "aimesy/kcsc-data", branch: "master" },
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -154,7 +156,7 @@ function renderMetrics(target, metrics) {
     ].join("");
   }
 
-  if (target === "ndcs" || target === "nysc") {
+  if (PUBLIC_DATA_KEYS.has(target)) {
     container.innerHTML = [
       metric("cases", formatNumber(metrics.cases)),
       metric("files", formatNumber(metrics.mirroredFiles || metrics.documents)),
@@ -756,7 +758,7 @@ function applyLiveMetrics(key, table) {
     metrics.documents = parseCount(table.get("documents")) || metrics.documents;
   }
 
-  if (key === "ndcs" || key === "nysc") {
+  if (PUBLIC_DATA_KEYS.has(key)) {
     metrics.cases = parseCount(table.get("cases")) || metrics.cases;
     metrics.documents = parseCount(table.get("documents")) || metrics.documents;
     metrics.mirroredFiles = parseCount(table.get("mirrored files"))
@@ -858,6 +860,7 @@ function render(data) {
   setText('[data-live="cividx-ref"]', shortHash(projects.cividx.ref));
   setText('[data-live="ndcs-ref"]', shortHash(projects.ndcs?.ref));
   setText('[data-live="nysc-ref"]', shortHash(projects.nysc?.ref));
+  setText('[data-live="kcsc-ref"]', shortHash(projects.kcsc?.ref));
   startLiveAgeTimer();
   refreshLiveRepos().catch((error) => console.error(error));
 }
