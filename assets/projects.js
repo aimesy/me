@@ -14,7 +14,16 @@ const LIVE_REPOS = {
   tentatives: { repo: "aimesy/tentatives", branch: "master", path: "LIVE.md" },
   cividx: { repo: "aimesy/cividx" },
   ndcs: { repo: "aimesy/ndcs-data", branch: "master", manifestPaths: ["data/common/manifest.json", "data/manifest.json"] },
-  nysc: { repo: "aimesy/nysc-data", branch: "main", manifestPaths: ["archive/case-directory/manifest.json"] },
+  nysc: {
+    repo: "aimesy/nysc-data",
+    branch: "main",
+    manifestPaths: [
+      "archive/case-directory/manifest.json",
+      "data/common/manifest.json",
+      "data/common/shards/documents/manifest.json",
+    ],
+    releaseAssetPrefix: "docs-",
+  },
   kcsc: { repo: "aimesy/kcsc", branch: "master", statsRepo: "aimesy/kcsc-data", statsBranch: "master", manifestPaths: ["data/manifest.json"] },
 };
 
@@ -844,6 +853,13 @@ function applyPublicDataManifests(key, manifests) {
   );
 }
 
+function applyReleaseAssetStats(key, stats) {
+  const metrics = projectData?.projects?.[key]?.metrics;
+  if (!metrics || !stats) return;
+  metrics.mirroredFiles = Math.max(positiveNumber(metrics.mirroredFiles), positiveNumber(stats.assets));
+  metrics.documentBytes = Math.max(positiveNumber(metrics.documentBytes), positiveNumber(stats.bytes));
+}
+
 function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirectoryManifest }) {
   const project = projectData?.projects?.sfsc;
   if (!project) return;
@@ -954,6 +970,37 @@ async function loadPublicDataManifests(key, config) {
   if (manifests.size) applyPublicDataManifests(key, manifests);
 }
 
+async function loadReleaseAssetStats(key, config) {
+  if (!config.releaseAssetPrefix) return;
+  let assets = 0;
+  let bytes = 0;
+  for (let page = 1; page <= 10; page += 1) {
+    try {
+      const url = `https://api.github.com/repos/${config.repo}/releases?per_page=100&page=${page}`;
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) {
+        console.warn(`${key} release stats unavailable: ${response.status}`);
+        break;
+      }
+      const releases = await response.json();
+      if (!Array.isArray(releases) || !releases.length) break;
+      for (const release of releases) {
+        const tag = String(release.tag_name || release.name || "");
+        if (!tag.startsWith(config.releaseAssetPrefix)) continue;
+        for (const asset of release.assets || []) {
+          assets += 1;
+          bytes += positiveNumber(asset.size);
+        }
+      }
+      if (releases.length < 100) break;
+    } catch (error) {
+      console.warn(`${key} release stats unavailable`, error);
+      break;
+    }
+  }
+  applyReleaseAssetStats(key, { assets, bytes });
+}
+
 async function loadSfscAggregateSources() {
   const fetchJson = async (url) => {
     try {
@@ -997,6 +1044,7 @@ async function loadLiveRepo(key, config) {
   }
 
   await loadPublicDataManifests(key, config);
+  await loadReleaseAssetStats(key, config);
 
   let updatedAt = projectData?.projects?.[key]?.updatedAt || null;
   let ref = projectData?.projects?.[key]?.ref || "";

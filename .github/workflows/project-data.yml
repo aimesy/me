@@ -80,6 +80,7 @@ jobs:
             archive/case-directory/manifest.json
             archive/document-index.ndjson
             archive/promotions/*
+            data/common/manifest.json
           sparse-checkout-cone-mode: false
 
       - name: Check out KCSC data

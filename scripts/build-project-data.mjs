@@ -34,6 +34,8 @@ const config = {
   nysc: {
     repo: process.env.NYSC_REPO || path.resolve(repoRoot, "..", "..", "projects", "nysc-data"),
     ref: process.env.NYSC_REF || "",
+    releaseRepo: "aimesy/nysc-data",
+    releaseAssetPrefix: "docs-",
   },
   kcsc: {
     repo: process.env.KCSC_REPO || path.resolve(repoRoot, "..", "..", "projects", "kcsc-data"),
@@ -325,6 +327,47 @@ function publicDataDefault(repo) {
   };
 }
 
+function mergeReleaseAssetStats(project, stats) {
+  if (!project || !stats) return project;
+  const metrics = project.metrics || {};
+  metrics.mirroredFiles = Math.max(Number(metrics.mirroredFiles || 0), Number(stats.assets || 0));
+  metrics.documentBytes = Math.max(Number(metrics.documentBytes || 0), Number(stats.bytes || 0));
+  project.metrics = metrics;
+  return project;
+}
+
+async function githubReleaseAssetStats(repoName, prefix) {
+  if (!repoName || !prefix || typeof fetch !== "function") return {};
+  const headers = {
+    "Accept": "application/vnd.github+json",
+    "User-Agent": "amyc-project-data",
+  };
+  if (process.env.GH_TOKEN) headers.Authorization = `Bearer ${process.env.GH_TOKEN}`;
+  let assets = 0;
+  let bytes = 0;
+  for (let page = 1; page <= 10; page += 1) {
+    try {
+      const url = `https://api.github.com/repos/${repoName}/releases?per_page=100&page=${page}`;
+      const response = await fetch(url, { headers });
+      if (!response.ok) break;
+      const releases = await response.json();
+      if (!Array.isArray(releases) || !releases.length) break;
+      for (const release of releases) {
+        const tag = String(release.tag_name || release.name || "");
+        if (!tag.startsWith(prefix)) continue;
+        for (const asset of release.assets || []) {
+          assets += 1;
+          bytes += Number(asset.size || 0);
+        }
+      }
+      if (releases.length < 100) break;
+    } catch {
+      break;
+    }
+  }
+  return { assets, bytes };
+}
+
 function groupCount(rows, key) {
   const counts = new Map();
   for (const row of rows) {
@@ -600,9 +643,9 @@ function buildCividx(previous) {
   };
 }
 
-function buildPublicDataProject(previous, key, repoName, repoConfig) {
+function buildPublicDataProject(previous, key, repoName, repoConfig, releaseStats = {}) {
   if (!repoAvailable(repoConfig.repo)) {
-    return previous?.projects?.[key] || publicDataDefault(repoName);
+    return mergeReleaseAssetStats(previous?.projects?.[key] || publicDataDefault(repoName), releaseStats);
   }
 
   const documentStats = documentArchiveStats(repoConfig);
@@ -613,7 +656,7 @@ function buildPublicDataProject(previous, key, repoName, repoConfig) {
   const snapshotFiles = archiveFiles.filter((file) => /\.(?:json|jsonl|ndjson|csv)$/i.test(file));
   const snapshotBytes = snapshotFiles.length <= 5000 ? sumRepoFileSizes(repoConfig, snapshotFiles) : 0;
 
-  return {
+  return mergeReleaseAssetStats({
     repo: repoName,
     ref: repoHead(repoConfig),
     updatedAt: repoUpdatedAt(repoConfig),
@@ -625,7 +668,7 @@ function buildPublicDataProject(previous, key, repoName, repoConfig) {
       snapshots: Math.max(snapshotFiles.length, manifestStats.snapshots || 0),
     },
     charts: {},
-  };
+  }, releaseStats);
 }
 
 const dataPath = path.join(repoRoot, "assets", "project-data.json");
@@ -638,11 +681,15 @@ if (existsSync(dataPath)) {
   }
 }
 
+const publicReleaseStats = {
+  nysc: await githubReleaseAssetStats(config.nysc.releaseRepo, config.nysc.releaseAssetPrefix),
+};
+
 const projects = {
   sfsc: buildSfsc(),
   tentatives: buildTentatives(),
   ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
-  nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc),
+  nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc, publicReleaseStats.nysc),
   kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc", config.kcsc),
   cividx: buildCividx(previous),
 };
