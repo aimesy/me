@@ -11,21 +11,30 @@ const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
   tentatives: { repo: "aimesy/tentatives", branch: "master", path: "LIVE.md" },
   cividx: { repo: "aimesy/cividx" },
-  ndcs: { repo: "aimesy/ndcs-data" },
-  nysc: { repo: "aimesy/nysc-data" },
-  kcsc: { repo: "aimesy/kcsc", branch: "master" },
+  ndcs: { repo: "aimesy/ndcs-data", branch: "master", manifestPaths: ["data/common/manifest.json", "data/manifest.json"] },
+  nysc: { repo: "aimesy/nysc-data", branch: "main", manifestPaths: ["archive/case-directory/manifest.json"] },
+  kcsc: { repo: "aimesy/kcsc", branch: "master", statsRepo: "aimesy/kcsc-data", statsBranch: "master", manifestPaths: ["data/manifest.json"] },
 };
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 
 const formatNumber = (value) => new Intl.NumberFormat("en-US").format(Number(value || 0));
-const formatMegabytes = (bytes) => {
-  const value = Number(bytes || 0) / (1024 * 1024);
-  const options = value >= 10
+const formatArchiveSize = (bytes) => {
+  const value = Number(bytes || 0);
+  if (!Number.isFinite(value) || value <= 0) return "0 MB";
+  const units = [
+    ["TB", 1024 ** 4],
+    ["GB", 1024 ** 3],
+    ["MB", 1024 ** 2],
+    ["KB", 1024],
+  ];
+  const [unit, divisor] = units.find(([, size]) => value >= size) || ["bytes", 1];
+  const scaled = value / divisor;
+  const options = scaled >= 10 || unit === "bytes"
     ? { maximumFractionDigits: 0 }
     : { minimumFractionDigits: 1, maximumFractionDigits: 1 };
-  return new Intl.NumberFormat("en-US", options).format(value);
+  return `${new Intl.NumberFormat("en-US", options).format(scaled)} ${unit}`;
 };
 
 const shortHash = (hash) => (hash ? hash.slice(0, 7) : "unknown");
@@ -134,9 +143,9 @@ function renderMetrics(target, metrics) {
   if (target === "sfsc") {
     container.innerHTML = [
       metric("rulings", formatNumber(metrics.tentativeRulings)),
-      metric("dockets", formatNumber(metrics.cases)),
-      metric("documents", formatNumber(metrics.documents)),
-      metric("MB", formatMegabytes(metrics.documentBytes)),
+      metric("case records", formatNumber(metrics.cases)),
+      metric("documents indexed", formatNumber(metrics.documents)),
+      metric("archive size", formatArchiveSize(metrics.documentBytes)),
     ].join("");
   }
 
@@ -144,8 +153,8 @@ function renderMetrics(target, metrics) {
     container.innerHTML = [
       metric("rulings", formatNumber(metrics.tentativeRulings)),
       metric("counties", formatNumber(metrics.parsedCounties)),
-      metric("documents", formatNumber(metrics.documents)),
-      metric("MB", formatMegabytes(metrics.documentBytes)),
+      metric("documents indexed", formatNumber(metrics.documents)),
+      metric("archive size", formatArchiveSize(metrics.documentBytes)),
     ].join("");
   }
 
@@ -157,11 +166,17 @@ function renderMetrics(target, metrics) {
   }
 
   if (PUBLIC_DATA_KEYS.has(target)) {
-    container.innerHTML = [
-      metric("cases", formatNumber(metrics.cases)),
+    const rows = [
+      metric("case records", formatNumber(metrics.cases)),
+    ];
+    if (Number(metrics.documents || 0) > 0) {
+      rows.push(metric("documents indexed", formatNumber(metrics.documents)));
+    }
+    rows.push(
       metric("files", formatNumber(metrics.mirroredFiles || metrics.documents)),
-      metric("MB", formatMegabytes(metrics.documentBytes)),
-    ].join("");
+      metric("archive size", formatArchiveSize(metrics.documentBytes)),
+    );
+    container.innerHTML = rows.join("");
   }
 }
 
@@ -690,6 +705,14 @@ function githubRawUrl({ repo, branch, path }) {
   return `https://raw.githubusercontent.com/${repo}/${branch || "HEAD"}/${path}?v=${Date.now()}`;
 }
 
+function githubStatsRawUrl(config, path) {
+  return githubRawUrl({
+    repo: config.statsRepo || config.repo,
+    branch: config.statsBranch || config.branch,
+    path,
+  });
+}
+
 function githubCommitsUrl({ repo, branch, path }) {
   const params = new URLSearchParams({ per_page: "1" });
   if (branch) params.set("sha", branch);
@@ -728,6 +751,97 @@ function parseBytes(value) {
   return number;
 }
 
+function positiveNumber(value) {
+  const number = Number(value || 0);
+  return Number.isFinite(number) && number > 0 ? number : 0;
+}
+
+function firstPositive(...values) {
+  for (const value of values) {
+    const number = positiveNumber(value);
+    if (number) return number;
+  }
+  return 0;
+}
+
+function sumBy(rows, key) {
+  return Array.isArray(rows)
+    ? rows.reduce((sum, row) => sum + positiveNumber(row?.[key]), 0)
+    : 0;
+}
+
+function applyPublicDataManifests(key, manifests) {
+  const project = projectData?.projects?.[key];
+  if (!project) return;
+
+  const metrics = project.metrics;
+  const dataManifest = manifests.get("data/manifest.json") || {};
+  const commonManifest = manifests.get("data/common/manifest.json") || {};
+  const caseDirectoryManifest = manifests.get("archive/case-directory/manifest.json") || {};
+  const archive = dataManifest.archive || {};
+  const dataTables = dataManifest.tables || {};
+  const commonTables = commonManifest.tables || {};
+  const commonSummary = commonManifest.summary || {};
+  const normalTables = dataManifest.normalization?.tables || {};
+  const caseDirectoryScan = caseDirectoryManifest.scan || {};
+
+  const cases = firstPositive(
+    archive.cases,
+    archive.cases_index_rows,
+    normalTables.cases,
+    dataTables.cases?.rows,
+    commonSummary.cases,
+    commonTables.cases?.rows,
+    commonManifest.case_count,
+    commonManifest.cases,
+    caseDirectoryManifest.cases,
+  );
+  if (cases) metrics.cases = cases;
+
+  const documents = firstPositive(
+    commonSummary.documents,
+    commonTables.documents?.rows,
+    dataManifest.documents?.count,
+    dataManifest.documents?.rows,
+    dataTables.documents?.rows,
+  );
+  if (documents) metrics.documents = documents;
+
+  const promotedFiles = sumBy(dataManifest.promoted_runs, "promoted_file_count");
+  const archiveCaseFiles = firstPositive(archive.cases_index_rows, archive.cases)
+    + (archive.cases_index ? 1 : 0);
+  const tableFiles = Object.keys(dataTables).length;
+  const caseDirectoryFiles = positiveNumber(caseDirectoryScan.result_files)
+    + positiveNumber(caseDirectoryScan.document_byte_files);
+  const mirroredFiles = firstPositive(
+    dataManifest.mirrored_files,
+    dataManifest.file_count,
+    promotedFiles,
+    archiveCaseFiles + tableFiles,
+    caseDirectoryFiles,
+  );
+  if (mirroredFiles) metrics.mirroredFiles = mirroredFiles;
+
+  const documentBytes = firstPositive(
+    dataManifest.documentBytes,
+    dataManifest.document_bytes,
+    dataManifest.mirrored_bytes,
+    dataManifest.total_bytes,
+    dataManifest.archive?.size_bytes,
+    dataManifest.archive?.bytes,
+    commonSummary.bytes,
+    sumBy(dataManifest.promoted_runs, "promoted_bytes"),
+  );
+  if (documentBytes) metrics.documentBytes = documentBytes;
+
+  metrics.snapshots = Math.max(
+    positiveNumber(metrics.snapshots),
+    positiveNumber(dataManifest.snapshots),
+    archiveCaseFiles,
+    caseDirectoryFiles,
+  );
+}
+
 function applyLiveMetrics(key, table) {
   const project = projectData?.projects?.[key];
   if (!project) return;
@@ -735,8 +849,8 @@ function applyLiveMetrics(key, table) {
 
   if (key === "sfsc") {
     metrics.tentativeRulings = parseCount(table.get("tentative rulings")) || metrics.tentativeRulings;
-    metrics.cases = parseCount(table.get("dockets")) || metrics.cases;
-    metrics.documents = parseCount(table.get("case documents")) || metrics.documents;
+    metrics.cases = parseCount(table.get("case records")) || parseCount(table.get("dockets")) || metrics.cases;
+    metrics.documents = parseCount(table.get("documents indexed")) || parseCount(table.get("case documents")) || metrics.documents;
     metrics.docketEntries = parseCount(table.get("docket entries")) || metrics.docketEntries;
     const bytes = parseBytes(table.get("archive size"));
     if (bytes) metrics.documentBytes = bytes;
@@ -745,7 +859,7 @@ function applyLiveMetrics(key, table) {
   if (key === "tentatives") {
     metrics.tentativeRulings = parseCount(table.get("parsed rulings")) || metrics.tentativeRulings;
     metrics.parsedCounties = parseCount(table.get("parsed counties")) || metrics.parsedCounties;
-    metrics.documents = parseCount(table.get("source documents")) || metrics.documents;
+    metrics.documents = parseCount(table.get("documents indexed")) || parseCount(table.get("source documents")) || metrics.documents;
     metrics.archivedFiles = parseCount(table.get("archived files")) || metrics.archivedFiles;
     const bytes = parseBytes(table.get("archive size"));
     if (bytes) metrics.documentBytes = bytes;
@@ -759,8 +873,8 @@ function applyLiveMetrics(key, table) {
   }
 
   if (PUBLIC_DATA_KEYS.has(key)) {
-    metrics.cases = parseCount(table.get("cases")) || metrics.cases;
-    metrics.documents = parseCount(table.get("documents")) || metrics.documents;
+    metrics.cases = parseCount(table.get("case records")) || parseCount(table.get("cases")) || metrics.cases;
+    metrics.documents = parseCount(table.get("documents indexed")) || parseCount(table.get("documents")) || metrics.documents;
     metrics.mirroredFiles = parseCount(table.get("mirrored files"))
       || parseCount(table.get("files"))
       || metrics.mirroredFiles;
@@ -779,11 +893,30 @@ function renderLiveMetricValues() {
   setText('[data-live="sfsc-rulings"]', formatNumber(projects.sfsc.metrics.tentativeRulings));
   setText('[data-live="sfsc-cases"]', formatNumber(projects.sfsc.metrics.cases));
   setText('[data-live="sfsc-docs"]', formatNumber(projects.sfsc.metrics.documents));
-  setText('[data-live="sfsc-mb"]', formatMegabytes(projects.sfsc.metrics.documentBytes));
+  setText('[data-live="sfsc-size"]', formatArchiveSize(projects.sfsc.metrics.documentBytes));
   setText('[data-live="tentatives-rulings"]', formatNumber(projects.tentatives.metrics.tentativeRulings));
   setText('[data-live="tentatives-counties"]', formatNumber(projects.tentatives.metrics.parsedCounties));
   setText('[data-live="tentatives-docs"]', formatNumber(projects.tentatives.metrics.documents));
-  setText('[data-live="tentatives-mb"]', formatMegabytes(projects.tentatives.metrics.documentBytes));
+  setText('[data-live="tentatives-size"]', formatArchiveSize(projects.tentatives.metrics.documentBytes));
+}
+
+async function loadPublicDataManifests(key, config) {
+  if (!Array.isArray(config.manifestPaths) || !config.manifestPaths.length) return;
+  const entries = await Promise.all(config.manifestPaths.map(async (path) => {
+    try {
+      const response = await fetch(githubStatsRawUrl(config, path), { cache: "no-store" });
+      if (!response.ok) {
+        console.warn(`${key} manifest ${path} unavailable: ${response.status}`);
+        return null;
+      }
+      return [path, await response.json()];
+    } catch (error) {
+      console.warn(`${key} manifest ${path} unavailable`, error);
+      return null;
+    }
+  }));
+  const manifests = new Map(entries.filter(Boolean));
+  if (manifests.size) applyPublicDataManifests(key, manifests);
 }
 
 async function loadLiveRepo(key, config) {
@@ -800,6 +933,8 @@ async function loadLiveRepo(key, config) {
       console.warn(`${key} LIVE fetch unavailable`, error);
     }
   }
+
+  await loadPublicDataManifests(key, config);
 
   let updatedAt = projectData?.projects?.[key]?.updatedAt || null;
   let ref = projectData?.projects?.[key]?.ref || "";
@@ -850,11 +985,11 @@ function render(data) {
   setText('[data-live="sfsc-rulings"]', formatNumber(projects.sfsc.metrics.tentativeRulings));
   setText('[data-live="sfsc-cases"]', formatNumber(projects.sfsc.metrics.cases));
   setText('[data-live="sfsc-docs"]', formatNumber(projects.sfsc.metrics.documents));
-  setText('[data-live="sfsc-mb"]', formatMegabytes(projects.sfsc.metrics.documentBytes));
+  setText('[data-live="sfsc-size"]', formatArchiveSize(projects.sfsc.metrics.documentBytes));
   setText('[data-live="tentatives-rulings"]', formatNumber(projects.tentatives.metrics.tentativeRulings));
   setText('[data-live="tentatives-counties"]', formatNumber(projects.tentatives.metrics.parsedCounties));
   setText('[data-live="tentatives-docs"]', formatNumber(projects.tentatives.metrics.documents));
-  setText('[data-live="tentatives-mb"]', formatMegabytes(projects.tentatives.metrics.documentBytes));
+  setText('[data-live="tentatives-size"]', formatArchiveSize(projects.tentatives.metrics.documentBytes));
   setText('[data-live="sfsc-ref"]', shortHash(projects.sfsc.ref));
   setText('[data-live="tentatives-ref"]', shortHash(projects.tentatives.ref));
   setText('[data-live="cividx-ref"]', shortHash(projects.cividx.ref));
