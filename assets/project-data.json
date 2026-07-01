@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T03:10:28.000Z",
+  "generatedAt": "2026-07-01T05:12:32.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -264,11 +264,11 @@
     },
     "cividx": {
       "repo": "aimesy/cividx",
-      "ref": "4e9343ad3cd2b87a48d0e4cc941b7a6e28eba014",
-      "updatedAt": "2026-06-23T14:33:49-07:00",
+      "ref": "741e9a26009486857f14a5a4bc2993229194207e",
+      "updatedAt": "2026-06-30T22:12:32-07:00",
       "metrics": {
         "jurisdictions": 95,
-        "citations": 576
+        "citations": 778
       },
       "charts": {
         "jurisdictionTypes": [
