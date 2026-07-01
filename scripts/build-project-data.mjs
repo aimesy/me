@@ -144,7 +144,46 @@ function repoUpdatedAt({ repo, ref }) {
 }
 
 function numberText(value) {
-  return Number(String(value).replaceAll(",", "")) || 0;
+  const match = String(value || "").replaceAll(",", "").match(/-?\d+(?:\.\d+)?/);
+  return match ? Number(match[0]) : 0;
+}
+
+function parseBytes(value) {
+  const text = String(value || "").replaceAll(",", "").trim();
+  const match = text.match(/(-?\d+(?:\.\d+)?)\s*(tb|gb|mb|kb|bytes?|b)?/i);
+  if (!match) return 0;
+  const number = Number(match[1]);
+  const unit = (match[2] || "bytes").toLowerCase();
+  if (unit === "tb") return number * 1024 * 1024 * 1024 * 1024;
+  if (unit === "gb") return number * 1024 * 1024 * 1024;
+  if (unit === "mb") return number * 1024 * 1024;
+  if (unit === "kb") return number * 1024;
+  return number;
+}
+
+function parseLiveTable(markdown) {
+  const metrics = new Map();
+  for (const line of String(markdown || "").split(/\r?\n/)) {
+    const match = line.match(/^\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$/);
+    if (!match) continue;
+    const label = match[1].trim();
+    const value = match[2].trim();
+    if (!label || label === "Metric" || /^-+$/.test(label)) continue;
+    metrics.set(label.toLowerCase(), value);
+  }
+  return metrics;
+}
+
+function liveCount(table, ...labels) {
+  for (const label of labels) {
+    const count = numberText(table.get(label));
+    if (count) return count;
+  }
+  return 0;
+}
+
+function liveBytes(table, label) {
+  return parseBytes(table.get(label));
 }
 
 function parseCsv(text) {
@@ -394,17 +433,19 @@ function parseTentatives(readme) {
 function sfscCaseIndexStats(casesIndex) {
   const uniqueCases = new Set();
   let docketDocumentRefs = 0;
+  let docketEntries = 0;
   for (const line of casesIndex.split(/\r?\n/)) {
     if (!line.trim()) continue;
     try {
       const record = JSON.parse(line);
       if (record.case_number) uniqueCases.add(record.case_number);
       docketDocumentRefs += Number(record.n_documents || 0);
+      docketEntries += Number(record.n_entries || 0);
     } catch {
       // Preserve generation even if one append-only index row is malformed.
     }
   }
-  return { cases: uniqueCases.size, docketDocumentRefs };
+  return { cases: uniqueCases.size, docketDocumentRefs, docketEntries };
 }
 
 function sfscDocumentIndexStats(documentIndex) {
@@ -462,6 +503,7 @@ function tentativesCaptureStats() {
 
 function buildSfsc() {
   const readme = readRepoFile(config.sfsc, "README.md");
+  const liveTable = parseLiveTable(readRepoFile(config.sfsc, "LIVE.md"));
   const parsed = parseSfsc(readme);
   const caseFiles = listRepoFiles(config.sfsc, "archive/cases").filter((file) => file.endsWith(".json")).length;
   const casesIndex = readRepoFile(config.sfsc, "archive/cases-index.ndjson");
@@ -469,15 +511,18 @@ function buildSfsc() {
   const documentIndex = readRepoFile(config.sfsc, "archive/document-index.ndjson");
   const documentStats = sfscDocumentIndexStats(documentIndex);
   const indexedDocuments = documentStats.documents || caseStats.docketDocumentRefs;
+  const liveDocumentBytes = liveBytes(liveTable, "archive size");
   return {
     repo: "aimesy/sfsc",
     ref: repoHead(config.sfsc),
     updatedAt: repoUpdatedAt(config.sfsc),
     metrics: {
-      tentativeRulings: parsed.tentativeRulings,
-      cases: caseStats.cases || caseFiles,
-      documents: indexedDocuments,
-      documentBytes: documentStats.documentBytes || repoFileSize(config.sfsc, "data/documents.parquet"),
+      tentativeRulings: liveCount(liveTable, "tentative rulings") || parsed.tentativeRulings,
+      cases: liveCount(liveTable, "case records", "dockets") || caseStats.cases || caseFiles,
+      documents: liveCount(liveTable, "documents indexed", "case documents") || indexedDocuments,
+      documentsArchived: liveCount(liveTable, "documents archived") || documentStats.documents,
+      docketEntries: liveCount(liveTable, "docket entries") || caseStats.docketEntries,
+      documentBytes: liveDocumentBytes || documentStats.documentBytes || repoFileSize(config.sfsc, "data/documents.parquet"),
     },
     charts: {
       rulingsByDepartment: parsed.departments,
@@ -491,19 +536,22 @@ function buildSfsc() {
 
 function buildTentatives() {
   const readme = readRepoFile(config.tentatives, "README.md");
+  const liveTable = parseLiveTable(readRepoFile(config.tentatives, "LIVE.md"));
   const parsed = parseTentatives(readme);
   const captureStats = tentativesCaptureStats();
   const parquetFiles = listRepoFiles(config.tentatives, "data", { tree: true })
     .filter((file) => /\/rulings\.parquet$/.test(file));
+  const liveDocumentBytes = liveBytes(liveTable, "archive size");
   return {
     repo: "aimesy/tentatives",
     ref: repoHead(config.tentatives),
     updatedAt: repoUpdatedAt(config.tentatives),
     metrics: {
-      tentativeRulings: parsed.tentativeRulings,
-      parsedCounties: parsed.counties.length,
-      documents: parsed.documents || captureStats.documents,
-      documentBytes: captureStats.documentBytes || sumRepoFileSizes(config.tentatives, parquetFiles),
+      tentativeRulings: liveCount(liveTable, "parsed rulings") || parsed.tentativeRulings,
+      parsedCounties: liveCount(liveTable, "parsed counties") || parsed.counties.length,
+      documents: liveCount(liveTable, "documents indexed", "source documents") || parsed.documents || captureStats.documents,
+      archivedFiles: liveCount(liveTable, "archived files"),
+      documentBytes: liveDocumentBytes || captureStats.documentBytes || sumRepoFileSizes(config.tentatives, parquetFiles),
     },
     charts: {
       rulingsByCounty: parsed.counties,

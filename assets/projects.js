@@ -2,6 +2,8 @@ const DATA_URL = "assets/project-data.json";
 const SFSC_BASE_URL = "https://sfsc.amyc.us/";
 const SFSC_CASE_INDEX_URL = `${SFSC_BASE_URL}archive/cases-index.ndjson`;
 const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
+const SFSC_CASE_TABLE_STATS_URL = `${SFSC_BASE_URL}data/case-table-stats.json`;
+const SFSC_CASE_DIRECTORY_MANIFEST_URL = `${SFSC_BASE_URL}archive/case-directory/manifest.json`;
 const DUCKDB_WASM_URL = "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.33.1-dev45.0/+esm";
 const SFSC_DOCKET_RESULT_LIMIT = 5;
 const SFSC_DOCKET_SEARCH_CONCURRENCY = 6;
@@ -842,6 +844,39 @@ function applyPublicDataManifests(key, manifests) {
   );
 }
 
+function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirectoryManifest }) {
+  const project = projectData?.projects?.sfsc;
+  if (!project) return;
+  const metrics = project.metrics;
+
+  const departments = Array.isArray(rulingManifest?.departments) ? rulingManifest.departments : [];
+  if (departments.length) {
+    metrics.tentativeRulings = departments.reduce((sum, department) => sum + positiveNumber(department.rulings), 0)
+      || metrics.tentativeRulings;
+    project.charts.rulingsByDepartment = departments.map((department) => ({
+      label: department.name || `Dept. ${department.department}`,
+      value: positiveNumber(department.rulings),
+    }));
+  }
+
+  if (caseTableStats) {
+    metrics.cases = positiveNumber(caseTableStats.cases) || metrics.cases;
+    metrics.documents = positiveNumber(caseTableStats.case_documents) || metrics.documents;
+    metrics.docketEntries = positiveNumber(caseTableStats.docket_entries) || metrics.docketEntries;
+  }
+
+  const sourceCounts = caseDirectoryManifest?.source_counts || {};
+  const sourceRows = Math.max(
+    positiveNumber(sourceCounts.case_json_rows),
+    positiveNumber(sourceCounts.case_table_rows),
+    positiveNumber(sourceCounts.case_index_rows),
+  );
+  const directoryRows = positiveNumber(caseDirectoryManifest?.case_count)
+    + positiveNumber(caseDirectoryManifest?.restricted_count)
+    + positiveNumber(caseDirectoryManifest?.indexed_count);
+  metrics.cases = Math.max(positiveNumber(metrics.cases), sourceRows, directoryRows);
+}
+
 function applyLiveMetrics(key, table) {
   const project = projectData?.projects?.[key];
   if (!project) return;
@@ -919,6 +954,29 @@ async function loadPublicDataManifests(key, config) {
   if (manifests.size) applyPublicDataManifests(key, manifests);
 }
 
+async function loadSfscAggregateSources() {
+  const fetchJson = async (url) => {
+    try {
+      const response = await fetch(`${url}?v=${Date.now()}`, { cache: "no-store" });
+      if (!response.ok) {
+        console.warn(`SFSC aggregate source unavailable: ${url} ${response.status}`);
+        return null;
+      }
+      return response.json();
+    } catch (error) {
+      console.warn(`SFSC aggregate source unavailable: ${url}`, error);
+      return null;
+    }
+  };
+
+  const [rulingManifest, caseTableStats, caseDirectoryManifest] = await Promise.all([
+    fetchJson(SFSC_MANIFEST_URL),
+    fetchJson(SFSC_CASE_TABLE_STATS_URL),
+    fetchJson(SFSC_CASE_DIRECTORY_MANIFEST_URL),
+  ]);
+  applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirectoryManifest });
+}
+
 async function loadLiveRepo(key, config) {
   if (config.path) {
     try {
@@ -932,6 +990,10 @@ async function loadLiveRepo(key, config) {
     } catch (error) {
       console.warn(`${key} LIVE fetch unavailable`, error);
     }
+  }
+
+  if (key === "sfsc") {
+    await loadSfscAggregateSources();
   }
 
   await loadPublicDataManifests(key, config);
