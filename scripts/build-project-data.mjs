@@ -242,6 +242,8 @@ function documentArchiveStats(repoConfig) {
 
 function dataManifestStats(repoConfig) {
   const manifest = parseJson(readRepoFile(repoConfig, "data/manifest.json"));
+  const commonManifest = parseJson(readRepoFile(repoConfig, "data/common/manifest.json"));
+  const caseDirectoryManifest = parseJson(readRepoFile(repoConfig, "archive/case-directory/manifest.json"));
   const runs = Array.isArray(manifest?.promoted_runs) ? manifest.promoted_runs : [];
   const promotedStats = runs.reduce((stats, run) => ({
     mirroredFiles: stats.mirroredFiles + Number(run.promoted_file_count || 0),
@@ -250,6 +252,13 @@ function dataManifestStats(repoConfig) {
   const tables = Object.values(manifest?.tables || {});
   const tableFiles = tables.filter((table) => table?.path).length;
   const tableBytes = tables.reduce((sum, table) => sum + Number(table?.size_bytes || 0), 0);
+  const commonTables = commonManifest?.tables || {};
+  const commonCaseRows = Number(commonTables?.cases?.rows || commonManifest?.case_count || commonManifest?.cases || 0);
+  const commonDocumentRows = Number(commonTables?.documents?.rows || commonManifest?.documents || 0);
+  const caseDirectoryCases = Number(caseDirectoryManifest?.cases || 0);
+  const caseDirectoryFiles = Number(caseDirectoryManifest?.scan?.result_files || 0);
+  const caseDirectoryDocumentFiles = Number(caseDirectoryManifest?.scan?.document_byte_files || 0);
+  const caseDirectoryDocumentRows = Number(caseDirectoryManifest?.scan?.document_byte_rows || 0);
   const archiveCases = Number(
     manifest?.archive?.cases
       || manifest?.archive?.cases_index_rows
@@ -259,10 +268,11 @@ function dataManifestStats(repoConfig) {
   const archiveIndexFiles = manifest?.archive?.cases_index ? 1 : 0;
   const archiveFiles = Number(manifest?.archive?.cases_index_rows || manifest?.archive?.cases || 0) + archiveIndexFiles;
   return {
-    cases: archiveCases,
-    mirroredFiles: promotedStats.mirroredFiles || archiveFiles + tableFiles,
+    cases: archiveCases || commonCaseRows || caseDirectoryCases,
+    documents: commonDocumentRows || caseDirectoryDocumentRows,
+    mirroredFiles: promotedStats.mirroredFiles || archiveFiles + tableFiles || caseDirectoryFiles + caseDirectoryDocumentFiles,
     mirroredBytes: promotedStats.mirroredBytes || tableBytes,
-    snapshots: archiveFiles,
+    snapshots: archiveFiles || caseDirectoryFiles,
   };
 }
 
@@ -561,10 +571,10 @@ function buildPublicDataProject(previous, key, repoName, repoConfig) {
     updatedAt: repoUpdatedAt(repoConfig),
     metrics: {
       cases: caseKeys.size || manifestStats.cases || documentStats.cases,
-      documents: documentStats.documents,
+      documents: documentStats.documents || manifestStats.documents || 0,
       mirroredFiles: manifestStats.mirroredFiles || documentStats.documents || snapshotFiles.length,
       documentBytes: documentStats.documentBytes || ((snapshotBytes || 0) + (manifestStats.mirroredBytes || 0)) || manifestStats.mirroredBytes,
-      snapshots: snapshotFiles.length || manifestStats.snapshots || 0,
+      snapshots: Math.max(snapshotFiles.length, manifestStats.snapshots || 0),
     },
     charts: {},
   };
@@ -585,7 +595,7 @@ const projects = {
   tentatives: buildTentatives(),
   ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc),
-  kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc-data", config.kcsc),
+  kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc", config.kcsc),
   cividx: buildCividx(previous),
 };
 const projectDates = Object.values(projects)

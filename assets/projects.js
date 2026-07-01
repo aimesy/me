@@ -13,7 +13,7 @@ const LIVE_REPOS = {
   cividx: { repo: "aimesy/cividx" },
   ndcs: { repo: "aimesy/ndcs-data" },
   nysc: { repo: "aimesy/nysc-data" },
-  kcsc: { repo: "aimesy/kcsc-data", branch: "master" },
+  kcsc: { repo: "aimesy/kcsc", branch: "master" },
 };
 
 const $ = (selector) => document.querySelector(selector);

@@ -65,6 +65,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           sparse-checkout: |
             data/manifest.json
+            data/common/manifest.json
           sparse-checkout-cone-mode: false
 
       - name: Check out NYSC data
@@ -76,6 +77,7 @@ jobs:
           path: nysc-data
           token: ${{ secrets.GH_TOKEN }}
           sparse-checkout: |
+            archive/case-directory/manifest.json
             archive/document-index.ndjson
             archive/promotions/*
           sparse-checkout-cone-mode: false
@@ -90,6 +92,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           sparse-checkout: |
             archive/cases-index.ndjson
+            archive/cases/*
             data/manifest.json
           sparse-checkout-cone-mode: false
 
