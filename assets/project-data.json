@@ -243,8 +243,8 @@
       "metrics": {
         "cases": 0,
         "documents": 0,
-        "mirroredFiles": 0,
-        "documentBytes": 0,
+        "mirroredFiles": 5987,
+        "documentBytes": 1032350594,
         "snapshots": 0
       },
       "charts": {}
