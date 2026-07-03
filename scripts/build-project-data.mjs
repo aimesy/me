@@ -690,7 +690,7 @@ const projects = {
   tentatives: buildTentatives(),
   ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc, publicReleaseStats.nysc),
-  kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc", config.kcsc),
+  kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc-data", config.kcsc),
   cividx: buildCividx(previous),
 };
 const projectDates = Object.values(projects)

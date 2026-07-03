@@ -1,46 +1,21 @@
 {
-  "generatedAt": "2026-07-03T09:20:22.000Z",
+  "generatedAt": "2026-07-03T13:27:55.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "cf9357e9eabef6db81e4477c796dd7b2d11f5648",
-      "updatedAt": "2026-07-03T09:20:22Z",
+      "ref": null,
+      "updatedAt": null,
       "metrics": {
-        "tentativeRulings": 379826,
-        "cases": 994793,
-        "documents": 4082942,
-        "documentsArchived": 66335,
-        "docketEntries": 9092102,
-        "documentBytes": 71787610112
+        "tentativeRulings": 0,
+        "cases": 0,
+        "documents": 0,
+        "documentsArchived": 0,
+        "docketEntries": 0,
+        "documentBytes": 0
       },
       "charts": {
-        "rulingsByDepartment": [
-          {
-            "label": "Dept. 204 - Probate",
-            "value": 197856
-          },
-          {
-            "label": "Dept. 301 - Discovery",
-            "value": 4218
-          },
-          {
-            "label": "Dept. 302 - Civil Law and Motion",
-            "value": 121424
-          },
-          {
-            "label": "Dept. 304 - Asbestos Law and Motion",
-            "value": 6324
-          },
-          {
-            "label": "Dept. 304 - Asbestos Discovery",
-            "value": 1375
-          },
-          {
-            "label": "Dept. 501 - Real Property Court",
-            "value": 34904
-          }
-        ]
+        "rulingsByDepartment": []
       },
       "searchSamples": {
         "dockets": [],
@@ -49,178 +24,17 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "e82dd7f5722fca4a84895d7ed07fc8b7cf0ab169",
-      "updatedAt": "2026-07-03T03:45:45Z",
+      "ref": null,
+      "updatedAt": null,
       "metrics": {
-        "tentativeRulings": 23509,
-        "parsedCounties": 34,
-        "documents": 3891,
-        "archivedFiles": 45813,
-        "documentBytes": 12729712640
+        "tentativeRulings": 0,
+        "parsedCounties": 0,
+        "documents": 0,
+        "archivedFiles": 0,
+        "documentBytes": 0
       },
       "charts": {
-        "rulingsByCounty": [
-          {
-            "label": "Amador",
-            "value": 203,
-            "documents": 31
-          },
-          {
-            "label": "Butte",
-            "value": 308,
-            "documents": 20
-          },
-          {
-            "label": "Calaveras",
-            "value": 5509,
-            "documents": 374
-          },
-          {
-            "label": "Contra Costa",
-            "value": 2367,
-            "documents": 165
-          },
-          {
-            "label": "El Dorado",
-            "value": 821,
-            "documents": 91
-          },
-          {
-            "label": "Fresno",
-            "value": 278,
-            "documents": 68
-          },
-          {
-            "label": "Los Angeles",
-            "value": 398,
-            "documents": 152
-          },
-          {
-            "label": "Marin",
-            "value": 52,
-            "documents": 8
-          },
-          {
-            "label": "Merced",
-            "value": 326,
-            "documents": 29
-          },
-          {
-            "label": "Monterey",
-            "value": 7,
-            "documents": 7
-          },
-          {
-            "label": "Napa",
-            "value": 48,
-            "documents": 11
-          },
-          {
-            "label": "Nevada",
-            "value": 760,
-            "documents": 77
-          },
-          {
-            "label": "Orange",
-            "value": 1982,
-            "documents": 256
-          },
-          {
-            "label": "Placer",
-            "value": 541,
-            "documents": 45
-          },
-          {
-            "label": "Plumas",
-            "value": 178,
-            "documents": 8
-          },
-          {
-            "label": "Riverside",
-            "value": 339,
-            "documents": 86
-          },
-          {
-            "label": "San Benito",
-            "value": 24,
-            "documents": 4
-          },
-          {
-            "label": "San Bernardino",
-            "value": 196,
-            "documents": 137
-          },
-          {
-            "label": "San Francisco",
-            "value": 325,
-            "documents": 44
-          },
-          {
-            "label": "San Luis Obispo",
-            "value": 80,
-            "documents": 11
-          },
-          {
-            "label": "San Mateo",
-            "value": 120,
-            "documents": 22
-          },
-          {
-            "label": "Santa Barbara",
-            "value": 403,
-            "documents": 403
-          },
-          {
-            "label": "Santa Clara",
-            "value": 808,
-            "documents": 124
-          },
-          {
-            "label": "Santa Cruz",
-            "value": 11,
-            "documents": 3
-          },
-          {
-            "label": "Shasta",
-            "value": 1305,
-            "documents": 68
-          },
-          {
-            "label": "Sierra",
-            "value": 1,
-            "documents": 1
-          },
-          {
-            "label": "Solano",
-            "value": 370,
-            "documents": 70
-          },
-          {
-            "label": "Sonoma",
-            "value": 208,
-            "documents": 28
-          },
-          {
-            "label": "Stanislaus",
-            "value": 10,
-            "documents": 2
-          },
-          {
-            "label": "Tulare",
-            "value": 21,
-            "documents": 3
-          },
-          {
-            "label": "Tuolumne",
-            "value": 17,
-            "documents": 1
-          },
-          {
-            "label": "Ventura",
-            "value": 60,
-            "documents": 60
-          }
-        ]
+        "rulingsByCounty": []
       }
     },
     "ndcs": {
@@ -250,15 +64,15 @@
       "charts": {}
     },
     "kcsc": {
-      "repo": "aimesy/kcsc",
-      "ref": "9631440cf03d4c436ae77028e2ff1a90d5992243",
-      "updatedAt": "2026-06-30T18:37:39-07:00",
+      "repo": "aimesy/kcsc-data",
+      "ref": "9bfdda8876e271ebe0a88c7e5ed0cdda1ede892f",
+      "updatedAt": "2026-07-03T13:27:55+00:00",
       "metrics": {
-        "cases": 822,
+        "cases": 5954,
         "documents": 0,
-        "mirroredFiles": 830,
-        "documentBytes": 18622790,
-        "snapshots": 823
+        "mirroredFiles": 5962,
+        "documentBytes": 21688459,
+        "snapshots": 5955
       },
       "charts": {}
     },

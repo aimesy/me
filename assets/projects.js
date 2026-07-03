@@ -24,7 +24,7 @@ const LIVE_REPOS = {
     ],
     releaseAssetPrefix: "docs-",
   },
-  kcsc: { repo: "aimesy/kcsc", branch: "master", statsRepo: "aimesy/kcsc-data", statsBranch: "master", manifestPaths: ["data/manifest.json"] },
+  kcsc: { repo: "aimesy/kcsc-data", branch: "master", manifestPaths: ["data/manifest.json"] },
 };
 
 const $ = (selector) => document.querySelector(selector);
