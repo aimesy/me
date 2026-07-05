@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://amyc.us/
     steps:
       - name: Check out page repo
         uses: actions/checkout@v4
@@ -137,4 +137,14 @@ jobs:
       - name: Deploy site
         if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Wait before retrying Pages deploy
+        if: ${{ (steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch') && steps.deployment.outcome == 'failure' }}
+        run: sleep 60
+
+      - name: Deploy site retry
+        if: ${{ (steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch') && steps.deployment.outcome == 'failure' }}
+        id: deployment-retry
         uses: actions/deploy-pages@v4
