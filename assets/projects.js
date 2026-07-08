@@ -7,7 +7,7 @@ const SFSC_CASE_DIRECTORY_MANIFEST_URL = `${SFSC_BASE_URL}archive/case-directory
 const DUCKDB_WASM_URL = "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.33.1-dev45.0/+esm";
 const SFSC_DOCKET_RESULT_LIMIT = 5;
 const SFSC_DOCKET_SEARCH_CONCURRENCY = 6;
-const PROJECT_KEYS = ["sfsc", "tentatives", "ndcs", "nysc", "kcsc", "cividx"];
+const PROJECT_KEYS = ["sfsc", "tentatives", "nysc", "kcsc", "ndcs", "cividx"];
 const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
@@ -16,7 +16,7 @@ const LIVE_REPOS = {
   ndcs: { repo: "aimesy/ndcs-data", branch: "master", manifestPaths: ["data/common/manifest.json", "data/manifest.json"] },
   nysc: {
     repo: "aimesy/nysc-data",
-    branch: "main",
+    branch: "master",
     manifestPaths: [
       "archive/case-directory/manifest.json",
       "data/common/manifest.json",

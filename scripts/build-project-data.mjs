@@ -662,7 +662,7 @@ function buildPublicDataProject(previous, key, repoName, repoConfig, releaseStat
     updatedAt: repoUpdatedAt(repoConfig),
     metrics: {
       cases: caseKeys.size || manifestStats.cases || documentStats.cases,
-      documents: documentStats.documents || manifestStats.documents || 0,
+      documents: Math.max(documentStats.documents, manifestStats.documents),
       mirroredFiles: manifestStats.mirroredFiles || documentStats.documents || snapshotFiles.length,
       documentBytes: documentStats.documentBytes || ((snapshotBytes || 0) + (manifestStats.mirroredBytes || 0)) || manifestStats.mirroredBytes,
       snapshots: Math.max(snapshotFiles.length, manifestStats.snapshots || 0),
@@ -688,9 +688,9 @@ const publicReleaseStats = {
 const projects = {
   sfsc: buildSfsc(),
   tentatives: buildTentatives(),
-  ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc, publicReleaseStats.nysc),
   kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc-data", config.kcsc),
+  ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
   cividx: buildCividx(previous),
 };
 const projectDates = Object.values(projects)
