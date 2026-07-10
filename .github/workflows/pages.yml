@@ -25,6 +25,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Check project integration contracts
+        run: node scripts/check-projects-static.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

@@ -19,6 +19,10 @@ const config = {
     ),
     ref: process.env.SFSC_REF || "",
   },
+  sfscData: {
+    repo: process.env.SFSC_DATA_REPO || path.resolve(repoRoot, "..", "..", "projects", "sfsc-data"),
+    ref: process.env.SFSC_DATA_REF || "",
+  },
   tentatives: {
     repo: process.env.TENTATIVES_REPO || path.resolve(repoRoot, "..", "..", "projects", "tentatives"),
     ref: process.env.TENTATIVES_REF || "",
@@ -42,8 +46,6 @@ const config = {
     ref: process.env.KCSC_REF || "",
   },
 };
-
-const SEARCH_SAMPLE_LIMIT = 80;
 
 function runGit(repo, args) {
   return execFileSync("git", ["-C", repo, ...args], {
@@ -389,77 +391,6 @@ function parseSfsc(readme) {
   return { departments, tentativeRulings };
 }
 
-function summarizeText(value, max = 96) {
-  const text = String(value || "").replace(/\s+/g, " ").trim();
-  if (text.length <= max) return text;
-  return `${text.slice(0, max - 1).trim()}...`;
-}
-
-function sfscViewerUrl(hash = "") {
-  return `https://sfsc.amyc.us/${hash}`;
-}
-
-function buildDocketSamples(casesIndex, limit = SEARCH_SAMPLE_LIMIT) {
-  const rows = [];
-  for (const line of casesIndex.split(/\r?\n/)) {
-    if (!line.trim()) continue;
-    try {
-      const indexRow = JSON.parse(line);
-      const caseNumber = indexRow.case_number;
-      if (!caseNumber) continue;
-      const caseJson = readRepoFile(config.sfsc, `archive/cases/${caseNumber}.json`);
-      if (!caseJson) continue;
-      const record = JSON.parse(caseJson);
-      const entries = Array.isArray(record.docket_entries) ? record.docket_entries : [];
-      const latest = entries
-        .filter((entry) => entry && (entry.date_filed || entry.description))
-        .sort((a, b) => String(b.date_filed || "").localeCompare(String(a.date_filed || "")))[0];
-      rows.push({
-        caseNumber,
-        title: summarizeText(record.case_title || record.cause_of_action || caseNumber, 74),
-        meta: `${entries.length || Number(indexRow.n_entries || 0)} ROA / ${Number(indexRow.n_documents || 0)} docs`,
-        detail: summarizeText(latest?.description || record.cause_of_action || "", 112),
-        href: sfscViewerUrl(`#/case/${encodeURIComponent(caseNumber)}`),
-      });
-    } catch {
-      // Skip malformed or missing case records; the tracker should still build.
-    }
-    if (rows.length >= limit) break;
-  }
-  return rows;
-}
-
-function buildRulingSamples(limit = SEARCH_SAMPLE_LIMIT) {
-  const rawFiles = listRepoFiles(config.sfsc, "raw")
-    .filter((file) => /^raw\/dept\d+\/.+\.json$/.test(file));
-  const step = Math.max(1, Math.floor(rawFiles.length / Math.ceil(limit / 2)));
-  const sampleFiles = rawFiles.filter((_, index) => index % step === 0);
-  const rows = [];
-  for (const file of sampleFiles) {
-    const text = readRepoFile(config.sfsc, file);
-    if (!text) continue;
-    try {
-      const page = JSON.parse(text);
-      const department = page.department ? `Dept. ${page.department}` : "SFSC";
-      for (const ruling of (page.rulings || []).slice(0, 2)) {
-        const caseNumber = ruling["Case Number"] || "";
-        const title = ruling["Case Title"] || caseNumber || "Tentative ruling";
-        rows.push({
-          caseNumber,
-          title: summarizeText(title, 74),
-          meta: `${department} / ${summarizeText(ruling["Court Date"] || "", 28)}`,
-          detail: summarizeText(ruling["Calendar Matter"] || ruling.Rulings || "", 112),
-          href: sfscViewerUrl(caseNumber ? `#case_number=${encodeURIComponent(caseNumber)}` : ""),
-        });
-        if (rows.length >= limit) return rows;
-      }
-    } catch {
-      // Ignore malformed sample pages and keep looking.
-    }
-  }
-  return rows;
-}
-
 function parseTentatives(readme) {
   const counties = [];
   const re = /<summary>([^<]+)\s+-\s+([\d,]+)\s+rulings\s+across\s+([\d,]+)\s+(?:PDFs?|source hashes)<\/summary>/g;
@@ -471,40 +402,6 @@ function parseTentatives(readme) {
     tentativeRulings: counties.reduce((sum, item) => sum + item.value, 0),
     documents: counties.reduce((sum, item) => sum + item.documents, 0),
   };
-}
-
-function sfscCaseIndexStats(casesIndex) {
-  const uniqueCases = new Set();
-  let docketDocumentRefs = 0;
-  let docketEntries = 0;
-  for (const line of casesIndex.split(/\r?\n/)) {
-    if (!line.trim()) continue;
-    try {
-      const record = JSON.parse(line);
-      if (record.case_number) uniqueCases.add(record.case_number);
-      docketDocumentRefs += Number(record.n_documents || 0);
-      docketEntries += Number(record.n_entries || 0);
-    } catch {
-      // Preserve generation even if one append-only index row is malformed.
-    }
-  }
-  return { cases: uniqueCases.size, docketDocumentRefs, docketEntries };
-}
-
-function sfscDocumentIndexStats(documentIndex) {
-  let documents = 0;
-  let documentBytes = 0;
-  for (const line of documentIndex.split(/\r?\n/)) {
-    if (!line.trim()) continue;
-    try {
-      const record = JSON.parse(line);
-      documents += 1;
-      documentBytes += Number(record.bytes_len || 0);
-    } catch {
-      // Ignore malformed document-index rows and keep the page building.
-    }
-  }
-  return { documents, documentBytes };
 }
 
 function tentativesCaptureStats() {
@@ -548,12 +445,17 @@ function buildSfsc() {
   const readme = readRepoFile(config.sfsc, "README.md");
   const liveTable = parseLiveTable(readRepoFile(config.sfsc, "LIVE.md"));
   const parsed = parseSfsc(readme);
-  const caseFiles = listRepoFiles(config.sfsc, "archive/cases").filter((file) => file.endsWith(".json")).length;
-  const casesIndex = readRepoFile(config.sfsc, "archive/cases-index.ndjson");
-  const caseStats = sfscCaseIndexStats(casesIndex);
-  const documentIndex = readRepoFile(config.sfsc, "archive/document-index.ndjson");
-  const documentStats = sfscDocumentIndexStats(documentIndex);
-  const indexedDocuments = documentStats.documents || caseStats.docketDocumentRefs;
+  const caseTableStats = parseJson(readRepoFile(config.sfscData, "data/case-table-stats.json"));
+  const caseDirectoryManifest = parseJson(readRepoFile(config.sfscData, "archive/case-directory/manifest.json"));
+  const sourceCounts = caseDirectoryManifest?.source_counts || {};
+  const sourceRows = Math.max(
+    Number(sourceCounts.case_json_rows || 0),
+    Number(sourceCounts.case_table_rows || 0),
+    Number(sourceCounts.case_index_rows || 0),
+  );
+  const directoryRows = Number(caseDirectoryManifest?.case_count || 0)
+    + Number(caseDirectoryManifest?.restricted_count || 0)
+    + Number(caseDirectoryManifest?.indexed_count || 0);
   const liveDocumentBytes = liveBytes(liveTable, "archive size");
   return {
     repo: "aimesy/sfsc",
@@ -561,18 +463,20 @@ function buildSfsc() {
     updatedAt: repoUpdatedAt(config.sfsc),
     metrics: {
       tentativeRulings: liveCount(liveTable, "tentative rulings") || parsed.tentativeRulings,
-      cases: liveCount(liveTable, "case records", "dockets") || caseStats.cases || caseFiles,
-      documents: liveCount(liveTable, "documents indexed", "case documents") || indexedDocuments,
-      documentsArchived: liveCount(liveTable, "documents archived") || documentStats.documents,
-      docketEntries: liveCount(liveTable, "docket entries") || caseStats.docketEntries,
-      documentBytes: liveDocumentBytes || documentStats.documentBytes || repoFileSize(config.sfsc, "data/documents.parquet"),
+      cases: Math.max(
+        liveCount(liveTable, "case records", "dockets"),
+        Number(caseTableStats?.cases || 0),
+        sourceRows,
+        directoryRows,
+      ),
+      documents: liveCount(liveTable, "documents indexed", "case documents")
+        || Number(caseTableStats?.case_documents || 0),
+      documentsArchived: liveCount(liveTable, "documents archived"),
+      docketEntries: liveCount(liveTable, "docket entries") || Number(caseTableStats?.docket_entries || 0),
+      documentBytes: liveDocumentBytes || repoFileSize(config.sfsc, "data/documents.parquet"),
     },
     charts: {
       rulingsByDepartment: parsed.departments,
-    },
-    searchSamples: {
-      dockets: buildDocketSamples(casesIndex),
-      rulings: buildRulingSamples(),
     },
   };
 }

@@ -26,6 +26,10 @@ jobs:
         with:
           path: site
 
+      - name: Check project integration contracts
+        working-directory: site
+        run: node scripts/check-projects-static.mjs
+
       - name: Require project repo token
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -38,6 +42,18 @@ jobs:
           ref: master
           path: sfsc
           token: ${{ secrets.GH_TOKEN }}
+
+      - name: Check out SFSC data
+        uses: actions/checkout@v4
+        with:
+          repository: aimesy/sfsc-data
+          ref: master
+          path: sfsc-data
+          token: ${{ secrets.GH_TOKEN }}
+          sparse-checkout: |
+            archive/case-directory/manifest.json
+            data/case-table-stats.json
+          sparse-checkout-cone-mode: false
 
       - name: Check out Tentatives
         uses: actions/checkout@v4
@@ -101,6 +117,7 @@ jobs:
         working-directory: site
         env:
           SFSC_REPO: ../sfsc
+          SFSC_DATA_REPO: ../sfsc-data
           TENTATIVES_REPO: ../tentatives
           CIVIDX_REPO: ../cividx
           NDCS_REPO: ../ndcs-data

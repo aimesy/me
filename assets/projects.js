@@ -1,12 +1,9 @@
 const DATA_URL = "assets/project-data.json";
 const SFSC_BASE_URL = "https://sfsc.amyc.us/";
-const SFSC_CASE_INDEX_URL = `${SFSC_BASE_URL}archive/cases-index.ndjson`;
 const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const SFSC_CASE_TABLE_STATS_URL = `${SFSC_BASE_URL}data/case-table-stats.json`;
 const SFSC_CASE_DIRECTORY_MANIFEST_URL = `${SFSC_BASE_URL}archive/case-directory/manifest.json`;
 const DUCKDB_WASM_URL = "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.33.1-dev45.0/+esm";
-const SFSC_DOCKET_RESULT_LIMIT = 5;
-const SFSC_DOCKET_SEARCH_CONCURRENCY = 6;
 const PROJECT_KEYS = ["sfsc", "tentatives", "nysc", "kcsc", "ndcs", "cividx"];
 const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
@@ -129,13 +126,6 @@ function startLiveAgeTimer() {
 }
 
 const sfscData = {
-  dockets: {
-    status: "idle",
-    rows: [],
-    error: "",
-    promise: null,
-    caseCache: new Map(),
-  },
   rulings: {
     status: "idle",
     error: "",
@@ -287,92 +277,22 @@ function formatDate(value) {
   return date.toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" });
 }
 
-function plural(value, singular, pluralForm = `${singular}s`) {
-  return `${formatNumber(value)} ${Number(value) === 1 ? singular : pluralForm}`;
+function sfscDocketSearchUrl(query = "") {
+  const cleanQuery = String(query || "").trim();
+  return `${SFSC_BASE_URL}#/cases${cleanQuery ? `?q=${encodeURIComponent(cleanQuery)}` : ""}`;
 }
 
-function sfscSafeCaseName(caseNumber) {
-  return String(caseNumber || "").replace(/\.+/g, "_").replace(/[^A-Za-z0-9_-]/g, "_");
-}
-
-function sfscCaseUrl(caseNumber) {
-  return `${SFSC_BASE_URL}#/case/${encodeURIComponent(caseNumber || "")}`;
-}
-
-function asArray(value) {
-  return Array.isArray(value) ? value : [];
-}
-
-function cleanText(value) {
-  return String(value ?? "")
-    .replace(/<br\s*\/?>/gi, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function sfscRecordCaseNumber(record, indexRow = {}) {
-  return cleanText(record?.case_number || record?.docket?.case_number || indexRow.case_number);
-}
-
-function sfscDocketEntries(record) {
-  return asArray(record?.docket_entries);
-}
-
-function sfscDocumentRows(record) {
-  return asArray(record?.documents);
-}
-
-function sfscCaseTitle(record, indexRow = {}) {
-  return cleanText(record?.case_title || indexRow.case_title || sfscRecordCaseNumber(record, indexRow));
-}
-
-function latestSfscDocketEntry(entries) {
-  return [...entries]
-    .filter((entry) => entry && (entry.date_filed || entry.description))
-    .sort((a, b) => String(b.date_filed || "").localeCompare(String(a.date_filed || "")))[0] || null;
-}
-
-function sfscDocketSearchText(record, indexRow = {}) {
-  const parts = [
-    indexRow.case_number,
-    indexRow.case_title,
-    record?.case_number,
-    record?.docket?.case_number,
-    record?.case_title,
-    record?.cause_of_action,
-    record?.case_type,
-    record?.category,
-    record?.court,
-  ];
-  for (const entry of sfscDocketEntries(record)) {
-    parts.push(entry.date_filed, entry.description, entry.doc_id, entry.fee);
-  }
-  for (const doc of sfscDocumentRows(record)) {
-    parts.push(doc.description, doc.title, doc.doc_id, doc.filed, doc.date_filed, doc.sha256, doc.source_url);
-  }
-  for (const party of asArray(record?.parties)) {
-    parts.push(party.name, party.party, party.party_type, party.type, party.roles, party.aliases, party.attorneys);
-  }
-  for (const attorney of asArray(record?.attorneys)) {
-    parts.push(
-      attorney.name,
-      attorney.display_name,
-      attorney.bar_number,
-      attorney.bar,
-      attorney.address,
-      attorney.contact_block,
-      attorney.parties_represented,
-    );
-  }
-  for (const calendar of asArray(record?.calendar)) {
-    parts.push(calendar.judge, calendar.judicial_officer, calendar.officer, calendar.department, calendar.location, calendar.matters);
-  }
-  return cleanText(parts.flat(Infinity).filter(Boolean).join(" ")).toLowerCase();
-}
-
-function sfscQueryMatches(text, query) {
-  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
-  return terms.every((term) => text.includes(term));
+function sfscDocketSearchRow(query = "") {
+  const cleanQuery = String(query || "").trim();
+  return {
+    title: cleanQuery ? `Search SFSC dockets for “${cleanQuery}”` : "Browse SFSC court dockets",
+    meta: "Live case index",
+    detail: cleanQuery
+      ? "Open the complete SFSC case search with this query."
+      : "Search by case number, title, party, attorney, filing date, or case facet.",
+    href: sfscDocketSearchUrl(cleanQuery),
+    action: cleanQuery ? "Search" : "Browse",
+  };
 }
 
 function sfscRulingUrl(row, query) {
@@ -408,128 +328,9 @@ function renderSfscResultRows(container, rows, label) {
         <div class="mini-result-meta">${escapeHtml([row.caseNumber, row.meta].filter(Boolean).join(" / "))}</div>
         <div class="mini-result-detail">${escapeHtml(row.detail || "")}</div>
       </div>
-      <a class="mini-result-link" href="${escapeAttribute(row.href || SFSC_BASE_URL)}">View</a>
+      <a class="mini-result-link" href="${escapeAttribute(row.href || SFSC_BASE_URL)}">${escapeHtml(row.action || "View")}</a>
     </div>
   `).join("");
-}
-
-function parseNdjson(text) {
-  const rows = [];
-  for (const line of String(text || "").split("\n")) {
-    const trimmed = line.trim();
-    if (!trimmed) continue;
-    try {
-      rows.push(JSON.parse(trimmed));
-    } catch {
-      // Ignore malformed lines, matching the SFSC viewer.
-    }
-  }
-  return rows;
-}
-
-function applySfscDocketIndexMetrics(rows) {
-  const metrics = projectData?.projects?.sfsc?.metrics;
-  if (!metrics || !Array.isArray(rows) || !rows.length) return;
-  metrics.cases = rows.length;
-  metrics.documents = rows.reduce((sum, row) => sum + Number(row?.n_documents || 0), 0);
-  metrics.docketEntries = rows.reduce((sum, row) => sum + Number(row?.n_entries || 0), 0);
-  renderLiveMetricValues();
-}
-
-async function loadSfscDockets() {
-  const state = sfscData.dockets;
-  if (state.status === "loaded") return state.rows;
-  if (state.promise) return state.promise;
-
-  state.status = "loading";
-  state.promise = (async () => {
-    try {
-      const response = await fetch(SFSC_CASE_INDEX_URL, { cache: "no-cache" });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const rows = parseNdjson(await response.text())
-        .sort((a, b) => String(b.captured_at || "").localeCompare(String(a.captured_at || "")));
-      state.rows = rows;
-      applySfscDocketIndexMetrics(rows);
-      state.status = "loaded";
-      state.error = "";
-      return rows;
-    } catch (error) {
-      state.status = "error";
-      state.error = error?.message || String(error);
-      throw error;
-    } finally {
-      state.promise = null;
-    }
-  })();
-  return state.promise;
-}
-
-async function loadSfscCaseRecord(caseNumber) {
-  const key = sfscSafeCaseName(caseNumber);
-  const state = sfscData.dockets;
-  if (!key) return null;
-  if (state.caseCache.has(key)) return state.caseCache.get(key);
-
-  const promise = (async () => {
-    const response = await fetch(`${SFSC_BASE_URL}archive/cases/${key}.json`, { cache: "no-cache" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return response.json();
-  })().catch(() => null);
-
-  state.caseCache.set(key, promise);
-  return promise;
-}
-
-async function hydrateSfscDocketRows(rows) {
-  const records = await Promise.all(rows.map((row) => loadSfscCaseRecord(row.case_number)));
-  return rows.map((row, index) => sfscDocketDisplayRow(row, records[index]));
-}
-
-function sfscDocketDisplayRow(row, record = null) {
-  const entries = record ? sfscDocketEntries(record) : [];
-  const docs = record ? sfscDocumentRows(record) : [];
-  const latest = latestSfscDocketEntry(entries);
-  const caseNumber = sfscRecordCaseNumber(record, row);
-  const entryCount = entries.length || Number(row.n_entries || 0);
-  const documentCount = docs.length || Number(row.n_documents || 0);
-  const captured = row.captured_at ? `captured ${formatDate(row.captured_at)}` : "";
-  const meta = [
-    plural(entryCount, "docket entry", "docket entries"),
-    plural(documentCount, "document"),
-  ].join(" / ");
-
-  return {
-    caseNumber,
-    title: sfscCaseTitle(record, row) || caseNumber || "Untitled",
-    meta,
-    detail: cleanText(latest?.description || record?.cause_of_action || captured),
-    href: sfscCaseUrl(caseNumber),
-    searchText: sfscDocketSearchText(record || {}, row),
-  };
-}
-
-async function searchSfscDockets(query, progress = () => {}) {
-  const rows = await loadSfscDockets();
-  if (!query) return hydrateSfscDocketRows(rows.slice(0, SFSC_DOCKET_RESULT_LIMIT));
-
-  progress("Searching court dockets...");
-  const queue = [...rows];
-  const matches = [];
-  const worker = async () => {
-    while (queue.length && matches.length < SFSC_DOCKET_RESULT_LIMIT) {
-      const row = queue.shift();
-      if (!row?.case_number) continue;
-      const record = await loadSfscCaseRecord(row.case_number);
-      if (!record) continue;
-      const displayRow = sfscDocketDisplayRow(row, record);
-      if (sfscQueryMatches(displayRow.searchText, query)) matches.push(displayRow);
-    }
-  };
-  await Promise.all(Array.from(
-    { length: Math.min(SFSC_DOCKET_SEARCH_CONCURRENCY, queue.length) },
-    worker,
-  ));
-  return matches.sort((a, b) => String(b.caseNumber || "").localeCompare(String(a.caseNumber || "")));
 }
 
 function tableNameForSfscDept(department) {
@@ -661,20 +462,7 @@ async function renderSfscArchiveSearch() {
   renderSfscModeChrome(label);
 
   if (sfscSearchMode === "dockets") {
-    container.innerHTML = `<div class="mini-empty">Loading court dockets...</div>`;
-    try {
-      const displayRows = await searchSfscDockets(query, (message) => {
-        if (renderId === sfscSearchRenderId) {
-          container.innerHTML = `<div class="mini-empty">${escapeHtml(message)}</div>`;
-        }
-      });
-      if (renderId !== sfscSearchRenderId) return;
-      renderSfscResultRows(container, displayRows, label);
-    } catch (error) {
-      if (renderId !== sfscSearchRenderId) return;
-      console.error(error);
-      container.innerHTML = '<div class="mini-empty">SFSC docket search is unavailable.</div>';
-    }
+    renderSfscResultRows(container, [sfscDocketSearchRow(query)], label);
     return;
   }
 
@@ -1124,6 +912,12 @@ $$('[data-sfsc-mode]').forEach((button) => {
 $('[data-sfsc-search]')?.addEventListener("input", () => {
   clearTimeout(sfscInputTimer);
   sfscInputTimer = setTimeout(renderSfscArchiveSearch, 180);
+});
+
+$('[data-sfsc-search]')?.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" || sfscSearchMode !== "dockets") return;
+  event.preventDefault();
+  window.location.assign(sfscDocketSearchUrl(event.currentTarget.value));
 });
 
 $('[data-mini-search="tentatives"]')?.addEventListener("input", renderTentativesSearch);
