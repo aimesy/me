@@ -6,9 +6,8 @@ on:
     - cron: "17 * * * *"
 
 permissions:
+  actions: write
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: project-data
@@ -17,14 +16,16 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: https://amyc.us/
     steps:
       - name: Check out page repo
         uses: actions/checkout@v4
         with:
           path: site
+
+      - name: Record page source revision
+        id: page_base
+        working-directory: site
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Check project integration contracts
         working-directory: site
@@ -49,6 +50,7 @@ jobs:
         working-directory: site
         run: |
           node scripts/check-projects-static.mjs
+          node scripts/check-pinned-theme.mjs
           for asset in theme.css bug-report.css theme.js bug-report.js; do
             curl --fail --silent --show-error --location --retry 3 \
               "https://cdn.jsdelivr.net/gh/aimesy/themes@${{ steps.theme.outputs.sha }}/src/$asset" \
@@ -148,41 +150,54 @@ jobs:
       - name: Commit site refresh
         id: commit
         working-directory: site
+        env:
+          PAGE_BASE_SHA: ${{ steps.page_base.outputs.sha }}
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/project-data.json index.html fiction.html
           if git diff --cached --quiet; then
             echo "Project data already current."
-            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Refresh project data and theme pin"
-            git push
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+            for attempt in 1 2 3; do
+              git fetch origin main
+              if ! git diff --quiet "$PAGE_BASE_SHA..origin/main" -- \
+                .github/workflows/project-data.yml \
+                assets/project-data.json \
+                fiction.html \
+                index.html \
+                scripts/build-project-data.mjs \
+                scripts/sync-theme-ref.mjs; then
+                echo "Generation inputs changed on main while this refresh was running:" >&2
+                git diff --name-only "$PAGE_BASE_SHA..origin/main" -- \
+                  .github/workflows/project-data.yml \
+                  assets/project-data.json \
+                  fiction.html \
+                  index.html \
+                  scripts/build-project-data.mjs \
+                  scripts/sync-theme-ref.mjs >&2
+                exit 1
+              fi
+              git rebase origin/main
+              node scripts/check-projects-static.mjs
+              node scripts/check-pinned-theme.mjs
+              if git push origin HEAD:main; then
+                echo "pushed=true" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+              if [ "$attempt" -lt 3 ]; then
+                sleep $((attempt * 5))
+              fi
+            done
+            echo "Could not push the refresh after three fresh-tip attempts." >&2
+            exit 1
           fi
 
-      - name: Configure Pages
-        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
-        uses: actions/configure-pages@v5
-
-      - name: Upload site
-        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-          retention-days: 1
-
-      - name: Deploy site
-        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
-        id: deployment
-        continue-on-error: true
-        uses: actions/deploy-pages@v4
-
-      - name: Wait before retrying Pages deploy
-        if: ${{ (steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch') && steps.deployment.outcome == 'failure' }}
-        run: sleep 60
-
-      - name: Deploy site retry
-        if: ${{ (steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch') && steps.deployment.outcome == 'failure' }}
-        id: deployment-retry
-        uses: actions/deploy-pages@v4
+      - name: Dispatch canonical Pages deploy
+        if: steps.commit.outputs.pushed == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --repo "${{ github.repository }}" --ref main

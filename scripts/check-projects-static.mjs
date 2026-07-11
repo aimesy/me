@@ -7,6 +7,8 @@ const indexSource = readFileSync(new URL("../index.html", import.meta.url), "utf
 const fictionSource = readFileSync(new URL("../fiction.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const stylesSource = readFileSync(new URL("../assets/styles.css", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const builderSource = readFileSync(new URL("./build-project-data.mjs", import.meta.url), "utf8").replaceAll("\r\n", "\n");
+const refreshWorkflowSource = readFileSync(new URL("../.github/workflows/project-data.yml", import.meta.url), "utf8").replaceAll("\r\n", "\n");
+const pagesWorkflowSource = readFileSync(new URL("../.github/workflows/pages.yml", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 
 for (const retiredDependency of [
   "archive/cases-index.ndjson",
@@ -75,8 +77,14 @@ function contrastRatio(foreground, background) {
   return (Math.max(first, second) + 0.05) / (Math.min(first, second) + 0.05);
 }
 
-assert.ok(contrastRatio(cssColor("ink-3"), cssColor("paper")) >= 4.5);
-assert.ok(contrastRatio(cssColor("ink-3"), cssColor("paper-2")) >= 4.5);
+assert.ok(
+  contrastRatio(cssColor("ink-3"), cssColor("paper")) >= 4.5,
+  "the local ink-3 fallback must contrast with the local paper fallback",
+);
+assert.ok(
+  contrastRatio(cssColor("ink-3"), cssColor("paper-2")) >= 4.5,
+  "the local ink-3 fallback must contrast with the local paper-2 fallback",
+);
 
 function sharedThemeRefs(source, page) {
   const matches = [...source.matchAll(/https:\/\/cdn\.jsdelivr\.net\/gh\/aimesy\/themes@([0-9a-f]{40})\/src\/(theme\.css|bug-report\.css|theme\.js|bug-report\.js)/g)];
@@ -95,6 +103,30 @@ const themeRefs = [
   ...sharedThemeRefs(fictionSource, "fiction.html"),
 ];
 assert.equal(new Set(themeRefs).size, 1, "all shared theme assets must use the same commit");
+
+assert.doesNotMatch(refreshWorkflowSource, /actions\/(?:configure-pages|upload-pages-artifact|deploy-pages)@/);
+assert.doesNotMatch(refreshWorkflowSource, /^\s+(?:pages|id-token):\s*write\s*$/m);
+assert.match(refreshWorkflowSource, /^\s+actions:\s*write\s*$/m);
+assert.match(
+  refreshWorkflowSource,
+  /git fetch origin main[\s\S]*git rebase origin\/main[\s\S]*node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-pinned-theme\.mjs[\s\S]*git push origin HEAD:main/,
+);
+assert.match(refreshWorkflowSource, /id: page_base[\s\S]*git rev-parse HEAD/);
+assert.match(
+  refreshWorkflowSource,
+  /git diff --quiet "\$PAGE_BASE_SHA\.\.origin\/main" --[\s\S]*scripts\/build-project-data\.mjs[\s\S]*scripts\/sync-theme-ref\.mjs/,
+);
+assert.match(refreshWorkflowSource, /node scripts\/check-pinned-theme\.mjs/);
+assert.match(
+  refreshWorkflowSource,
+  /if: steps\.commit\.outputs\.pushed == 'true' \|\| github\.event_name == 'workflow_dispatch'[\s\S]*gh workflow run pages\.yml --repo "\$\{\{ github\.repository \}\}" --ref main/,
+);
+assert.match(pagesWorkflowSource, /concurrency:\s*[\s\S]*group: pages\s*[\s\S]*cancel-in-progress: true/);
+assert.equal((pagesWorkflowSource.match(/actions\/deploy-pages@/g) || []).length, 1);
+assert.match(
+  pagesWorkflowSource,
+  /node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-pinned-theme\.mjs[\s\S]*actions\/upload-pages-artifact@/,
+);
 
 const buildSfscStart = builderSource.indexOf("function buildSfsc()");
 const buildSfscEnd = builderSource.indexOf("\nfunction buildTentatives()", buildSfscStart);
