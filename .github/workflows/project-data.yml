@@ -35,6 +35,26 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: test -n "$GH_TOKEN"
 
+      - name: Resolve shared theme ref
+        id: theme
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: echo "sha=$(gh api repos/aimesy/themes/commits/master --jq .sha)" >> "$GITHUB_OUTPUT"
+
+      - name: Sync shared theme ref
+        working-directory: site
+        run: node scripts/sync-theme-ref.mjs "${{ steps.theme.outputs.sha }}"
+
+      - name: Verify shared theme ref
+        working-directory: site
+        run: |
+          node scripts/check-projects-static.mjs
+          for asset in theme.css bug-report.css theme.js bug-report.js; do
+            curl --fail --silent --show-error --location --retry 3 \
+              "https://cdn.jsdelivr.net/gh/aimesy/themes@${{ steps.theme.outputs.sha }}/src/$asset" \
+              --output /dev/null
+          done
+
       - name: Check out SFSC
         uses: actions/checkout@v4
         with:
@@ -125,18 +145,18 @@ jobs:
           KCSC_REPO: ../kcsc-data
         run: node scripts/build-project-data.mjs
 
-      - name: Commit tracker data
+      - name: Commit site refresh
         id: commit
         working-directory: site
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/project-data.json
+          git add assets/project-data.json index.html fiction.html
           if git diff --cached --quiet; then
             echo "Project data already current."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "Refresh project data"
+            git commit -m "Refresh project data and theme pin"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi

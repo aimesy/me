@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
   <meta
     http-equiv="Content-Security-Policy"
     content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src blob:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' blob: https://sfsc.amyc.us https://cdn.jsdelivr.net https://extensions.duckdb.org https://api.github.com https://raw.githubusercontent.com; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
@@ -20,10 +21,10 @@
   <meta name="twitter:description" content="Public project index for SFSC, California tentative rulings, civil procedure research tools, NDCS, NYSC, and KCSC.">
   <meta name="theme-color" content="#24211d">
   <link rel="stylesheet" href="assets/styles.css?v=theme-spectrum-sand">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@master/src/theme.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@master/src/bug-report.css">
-  <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@master/src/theme.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@master/src/bug-report.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@9efe86706d8ec4dfb9187b9cb042a617dae67168/src/theme.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@9efe86706d8ec4dfb9187b9cb042a617dae67168/src/bug-report.css">
+  <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@9efe86706d8ec4dfb9187b9cb042a617dae67168/src/theme.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@9efe86706d8ec4dfb9187b9cb042a617dae67168/src/bug-report.js" defer></script>
   <script src="assets/projects.js" defer></script>
 </head>
 <body>
@@ -110,9 +111,9 @@
             <button class="mini-button active" type="button" data-sfsc-mode="dockets">Dockets</button>
             <span class="mini-pill">Beta</span>
             <button class="mini-button" type="button" data-sfsc-mode="rulings">Tentatives</button>
-            <input class="mini-input" type="search" data-sfsc-search placeholder="search court dockets">
+            <input class="mini-input" type="search" data-sfsc-search aria-label="Search court dockets" placeholder="search court dockets">
           </div>
-          <div class="mini-table mini-results" data-sfsc-results></div>
+          <div class="mini-table mini-results" data-sfsc-results aria-live="polite"></div>
         </div>
       </div>
     </section>
@@ -155,11 +156,11 @@
             </div>
           </div>
           <div class="mini-tools">
-            <input class="mini-input" type="search" data-mini-search="tentatives" placeholder="search counties">
+            <input class="mini-input" type="search" data-mini-search="tentatives" aria-label="Search counties" placeholder="search counties">
             <a class="mini-button" data-mini-open="tentatives" href="https://aimesy.github.io/tentatives/">Open</a>
             <button class="mini-button" type="button" data-mini-clear="tentatives">Clear</button>
           </div>
-          <div class="mini-table" data-mini-list="tentatives"></div>
+          <div class="mini-table" data-mini-list="tentatives" aria-live="polite"></div>
         </div>
       </div>
     </section>
@@ -186,7 +187,6 @@
         </div>
         <div class="links" aria-label="NYSC links">
           <a class="hbtn" href="https://nysc.amyc.us/">Viewer</a>
-          <a class="hbtn" href="https://github.com/aimesy/nysc">Repository</a>
           <a class="hbtn" href="https://github.com/aimesy/nysc-data">Data Repository</a>
         </div>
       </div>

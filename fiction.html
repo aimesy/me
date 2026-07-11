@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
   <meta
     http-equiv="Content-Security-Policy"
     content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data:; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'none'"
@@ -20,10 +21,10 @@
   <meta name="twitter:description" content="Ocilentra, a science fiction book I completed in 2015 as a teenager, with maps and supplemental material.">
   <meta name="theme-color" content="#24211d">
   <link rel="stylesheet" href="assets/styles.css?v=theme-spectrum-sand">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@master/src/theme.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@master/src/bug-report.css">
-  <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@master/src/theme.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@master/src/bug-report.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@9efe86706d8ec4dfb9187b9cb042a617dae67168/src/theme.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@9efe86706d8ec4dfb9187b9cb042a617dae67168/src/bug-report.css">
+  <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@9efe86706d8ec4dfb9187b9cb042a617dae67168/src/theme.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@9efe86706d8ec4dfb9187b9cb042a617dae67168/src/bug-report.js" defer></script>
 </head>
 <body>
   <header>
@@ -84,14 +85,14 @@
         </object>
       </div>
       <div class="preview-stack" aria-label="Ocilentra maps and supplement">
-        <div class="map-switcher">
+        <div class="map-switcher" role="radiogroup" aria-label="Ocilentra supplemental views">
           <input class="map-radio" type="radio" name="ocilentra-view" id="ocilentra-view-political" checked>
           <input class="map-radio" type="radio" name="ocilentra-view" id="ocilentra-view-linguistic">
           <input class="map-radio" type="radio" name="ocilentra-view" id="ocilentra-view-supplement">
-          <div class="map-toggle" role="tablist" aria-label="Ocilentra supplemental views">
-            <label class="map-tab" for="ocilentra-view-political" role="tab">Political</label>
-            <label class="map-tab" for="ocilentra-view-linguistic" role="tab">Linguistic</label>
-            <label class="map-tab" for="ocilentra-view-supplement" role="tab">Supplement</label>
+          <div class="map-toggle">
+            <label class="map-tab" for="ocilentra-view-political">Political</label>
+            <label class="map-tab" for="ocilentra-view-linguistic">Linguistic</label>
+            <label class="map-tab" for="ocilentra-view-supplement">Supplement</label>
           </div>
           <div class="map-panels">
             <a class="map-panel map-panel-political" href="assets/ocilentra-map.svg" aria-label="Open political map of Ocilentra">

@@ -3,23 +3,16 @@ const SFSC_BASE_URL = "https://sfsc.amyc.us/";
 const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const SFSC_CASE_TABLE_STATS_URL = `${SFSC_BASE_URL}data/case-table-stats.json`;
 const SFSC_CASE_DIRECTORY_MANIFEST_URL = `${SFSC_BASE_URL}archive/case-directory/manifest.json`;
-const DUCKDB_WASM_URL = "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.33.1-dev45.0/+esm";
 const PROJECT_KEYS = ["sfsc", "tentatives", "nysc", "kcsc", "ndcs", "cividx"];
 const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
   tentatives: { repo: "aimesy/tentatives", branch: "master", path: "LIVE.md" },
-  cividx: { repo: "aimesy/cividx" },
   ndcs: { repo: "aimesy/ndcs-data", branch: "master", manifestPaths: ["data/common/manifest.json", "data/manifest.json"] },
   nysc: {
     repo: "aimesy/nysc-data",
     branch: "master",
-    manifestPaths: [
-      "archive/case-directory/manifest.json",
-      "data/common/manifest.json",
-      "data/common/shards/documents/manifest.json",
-    ],
-    releaseAssetPrefix: "docs-",
+    manifestPaths: ["data/common/manifest.json"],
   },
   kcsc: { repo: "aimesy/kcsc-data", branch: "master", manifestPaths: ["data/manifest.json"] },
 };
@@ -66,7 +59,6 @@ function metric(label, value, note = "") {
 }
 
 let sfscSearchMode = "dockets";
-let sfscSearchRenderId = 0;
 let projectData = null;
 
 function formatAgo(value) {
@@ -125,18 +117,6 @@ function startLiveAgeTimer() {
   liveAgeTimer = window.setInterval(renderLiveAges, 60 * 1000);
 }
 
-const sfscData = {
-  rulings: {
-    status: "idle",
-    error: "",
-    promise: null,
-    manifest: null,
-    duckdb: null,
-    db: null,
-    conn: null,
-  },
-};
-
 function renderMetrics(target, metrics) {
   const container = $(`[data-metrics="${target}"]`);
   if (!container) return;
@@ -191,17 +171,6 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) {
   return escapeHtml(value).replaceAll("'", "&#39;");
-}
-
-function escapeSql(value) {
-  return String(value ?? "").replaceAll("'", "''");
-}
-
-function searchTermToIlike(raw) {
-  let query = String(raw || "").replace(/[%_]/g, " ");
-  const hasWildcard = /[*?]/.test(query);
-  query = query.replace(/\*/g, "%").replace(/\?/g, "_");
-  return hasWildcard ? query : `%${query}%`;
 }
 
 function topRows(rows, limit) {
@@ -270,13 +239,6 @@ function renderTentativesSearch() {
   );
 }
 
-function formatDate(value) {
-  if (!value) return "";
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return String(value).slice(0, 10);
-  return date.toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" });
-}
-
 function sfscDocketSearchUrl(query = "") {
   const cleanQuery = String(query || "").trim();
   return `${SFSC_BASE_URL}#/cases${cleanQuery ? `?q=${encodeURIComponent(cleanQuery)}` : ""}`;
@@ -295,18 +257,30 @@ function sfscDocketSearchRow(query = "") {
   };
 }
 
-function sfscRulingUrl(row, query) {
-  const params = new URLSearchParams();
-  if (query) params.set("q", query);
-  if (row.department) params.set("dept", row.department);
-  if (row.row_hash) params.set("sel", row.row_hash);
-  params.set("view", "dossier");
-  return `${SFSC_BASE_URL}#${params.toString()}`;
+function sfscRulingSearchUrl(query = "") {
+  const cleanQuery = String(query || "").trim();
+  return `${SFSC_BASE_URL}#q=${encodeURIComponent(cleanQuery)}`;
+}
+
+function sfscRulingSearchRow(query = "") {
+  const cleanQuery = String(query || "").trim();
+  return {
+    title: cleanQuery ? `Search SFSC tentative rulings for “${cleanQuery}”` : "Browse SFSC tentative rulings",
+    meta: "Live rulings index",
+    detail: cleanQuery
+      ? "Open the complete SFSC tentative-rulings search with this query."
+      : "Search by case number, title, ruling text, motion, judge, or department.",
+    href: sfscRulingSearchUrl(cleanQuery),
+    action: cleanQuery ? "Search" : "Browse",
+  };
 }
 
 function renderSfscModeChrome(label) {
   const input = $('[data-sfsc-search]');
-  if (input) input.placeholder = `search ${label}`;
+  if (input) {
+    input.placeholder = `search ${label}`;
+    input.setAttribute("aria-label", `Search ${label}`);
+  }
 
   $$('[data-sfsc-mode]').forEach((button) => {
     const active = button.dataset.sfscMode === sfscSearchMode;
@@ -333,160 +307,18 @@ function renderSfscResultRows(container, rows, label) {
   `).join("");
 }
 
-function tableNameForSfscDept(department) {
-  return `dept${String(department || "").replace(/[^A-Za-z0-9_]/g, "_")}`;
-}
-
-async function initSfscRulingBackend(progress = () => {}) {
-  const state = sfscData.rulings;
-  if (state.status === "ready") return state;
-  if (state.promise) return state.promise;
-
-  state.status = "loading";
-  state.promise = (async () => {
-    try {
-      progress("Loading ruling index...");
-      const duckdb = await import(DUCKDB_WASM_URL);
-      const bundles = duckdb.getJsDelivrBundles();
-      const bundle = bundles.mvp;
-      const workerUrl = URL.createObjectURL(
-        new Blob([`importScripts("${bundle.mainWorker}");`], { type: "text/javascript" }),
-      );
-      const db = new duckdb.AsyncDuckDB(new duckdb.VoidLogger(), new Worker(workerUrl));
-      await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
-      URL.revokeObjectURL(workerUrl);
-      const conn = await db.connect();
-
-      const manifestResponse = await fetch(SFSC_MANIFEST_URL, { cache: "no-cache" });
-      if (!manifestResponse.ok) throw new Error(`HTTP ${manifestResponse.status}`);
-      const manifest = await manifestResponse.json();
-      const departments = Array.isArray(manifest.departments) ? manifest.departments : [];
-
-      await conn.query(`CREATE OR REPLACE VIEW data AS
-        SELECT NULL::VARCHAR AS department,
-               NULL::VARCHAR AS case_number,
-               NULL::VARCHAR AS case_title,
-               NULL::VARCHAR AS court_date,
-               NULL::VARCHAR AS hearing_time,
-               NULL::VARCHAR AS calendar_matter,
-               NULL::VARCHAR AS judge,
-               NULL::VARCHAR AS ruling,
-               NULL::VARCHAR AS row_hash
-        WHERE FALSE`);
-
-      for (const department of departments) {
-        const dept = String(department.department || "");
-        if (!dept) continue;
-        progress(`Loading Dept ${dept}...`);
-        const dataResponse = await fetch(`${SFSC_BASE_URL}data/tentatives-${dept}.parquet`, { cache: "force-cache" });
-        if (!dataResponse.ok) throw new Error(`HTTP ${dataResponse.status} loading Dept ${dept}`);
-        const buffer = new Uint8Array(await dataResponse.arrayBuffer());
-        const fileName = `sfsc-dept-${dept}.parquet`;
-        const tableName = tableNameForSfscDept(dept);
-        await db.registerFileBuffer(fileName, buffer);
-        await conn.query(`CREATE OR REPLACE TABLE ${tableName} AS SELECT * FROM '${fileName}'`);
-      }
-
-      const tableNames = departments
-        .map((department) => String(department.department || ""))
-        .filter(Boolean)
-        .map((dept) => tableNameForSfscDept(dept));
-
-      if (tableNames.length) {
-        const union = tableNames.map((tableName) => `
-          SELECT department, case_number, case_title, court_date, hearing_time,
-                 calendar_matter, judge, ruling, row_hash
-          FROM ${tableName}
-        `).join(" UNION ALL ");
-        await conn.query(`CREATE OR REPLACE VIEW data AS ${union}`);
-      }
-
-      state.status = "ready";
-      state.error = "";
-      state.manifest = manifest;
-      state.duckdb = duckdb;
-      state.db = db;
-      state.conn = conn;
-      progress("Searching...");
-      return state;
-    } catch (error) {
-      state.status = "error";
-      state.error = error?.message || String(error);
-      throw error;
-    } finally {
-      state.promise = null;
-    }
-  })();
-
-  return state.promise;
-}
-
-async function searchSfscRulings(query, progress) {
-  if (!query) return [];
-  const state = await initSfscRulingBackend(progress);
-  const pattern = escapeSql(searchTermToIlike(query));
-  const result = await state.conn.query(`
-    SELECT department, case_number, case_title, court_date, hearing_time,
-           calendar_matter, judge, row_hash
-    FROM data
-    WHERE case_number ILIKE '${pattern}'
-       OR case_title ILIKE '${pattern}'
-       OR ruling ILIKE '${pattern}'
-       OR calendar_matter ILIKE '${pattern}'
-    ORDER BY court_date DESC, hearing_time DESC, case_number
-    LIMIT 5
-  `);
-
-  return result.toArray().map((row) => ({
-    caseNumber: row.case_number || "",
-    title: row.case_title || row.case_number || "Untitled",
-    meta: [
-      row.department ? `Dept ${row.department}` : "",
-      formatDate(row.court_date),
-      row.hearing_time || "",
-    ].filter(Boolean).join(" / "),
-    detail: [row.calendar_matter || "", row.judge || ""].filter(Boolean).join(" / "),
-    href: sfscRulingUrl(row, query),
-    searchText: [row.case_number, row.case_title, row.calendar_matter, row.judge].join(" "),
-  }));
-}
-
-async function renderSfscArchiveSearch() {
+function renderSfscArchiveSearch() {
   const container = $('[data-sfsc-results]');
   const input = $('[data-sfsc-search]');
   if (!container) return;
 
-  const renderId = ++sfscSearchRenderId;
   const query = input?.value?.trim() || "";
   const label = sfscSearchMode === "dockets" ? "court dockets" : "tentative rulings";
   renderSfscModeChrome(label);
-
-  if (sfscSearchMode === "dockets") {
-    renderSfscResultRows(container, [sfscDocketSearchRow(query)], label);
-    return;
-  }
-
-  if (!query) {
-    container.innerHTML = '<div class="mini-empty">Enter a search term.</div>';
-    return;
-  }
-
-  const progress = (message) => {
-    if (renderId === sfscSearchRenderId) {
-      container.innerHTML = `<div class="mini-empty">${escapeHtml(message)}</div>`;
-    }
-  };
-
-  progress("Loading tentative rulings...");
-  try {
-    const rows = await searchSfscRulings(query, progress);
-    if (renderId !== sfscSearchRenderId) return;
-    renderSfscResultRows(container, rows, label);
-  } catch (error) {
-    if (renderId !== sfscSearchRenderId) return;
-    console.error(error);
-    container.innerHTML = '<div class="mini-empty">SFSC tentative ruling search is unavailable.</div>';
-  }
+  const row = sfscSearchMode === "dockets"
+    ? sfscDocketSearchRow(query)
+    : sfscRulingSearchRow(query);
+  renderSfscResultRows(container, [row], label);
 }
 
 function setText(selector, text) {
@@ -510,13 +342,6 @@ function githubStatsRawUrl(config, path) {
     branch: config.statsBranch || config.branch,
     path,
   });
-}
-
-function githubCommitsUrl({ repo, branch, path }) {
-  const params = new URLSearchParams({ per_page: "1" });
-  if (branch) params.set("sha", branch);
-  if (path) params.set("path", path);
-  return `https://api.github.com/repos/${repo}/commits?${params.toString()}`;
 }
 
 function parseLiveTable(markdown) {
@@ -641,13 +466,6 @@ function applyPublicDataManifests(key, manifests) {
   );
 }
 
-function applyReleaseAssetStats(key, stats) {
-  const metrics = projectData?.projects?.[key]?.metrics;
-  if (!metrics || !stats) return;
-  metrics.mirroredFiles = Math.max(positiveNumber(metrics.mirroredFiles), positiveNumber(stats.assets));
-  metrics.documentBytes = Math.max(positiveNumber(metrics.documentBytes), positiveNumber(stats.bytes));
-}
-
 function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirectoryManifest }) {
   const project = projectData?.projects?.sfsc;
   if (!project) return;
@@ -758,37 +576,6 @@ async function loadPublicDataManifests(key, config) {
   if (manifests.size) applyPublicDataManifests(key, manifests);
 }
 
-async function loadReleaseAssetStats(key, config) {
-  if (!config.releaseAssetPrefix) return;
-  let assets = 0;
-  let bytes = 0;
-  for (let page = 1; page <= 10; page += 1) {
-    try {
-      const url = `https://api.github.com/repos/${config.repo}/releases?per_page=100&page=${page}`;
-      const response = await fetch(url, { cache: "no-store" });
-      if (!response.ok) {
-        console.warn(`${key} release stats unavailable: ${response.status}`);
-        break;
-      }
-      const releases = await response.json();
-      if (!Array.isArray(releases) || !releases.length) break;
-      for (const release of releases) {
-        const tag = String(release.tag_name || release.name || "");
-        if (!tag.startsWith(config.releaseAssetPrefix)) continue;
-        for (const asset of release.assets || []) {
-          assets += 1;
-          bytes += positiveNumber(asset.size);
-        }
-      }
-      if (releases.length < 100) break;
-    } catch (error) {
-      console.warn(`${key} release stats unavailable`, error);
-      break;
-    }
-  }
-  applyReleaseAssetStats(key, { assets, bytes });
-}
-
 async function loadSfscAggregateSources() {
   const fetchJson = async (url) => {
     try {
@@ -832,28 +619,6 @@ async function loadLiveRepo(key, config) {
   }
 
   await loadPublicDataManifests(key, config);
-  await loadReleaseAssetStats(key, config);
-
-  let updatedAt = projectData?.projects?.[key]?.updatedAt || null;
-  let ref = projectData?.projects?.[key]?.ref || "";
-  try {
-    const commitResponse = await fetch(githubCommitsUrl(config), { cache: "no-store" });
-    if (commitResponse.ok) {
-      const commits = await commitResponse.json();
-      const commit = Array.isArray(commits) ? commits[0] : null;
-      updatedAt = commit?.commit?.committer?.date || commit?.commit?.author?.date || updatedAt;
-      ref = commit?.sha || ref;
-    } else {
-      console.warn(`${key} commit metadata unavailable: ${commitResponse.status}`);
-    }
-  } catch (error) {
-    console.warn(`${key} commit metadata unavailable`, error);
-  }
-
-  projectData.projects[key].ref = ref;
-  projectData.projects[key].updatedAt = updatedAt;
-  liveStatus.projects[key] = { updatedAt, ref };
-  setLiveText(`${key}-ref`, shortHash(ref));
   renderLiveMetricValues();
   renderLiveAges();
 }
@@ -915,9 +680,12 @@ $('[data-sfsc-search]')?.addEventListener("input", () => {
 });
 
 $('[data-sfsc-search]')?.addEventListener("keydown", (event) => {
-  if (event.key !== "Enter" || sfscSearchMode !== "dockets") return;
+  if (event.key !== "Enter") return;
   event.preventDefault();
-  window.location.assign(sfscDocketSearchUrl(event.currentTarget.value));
+  const target = sfscSearchMode === "dockets"
+    ? sfscDocketSearchUrl(event.currentTarget.value)
+    : sfscRulingSearchUrl(event.currentTarget.value);
+  window.location.assign(target);
 });
 
 $('[data-mini-search="tentatives"]')?.addEventListener("input", renderTentativesSearch);

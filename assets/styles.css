@@ -9,7 +9,7 @@
   --page-line: #f5efe3;
   --ink: #27231f;
   --ink-2: #514b43;
-  --ink-3: #7c7468;
+  --ink-3: #70685e;
   --ink-4: #a9a094;
   --rule: #d8d0c3;
   --rule-2: #ebe5dc;
@@ -1346,6 +1346,13 @@ input.mini-input {
 #ocilentra-view-supplement:checked ~ .map-toggle label[for="ocilentra-view-supplement"] {
   background: var(--ink);
   color: var(--paper);
+}
+
+#ocilentra-view-political:focus-visible ~ .map-toggle label[for="ocilentra-view-political"],
+#ocilentra-view-linguistic:focus-visible ~ .map-toggle label[for="ocilentra-view-linguistic"],
+#ocilentra-view-supplement:focus-visible ~ .map-toggle label[for="ocilentra-view-supplement"] {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
 }
 
 .map-panels {
