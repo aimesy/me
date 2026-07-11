@@ -3,7 +3,7 @@ name: Refresh Project Data
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "17 * * * *"
 
 permissions:
   contents: write
@@ -150,6 +150,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
+          retention-days: 1
 
       - name: Deploy site
         if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
