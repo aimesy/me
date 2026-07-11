@@ -1,0 +1,203 @@
+name: Refresh Project Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: project-data
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out page repo
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      - name: Record page source revision
+        id: page_base
+        working-directory: site
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Check project integration contracts
+        working-directory: site
+        run: node scripts/check-projects-static.mjs
+
+      - name: Require project repo token
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: test -n "$GH_TOKEN"
+
+      - name: Resolve shared theme ref
+        id: theme
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: echo "sha=$(gh api repos/aimesy/themes/commits/master --jq .sha)" >> "$GITHUB_OUTPUT"
+
+      - name: Sync shared theme ref
+        working-directory: site
+        run: node scripts/sync-theme-ref.mjs "${{ steps.theme.outputs.sha }}"
+
+      - name: Verify shared theme ref
+        working-directory: site
+        run: |
+          node scripts/check-projects-static.mjs
+          node scripts/check-pinned-theme.mjs
+          for asset in theme.css bug-report.css theme.js bug-report.js; do
+            curl --fail --silent --show-error --location --retry 3 \
+              "https://cdn.jsdelivr.net/gh/aimesy/themes@${{ steps.theme.outputs.sha }}/src/$asset" \
+              --output /dev/null
+          done
+
+      - name: Check out SFSC
+        uses: actions/checkout@v4
+        with:
+          repository: aimesy/sfsc
+          ref: master
+          path: sfsc
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Check out SFSC data
+        uses: actions/checkout@v4
+        with:
+          repository: aimesy/sfsc-data
+          ref: master
+          path: sfsc-data
+          token: ${{ secrets.GH_TOKEN }}
+          sparse-checkout: |
+            archive/case-directory/manifest.json
+            data/case-table-stats.json
+          sparse-checkout-cone-mode: false
+
+      - name: Check out Tentatives
+        uses: actions/checkout@v4
+        with:
+          repository: aimesy/tentatives
+          ref: master
+          path: tentatives
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Check out CivProIdx
+        uses: actions/checkout@v4
+        with:
+          repository: aimesy/civproidx
+          ref: master
+          path: civproidx
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Check out NDCS
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: aimesy/ndcs-data
+          ref: master
+          path: ndcs-data
+          token: ${{ secrets.GH_TOKEN }}
+          sparse-checkout: |
+            data/manifest.json
+            data/common/manifest.json
+          sparse-checkout-cone-mode: false
+
+      - name: Check out NYSC data
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: aimesy/nysc-data
+          ref: master
+          path: nysc-data
+          token: ${{ secrets.GH_TOKEN }}
+          sparse-checkout: |
+            archive/case-directory/manifest.json
+            archive/document-index.ndjson
+            archive/promotions/*
+            data/common/manifest.json
+          sparse-checkout-cone-mode: false
+
+      - name: Check out KCSC data
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: aimesy/kcsc-data
+          ref: master
+          path: kcsc-data
+          token: ${{ secrets.GH_TOKEN }}
+          sparse-checkout: |
+            archive/cases-index.ndjson
+            archive/cases/*
+            data/manifest.json
+          sparse-checkout-cone-mode: false
+
+      - name: Build tracker JSON
+        working-directory: site
+        env:
+          SFSC_REPO: ../sfsc
+          SFSC_DATA_REPO: ../sfsc-data
+          TENTATIVES_REPO: ../tentatives
+          CIVPROIDX_REPO: ../civproidx
+          NDCS_REPO: ../ndcs-data
+          NYSC_REPO: ../nysc-data
+          KCSC_REPO: ../kcsc-data
+        run: node scripts/build-project-data.mjs
+
+      - name: Commit site refresh
+        id: commit
+        working-directory: site
+        env:
+          PAGE_BASE_SHA: ${{ steps.page_base.outputs.sha }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/project-data.json index.html fiction.html
+          if git diff --cached --quiet; then
+            echo "Project data already current."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Refresh project data and theme pin"
+            for attempt in 1 2 3; do
+              git fetch origin main
+              if ! git diff --quiet "$PAGE_BASE_SHA..origin/main" -- \
+                .github/workflows/project-data.yml \
+                assets/project-data.json \
+                fiction.html \
+                index.html \
+                scripts/build-project-data.mjs \
+                scripts/sync-theme-ref.mjs; then
+                echo "Generation inputs changed on main while this refresh was running:" >&2
+                git diff --name-only "$PAGE_BASE_SHA..origin/main" -- \
+                  .github/workflows/project-data.yml \
+                  assets/project-data.json \
+                  fiction.html \
+                  index.html \
+                  scripts/build-project-data.mjs \
+                  scripts/sync-theme-ref.mjs >&2
+                exit 1
+              fi
+              git rebase origin/main
+              node scripts/check-projects-static.mjs
+              node scripts/check-pinned-theme.mjs
+              if git push origin HEAD:main; then
+                echo "pushed=true" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+              if [ "$attempt" -lt 3 ]; then
+                sleep $((attempt * 5))
+              fi
+            done
+            echo "Could not push the refresh after three fresh-tip attempts." >&2
+            exit 1
+          fi
+
+      - name: Dispatch canonical Pages deploy
+        if: steps.commit.outputs.pushed == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --repo "${{ github.repository }}" --ref main
