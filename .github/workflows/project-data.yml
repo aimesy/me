@@ -85,12 +85,12 @@ jobs:
           path: tentatives
           token: ${{ secrets.GH_TOKEN }}
 
-      - name: Check out Cividx
+      - name: Check out CivProIdx
         uses: actions/checkout@v4
         with:
-          repository: aimesy/cividx
+          repository: aimesy/civproidx
           ref: master
-          path: cividx
+          path: civproidx
           token: ${{ secrets.GH_TOKEN }}
 
       - name: Check out NDCS
@@ -141,7 +141,7 @@ jobs:
           SFSC_REPO: ../sfsc
           SFSC_DATA_REPO: ../sfsc-data
           TENTATIVES_REPO: ../tentatives
-          CIVIDX_REPO: ../cividx
+          CIVPROIDX_REPO: ../civproidx
           NDCS_REPO: ../ndcs-data
           NYSC_REPO: ../nysc-data
           KCSC_REPO: ../kcsc-data

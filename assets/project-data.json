@@ -4,15 +4,15 @@
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "0525c83048c6e66aec3ba4affa8f47c3f32b7357",
-      "updatedAt": "2026-07-10T23:08:19-07:00",
+      "ref": null,
+      "updatedAt": null,
       "metrics": {
-        "tentativeRulings": 379826,
-        "cases": 1205055,
-        "documents": 4082942,
-        "documentsArchived": 66335,
-        "docketEntries": 9092102,
-        "documentBytes": 71787610112
+        "tentativeRulings": 366101,
+        "cases": 0,
+        "documents": 0,
+        "documentsArchived": 0,
+        "docketEntries": 0,
+        "documentBytes": 0
       },
       "charts": {
         "rulingsByDepartment": [
@@ -45,14 +45,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "6e4e8b96205784cd126f2b966083b8d8aa14168e",
-      "updatedAt": "2026-07-11T03:29:27Z",
+      "ref": null,
+      "updatedAt": null,
       "metrics": {
-        "tentativeRulings": 26606,
+        "tentativeRulings": 25492,
         "parsedCounties": 34,
-        "documents": 4807,
-        "archivedFiles": 56152,
-        "documentBytes": 18720227328
+        "documents": 4503,
+        "archivedFiles": 53145,
+        "documentBytes": 17138974720
       },
       "charts": {
         "rulingsByCounty": [
@@ -234,21 +234,21 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "57403d6945402f7c14c1acd2e6528b099dfdc1e3",
-      "updatedAt": "2026-07-11T09:52:19Z",
+      "ref": null,
+      "updatedAt": null,
       "metrics": {
-        "cases": 48745,
+        "cases": 822,
         "documents": 0,
-        "mirroredFiles": 48753,
-        "documentBytes": 73346656,
-        "snapshots": 48746
+        "mirroredFiles": 830,
+        "documentBytes": 1750383,
+        "snapshots": 823
       },
       "charts": {}
     },
     "ndcs": {
       "repo": "aimesy/ndcs-data",
-      "ref": "9638971e0e95c6bd5ba302ba70351de0dc450b14",
-      "updatedAt": "2026-06-24T13:58:38-07:00",
+      "ref": null,
+      "updatedAt": null,
       "metrics": {
         "cases": 38771,
         "documents": 0,
@@ -258,10 +258,10 @@
       },
       "charts": {}
     },
-    "cividx": {
-      "repo": "aimesy/cividx",
-      "ref": "741e9a26009486857f14a5a4bc2993229194207e",
-      "updatedAt": "2026-06-30T22:12:32-07:00",
+    "civproidx": {
+      "repo": "aimesy/civproidx",
+      "ref": null,
+      "updatedAt": null,
       "metrics": {
         "jurisdictions": 95,
         "citations": 778

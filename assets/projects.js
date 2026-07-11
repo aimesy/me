@@ -3,7 +3,7 @@ const SFSC_BASE_URL = "https://sfsc.amyc.us/";
 const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const SFSC_CASE_TABLE_STATS_URL = `${SFSC_BASE_URL}data/case-table-stats.json`;
 const SFSC_CASE_DIRECTORY_MANIFEST_URL = `${SFSC_BASE_URL}archive/case-directory/manifest.json`;
-const PROJECT_KEYS = ["sfsc", "tentatives", "nysc", "kcsc", "ndcs", "cividx"];
+const PROJECT_KEYS = ["sfsc", "tentatives", "nysc", "kcsc", "ndcs", "civproidx"];
 const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
@@ -139,7 +139,7 @@ function renderMetrics(target, metrics) {
     ].join("");
   }
 
-  if (target === "cividx") {
+  if (target === "civproidx") {
     container.innerHTML = [
       metric("jurisdictions", formatNumber(metrics.jurisdictions)),
       metric("citations", formatNumber(metrics.citations)),
@@ -523,7 +523,7 @@ function applyLiveMetrics(key, table) {
     metrics.coverage = table.get("hearing-date coverage") || metrics.coverage;
   }
 
-  if (key === "cividx") {
+  if (key === "civproidx") {
     metrics.jurisdictions = parseCount(table.get("jurisdictions")) || metrics.jurisdictions;
     metrics.citations = parseCount(table.get("citations")) || metrics.citations;
     metrics.documents = parseCount(table.get("documents")) || metrics.documents;
@@ -655,7 +655,7 @@ function render(data) {
   setText('[data-live="tentatives-size"]', formatArchiveSize(projects.tentatives.metrics.documentBytes));
   setText('[data-live="sfsc-ref"]', shortHash(projects.sfsc.ref));
   setText('[data-live="tentatives-ref"]', shortHash(projects.tentatives.ref));
-  setText('[data-live="cividx-ref"]', shortHash(projects.cividx.ref));
+  setText('[data-live="civproidx-ref"]', shortHash(projects.civproidx.ref));
   setText('[data-live="ndcs-ref"]', shortHash(projects.ndcs?.ref));
   setText('[data-live="nysc-ref"]', shortHash(projects.nysc?.ref));
   setText('[data-live="kcsc-ref"]', shortHash(projects.kcsc?.ref));

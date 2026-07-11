@@ -27,9 +27,9 @@ const config = {
     repo: process.env.TENTATIVES_REPO || path.resolve(repoRoot, "..", "..", "projects", "tentatives"),
     ref: process.env.TENTATIVES_REF || "",
   },
-  cividx: {
-    repo: process.env.CIVIDX_REPO || path.resolve(repoRoot, "..", "..", "projects", "cividx"),
-    ref: process.env.CIVIDX_REF || "",
+  civproidx: {
+    repo: process.env.CIVPROIDX_REPO || path.resolve(repoRoot, "..", "..", "projects", "cividx"),
+    ref: process.env.CIVPROIDX_REF || "",
   },
   ndcs: {
     repo: process.env.NDCS_REPO || path.resolve(repoRoot, "..", "..", "projects", "ndcs-data"),
@@ -506,12 +506,12 @@ function buildTentatives() {
   };
 }
 
-function countCividxCitationsFromManifests() {
+function countCivProIdxCitationsFromManifests() {
   const citations = new Set();
-  const manifestFiles = listRepoFiles(config.cividx, "data/parquet/manifests", { tree: true })
+  const manifestFiles = listRepoFiles(config.civproidx, "data/parquet/manifests", { tree: true })
     .filter((file) => file.endsWith(".csv"));
   for (const file of manifestFiles) {
-    for (const row of parseCsv(readRepoFile(config.cividx, file))) {
+    for (const row of parseCsv(readRepoFile(config.civproidx, file))) {
       const citation = String(row.citation || "").trim();
       if (citation) citations.add(citation);
     }
@@ -519,10 +519,10 @@ function countCividxCitationsFromManifests() {
   return citations.size;
 }
 
-function buildCividx(previous) {
-  if (!repoAvailable(config.cividx.repo)) {
-    return previous?.projects?.cividx || {
-      repo: "aimesy/cividx",
+function buildCivProIdx(previous) {
+  if (!repoAvailable(config.civproidx.repo)) {
+    return previous?.projects?.civproidx || previous?.projects?.cividx || {
+      repo: "aimesy/civproidx",
       ref: null,
       updatedAt: null,
       metrics: { jurisdictions: 0, citations: 0 },
@@ -530,13 +530,13 @@ function buildCividx(previous) {
     };
   }
 
-  const jurisdictions = parseCsv(readRepoFile(config.cividx, "data/jurisdictions-table.csv"));
-  const citationStats = parseJson(readRepoFile(config.cividx, "data/citation-stats.json"));
-  const citations = Number(citationStats?.citations || 0) || countCividxCitationsFromManifests();
+  const jurisdictions = parseCsv(readRepoFile(config.civproidx, "data/jurisdictions-table.csv"));
+  const citationStats = parseJson(readRepoFile(config.civproidx, "data/citation-stats.json"));
+  const citations = Number(citationStats?.citations || 0) || countCivProIdxCitationsFromManifests();
   return {
-    repo: "aimesy/cividx",
-    ref: repoHead(config.cividx),
-    updatedAt: repoUpdatedAt(config.cividx),
+    repo: "aimesy/civproidx",
+    ref: repoHead(config.civproidx),
+    updatedAt: repoUpdatedAt(config.civproidx),
     metrics: {
       jurisdictions: jurisdictions.length,
       citations,
@@ -595,7 +595,7 @@ const projects = {
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc, publicReleaseStats.nysc),
   kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc-data", config.kcsc),
   ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
-  cividx: buildCividx(previous),
+  civproidx: buildCivProIdx(previous),
 };
 const projectDates = Object.values(projects)
   .map((project) => project.updatedAt)
