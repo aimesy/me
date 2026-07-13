@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-13T00:11:17.000Z",
+  "generatedAt": "2026-07-13T04:01:04.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "39011e945a8d77d6f7b6f6fc59c981d72a6b5f68",
-      "updatedAt": "2026-07-12T23:00:57Z",
+      "ref": "abf34e44655e4e71853738740bfc6d89ebc9a158",
+      "updatedAt": "2026-07-13T03:52:21Z",
       "metrics": {
         "tentativeRulings": 380034,
         "cases": 1205208,
@@ -45,14 +45,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "867db8bfa20335e3697332eedfe8da0eaf3c267e",
-      "updatedAt": "2026-07-12T13:27:27Z",
+      "ref": "068dd5e7db6a0d8258a9b552fa83fa96339c985b",
+      "updatedAt": "2026-07-13T03:28:35Z",
       "metrics": {
-        "tentativeRulings": 26658,
+        "tentativeRulings": 26677,
         "parsedCounties": 34,
-        "documents": 4811,
-        "archivedFiles": 57019,
-        "documentBytes": 19432210432
+        "documents": 4823,
+        "archivedFiles": 57861,
+        "documentBytes": 20133707776
       },
       "charts": {
         "rulingsByCounty": [
@@ -221,27 +221,27 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "797da4e06b5ca3f8c5aa845dd9e8a94fe6f59535",
-      "updatedAt": "2026-07-13T00:11:17Z",
+      "ref": "b2be779226fb4a1f787a8d3ecbcff982eecfc40a",
+      "updatedAt": "2026-07-13T04:01:04Z",
       "metrics": {
         "cases": 81613,
         "documents": 210324,
         "mirroredFiles": 7056,
         "documentBytes": 1032350594,
-        "snapshots": 214528
+        "snapshots": 215307
       },
       "charts": {}
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "2f96703f8c78c4a9f25114c743174e6019f47549",
-      "updatedAt": "2026-07-12T23:26:09Z",
+      "ref": "9ab0cd6e7f2a6cbcd456212c7d30577398ca9b4b",
+      "updatedAt": "2026-07-13T03:36:58Z",
       "metrics": {
-        "cases": 58037,
+        "cases": 59972,
         "documents": 0,
-        "mirroredFiles": 58045,
-        "documentBytes": 88227616,
-        "snapshots": 58038
+        "mirroredFiles": 59980,
+        "documentBytes": 91531173,
+        "snapshots": 59973
       },
       "charts": {}
     },
