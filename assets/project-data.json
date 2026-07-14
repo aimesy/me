@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-07-13T23:52:15.000Z",
+  "generatedAt": "2026-07-14T03:28:32.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "9f4b97695a498b54c6efd48b0afe54f9fdb2b436",
-      "updatedAt": "2026-07-13T19:07:08Z",
+      "ref": "a6f645bcc24a6628d92045810b0a84af75f8c8b4",
+      "updatedAt": "2026-07-14T03:28:32Z",
       "metrics": {
         "tentativeRulings": 380034,
-        "cases": 1205208,
+        "cases": 1265222,
         "documents": 4082942,
         "documentsArchived": 66332,
         "docketEntries": 9092102,
@@ -45,14 +45,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "068dd5e7db6a0d8258a9b552fa83fa96339c985b",
-      "updatedAt": "2026-07-13T03:28:35Z",
+      "ref": "7c8f752ebe5ec5914ba2b4e39d3c61252b1ae7af",
+      "updatedAt": "2026-07-14T03:17:59Z",
       "metrics": {
-        "tentativeRulings": 26677,
+        "tentativeRulings": 27421,
         "parsedCounties": 34,
-        "documents": 4823,
-        "archivedFiles": 57861,
-        "documentBytes": 20133707776
+        "documents": 5023,
+        "archivedFiles": 59618,
+        "documentBytes": 20949499904
       },
       "charts": {
         "rulingsByCounty": [
@@ -221,27 +221,27 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "a35f7665669447ca1bb9f8d09dd4e5063a878186",
-      "updatedAt": "2026-07-13T23:52:15Z",
+      "ref": "61a4972f491357aa14bde6fccfaff9d528289392",
+      "updatedAt": "2026-07-14T00:29:03Z",
       "metrics": {
         "cases": 81613,
         "documents": 210324,
         "mirroredFiles": 7056,
         "documentBytes": 1032350594,
-        "snapshots": 217577
+        "snapshots": 217584
       },
       "charts": {}
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "8718c54c18966166ca885739b4f6472eebee3b9a",
-      "updatedAt": "2026-07-13T22:47:48Z",
+      "ref": "7eea85b1019ebbd8c584b5a9f748ae7c299a0660",
+      "updatedAt": "2026-07-14T03:03:09Z",
       "metrics": {
-        "cases": 65689,
+        "cases": 67123,
         "documents": 0,
-        "mirroredFiles": 65697,
-        "documentBytes": 100802315,
-        "snapshots": 65690
+        "mirroredFiles": 67131,
+        "documentBytes": 103219793,
+        "snapshots": 67124
       },
       "charts": {}
     },
