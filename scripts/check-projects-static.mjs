@@ -128,7 +128,7 @@ assert.match(
   /node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-pinned-theme\.mjs[\s\S]*actions\/upload-pages-artifact@/,
 );
 
-const buildSfscStart = builderSource.indexOf("function buildSfsc()");
+const buildSfscStart = builderSource.indexOf("function buildSfsc(");
 const buildSfscEnd = builderSource.indexOf("\nfunction buildTentatives()", buildSfscStart);
 assert.notEqual(buildSfscStart, -1, "buildSfsc must exist");
 assert.notEqual(buildSfscEnd, -1, "buildSfsc must have a complete function body");
@@ -173,6 +173,46 @@ assert.equal(builderContext.sfscProject.metrics.cases, 1205055);
 assert.equal(builderContext.sfscProject.metrics.documents, 4082942);
 assert.equal(builderContext.sfscProject.metrics.docketEntries, 9092102);
 assert.equal("searchSamples" in builderContext.sfscProject, false);
+
+vm.runInContext(`this.sfscNonRegressingProject = buildSfsc({
+  projects: { sfsc: { metrics: { cases: 1265222 } } },
+});`, builderContext);
+assert.equal(
+  builderContext.sfscNonRegressingProject.metrics.cases,
+  1265222,
+  "the scheduled build must not replace a canonical SFSC count with a partial source count",
+);
+
+const parseCountStart = projectsSource.indexOf("function parseCount(");
+const liveMetricsEnd = projectsSource.indexOf("\nfunction renderLiveMetricValues(", parseCountStart);
+assert.notEqual(parseCountStart, -1, "parseCount must exist");
+assert.notEqual(liveMetricsEnd, -1, "SFSC runtime metric functions must exist");
+const liveMetricSources = projectsSource.slice(parseCountStart, liveMetricsEnd);
+const runtimeContext = {
+  PUBLIC_DATA_KEYS: new Set(["ndcs", "nysc", "kcsc"]),
+  projectData: {
+    projects: {
+      sfsc: {
+        metrics: { cases: 1265222, documents: 4082942, docketEntries: 9092102 },
+        charts: { rulingsByDepartment: [] },
+      },
+    },
+  },
+};
+vm.createContext(runtimeContext);
+vm.runInContext(`${liveMetricSources}\napplyLiveMetrics("sfsc", new Map([
+  ["case records", "404,019"],
+]));
+applySfscAggregateSources({
+  rulingManifest: null,
+  caseTableStats: { cases: 404019, case_documents: 4082942, docket_entries: 9092102 },
+  caseDirectoryManifest: null,
+});`, runtimeContext);
+assert.equal(
+  runtimeContext.projectData.projects.sfsc.metrics.cases,
+  1265222,
+  "a partial live table and missing full manifest must not overwrite the canonical SFSC count",
+);
 
 const functionStart = projectsSource.indexOf("function sfscDocketSearchUrl");
 const functionEnd = projectsSource.indexOf("\n}\n", functionStart);

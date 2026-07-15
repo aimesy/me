@@ -2,7 +2,7 @@ const DATA_URL = "assets/project-data.json";
 const SFSC_BASE_URL = "https://sfsc.amyc.us/";
 const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const SFSC_CASE_TABLE_STATS_URL = `${SFSC_BASE_URL}data/case-table-stats.json`;
-const SFSC_CASE_DIRECTORY_MANIFEST_URL = `${SFSC_BASE_URL}archive/case-directory/manifest.json`;
+const SFSC_CASE_DIRECTORY_MANIFEST_URL = "https://raw.githubusercontent.com/aimesy/sfsc-data/master/archive/case-directory/manifest.json";
 const PROJECT_KEYS = ["sfsc", "tentatives", "nysc", "kcsc", "ndcs", "civproidx"];
 const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
@@ -380,6 +380,10 @@ function positiveNumber(value) {
   return Number.isFinite(number) && number > 0 ? number : 0;
 }
 
+function maxPositive(...values) {
+  return Math.max(0, ...values.map(positiveNumber));
+}
+
 function firstPositive(...values) {
   for (const value of values) {
     const number = positiveNumber(value);
@@ -482,7 +486,10 @@ function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirecto
   }
 
   if (caseTableStats) {
-    metrics.cases = positiveNumber(caseTableStats.cases) || metrics.cases;
+    // This table only covers materialized case JSON and is not the complete
+    // case directory. It may enrich the canonical count, but must never
+    // replace a larger count from the generated snapshot or full manifest.
+    metrics.cases = maxPositive(metrics.cases, caseTableStats.cases);
     metrics.documents = positiveNumber(caseTableStats.case_documents) || metrics.documents;
     metrics.docketEntries = positiveNumber(caseTableStats.docket_entries) || metrics.docketEntries;
   }
@@ -496,7 +503,7 @@ function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirecto
   const directoryRows = positiveNumber(caseDirectoryManifest?.case_count)
     + positiveNumber(caseDirectoryManifest?.restricted_count)
     + positiveNumber(caseDirectoryManifest?.indexed_count);
-  metrics.cases = Math.max(positiveNumber(metrics.cases), sourceRows, directoryRows);
+  metrics.cases = maxPositive(metrics.cases, sourceRows, directoryRows);
 }
 
 function applyLiveMetrics(key, table) {
@@ -506,7 +513,11 @@ function applyLiveMetrics(key, table) {
 
   if (key === "sfsc") {
     metrics.tentativeRulings = parseCount(table.get("tentative rulings")) || metrics.tentativeRulings;
-    metrics.cases = parseCount(table.get("case records")) || parseCount(table.get("dockets")) || metrics.cases;
+    metrics.cases = maxPositive(
+      metrics.cases,
+      parseCount(table.get("case records")),
+      parseCount(table.get("dockets")),
+    );
     metrics.documents = parseCount(table.get("documents indexed")) || parseCount(table.get("case documents")) || metrics.documents;
     metrics.docketEntries = parseCount(table.get("docket entries")) || metrics.docketEntries;
     const bytes = parseBytes(table.get("archive size"));

@@ -441,7 +441,7 @@ function tentativesCaptureStats() {
   return { documents: seen.size, documentBytes };
 }
 
-function buildSfsc() {
+function buildSfsc(previousData = null) {
   const readme = readRepoFile(config.sfsc, "README.md");
   const liveTable = parseLiveTable(readRepoFile(config.sfsc, "LIVE.md"));
   const parsed = parseSfsc(readme);
@@ -464,6 +464,7 @@ function buildSfsc() {
     metrics: {
       tentativeRulings: liveCount(liveTable, "tentative rulings") || parsed.tentativeRulings,
       cases: Math.max(
+        Number(previousData?.projects?.sfsc?.metrics?.cases || 0),
         liveCount(liveTable, "case records", "dockets"),
         Number(caseTableStats?.cases || 0),
         sourceRows,
@@ -590,7 +591,7 @@ const publicReleaseStats = {
 };
 
 const projects = {
-  sfsc: buildSfsc(),
+  sfsc: buildSfsc(previous),
   tentatives: buildTentatives(),
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc, publicReleaseStats.nysc),
   kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc-data", config.kcsc),
