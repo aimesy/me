@@ -466,7 +466,6 @@ function buildSfsc(previousData = null) {
       cases: Math.max(
         Number(previousData?.projects?.sfsc?.metrics?.cases || 0),
         liveCount(liveTable, "case records", "dockets"),
-        Number(caseTableStats?.cases || 0),
         sourceRows,
         directoryRows,
       ),

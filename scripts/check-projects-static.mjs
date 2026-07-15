@@ -138,6 +138,16 @@ assert.doesNotMatch(buildSfscSource, /searchSamples/);
 assert.match(buildSfscSource, /data\/case-table-stats\.json/);
 assert.match(buildSfscSource, /archive\/case-directory\/manifest\.json/);
 assert.match(buildSfscSource, /readRepoFile\(config\.sfscData,/);
+assert.equal(
+  buildSfscSource.includes("caseTableStats?.cases"),
+  false,
+  "the partial case-table statistics must never supply the SFSC case total",
+);
+assert.equal(
+  projectsSource.includes("caseTableStats.cases"),
+  false,
+  "browser refreshes must never use the partial case-table count as the SFSC case total",
+);
 
 const sfscConfig = {};
 const sfscDataConfig = {};
@@ -146,7 +156,7 @@ const builderContext = {
   readRepoFile(repo, path) {
     if (repo !== sfscDataConfig) return "";
     if (path === "data/case-table-stats.json") {
-      return JSON.stringify({ cases: 404019, case_documents: 4082942, docket_entries: 9092102 });
+      return JSON.stringify({ case_documents: 4082942, docket_entries: 9092102 });
     }
     if (path === "archive/case-directory/manifest.json") {
       return JSON.stringify({
@@ -201,11 +211,11 @@ const runtimeContext = {
 };
 vm.createContext(runtimeContext);
 vm.runInContext(`${liveMetricSources}\napplyLiveMetrics("sfsc", new Map([
-  ["case records", "404,019"],
+  ["case records", "1"],
 ]));
 applySfscAggregateSources({
   rulingManifest: null,
-  caseTableStats: { cases: 404019, case_documents: 4082942, docket_entries: 9092102 },
+  caseTableStats: { case_documents: 4082942, docket_entries: 9092102 },
   caseDirectoryManifest: null,
 });`, runtimeContext);
 assert.equal(

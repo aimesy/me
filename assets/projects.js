@@ -486,10 +486,6 @@ function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirecto
   }
 
   if (caseTableStats) {
-    // This table only covers materialized case JSON and is not the complete
-    // case directory. It may enrich the canonical count, but must never
-    // replace a larger count from the generated snapshot or full manifest.
-    metrics.cases = maxPositive(metrics.cases, caseTableStats.cases);
     metrics.documents = positiveNumber(caseTableStats.case_documents) || metrics.documents;
     metrics.docketEntries = positiveNumber(caseTableStats.docket_entries) || metrics.docketEntries;
   }
