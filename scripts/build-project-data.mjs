@@ -404,43 +404,6 @@ function parseTentatives(readme) {
   };
 }
 
-function tentativesCaptureStats() {
-  const captureFiles = [];
-  const archiveRoot = path.join(config.tentatives.repo, "archive");
-  if (!config.tentatives.ref && existsSync(archiveRoot)) {
-    for (const entry of readdirSync(archiveRoot, { withFileTypes: true })) {
-      if (!entry.isDirectory()) continue;
-      const candidate = path.join("archive", entry.name, "captures.ndjson").replaceAll(path.sep, "/");
-      if (existsSync(path.join(config.tentatives.repo, candidate))) captureFiles.push(candidate);
-    }
-  } else {
-    captureFiles.push(
-      ...listRepoFiles(config.tentatives, "archive", { tree: true })
-        .filter((file) => /\/captures\.ndjson$/.test(file)),
-    );
-  }
-
-  const seen = new Set();
-  let documentBytes = 0;
-  for (const file of captureFiles) {
-    const text = readRepoFile(config.tentatives, file);
-    for (const line of text.split(/\r?\n/)) {
-      if (!line.trim()) continue;
-      try {
-        const row = JSON.parse(line);
-        const key = row.source_sha256 || `${file}:${row.source_url || row.discovered_filename || line}`;
-        if (seen.has(key)) continue;
-        seen.add(key);
-        documentBytes += Number(row.content_length || row.bytes_len || 0);
-      } catch {
-        // Capture files are append-only; skip malformed rows without losing the build.
-      }
-    }
-  }
-
-  return { documents: seen.size, documentBytes };
-}
-
 function buildSfsc(previousData = null) {
   const readme = readRepoFile(config.sfsc, "README.md");
   const liveTable = parseLiveTable(readRepoFile(config.sfsc, "LIVE.md"));
@@ -481,24 +444,29 @@ function buildSfsc(previousData = null) {
   };
 }
 
-function buildTentatives() {
+function buildTentatives(previousData = null) {
   const readme = readRepoFile(config.tentatives, "README.md");
   const liveTable = parseLiveTable(readRepoFile(config.tentatives, "LIVE.md"));
   const parsed = parseTentatives(readme);
-  const captureStats = tentativesCaptureStats();
-  const parquetFiles = listRepoFiles(config.tentatives, "data", { tree: true })
-    .filter((file) => /\/rulings\.parquet$/.test(file));
+  const previousMetrics = previousData?.projects?.tentatives?.metrics || {};
   const liveDocumentBytes = liveBytes(liveTable, "archive size");
   return {
     repo: "aimesy/tentatives",
     ref: repoHead(config.tentatives),
     updatedAt: repoUpdatedAt(config.tentatives),
     metrics: {
-      tentativeRulings: liveCount(liveTable, "parsed rulings") || parsed.tentativeRulings,
-      parsedCounties: liveCount(liveTable, "parsed counties") || parsed.counties.length,
-      documents: liveCount(liveTable, "documents indexed", "source documents") || parsed.documents || captureStats.documents,
-      archivedFiles: liveCount(liveTable, "archived files"),
-      documentBytes: liveDocumentBytes || captureStats.documentBytes || sumRepoFileSizes(config.tentatives, parquetFiles),
+      tentativeRulings: liveCount(liveTable, "parsed rulings")
+        || parsed.tentativeRulings
+        || Number(previousMetrics.tentativeRulings || 0),
+      parsedCounties: liveCount(liveTable, "parsed counties")
+        || parsed.counties.length
+        || Number(previousMetrics.parsedCounties || 0),
+      documents: liveCount(liveTable, "documents indexed", "source documents")
+        || parsed.documents
+        || Number(previousMetrics.documents || 0),
+      archivedFiles: liveCount(liveTable, "archived files")
+        || Number(previousMetrics.archivedFiles || 0),
+      documentBytes: liveDocumentBytes || Number(previousMetrics.documentBytes || 0),
     },
     charts: {
       rulingsByCounty: parsed.counties,
@@ -591,7 +559,7 @@ const publicReleaseStats = {
 
 const projects = {
   sfsc: buildSfsc(previous),
-  tentatives: buildTentatives(),
+  tentatives: buildTentatives(previous),
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc, publicReleaseStats.nysc),
   kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc-data", config.kcsc),
   ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),

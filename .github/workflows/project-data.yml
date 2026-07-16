@@ -84,6 +84,10 @@ jobs:
           ref: master
           path: tentatives
           token: ${{ secrets.GH_TOKEN }}
+          sparse-checkout: |
+            README.md
+            LIVE.md
+          sparse-checkout-cone-mode: false
 
       - name: Check out CivProIdx
         uses: actions/checkout@v4

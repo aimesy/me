@@ -117,6 +117,14 @@ assert.match(
   /git diff --quiet "\$PAGE_BASE_SHA\.\.origin\/main" --[\s\S]*scripts\/build-project-data\.mjs[\s\S]*scripts\/sync-theme-ref\.mjs/,
 );
 assert.match(refreshWorkflowSource, /node scripts\/check-pinned-theme\.mjs/);
+const tentativesCheckoutStart = refreshWorkflowSource.indexOf("      - name: Check out Tentatives");
+const tentativesCheckoutEnd = refreshWorkflowSource.indexOf("\n      - name:", tentativesCheckoutStart + 1);
+assert.notEqual(tentativesCheckoutStart, -1, "the Tentatives checkout must exist");
+assert.notEqual(tentativesCheckoutEnd, -1, "the Tentatives checkout must have a complete step");
+const tentativesCheckoutSource = refreshWorkflowSource.slice(tentativesCheckoutStart, tentativesCheckoutEnd);
+assert.match(tentativesCheckoutSource, /sparse-checkout:\s*\|[\s\S]*README\.md[\s\S]*LIVE\.md/);
+assert.match(tentativesCheckoutSource, /sparse-checkout-cone-mode:\s*false/);
+assert.doesNotMatch(tentativesCheckoutSource, /^\s+(?:archive|data)(?:\/|\s|$)/m);
 assert.match(
   refreshWorkflowSource,
   /if: steps\.commit\.outputs\.pushed == 'true' \|\| github\.event_name == 'workflow_dispatch'[\s\S]*gh workflow run pages\.yml --repo "\$\{\{ github\.repository \}\}" --ref main/,
@@ -129,7 +137,7 @@ assert.match(
 );
 
 const buildSfscStart = builderSource.indexOf("function buildSfsc(");
-const buildSfscEnd = builderSource.indexOf("\nfunction buildTentatives()", buildSfscStart);
+const buildSfscEnd = builderSource.indexOf("\nfunction buildTentatives(", buildSfscStart);
 assert.notEqual(buildSfscStart, -1, "buildSfsc must exist");
 assert.notEqual(buildSfscEnd, -1, "buildSfsc must have a complete function body");
 const buildSfscSource = builderSource.slice(buildSfscStart, buildSfscEnd);
@@ -183,6 +191,18 @@ assert.equal(builderContext.sfscProject.metrics.cases, 1205055);
 assert.equal(builderContext.sfscProject.metrics.documents, 4082942);
 assert.equal(builderContext.sfscProject.metrics.docketEntries, 9092102);
 assert.equal("searchSamples" in builderContext.sfscProject, false);
+
+const buildTentativesStart = builderSource.indexOf("function buildTentatives(");
+const buildTentativesEnd = builderSource.indexOf("\nfunction countCivProIdxCitationsFromManifests()", buildTentativesStart);
+assert.notEqual(buildTentativesStart, -1, "buildTentatives must exist");
+assert.notEqual(buildTentativesEnd, -1, "buildTentatives must have a complete function body");
+const buildTentativesSource = builderSource.slice(buildTentativesStart, buildTentativesEnd);
+assert.doesNotMatch(
+  buildTentativesSource,
+  /captures\.ndjson|listRepoFiles|sumRepoFileSizes|rulings\.parquet|tentativesCaptureStats/,
+  "the project-data refresh must use Tentatives summaries instead of traversing its archive",
+);
+assert.doesNotMatch(builderSource, /function tentativesCaptureStats\(/);
 
 vm.runInContext(`this.sfscNonRegressingProject = buildSfsc({
   projects: { sfsc: { metrics: { cases: 1265222 } } },
