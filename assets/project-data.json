@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-18T15:56:09.000Z",
+  "generatedAt": "2026-07-18T17:07:39.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "9e1b03d1b00c81744d935b9eb2df9cac04d8aa2f",
-      "updatedAt": "2026-07-17T22:16:18Z",
+      "ref": "2ed53f510fc6a8810fef0e076c3a5edcbf5eab4e",
+      "updatedAt": "2026-07-18T16:48:46Z",
       "metrics": {
         "tentativeRulings": 380034,
         "cases": 1554139,
@@ -45,8 +45,8 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "efab997a53f09ebb1256782c12a5d0b75142ffde",
-      "updatedAt": "2026-07-18T03:27:28Z",
+      "ref": "1a06a4b3cc9619c934ff11c781d6f955a3c6d1f7",
+      "updatedAt": "2026-07-18T16:55:38Z",
       "metrics": {
         "tentativeRulings": 29780,
         "parsedCounties": 34,
@@ -221,27 +221,27 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "502d13b19fbc75127619f9aa818ef54fc11490a4",
-      "updatedAt": "2026-07-18T15:56:09Z",
+      "ref": "fca52f3033951d660712abe1aa73b29a9b073c16",
+      "updatedAt": "2026-07-18T17:07:39Z",
       "metrics": {
-        "cases": 81613,
-        "documents": 210324,
-        "mirroredFiles": 7056,
+        "cases": 146070,
+        "documents": 195359,
+        "mirroredFiles": 25235,
         "documentBytes": 1032350594,
-        "snapshots": 226886
+        "snapshots": 291641
       },
       "charts": {}
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "7d7a224a6525695496cef686a4be8ca3472a471b",
-      "updatedAt": "2026-07-18T14:49:39Z",
+      "ref": "b8430be10e0bf3b4bcbd3337d84010acebb5c430",
+      "updatedAt": "2026-07-18T17:02:55Z",
       "metrics": {
-        "cases": 99633,
+        "cases": 100453,
         "documents": 0,
-        "mirroredFiles": 99641,
-        "documentBytes": 34359405,
-        "snapshots": 99634
+        "mirroredFiles": 100461,
+        "documentBytes": 34631607,
+        "snapshots": 100454
       },
       "charts": {}
     },
