@@ -60,6 +60,9 @@ function metric(label, value, note = "") {
 
 let sfscSearchMode = "dockets";
 let projectData = null;
+const TENTATIVES_PAGE_SIZE = 9;
+let tentativesVisibleCount = TENTATIVES_PAGE_SIZE;
+let tentativesSearchQuery = "";
 
 function formatAgo(value) {
   if (!value) return "unknown";
@@ -219,24 +222,38 @@ function tentativesViewerUrl(row = null, query = "") {
 function renderTentativesSearch() {
   const input = $('[data-mini-search="tentatives"]');
   const openLink = $('[data-mini-open="tentatives"]');
+  const loadMoreWrap = $('[data-mini-more-wrap="tentatives"]');
+  const loadMoreButton = $('[data-mini-more="tentatives"]');
   const query = input?.value?.trim() || "";
+  if (query !== tentativesSearchQuery) {
+    tentativesSearchQuery = query;
+    tentativesVisibleCount = TENTATIVES_PAGE_SIZE;
+  }
   const rows = projectData?.projects?.tentatives?.charts?.rulingsByCounty || [];
   const filtered = topRows(rows.filter((row) => {
     const haystack = [row.label, row.value, row.documents].join(" ").toLowerCase();
     return query.toLowerCase().split(/\s+/).filter(Boolean).every((term) => haystack.includes(term));
   }), rows.length);
+  const visible = filtered.slice(0, tentativesVisibleCount);
 
   if (openLink) openLink.href = tentativesViewerUrl(null, query);
 
   renderMiniList(
     '[data-mini-list="tentatives"]',
-    filtered,
+    visible,
     (value) => `${formatNumber(value)} rulings`,
     {
       empty: "No counties matched this search.",
       hrefFor: (row) => tentativesViewerUrl(row, query),
     },
   );
+
+  const remaining = Math.max(0, filtered.length - visible.length);
+  if (loadMoreWrap) loadMoreWrap.hidden = remaining === 0;
+  if (loadMoreButton) {
+    const nextCount = Math.min(TENTATIVES_PAGE_SIZE, remaining);
+    loadMoreButton.setAttribute("aria-label", `Load ${nextCount} more counties`);
+  }
 }
 
 function sfscDocketSearchUrl(query = "") {
@@ -696,6 +713,11 @@ $('[data-sfsc-search]')?.addEventListener("keydown", (event) => {
 });
 
 $('[data-mini-search="tentatives"]')?.addEventListener("input", renderTentativesSearch);
+
+$('[data-mini-more="tentatives"]')?.addEventListener("click", () => {
+  tentativesVisibleCount += TENTATIVES_PAGE_SIZE;
+  renderTentativesSearch();
+});
 
 $('[data-mini-clear="tentatives"]')?.addEventListener("click", () => {
   const input = $('[data-mini-search="tentatives"]');

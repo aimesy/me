@@ -42,7 +42,18 @@ assert.match(indexSource, /data-sfsc-search aria-label="Search court dockets"/);
 assert.match(indexSource, /data-mini-search="tentatives" aria-label="Search counties"/);
 assert.match(indexSource, /data-sfsc-results aria-live="polite"/);
 assert.match(indexSource, /data-mini-list="tentatives" aria-live="polite"/);
-assert.doesNotMatch(indexSource, /href="https:\/\/github\.com\/aimesy\/nysc"/);
+assert.match(indexSource, /data-mini-more="tentatives" aria-controls="tentatives-county-list">Load more<\/button>/);
+assert.match(projectsSource, /const TENTATIVES_PAGE_SIZE = 9;/);
+assert.match(projectsSource, /const visible = filtered\.slice\(0, tentativesVisibleCount\);/);
+assert.match(projectsSource, /tentativesVisibleCount \+= TENTATIVES_PAGE_SIZE;[\s\S]*renderTentativesSearch\(\);/);
+assert.match(stylesSource, /\.mini-load-more\[hidden\]\s*\{\s*display:\s*none;/);
+for (const repositoryHref of [
+  "https://github.com/aimesy/nysc",
+  "https://github.com/aimesy/ndcs-data",
+  "https://github.com/aimesy/civproidx",
+]) {
+  assert.match(indexSource, new RegExp(`href="${repositoryHref}">Repository<\\/a>`));
+}
 
 const liveReposStart = projectsSource.indexOf("const LIVE_REPOS = {");
 const liveReposEnd = projectsSource.indexOf("\n};", liveReposStart);
