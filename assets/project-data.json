@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-20T00:02:38.000Z",
+  "generatedAt": "2026-07-20T03:53:07.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "b2cf974a95ed3ed61aaa4a7c0d2e9a012a0019c4",
-      "updatedAt": "2026-07-19T21:56:34Z",
+      "ref": "afd5960efe2779e17f0dc97f7ccc873608cffec7",
+      "updatedAt": "2026-07-20T01:36:54Z",
       "metrics": {
         "tentativeRulings": 380034,
         "cases": 1579499,
@@ -45,14 +45,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "733c74601cb3018a28c767d8f32921d3ce9e8473",
-      "updatedAt": "2026-07-19T13:57:39Z",
+      "ref": "2c5b409434911105513e0ddfd33d3099bd7c94f8",
+      "updatedAt": "2026-07-20T03:53:07Z",
       "metrics": {
-        "tentativeRulings": 29867,
+        "tentativeRulings": 29903,
         "parsedCounties": 34,
-        "documents": 5728,
-        "archivedFiles": 66763,
-        "documentBytes": 24878514176
+        "documents": 5743,
+        "archivedFiles": 67602,
+        "documentBytes": 25572671488
       },
       "charts": {
         "rulingsByCounty": [
@@ -221,27 +221,27 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "f06098047a0247541ed3a1f1d0e265ac6db978e9",
-      "updatedAt": "2026-07-19T18:56:07Z",
+      "ref": "16491580ff592f41723b1218376bbbbe3964e5cb",
+      "updatedAt": "2026-07-20T03:51:06Z",
       "metrics": {
-        "cases": 188624,
-        "documents": 195407,
-        "mirroredFiles": 27845,
+        "cases": 196057,
+        "documents": 195624,
+        "mirroredFiles": 28376,
         "documentBytes": 1032350594,
-        "snapshots": 352048
+        "snapshots": 365539
       },
       "charts": {}
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "3b068def03f0dd9e5a4085b40a2a287a5a2fd761",
-      "updatedAt": "2026-07-20T00:02:38Z",
+      "ref": "ac77609c5c2c23721e58409af9468f719cc1fdfb",
+      "updatedAt": "2026-07-20T02:14:04Z",
       "metrics": {
-        "cases": 112417,
+        "cases": 113524,
         "documents": 0,
-        "mirroredFiles": 112425,
-        "documentBytes": 38966500,
-        "snapshots": 112418
+        "mirroredFiles": 113532,
+        "documentBytes": 39359924,
+        "snapshots": 113525
       },
       "charts": {}
     },
