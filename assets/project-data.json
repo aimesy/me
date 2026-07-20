@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-20T19:45:42.000Z",
+  "generatedAt": "2026-07-20T21:57:05.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "0b2c31b8745b152639f4874dad8b07298beef5a6",
-      "updatedAt": "2026-07-20T07:51:34Z",
+      "ref": "fd71f54bf03f474ca52ddca314a9d804023a0ceb",
+      "updatedAt": "2026-07-20T20:57:43Z",
       "metrics": {
         "tentativeRulings": 380034,
         "cases": 1579499,
@@ -234,14 +234,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "e33a2a1eb0affe64f614edebbedb1f2fbe45d29f",
-      "updatedAt": "2026-07-20T19:45:42Z",
+      "ref": "9f6d570c3e7ad2cc109d5a202723ada8b7bf6991",
+      "updatedAt": "2026-07-20T21:57:05Z",
       "metrics": {
-        "cases": 119564,
+        "cases": 120029,
         "documents": 0,
-        "mirroredFiles": 119572,
-        "documentBytes": 41652560,
-        "snapshots": 119565
+        "mirroredFiles": 120037,
+        "documentBytes": 41832793,
+        "snapshots": 120030
       },
       "charts": {}
     },
