@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-07-21T23:59:23.000Z",
+  "generatedAt": "2026-07-22T03:42:51.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "c3dea6cf56ed01c5679e36ee31fbd1519a9d029b",
-      "updatedAt": "2026-07-21T23:06:51Z",
+      "ref": "cb49b3f91e36e44767df243bbe0fbe920e917c55",
+      "updatedAt": "2026-07-22T02:36:16Z",
       "metrics": {
-        "tentativeRulings": 380788,
+        "tentativeRulings": 380919,
         "cases": 1579499,
         "documents": 4082942,
-        "documentsArchived": 66332,
+        "documentsArchived": 77781,
         "docketEntries": 9092102,
-        "documentBytes": 71787610112
+        "documentBytes": 72596062208
       },
       "charts": {
         "rulingsByDepartment": [
@@ -45,14 +45,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "14ef8b9b88c2ee56192a48eb1af9502193b29653",
-      "updatedAt": "2026-07-21T03:39:27Z",
+      "ref": "0047a324a1613f7b42a95d45fbef72964100b0cd",
+      "updatedAt": "2026-07-22T03:40:52Z",
       "metrics": {
-        "tentativeRulings": 30638,
+        "tentativeRulings": 31227,
         "parsedCounties": 34,
-        "documents": 5949,
-        "archivedFiles": 69359,
-        "documentBytes": 26422018048
+        "documents": 6154,
+        "archivedFiles": 70942,
+        "documentBytes": 27237810176
       },
       "charts": {
         "rulingsByCounty": [
@@ -221,27 +221,27 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "7b0713dca4dd98402894adf7d4601e3e12c7cae2",
-      "updatedAt": "2026-07-21T23:59:23Z",
+      "ref": "778aa5e6fd6eca3b2ffdfc5d55628099bca9e459",
+      "updatedAt": "2026-07-22T03:42:51Z",
       "metrics": {
-        "cases": 222504,
-        "documents": 195381,
+        "cases": 223054,
+        "documents": 195390,
         "mirroredFiles": 29672,
         "documentBytes": 1032350594,
-        "snapshots": 407865
+        "snapshots": 408836
       },
       "charts": {}
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "c9451945da84e3339563a50a822cb0da5a9988c3",
-      "updatedAt": "2026-07-21T22:13:19Z",
+      "ref": "fd255db091033262c23daf1577d32830c2214305",
+      "updatedAt": "2026-07-22T02:44:07Z",
       "metrics": {
-        "cases": 126549,
+        "cases": 128144,
         "documents": 0,
-        "mirroredFiles": 126557,
-        "documentBytes": 44178029,
-        "snapshots": 126550
+        "mirroredFiles": 128152,
+        "documentBytes": 44678630,
+        "snapshots": 128145
       },
       "charts": {}
     },
