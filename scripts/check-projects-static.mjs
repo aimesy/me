@@ -32,6 +32,8 @@ for (const retiredDependency of [
 
 assert.match(indexSource, /data-sfsc-search/);
 assert.match(indexSource, /data-sfsc-results/);
+assert.match(indexSource, /<div class="title-block">\s*<h1>Projects<\/h1>\s*<\/div>/);
+assert.doesNotMatch(indexSource, /class="mini-pill"/);
 assert.match(indexSource, /<link rel="icon" href="data:,">/);
 assert.match(fictionSource, /<link rel="icon" href="data:,">/);
 assert.match(projectsSource, /const row = sfscSearchMode === "dockets"[\s\S]*sfscDocketSearchRow\(query\)[\s\S]*sfscRulingSearchRow\(query\)/);
