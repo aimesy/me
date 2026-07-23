@@ -15,26 +15,36 @@ for (const page of pages) {
 
 assert.equal(new Set(refs).size, 1, "both pages must pin the same theme.css commit");
 const ref = refs[0];
-const url = `https://cdn.jsdelivr.net/gh/aimesy/themes@${ref}/src/theme.css`;
-let css = "";
-let lastFailure = "no response";
-for (let attempt = 1; attempt <= 4; attempt += 1) {
-  try {
-    const response = await fetch(url, {
-      cache: "no-store",
-      signal: AbortSignal.timeout(15_000),
-    });
-    if (response.ok) {
-      css = await response.text();
-      break;
+async function fetchPinnedAsset(asset) {
+  const url = `https://cdn.jsdelivr.net/gh/aimesy/themes@${ref}/src/${asset}`;
+  let source = "";
+  let lastFailure = "no response";
+  for (let attempt = 1; attempt <= 4; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        cache: "no-store",
+        signal: AbortSignal.timeout(15_000),
+      });
+      if (response.ok) {
+        source = await response.text();
+        break;
+      }
+      lastFailure = `HTTP ${response.status}`;
+    } catch (error) {
+      lastFailure = error?.message || String(error);
     }
-    lastFailure = `HTTP ${response.status}`;
-  } catch (error) {
-    lastFailure = error?.message || String(error);
+    if (attempt < 4) await new Promise((resolve) => setTimeout(resolve, attempt * 2_000));
   }
-  if (attempt < 4) await new Promise((resolve) => setTimeout(resolve, attempt * 2_000));
+  assert.ok(source, `could not fetch pinned ${asset}: ${lastFailure}`);
+  return source;
 }
-assert.ok(css, `could not fetch pinned theme.css: ${lastFailure}`);
+
+const [css, themeBarCss] = await Promise.all([
+  fetchPinnedAsset("theme.css"),
+  fetchPinnedAsset("theme-bar.css"),
+]);
+assert.match(themeBarCss, /\.amyc-theme-bar\s*\{/);
+assert.match(themeBarCss, /\.amyc-theme-bar \.grow\s*\{/);
 
 function declarations(selector) {
   const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

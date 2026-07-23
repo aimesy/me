@@ -100,14 +100,24 @@ assert.ok(
 );
 
 function sharedThemeRefs(source, page) {
-  const matches = [...source.matchAll(/https:\/\/cdn\.jsdelivr\.net\/gh\/aimesy\/themes@([0-9a-f]{40})\/src\/(theme\.css|bug-report\.css|theme\.js|bug-report\.js)/g)];
-  assert.equal(matches.length, 4, `${page} must reference four commit-pinned shared theme assets`);
+  const matches = [...source.matchAll(/https:\/\/cdn\.jsdelivr\.net\/gh\/aimesy\/themes@([0-9a-f]{40})\/src\/(theme\.css|theme-bar\.css|bug-report\.css|theme\.js|bug-report\.js)/g)];
+  assert.equal(matches.length, 5, `${page} must reference five commit-pinned shared theme assets`);
   assert.deepEqual(
     new Set(matches.map((match) => match[2])),
-    new Set(["theme.css", "bug-report.css", "theme.js", "bug-report.js"]),
+    new Set(["theme.css", "theme-bar.css", "bug-report.css", "theme.js", "bug-report.js"]),
     `${page} must reference the complete shared theme asset set`,
   );
   assert.doesNotMatch(source, /aimesy\/themes@(master|main|latest)\//i);
+  assert.doesNotMatch(source, /aimesy\/themes\/src\//i);
+  assert.ok(
+    source.indexOf("assets/styles.css") < source.indexOf("/src/theme.css"),
+    `${page} must load shared theme CSS after local viewer CSS`,
+  );
+  assert.ok(
+    source.indexOf("/src/theme.css") < source.indexOf("/src/theme-bar.css"),
+    `${page} must load the shared theme bar after theme tokens`,
+  );
+  assert.equal((source.match(/class="status-strip amyc-theme-bar"/g) || []).length, 1);
   return matches.map((match) => match[1]);
 }
 

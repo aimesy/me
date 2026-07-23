@@ -51,7 +51,7 @@ jobs:
         run: |
           node scripts/check-projects-static.mjs
           node scripts/check-pinned-theme.mjs
-          for asset in theme.css bug-report.css theme.js bug-report.js; do
+          for asset in theme.css theme-bar.css bug-report.css theme.js bug-report.js; do
             curl --fail --silent --show-error --location --retry 3 \
               "https://cdn.jsdelivr.net/gh/aimesy/themes@${{ steps.theme.outputs.sha }}/src/$asset" \
               --output /dev/null

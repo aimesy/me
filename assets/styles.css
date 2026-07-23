@@ -301,7 +301,6 @@ header {
   display: flex;
   align-items: center;
   gap: 0.45rem;
-  flex-wrap: wrap;
   position: relative;
   padding: 0.24rem 0.85rem;
   background: var(--chrome);
@@ -1440,6 +1439,10 @@ input.mini-input {
 }
 
 @media (max-width: 620px) {
+  .status-strip > span:not(.grow) {
+    display: none;
+  }
+
   .entity-bar,
   .toolbar,
   .app-shell,
