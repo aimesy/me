@@ -1,6 +1,6 @@
 # amyc.us
 
-Static project and fiction index for amyc.us.
+Static project, fiction, and contact index for amyc.us.
 
 ## Maintainer check
 

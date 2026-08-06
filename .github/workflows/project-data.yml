@@ -160,7 +160,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/project-data.json index.html fiction.html
+          git add assets/project-data.json contact.html index.html fiction.html
           if git diff --cached --quiet; then
             echo "Project data already current."
             echo "pushed=false" >> "$GITHUB_OUTPUT"
@@ -171,6 +171,7 @@ jobs:
               if ! git diff --quiet "$PAGE_BASE_SHA..origin/main" -- \
                 .github/workflows/project-data.yml \
                 assets/project-data.json \
+                contact.html \
                 fiction.html \
                 index.html \
                 scripts/build-project-data.mjs \
@@ -179,6 +180,7 @@ jobs:
                 git diff --name-only "$PAGE_BASE_SHA..origin/main" -- \
                   .github/workflows/project-data.yml \
                   assets/project-data.json \
+                  contact.html \
                   fiction.html \
                   index.html \
                   scripts/build-project-data.mjs \

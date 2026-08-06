@@ -5,6 +5,7 @@ import vm from "node:vm";
 const projectsSource = readFileSync(new URL("../assets/projects.js", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const indexSource = readFileSync(new URL("../index.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const fictionSource = readFileSync(new URL("../fiction.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
+const contactSource = readFileSync(new URL("../contact.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const stylesSource = readFileSync(new URL("../assets/styles.css", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const builderSource = readFileSync(new URL("./build-project-data.mjs", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const refreshWorkflowSource = readFileSync(new URL("../.github/workflows/project-data.yml", import.meta.url), "utf8").replaceAll("\r\n", "\n");
@@ -36,6 +37,28 @@ assert.match(indexSource, /<div class="title-block">\s*<h1>Projects<\/h1>\s*<\/d
 assert.doesNotMatch(indexSource, /class="mini-pill"/);
 assert.match(indexSource, /<link rel="icon" href="data:,">/);
 assert.match(fictionSource, /<link rel="icon" href="data:,">/);
+assert.match(contactSource, /<link rel="icon" href="data:,">/);
+assert.match(contactSource, /<title>Amy C<\/title>/);
+for (const [source, activePage] of [
+  [indexSource, "index.html"],
+  [fictionSource, "fiction.html"],
+  [contactSource, "contact.html"],
+]) {
+  assert.match(source, /href="index\.html"[^>]*>Projects<\/a>/);
+  assert.match(source, /href="fiction\.html"[^>]*>Fiction<\/a>/);
+  assert.match(source, /href="contact\.html"[^>]*>Contact<\/a>/);
+  assert.match(source, new RegExp(`href="${activePage}"[^>]*aria-current="page"`));
+  assert.match(source, /<html lang="en" data-amyc-public-records-footer="off">/);
+  assert.match(source, /<body class="amyc-has-public-records-footer">/);
+  assert.match(source, /<div class="amyc-public-records-footer" role="contentinfo" aria-label="Copyright">&copy; Amy Chattopadhyay<\/div>/);
+}
+assert.doesNotMatch(contactSource, /Amy Chattopadhyay\. Public court data, research tools, and other inquiries\./);
+assert.doesNotMatch(fictionSource, /<p class="lede">Ocilentra, a science fiction book I completed in 2015 as a teenager\.<\/p>/);
+assert.doesNotMatch(contactSource, /<form\b|assets\/contact\.js|I build public court archives/);
+assert.match(contactSource, /<h2 id="contact-info-title">Contact information<\/h2>/);
+assert.match(contactSource, /mailto:me@amyc\.us/);
+assert.match(contactSource, /mailto:db@amyc\.us/);
+assert.match(contactSource, /https:\/\/github\.com\/aimesy/);
 assert.match(projectsSource, /const row = sfscSearchMode === "dockets"[\s\S]*sfscDocketSearchRow\(query\)[\s\S]*sfscRulingSearchRow\(query\)/);
 assert.match(projectsSource, /renderSfscResultRows\(container, \[row\], label\)/);
 assert.match(projectsSource, /input\.setAttribute\("aria-label", `Search \$\{label\}`\)/);
@@ -124,6 +147,7 @@ function sharedThemeRefs(source, page) {
 const themeRefs = [
   ...sharedThemeRefs(indexSource, "index.html"),
   ...sharedThemeRefs(fictionSource, "fiction.html"),
+  ...sharedThemeRefs(contactSource, "contact.html"),
 ];
 assert.equal(new Set(themeRefs).size, 1, "all shared theme assets must use the same commit");
 

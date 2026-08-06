@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-const pages = ["index.html", "fiction.html"];
+const pages = ["index.html", "fiction.html", "contact.html"];
 const refs = [];
 
 for (const page of pages) {
@@ -13,7 +13,7 @@ for (const page of pages) {
   refs.push(matches[0][1]);
 }
 
-assert.equal(new Set(refs).size, 1, "both pages must pin the same theme.css commit");
+assert.equal(new Set(refs).size, 1, "all pages must pin the same theme.css commit");
 const ref = refs[0];
 async function fetchPinnedAsset(asset) {
   const url = `https://cdn.jsdelivr.net/gh/aimesy/themes@${ref}/src/${asset}`;
