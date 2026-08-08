@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-08-08T08:56:23.000Z",
+  "generatedAt": "2026-08-08T10:32:28.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "95ba6390280a8c94c2f3111eb2533e61a463dccc",
-      "updatedAt": "2026-08-08T08:21:11Z",
+      "ref": "208edefb10c93e9ad00bbfb21f9c871dc061ba66",
+      "updatedAt": "2026-08-08T10:32:28Z",
       "metrics": {
         "tentativeRulings": 381673,
         "cases": 1580366,
         "documents": 4082942,
-        "documentsArchived": 84662,
+        "documentsArchived": 84815,
         "docketEntries": 9092102,
-        "documentBytes": 73315385344
+        "documentBytes": 73600598016
       },
       "charts": {
         "rulingsByDepartment": [
