@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T12:31:06.000Z",
+  "generatedAt": "2026-08-09T13:21:33.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -45,8 +45,8 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "2f25caa2cca6b3f8fe95e1fdc4639de657731a5b",
-      "updatedAt": "2026-08-09T02:50:03Z",
+      "ref": "1d70dd3dcbb94ae17ce3a01247d7727d58f8143d",
+      "updatedAt": "2026-08-09T13:21:33Z",
       "metrics": {
         "tentativeRulings": 38602,
         "parsedCounties": 34,
