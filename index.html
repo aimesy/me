@@ -9,16 +9,16 @@
     content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src blob:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' blob: https://sfsc.amyc.us https://cdn.jsdelivr.net https://extensions.duckdb.org https://api.github.com https://raw.githubusercontent.com; img-src 'self' data:; object-src 'self'; base-uri 'self'; form-action 'none'"
   >
   <title>Projects</title>
-  <meta name="description" content="Public project index for SFSC, California tentative rulings, civil procedure research tools, NDCS, NYSC, and KCSC.">
+  <meta name="description" content="Public project index for SFSC, California tentative rulings, AMYC Themes, civil procedure research tools, NDCS, NYSC, and KCSC.">
   <link rel="canonical" href="https://amyc.us/">
   <meta property="og:site_name" content="AMYC.US">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Projects | AMYC.US">
-  <meta property="og:description" content="Public project index for SFSC, California tentative rulings, civil procedure research tools, NDCS, NYSC, and KCSC.">
+  <meta property="og:description" content="Public project index for SFSC, California tentative rulings, AMYC Themes, civil procedure research tools, NDCS, NYSC, and KCSC.">
   <meta property="og:url" content="https://amyc.us/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Projects | AMYC.US">
-  <meta name="twitter:description" content="Public project index for SFSC, California tentative rulings, civil procedure research tools, NDCS, NYSC, and KCSC.">
+  <meta name="twitter:description" content="Public project index for SFSC, California tentative rulings, AMYC Themes, civil procedure research tools, NDCS, NYSC, and KCSC.">
   <meta name="theme-color" content="#24211d">
   <link rel="stylesheet" href="assets/styles.css?v=theme-spectrum-sand">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@cd6aac6380c70291fa876f8d1d802cde65b80b0a/src/theme.css">
@@ -125,7 +125,6 @@
             <h2>California Tentative Decisions Database</h2>
             <p>California superior court tentative rulings, court calendar notes, and other perishable materials related to rulings.</p>
           </div>
-          <span class="chip warn">BETA</span>
         </div>
         <div class="project-note">
           <p>I once took a class with Judge Bishay of the Alameda Superior Court, who said judges in Southern California generally award custody to the mother, while judges in Northern California generally award it equally. Because California state courts do not generally publish their decisions online, there is essentially no way to empirically verify trends like this without access to privileged information.</p>
@@ -168,6 +167,59 @@
       </div>
     </section>
 
+    <section class="project no-preview" id="themes">
+      <div class="project-copy">
+        <div class="project-head">
+          <div>
+            <h2>AMYC Themes</h2>
+            <p>Shared theme selector and interface utilities for AMYC projects.</p>
+          </div>
+        </div>
+        <div class="project-note">
+          <p>The palette button above and the selector below use this shared package. It provides eight themes, adjustable lightness, typography and spacing controls, synchronized or per-viewer preferences, custom CSS, a shared bug-report interface, and automated visual and contrast tests.</p>
+        </div>
+        <div class="tracker">
+          <div class="tracker-head">
+            <span>Repo aimesy/themes</span>
+            <span>Ref <span data-live="themes-ref">loading</span></span>
+            <span>Updated <span data-live="themes-updated">loading</span></span>
+          </div>
+        </div>
+        <div class="links" aria-label="AMYC Themes links">
+          <button class="hbtn" type="button" data-theme-toggle>Theme Selector</button>
+          <a class="hbtn" href="https://github.com/aimesy/themes">Repository</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project no-preview" id="kcsc">
+      <div class="project-copy">
+        <div class="project-head">
+          <div>
+            <h2>King County Superior Court Archive</h2>
+            <p>KCSC public-record archive for King County Superior Court materials.</p>
+          </div>
+          <span class="chip warn">BETA</span>
+        </div>
+        <div class="project-note">
+          <p>Records of cases filed in the King County Superior Court. The data repository is <a href="https://github.com/aimesy/kcsc-data">aimesy/kcsc-data</a>; the viewer is <a href="https://aimesy.github.io/kcsc/">aimesy/kcsc</a>.</p>
+        </div>
+        <div class="metrics" data-metrics="kcsc"></div>
+        <div class="tracker">
+          <div class="tracker-head">
+            <span>Data repo aimesy/kcsc-data</span>
+            <span>Ref <span data-live="kcsc-ref">loading</span></span>
+            <span>Updated <span data-live="kcsc-updated">loading</span></span>
+          </div>
+        </div>
+        <div class="links" aria-label="KCSC links">
+          <a class="hbtn" href="https://aimesy.github.io/kcsc/">Viewer</a>
+          <a class="hbtn" href="https://github.com/aimesy/kcsc">Repository</a>
+          <a class="hbtn" href="https://github.com/aimesy/kcsc-data">Data Repository</a>
+        </div>
+      </div>
+    </section>
+
     <section class="project no-preview" id="nysc">
       <div class="project-copy">
         <div class="project-head">
@@ -192,34 +244,6 @@
           <a class="hbtn" href="https://nysc.amyc.us/">Viewer</a>
           <a class="hbtn" href="https://github.com/aimesy/nysc">Repository</a>
           <a class="hbtn" href="https://github.com/aimesy/nysc-data">Data Repository</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project no-preview" id="kcsc">
-      <div class="project-copy">
-        <div class="project-head">
-          <div>
-            <h2>King County Superior Court Archive</h2>
-            <p>KCSC public-record archive for King County Superior Court materials.</p>
-          </div>
-          <span class="chip warn">ALPHA</span>
-        </div>
-        <div class="project-note">
-          <p>Records of cases filed in the King County Superior Court. The data repository is <a href="https://github.com/aimesy/kcsc-data">aimesy/kcsc-data</a>; the viewer is <a href="https://aimesy.github.io/kcsc/">aimesy/kcsc</a>.</p>
-        </div>
-        <div class="metrics" data-metrics="kcsc"></div>
-        <div class="tracker">
-          <div class="tracker-head">
-            <span>Data repo aimesy/kcsc-data</span>
-            <span>Ref <span data-live="kcsc-ref">loading</span></span>
-            <span>Updated <span data-live="kcsc-updated">loading</span></span>
-          </div>
-        </div>
-        <div class="links" aria-label="KCSC links">
-          <a class="hbtn" href="https://aimesy.github.io/kcsc/">Viewer</a>
-          <a class="hbtn" href="https://github.com/aimesy/kcsc">Repository</a>
-          <a class="hbtn" href="https://github.com/aimesy/kcsc-data">Data Repository</a>
         </div>
       </div>
     </section>

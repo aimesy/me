@@ -68,11 +68,30 @@ assert.match(indexSource, /data-mini-search="tentatives" aria-label="Search coun
 assert.match(indexSource, /data-sfsc-results aria-live="polite"/);
 assert.match(indexSource, /data-mini-list="tentatives" aria-live="polite"/);
 assert.match(indexSource, /data-mini-more="tentatives" aria-controls="tentatives-county-list">Load more<\/button>/);
+const projectSection = (id) => {
+  const start = indexSource.indexOf(`<section class="project`);
+  const projectStart = indexSource.indexOf(`id="${id}"`, start);
+  assert.notEqual(projectStart, -1, `${id} project card must exist`);
+  const sectionStart = indexSource.lastIndexOf("<section", projectStart);
+  const sectionEnd = indexSource.indexOf("</section>", projectStart);
+  assert.notEqual(sectionEnd, -1, `${id} project card must be complete`);
+  return indexSource.slice(sectionStart, sectionEnd + "</section>".length);
+};
+const tentativesSection = projectSection("tentatives");
+const themesSection = projectSection("themes");
+const kcscSection = projectSection("kcsc");
+assert.doesNotMatch(tentativesSection, /class="chip warn"/);
+assert.doesNotMatch(themesSection, /class="chip warn"/);
+assert.match(themesSection, /data-theme-toggle>Theme Selector<\/button>/);
+assert.match(themesSection, /href="https:\/\/github\.com\/aimesy\/themes">Repository<\/a>/);
+assert.match(kcscSection, /<span class="chip warn">BETA<\/span>/);
+assert.ok(indexSource.indexOf('id="kcsc"') < indexSource.indexOf('id="nysc"'), "KCSC must appear above NYSC");
 assert.match(projectsSource, /const TENTATIVES_PAGE_SIZE = 9;/);
 assert.match(projectsSource, /const visible = filtered\.slice\(0, tentativesVisibleCount\);/);
 assert.match(projectsSource, /tentativesVisibleCount \+= TENTATIVES_PAGE_SIZE;[\s\S]*renderTentativesSearch\(\);/);
 assert.match(stylesSource, /\.mini-load-more\[hidden\]\s*\{\s*display:\s*none;/);
 for (const repositoryHref of [
+  "https://github.com/aimesy/themes",
   "https://github.com/aimesy/nysc",
   "https://github.com/aimesy/ndcs-data",
   "https://github.com/aimesy/civproidx",
@@ -88,6 +107,10 @@ const liveReposSource = projectsSource.slice(liveReposStart, liveReposEnd + 3);
 assert.doesNotMatch(liveReposSource, /cividx/);
 assert.match(liveReposSource, /nysc:[\s\S]*manifestPaths: \["data\/common\/manifest\.json"\]/);
 assert.doesNotMatch(liveReposSource, /archive\/case-directory|shards\/documents|releaseAssetPrefix/);
+assert.match(projectsSource, /const PROJECT_KEYS = \["sfsc", "tentatives", "themes", "kcsc", "nysc", "ndcs", "civproidx"\];/);
+assert.match(builderSource, /themes: buildThemes\(previous\)/);
+assert.match(refreshWorkflowSource, /- name: Check out Themes[\s\S]*repository: aimesy\/themes[\s\S]*path: themes/);
+assert.match(refreshWorkflowSource, /THEMES_REPO: \.\.\/themes/);
 
 assert.match(fictionSource, /class="map-switcher" role="radiogroup" aria-label="Ocilentra supplemental views"/);
 assert.doesNotMatch(fictionSource, /role="tablist"|role="tab"/);

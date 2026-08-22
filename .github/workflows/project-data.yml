@@ -89,6 +89,14 @@ jobs:
             LIVE.md
           sparse-checkout-cone-mode: false
 
+      - name: Check out Themes
+        uses: actions/checkout@v4
+        with:
+          repository: aimesy/themes
+          ref: master
+          path: themes
+          token: ${{ secrets.GH_TOKEN }}
+
       - name: Check out CivProIdx
         uses: actions/checkout@v4
         with:
@@ -145,6 +153,7 @@ jobs:
           SFSC_REPO: ../sfsc
           SFSC_DATA_REPO: ../sfsc-data
           TENTATIVES_REPO: ../tentatives
+          THEMES_REPO: ../themes
           CIVPROIDX_REPO: ../civproidx
           NDCS_REPO: ../ndcs-data
           NYSC_REPO: ../nysc-data

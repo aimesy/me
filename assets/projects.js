@@ -3,7 +3,7 @@ const SFSC_BASE_URL = "https://sfsc.amyc.us/";
 const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const SFSC_CASE_TABLE_STATS_URL = `${SFSC_BASE_URL}data/case-table-stats.json`;
 const SFSC_CASE_DIRECTORY_MANIFEST_URL = "https://raw.githubusercontent.com/aimesy/sfsc-data/master/archive/case-directory/manifest.json";
-const PROJECT_KEYS = ["sfsc", "tentatives", "nysc", "kcsc", "ndcs", "civproidx"];
+const PROJECT_KEYS = ["sfsc", "tentatives", "themes", "kcsc", "nysc", "ndcs", "civproidx"];
 const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
@@ -679,6 +679,7 @@ function render(data) {
   setText('[data-live="tentatives-size"]', formatArchiveSize(projects.tentatives.metrics.documentBytes));
   setText('[data-live="sfsc-ref"]', shortHash(projects.sfsc.ref));
   setText('[data-live="tentatives-ref"]', shortHash(projects.tentatives.ref));
+  setText('[data-live="themes-ref"]', shortHash(projects.themes?.ref));
   setText('[data-live="civproidx-ref"]', shortHash(projects.civproidx.ref));
   setText('[data-live="ndcs-ref"]', shortHash(projects.ndcs?.ref));
   setText('[data-live="nysc-ref"]', shortHash(projects.nysc?.ref));

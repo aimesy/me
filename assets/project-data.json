@@ -219,17 +219,11 @@
         ]
       }
     },
-    "nysc": {
-      "repo": "aimesy/nysc-data",
-      "ref": "c34ae198aa7ef396a128a0f417b5bc1018ed6b6c",
-      "updatedAt": "2026-08-22T01:41:57-07:00",
-      "metrics": {
-        "cases": 231173,
-        "documents": 195388,
-        "mirroredFiles": 30235,
-        "documentBytes": 1032350594,
-        "snapshots": 422235
-      },
+    "themes": {
+      "repo": "aimesy/themes",
+      "ref": "cd6aac6380c70291fa876f8d1d802cde65b80b0a",
+      "updatedAt": "2026-07-23T16:32:55+00:00",
+      "metrics": {},
       "charts": {}
     },
     "kcsc": {
@@ -242,6 +236,19 @@
         "mirroredFiles": 378391,
         "documentBytes": 188779848,
         "snapshots": 378484
+      },
+      "charts": {}
+    },
+    "nysc": {
+      "repo": "aimesy/nysc-data",
+      "ref": "c34ae198aa7ef396a128a0f417b5bc1018ed6b6c",
+      "updatedAt": "2026-08-22T01:41:57-07:00",
+      "metrics": {
+        "cases": 231173,
+        "documents": 195388,
+        "mirroredFiles": 30235,
+        "documentBytes": 1032350594,
+        "snapshots": 422235
       },
       "charts": {}
     },

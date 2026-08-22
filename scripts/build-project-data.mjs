@@ -27,6 +27,10 @@ const config = {
     repo: process.env.TENTATIVES_REPO || path.resolve(repoRoot, "..", "..", "projects", "tentatives"),
     ref: process.env.TENTATIVES_REF || "",
   },
+  themes: {
+    repo: process.env.THEMES_REPO || path.resolve(repoRoot, "..", "..", "projects", "themes"),
+    ref: process.env.THEMES_REF || "",
+  },
   civproidx: {
     repo: process.env.CIVPROIDX_REPO || path.resolve(repoRoot, "..", "..", "projects", "cividx"),
     ref: process.env.CIVPROIDX_REF || "",
@@ -474,6 +478,26 @@ function buildTentatives(previousData = null) {
   };
 }
 
+function buildThemes(previous) {
+  if (!repoAvailable(config.themes.repo)) {
+    return previous?.projects?.themes || {
+      repo: "aimesy/themes",
+      ref: null,
+      updatedAt: null,
+      metrics: {},
+      charts: {},
+    };
+  }
+
+  return {
+    repo: "aimesy/themes",
+    ref: repoHead(config.themes),
+    updatedAt: repoUpdatedAt(config.themes),
+    metrics: {},
+    charts: {},
+  };
+}
+
 function countCivProIdxCitationsFromManifests() {
   const citations = new Set();
   const manifestFiles = listRepoFiles(config.civproidx, "data/parquet/manifests", { tree: true })
@@ -560,8 +584,9 @@ const publicReleaseStats = {
 const projects = {
   sfsc: buildSfsc(previous),
   tentatives: buildTentatives(previous),
-  nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc, publicReleaseStats.nysc),
+  themes: buildThemes(previous),
   kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc-data", config.kcsc),
+  nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc, publicReleaseStats.nysc),
   ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
   civproidx: buildCivProIdx(previous),
 };
