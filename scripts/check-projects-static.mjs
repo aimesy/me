@@ -6,6 +6,7 @@ const projectsSource = readFileSync(new URL("../assets/projects.js", import.meta
 const indexSource = readFileSync(new URL("../index.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const fictionSource = readFileSync(new URL("../fiction.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const contactSource = readFileSync(new URL("../contact.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
+const statsSource = readFileSync(new URL("../stats.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const stylesSource = readFileSync(new URL("../assets/styles.css", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const builderSource = readFileSync(new URL("./build-project-data.mjs", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const refreshWorkflowSource = readFileSync(new URL("../.github/workflows/project-data.yml", import.meta.url), "utf8").replaceAll("\r\n", "\n");
@@ -38,13 +39,19 @@ assert.doesNotMatch(indexSource, /class="mini-pill"/);
 assert.match(indexSource, /<link rel="icon" href="data:,">/);
 assert.match(fictionSource, /<link rel="icon" href="data:,">/);
 assert.match(contactSource, /<link rel="icon" href="data:,">/);
+assert.match(statsSource, /<link rel="icon" href="data:,">/);
+assert.match(statsSource, /src="https:\/\/sfsc\.amyc\.us\/#statistics"/);
+assert.match(statsSource, /frame-src https:\/\/sfsc\.amyc\.us/);
+assert.match(statsSource, /choose Attorney rankings or Judgment rankings below/);
 assert.match(contactSource, /<title>Amy C<\/title>/);
 for (const [source, activePage] of [
   [indexSource, "index.html"],
+  [statsSource, "stats.html"],
   [fictionSource, "fiction.html"],
   [contactSource, "contact.html"],
 ]) {
   assert.match(source, /href="index\.html"[^>]*>Projects<\/a>/);
+  assert.match(source, /href="stats\.html"[^>]*>Stats<\/a>/);
   assert.match(source, /href="fiction\.html"[^>]*>Fiction<\/a>/);
   assert.match(source, /href="contact\.html"[^>]*>Contact<\/a>/);
   assert.match(source, new RegExp(`href="${activePage}"[^>]*aria-current="page"`));
@@ -171,6 +178,7 @@ const themeRefs = [
   ...sharedThemeRefs(indexSource, "index.html"),
   ...sharedThemeRefs(fictionSource, "fiction.html"),
   ...sharedThemeRefs(contactSource, "contact.html"),
+  ...sharedThemeRefs(statsSource, "stats.html"),
 ];
 assert.equal(new Set(themeRefs).size, 1, "all shared theme assets must use the same commit");
 

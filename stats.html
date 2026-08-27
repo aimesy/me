@@ -6,19 +6,19 @@
   <link rel="icon" href="data:,">
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'"
+    content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://sfsc.amyc.us; object-src 'none'; base-uri 'self'; form-action 'none'"
   >
-  <title>Amy C</title>
-  <meta name="description" content="Contact Amy Chattopadhyay about public court data, research tools, collaboration, and other inquiries.">
-  <link rel="canonical" href="https://amyc.us/contact.html">
+  <title>Stats</title>
+  <meta name="description" content="Attorney and judgment statistics from the San Francisco Superior Court Database.">
+  <link rel="canonical" href="https://amyc.us/stats.html">
   <meta property="og:site_name" content="AMYC.US">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact | AMYC.US">
-  <meta property="og:description" content="Contact Amy Chattopadhyay about public court data, research tools, collaboration, and other inquiries.">
-  <meta property="og:url" content="https://amyc.us/contact.html">
+  <meta property="og:title" content="Stats | AMYC.US">
+  <meta property="og:description" content="Attorney and judgment statistics from the San Francisco Superior Court Database.">
+  <meta property="og:url" content="https://amyc.us/stats.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Contact | AMYC.US">
-  <meta name="twitter:description" content="Contact Amy Chattopadhyay about public court data, research tools, collaboration, and other inquiries.">
+  <meta name="twitter:title" content="Stats | AMYC.US">
+  <meta name="twitter:description" content="Attorney and judgment statistics from the San Francisco Superior Court Database.">
   <meta name="theme-color" content="#24211d">
   <link rel="stylesheet" href="assets/styles.css?v=theme-spectrum-sand">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@cd6aac6380c70291fa876f8d1d802cde65b80b0a/src/theme.css">
@@ -31,9 +31,9 @@
   <header>
     <div class="status-strip amyc-theme-bar">
       <strong>AMYC.US</strong>
-      <span>Contact</span>
+      <span>Stats</span>
       <span class="grow"></span>
-      <button class="bug-report-trigger" type="button" data-bug-report data-bug-report-app="AMYC Contact" data-bug-report-repo="aimesy/me" data-bug-report-labels="bug,site-report" aria-label="Report a bug" title="Report a bug">
+      <button class="bug-report-trigger" type="button" data-bug-report data-bug-report-app="AMYC Stats" data-bug-report-repo="aimesy/me" data-bug-report-labels="bug,site-report" aria-label="Report a bug" title="Report a bug">
         <svg class="bug-report-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M8 8h8v8.5a4 4 0 0 1-8 0V8Z"></path>
           <path d="M9 8V6.8a3 3 0 0 1 6 0V8"></path>
@@ -58,48 +58,29 @@
     </div>
     <div class="entity-bar">
       <div class="title-block">
-        <h1>Contact</h1>
+        <h1>Stats</h1>
+        <p class="lede">Attorney and judgment statistics from the San Francisco Superior Court Database.</p>
       </div>
     </div>
     <nav class="toolbar" aria-label="Site sections">
       <a class="hbtn" href="index.html">Projects</a>
-      <a class="hbtn" href="stats.html">Stats</a>
+      <a class="hbtn active" href="stats.html" aria-current="page">Stats</a>
       <a class="hbtn" href="fiction.html">Fiction</a>
-      <a class="hbtn active" href="contact.html" aria-current="page">Contact</a>
+      <a class="hbtn" href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="app-shell">
-    <div class="contact-grid">
-      <aside class="contact-card contact-info" aria-labelledby="contact-info-title">
-        <div class="contact-card-head">
-          <h2 id="contact-info-title">Contact information</h2>
-        </div>
-
-        <dl class="contact-routes">
-          <div class="contact-route">
-            <dt>General</dt>
-            <dd><a href="mailto:me@amyc.us">me@amyc.us</a></dd>
-            <dd>Project questions, collaboration, and general messages.</dd>
-          </div>
-          <div class="contact-route">
-            <dt>Public data</dt>
-            <dd><a href="mailto:db@amyc.us">db@amyc.us</a></dd>
-            <dd>Questions about the public record databases and their data.</dd>
-          </div>
-          <div class="contact-route">
-            <dt>Alternate</dt>
-            <dd><a href="mailto:amy@chattopadhyay.org">amy@chattopadhyay.org</a></dd>
-            <dd>Alternate direct address.</dd>
-          </div>
-          <div class="contact-route">
-            <dt>Code</dt>
-            <dd><a href="https://github.com/aimesy">github.com/aimesy</a></dd>
-            <dd>Repositories, issues, and source.</dd>
-          </div>
-        </dl>
-      </aside>
+  <main class="stats-shell">
+    <div class="stats-source-note" id="sfsc-statistics-note">
+      <span>Live SFSC workspace · choose Attorney rankings or Judgment rankings below.</span>
+      <a class="hbtn" href="https://sfsc.amyc.us/#statistics" target="_blank" rel="noopener noreferrer">Open full screen</a>
     </div>
+    <iframe
+      class="sfsc-stats-frame"
+      src="https://sfsc.amyc.us/#statistics"
+      title="SFSC attorney and judgment statistics"
+      aria-describedby="sfsc-statistics-note"
+    ></iframe>
   </main>
 
   <footer class="contact">

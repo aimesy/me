@@ -866,6 +866,36 @@ h1 {
   padding: 0.85rem;
 }
 
+.stats-shell {
+  padding: 0.75rem 0.85rem 0;
+}
+
+.stats-source-note {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--rule);
+  border-bottom: 0;
+  background: var(--paper-2);
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.stats-source-note .hbtn {
+  margin-left: auto;
+}
+
+.sfsc-stats-frame {
+  display: block;
+  width: 100%;
+  height: max(680px, calc(100vh - 245px));
+  border: 1px solid var(--rule);
+  background: var(--plain);
+}
+
     .project {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 280px;
@@ -1512,9 +1542,18 @@ input.mini-input {
   .entity-bar,
   .toolbar,
   .app-shell,
+  .stats-shell,
   .contact {
     padding-left: 0.6rem;
     padding-right: 0.6rem;
+  }
+
+  .stats-source-note .hbtn {
+    margin-left: 0;
+  }
+
+  .sfsc-stats-frame {
+    height: max(620px, calc(100vh - 275px));
   }
 
   .project-head {
