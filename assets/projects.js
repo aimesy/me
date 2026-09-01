@@ -157,7 +157,7 @@ function renderMetrics(target, metrics) {
       rows.push(metric("documents indexed", formatNumber(metrics.documents)));
     }
     rows.push(
-      metric("files", formatNumber(metrics.mirroredFiles || metrics.documents)),
+      metric(target === "kcsc" ? "Documents Indexed" : "files", formatNumber(metrics.mirroredFiles || metrics.documents)),
       metric("archive size", formatArchiveSize(metrics.documentBytes)),
     );
     container.innerHTML = rows.join("");

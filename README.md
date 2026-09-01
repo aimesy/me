@@ -1,10 +1,10 @@
 # amyc.us
 
-Static project, fiction, and contact index for amyc.us.
+Static project, data, fiction, and contact index for amyc.us.
 
 ## Maintainer check
 
-Run `node scripts/check-projects-static.mjs` before deployment.
+Run `node scripts/check-data-index-static.mjs`, `node scripts/check-projects-static.mjs`, and `node scripts/check-pinned-theme.mjs` before deployment.
 
 The hourly project-data workflow also advances the immutable `aimesy/themes` commit pin used by both pages. It verifies the pinned palette contrast, fails closed if generation inputs move, rebases before pushing, then explicitly dispatches the sole deployer, `pages.yml`. The deployer repeats the integration and pinned-theme checks before upload. Keep the shared assets on one full commit SHA; do not vendor them here or restore mutable branch URLs.
 

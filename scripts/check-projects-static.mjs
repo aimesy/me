@@ -7,6 +7,7 @@ const indexSource = readFileSync(new URL("../index.html", import.meta.url), "utf
 const fictionSource = readFileSync(new URL("../fiction.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const contactSource = readFileSync(new URL("../contact.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const statsSource = readFileSync(new URL("../stats.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
+const dataSource = readFileSync(new URL("../data.html", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const stylesSource = readFileSync(new URL("../assets/styles.css", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const builderSource = readFileSync(new URL("./build-project-data.mjs", import.meta.url), "utf8").replaceAll("\r\n", "\n");
 const refreshWorkflowSource = readFileSync(new URL("../.github/workflows/project-data.yml", import.meta.url), "utf8").replaceAll("\r\n", "\n");
@@ -47,11 +48,13 @@ assert.match(contactSource, /<title>Amy C<\/title>/);
 for (const [source, activePage] of [
   [indexSource, "index.html"],
   [statsSource, "stats.html"],
+  [dataSource, "data.html"],
   [fictionSource, "fiction.html"],
   [contactSource, "contact.html"],
 ]) {
   assert.match(source, /href="index\.html"[^>]*>Projects<\/a>/);
   assert.match(source, /href="stats\.html"[^>]*>Stats<\/a>/);
+  assert.match(source, /href="data\.html"[^>]*>Data<\/a>/);
   assert.match(source, /href="fiction\.html"[^>]*>Fiction<\/a>/);
   assert.match(source, /href="contact\.html"[^>]*>Contact<\/a>/);
   assert.match(source, new RegExp(`href="${activePage}"[^>]*aria-current="page"`));
@@ -92,6 +95,11 @@ assert.doesNotMatch(themesSection, /class="chip warn"/);
 assert.match(themesSection, /data-theme-toggle>Theme Selector<\/button>/);
 assert.match(themesSection, /href="https:\/\/github\.com\/aimesy\/themes">Repository<\/a>/);
 assert.match(kcscSection, /<span class="chip warn">BETA<\/span>/);
+assert.match(
+  projectsSource,
+  /metric\(target === "kcsc" \? "Documents Indexed" : "files", formatNumber\(metrics\.mirroredFiles \|\| metrics\.documents\)\)/,
+  "KCSC must label its mirrored-file metric Documents Indexed without changing unrelated projects",
+);
 assert.ok(indexSource.indexOf('id="kcsc"') < indexSource.indexOf('id="nysc"'), "KCSC must appear above NYSC");
 assert.match(projectsSource, /const TENTATIVES_PAGE_SIZE = 9;/);
 assert.match(projectsSource, /const visible = filtered\.slice\(0, tentativesVisibleCount\);/);
@@ -179,6 +187,7 @@ const themeRefs = [
   ...sharedThemeRefs(fictionSource, "fiction.html"),
   ...sharedThemeRefs(contactSource, "contact.html"),
   ...sharedThemeRefs(statsSource, "stats.html"),
+  ...sharedThemeRefs(dataSource, "data.html"),
 ];
 assert.equal(new Set(themeRefs).size, 1, "all shared theme assets must use the same commit");
 
@@ -187,7 +196,7 @@ assert.doesNotMatch(refreshWorkflowSource, /^\s+(?:pages|id-token):\s*write\s*$/
 assert.match(refreshWorkflowSource, /^\s+actions:\s*write\s*$/m);
 assert.match(
   refreshWorkflowSource,
-  /git fetch origin main[\s\S]*git rebase origin\/main[\s\S]*node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-pinned-theme\.mjs[\s\S]*git push origin HEAD:main/,
+  /git fetch origin main[\s\S]*git rebase origin\/main[\s\S]*node scripts\/check-data-index-static\.mjs[\s\S]*node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-pinned-theme\.mjs[\s\S]*git push origin HEAD:main/,
 );
 assert.match(refreshWorkflowSource, /id: page_base[\s\S]*git rev-parse HEAD/);
 assert.match(
@@ -211,7 +220,7 @@ assert.match(pagesWorkflowSource, /concurrency:\s*[\s\S]*group: pages\s*[\s\S]*c
 assert.equal((pagesWorkflowSource.match(/actions\/deploy-pages@/g) || []).length, 1);
 assert.match(
   pagesWorkflowSource,
-  /node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-pinned-theme\.mjs[\s\S]*actions\/upload-pages-artifact@/,
+  /node scripts\/check-data-index-static\.mjs[\s\S]*node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-pinned-theme\.mjs[\s\S]*actions\/upload-pages-artifact@/,
 );
 
 const buildSfscStart = builderSource.indexOf("function buildSfsc(");
