@@ -28,7 +28,6 @@ jobs:
 
       - name: Check project integration contracts
         run: |
-          node scripts/check-data-index-static.mjs
           node scripts/check-projects-static.mjs
           node scripts/check-pinned-theme.mjs
 

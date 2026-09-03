@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-const pages = ["index.html", "stats.html", "data.html", "fiction.html", "contact.html"];
+const pages = ["index.html", "stats/index.html", "fiction/index.html", "contact/index.html"];
 const refs = [];
 
 for (const page of pages) {

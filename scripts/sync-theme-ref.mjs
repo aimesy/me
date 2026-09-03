@@ -9,7 +9,7 @@ if (!/^[0-9a-f]{40}$/.test(ref)) {
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "..");
-const pages = ["index.html", "stats.html", "data.html", "fiction.html", "contact.html"];
+const pages = ["index.html", "stats/index.html", "fiction/index.html", "contact/index.html"];
 const assets = new Set(["theme.css", "theme-bar.css", "bug-report.css", "theme.js", "bug-report.js"]);
 const pattern = /https:\/\/cdn\.jsdelivr\.net\/gh\/aimesy\/themes@[^/"']+\/src\/(theme\.css|theme-bar\.css|bug-report\.css|theme\.js|bug-report\.js)/g;
 

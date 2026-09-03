@@ -30,7 +30,6 @@ jobs:
       - name: Check project integration contracts
         working-directory: site
         run: |
-          node scripts/check-data-index-static.mjs
           node scripts/check-projects-static.mjs
 
       - name: Require project repo token
@@ -51,7 +50,6 @@ jobs:
       - name: Verify shared theme ref
         working-directory: site
         run: |
-          node scripts/check-data-index-static.mjs
           node scripts/check-projects-static.mjs
           node scripts/check-pinned-theme.mjs
           for asset in theme.css theme-bar.css bug-report.css theme.js bug-report.js; do
@@ -172,7 +170,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/project-data.json contact.html data.html fiction.html index.html stats.html
+          git add assets/project-data.json contact/index.html fiction/index.html index.html stats/index.html
           if git diff --cached --quiet; then
             echo "Project data already current."
             echo "pushed=false" >> "$GITHUB_OUTPUT"
@@ -185,13 +183,11 @@ jobs:
                 assets/project-data.json \
                 assets/data-index.css \
                 assets/data-index.js \
-                contact.html \
-                data.html \
-                fiction.html \
+                contact/index.html \
+                fiction/index.html \
                 index.html \
-                stats.html \
+                stats/index.html \
                 scripts/build-project-data.mjs \
-                scripts/check-data-index-static.mjs \
                 scripts/sync-theme-ref.mjs; then
                 echo "Generation inputs changed on main while this refresh was running:" >&2
                 git diff --name-only "$PAGE_BASE_SHA..origin/main" -- \
@@ -199,18 +195,15 @@ jobs:
                   assets/project-data.json \
                   assets/data-index.css \
                   assets/data-index.js \
-                  contact.html \
-                  data.html \
-                  fiction.html \
+                  contact/index.html \
+                  fiction/index.html \
                   index.html \
-                  stats.html \
+                  stats/index.html \
                   scripts/build-project-data.mjs \
-                  scripts/check-data-index-static.mjs \
                   scripts/sync-theme-ref.mjs >&2
                 exit 1
               fi
               git rebase origin/main
-              node scripts/check-data-index-static.mjs
               node scripts/check-projects-static.mjs
               node scripts/check-pinned-theme.mjs
               if git push origin HEAD:main; then
