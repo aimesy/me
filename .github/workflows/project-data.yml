@@ -184,10 +184,12 @@ jobs:
                 .github/workflows/project-data.yml \
                 assets/project-data.json \
                 assets/data-index.css \
+                assets/data-index.js \
                 contact.html \
                 data.html \
                 fiction.html \
                 index.html \
+                stats.html \
                 scripts/build-project-data.mjs \
                 scripts/check-data-index-static.mjs \
                 scripts/sync-theme-ref.mjs; then
@@ -196,10 +198,12 @@ jobs:
                   .github/workflows/project-data.yml \
                   assets/project-data.json \
                   assets/data-index.css \
+                  assets/data-index.js \
                   contact.html \
                   data.html \
                   fiction.html \
                   index.html \
+                  stats.html \
                   scripts/build-project-data.mjs \
                   scripts/check-data-index-static.mjs \
                   scripts/sync-theme-ref.mjs >&2

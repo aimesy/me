@@ -1,7 +1,72 @@
-.data-display-shell {
+.data-index-shell {
   display: grid;
-  gap: 1rem;
-  padding: 0.75rem 0.85rem 0;
+  gap: 0.75rem;
+  padding: 0.85rem;
+}
+
+.data-project {
+  overflow: clip;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+}
+
+.data-project > summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.55rem 0.65rem;
+  background: var(--paper-2);
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.data-project > summary::-webkit-details-marker { display: none; }
+
+.data-project > summary::before {
+  content: "+";
+  display: inline-grid;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink-2);
+  font: 700 0.75rem/1 var(--font-mono);
+}
+
+.data-project[open] > summary::before { content: "−"; }
+.data-project > summary:hover { background: var(--row-hover); }
+.data-project > summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: -2px; }
+
+.data-project-title {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.data-project-title strong { font: 700 1rem/1.1 var(--font-serif); }
+.data-project-title small { color: var(--ink-3); font-size: 0.7rem; font-weight: 400; }
+
+.data-project-status {
+  padding: 0.16rem 0.38rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink-2);
+  font: 700 0.58rem/1.2 var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.data-project-body {
+  min-width: 0;
+  border-top: 1px solid var(--rule);
 }
 
 .data-source-note {
@@ -10,8 +75,7 @@
   gap: 0.65rem;
   flex-wrap: wrap;
   padding: 0.5rem 0.65rem;
-  border: 1px solid var(--rule);
-  border-bottom: 0;
+  border-bottom: 1px solid var(--rule);
   background: var(--paper-2);
   color: var(--ink-2);
   font-family: var(--font-mono);
@@ -26,16 +90,18 @@
   display: block;
   width: 100%;
   height: max(680px, calc(100vh - 245px));
-  border: 1px solid var(--rule);
+  border: 0;
   background: var(--plain);
 }
 
 @media (max-width: 620px) {
-  .data-display-shell {
+  .data-index-shell {
     padding-left: 0.6rem;
     padding-right: 0.6rem;
   }
 
+  .data-project > summary { grid-template-columns: auto minmax(0, 1fr); }
+  .data-project-status { grid-column: 2; justify-self: start; }
   .data-source-note .hbtn { margin-left: 0; }
   .data-display-frame { height: max(620px, calc(100vh - 275px)); }
 }

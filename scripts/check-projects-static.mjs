@@ -42,8 +42,15 @@ assert.match(fictionSource, /<link rel="icon" href="data:,">/);
 assert.match(contactSource, /<link rel="icon" href="data:,">/);
 assert.match(statsSource, /<link rel="icon" href="data:,">/);
 assert.match(statsSource, /src="https:\/\/sfsc\.amyc\.us\/#statistics"/);
-assert.match(statsSource, /frame-src https:\/\/sfsc\.amyc\.us/);
-assert.match(statsSource, /choose Attorney rankings or Judgment rankings below/);
+assert.match(statsSource, /src="https:\/\/kcsc\.amyc\.us\/\?scope=statistics"/);
+assert.match(statsSource, /frame-src https:\/\/sfsc\.amyc\.us https:\/\/kcsc\.amyc\.us/);
+assert.match(statsSource, /Choose Attorney rankings or Judgment rankings below/);
+assert.equal((statsSource.match(/<details class="data-project"[^>]*data-persist-open/g) || []).length, 2);
+assert.equal((statsSource.match(/class="data-display-frame"/g) || []).length, 2);
+assert.match(statsSource, /id="sfsc-statistics"[^>]*data-persist-open open/);
+assert.match(statsSource, /id="kcsc-statistics"[^>]*data-persist-open>/);
+assert.match(statsSource, /assets\/data-index\.css\?v=3/);
+assert.match(statsSource, /assets\/data-index\.js\?v=2/);
 assert.match(contactSource, /<title>Amy C<\/title>/);
 for (const [source, activePage] of [
   [indexSource, "index.html"],

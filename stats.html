@@ -6,26 +6,28 @@
   <link rel="icon" href="data:,">
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://sfsc.amyc.us; object-src 'none'; base-uri 'self'; form-action 'none'"
+    content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://sfsc.amyc.us https://kcsc.amyc.us; object-src 'none'; base-uri 'self'; form-action 'none'"
   >
   <title>Stats</title>
-  <meta name="description" content="Attorney and judgment statistics from the San Francisco Superior Court Database.">
+  <meta name="description" content="Live SFSC and KCSC court-data statistics.">
   <link rel="canonical" href="https://amyc.us/stats.html">
   <meta property="og:site_name" content="AMYC.US">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Stats | AMYC.US">
-  <meta property="og:description" content="Attorney and judgment statistics from the San Francisco Superior Court Database.">
+  <meta property="og:description" content="Live SFSC and KCSC court-data statistics.">
   <meta property="og:url" content="https://amyc.us/stats.html">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Stats | AMYC.US">
-  <meta name="twitter:description" content="Attorney and judgment statistics from the San Francisco Superior Court Database.">
+  <meta name="twitter:description" content="Live SFSC and KCSC court-data statistics.">
   <meta name="theme-color" content="#24211d">
   <link rel="stylesheet" href="assets/styles.css?v=theme-spectrum-sand">
+  <link rel="stylesheet" href="assets/data-index.css?v=3">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@cd6aac6380c70291fa876f8d1d802cde65b80b0a/src/theme.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@cd6aac6380c70291fa876f8d1d802cde65b80b0a/src/theme-bar.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aimesy/themes@cd6aac6380c70291fa876f8d1d802cde65b80b0a/src/bug-report.css">
   <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@cd6aac6380c70291fa876f8d1d802cde65b80b0a/src/theme.js" defer></script>
   <script src="https://cdn.jsdelivr.net/gh/aimesy/themes@cd6aac6380c70291fa876f8d1d802cde65b80b0a/src/bug-report.js" defer></script>
+  <script src="assets/data-index.js?v=2" defer></script>
 </head>
 <body class="amyc-has-public-records-footer">
   <header>
@@ -59,7 +61,7 @@
     <div class="entity-bar">
       <div class="title-block">
         <h1>Stats</h1>
-        <p class="lede">Attorney and judgment statistics from the San Francisco Superior Court Database.</p>
+        <p class="lede">Live statistics from the San Francisco and King County Superior Court databases.</p>
       </div>
     </div>
     <nav class="toolbar" aria-label="Site sections">
@@ -71,17 +73,44 @@
     </nav>
   </header>
 
-  <main class="stats-shell">
-    <div class="stats-source-note" id="sfsc-statistics-note">
-      <span>Live SFSC workspace · choose Attorney rankings or Judgment rankings below.</span>
-      <a class="hbtn" href="https://sfsc.amyc.us/#statistics" target="_blank" rel="noopener noreferrer">Open full screen</a>
-    </div>
-    <iframe
-      class="sfsc-stats-frame"
-      src="https://sfsc.amyc.us/#statistics"
-      title="SFSC attorney and judgment statistics"
-      aria-describedby="sfsc-statistics-note"
-    ></iframe>
+  <main class="stats-shell data-index-shell">
+    <details class="data-project" id="sfsc-statistics" data-persist-open open>
+      <summary>
+        <span class="data-project-title"><strong>SFSC</strong><small>Attorney and judgment statistics</small></span>
+        <span class="data-project-status">Live stats</span>
+      </summary>
+      <div class="data-project-body">
+        <div class="data-source-note" id="sfsc-statistics-note">
+          <span>Choose Attorney rankings or Judgment rankings below.</span>
+          <a class="hbtn" href="https://sfsc.amyc.us/#statistics" target="_blank" rel="noopener noreferrer">Open full screen</a>
+        </div>
+        <iframe
+          class="data-display-frame"
+          src="https://sfsc.amyc.us/#statistics"
+          title="SFSC attorney and judgment statistics"
+          aria-describedby="sfsc-statistics-note"
+        ></iframe>
+      </div>
+    </details>
+
+    <details class="data-project" id="kcsc-statistics" data-persist-open>
+      <summary>
+        <span class="data-project-title"><strong>KCSC</strong><small>Archive, attorney, and judgment statistics</small></span>
+        <span class="data-project-status">Live stats</span>
+      </summary>
+      <div class="data-project-body">
+        <div class="data-source-note" id="kcsc-statistics-note">
+          <span>Explore the archive dashboard, aggregates, attorney rankings, and judgment rankings below.</span>
+          <a class="hbtn" href="https://kcsc.amyc.us/?scope=statistics" target="_blank" rel="noopener noreferrer">Open full screen</a>
+        </div>
+        <iframe
+          class="data-display-frame"
+          src="https://kcsc.amyc.us/?scope=statistics"
+          title="KCSC archive, attorney, and judgment statistics"
+          aria-describedby="kcsc-statistics-note"
+        ></iframe>
+      </div>
+    </details>
   </main>
 
   <footer class="contact">

@@ -2,7 +2,9 @@
 
 Static project, data, fiction, and contact index for amyc.us.
 
-The Data page embeds the live SFSC and KCSC workspaces inline, following the same full-width window pattern as the Stats page. Keep the embedded displays primary; full-screen links are secondary escape hatches, not a replacement for the data interfaces.
+The Data page embeds the live SFSC and KCSC workspaces inline inside independently collapsible, state-persisted sections. The windows follow the same full-width pattern as the Stats page. Keep the embedded displays primary; full-screen links are secondary escape hatches, not a replacement for the data interfaces.
+
+The Stats page likewise provides independently collapsible live SFSC and KCSC statistics workspaces. SFSC opens to attorney and judgment rankings; KCSC opens to its archive dashboard, aggregates, attorney rankings, and judgment rankings.
 
 ## Maintainer check
 
