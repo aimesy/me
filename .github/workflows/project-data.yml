@@ -184,7 +184,6 @@ jobs:
                 .github/workflows/project-data.yml \
                 assets/project-data.json \
                 assets/data-index.css \
-                assets/data-index.js \
                 contact.html \
                 data.html \
                 fiction.html \
@@ -197,7 +196,6 @@ jobs:
                   .github/workflows/project-data.yml \
                   assets/project-data.json \
                   assets/data-index.css \
-                  assets/data-index.js \
                   contact.html \
                   data.html \
                   fiction.html \

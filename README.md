@@ -2,6 +2,8 @@
 
 Static project, data, fiction, and contact index for amyc.us.
 
+The Data page embeds the live SFSC and KCSC workspaces inline, following the same full-width window pattern as the Stats page. Keep the embedded displays primary; full-screen links are secondary escape hatches, not a replacement for the data interfaces.
+
 ## Maintainer check
 
 Run `node scripts/check-data-index-static.mjs`, `node scripts/check-projects-static.mjs`, and `node scripts/check-pinned-theme.mjs` before deployment.
