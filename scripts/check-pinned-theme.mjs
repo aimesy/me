@@ -1,3 +1,4 @@
+// visibility: public; classification: integration-check
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
@@ -71,7 +72,7 @@ function contrastRatio(foreground, background) {
 }
 
 const base = declarations(":root");
-const themes = ["sand", "mist", "lilac", "glacier", "rose", "tidepool", "cypress", "starlight"];
+const themes = ["sand", "mist", "lilac", "glacier", "rose", "tidepool", "cypress", "starlight", "crimson", "ember", "ultramarine", "orchid"];
 
 for (const theme of themes) {
   const tokens = theme === "sand"
@@ -86,4 +87,4 @@ for (const theme of themes) {
   }
 }
 
-console.log(`Pinned theme ${ref} passes base secondary-text contrast.`);
+console.log(`Pinned theme ${ref} passes base secondary-text contrast for all ${themes.length} families.`);
