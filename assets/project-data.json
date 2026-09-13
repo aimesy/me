@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T20:10:13.000Z",
+  "generatedAt": "2026-09-13T22:22:22.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -228,14 +228,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "9f83a3683077d4fbe2e465976c5d1ab7b0030ef2",
-      "updatedAt": "2026-09-13T20:10:13Z",
+      "ref": "78a4cbe4ca68b56d863290c9f07f3286b4cbba06",
+      "updatedAt": "2026-09-13T22:22:22Z",
       "metrics": {
-        "cases": 535346,
+        "cases": 106715,
         "documents": 0,
-        "mirroredFiles": 535354,
-        "documentBytes": 248055496,
-        "snapshots": 535542
+        "mirroredFiles": 106723,
+        "documentBytes": 60709851,
+        "snapshots": 106906
       },
       "charts": {}
     },
