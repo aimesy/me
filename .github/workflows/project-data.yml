@@ -37,27 +37,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: test -n "$GH_TOKEN"
 
-      - name: Resolve shared theme ref
-        id: theme
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: echo "sha=$(gh api repos/aimesy/themes/commits/master --jq .sha)" >> "$GITHUB_OUTPUT"
-
-      - name: Sync shared theme ref
-        working-directory: site
-        run: node scripts/sync-theme-ref.mjs "${{ steps.theme.outputs.sha }}"
-
-      - name: Verify shared theme ref
-        working-directory: site
-        run: |
-          node scripts/check-projects-static.mjs
-          node scripts/check-pinned-theme.mjs
-          for asset in theme.css theme-bar.css bug-report.css theme.js bug-report.js; do
-            curl --fail --silent --show-error --location --retry 3 \
-              "https://cdn.jsdelivr.net/gh/aimesy/themes@${{ steps.theme.outputs.sha }}/src/$asset" \
-              --output /dev/null
-          done
-
       - name: Check out SFSC
         uses: actions/checkout@v4
         with:
@@ -170,12 +149,12 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/project-data.json contact/index.html fiction/index.html index.html stats/index.html
+          git add assets/project-data.json
           if git diff --cached --quiet; then
             echo "Project data already current."
             echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "Refresh project data and theme pin"
+            git commit -m "Refresh project data"
             for attempt in 1 2 3; do
               git fetch origin main
               if ! git diff --quiet "$PAGE_BASE_SHA..origin/main" -- \
@@ -187,8 +166,7 @@ jobs:
                 fiction/index.html \
                 index.html \
                 stats/index.html \
-                scripts/build-project-data.mjs \
-                scripts/sync-theme-ref.mjs; then
+                scripts/build-project-data.mjs; then
                 echo "Generation inputs changed on main while this refresh was running:" >&2
                 git diff --name-only "$PAGE_BASE_SHA..origin/main" -- \
                   .github/workflows/project-data.yml \
@@ -199,13 +177,12 @@ jobs:
                   fiction/index.html \
                   index.html \
                   stats/index.html \
-                  scripts/build-project-data.mjs \
-                  scripts/sync-theme-ref.mjs >&2
+                  scripts/build-project-data.mjs >&2
                 exit 1
               fi
               git rebase origin/main
               node scripts/check-projects-static.mjs
-              node scripts/check-pinned-theme.mjs
+              node scripts/check-shared-theme.mjs
               if git push origin HEAD:main; then
                 echo "pushed=true" >> "$GITHUB_OUTPUT"
                 exit 0

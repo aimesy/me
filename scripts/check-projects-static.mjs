@@ -164,16 +164,15 @@ assert.ok(
   "the local ink-3 fallback must contrast with the local paper-2 fallback",
 );
 
-function sharedThemeRefs(source, page) {
-  const matches = [...source.matchAll(/https:\/\/cdn\.jsdelivr\.net\/gh\/aimesy\/themes@([0-9a-f]{40})\/src\/(theme\.css|theme-bar\.css|bug-report\.css|theme\.js|bug-report\.js)/g)];
-  assert.equal(matches.length, 5, `${page} must reference five commit-pinned shared theme assets`);
+function checkSharedTheme(source, page) {
+  const matches = [...source.matchAll(/https:\/\/aimesy\.github\.io\/themes\/src\/(theme\.css|theme-bar\.css|bug-report\.css|theme\.js|bug-report\.js)"/g)];
+  assert.equal(matches.length, 5, `${page} must reference five hosted shared theme assets`);
   assert.deepEqual(
-    new Set(matches.map((match) => match[2])),
+    new Set(matches.map((match) => match[1])),
     new Set(["theme.css", "theme-bar.css", "bug-report.css", "theme.js", "bug-report.js"]),
     `${page} must reference the complete shared theme asset set`,
   );
-  assert.doesNotMatch(source, /aimesy\/themes@(master|main|latest)\//i);
-  assert.doesNotMatch(source, /aimesy\/themes\/src\//i);
+  assert.doesNotMatch(source, /cdn\.jsdelivr\.net\/gh\/aimesy\/themes/i);
   assert.ok(
     source.indexOf("assets/styles.css") < source.indexOf("/src/theme.css"),
     `${page} must load shared theme CSS after local viewer CSS`,
@@ -183,30 +182,26 @@ function sharedThemeRefs(source, page) {
     `${page} must load the shared theme bar after theme tokens`,
   );
   assert.equal((source.match(/class="status-strip amyc-theme-bar"/g) || []).length, 1);
-  return matches.map((match) => match[1]);
 }
 
-const themeRefs = [
-  ...sharedThemeRefs(indexSource, "index.html"),
-  ...sharedThemeRefs(fictionSource, "fiction/index.html"),
-  ...sharedThemeRefs(contactSource, "contact/index.html"),
-  ...sharedThemeRefs(statsSource, "stats/index.html"),
-];
-assert.equal(new Set(themeRefs).size, 1, "all shared theme assets must use the same commit");
+checkSharedTheme(indexSource, "index.html");
+checkSharedTheme(fictionSource, "fiction/index.html");
+checkSharedTheme(contactSource, "contact/index.html");
+checkSharedTheme(statsSource, "stats/index.html");
 
 assert.doesNotMatch(refreshWorkflowSource, /actions\/(?:configure-pages|upload-pages-artifact|deploy-pages)@/);
 assert.doesNotMatch(refreshWorkflowSource, /^\s+(?:pages|id-token):\s*write\s*$/m);
 assert.match(refreshWorkflowSource, /^\s+actions:\s*write\s*$/m);
 assert.match(
   refreshWorkflowSource,
-  /git fetch origin main[\s\S]*git rebase origin\/main[\s\S]*node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-pinned-theme\.mjs[\s\S]*git push origin HEAD:main/,
+  /git fetch origin main[\s\S]*git rebase origin\/main[\s\S]*node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-shared-theme\.mjs[\s\S]*git push origin HEAD:main/,
 );
 assert.match(refreshWorkflowSource, /id: page_base[\s\S]*git rev-parse HEAD/);
 assert.match(
   refreshWorkflowSource,
-  /git diff --quiet "\$PAGE_BASE_SHA\.\.origin\/main" --[\s\S]*scripts\/build-project-data\.mjs[\s\S]*scripts\/sync-theme-ref\.mjs/,
+  /git diff --quiet "\$PAGE_BASE_SHA\.\.origin\/main" --[\s\S]*scripts\/build-project-data\.mjs/,
 );
-assert.match(refreshWorkflowSource, /node scripts\/check-pinned-theme\.mjs/);
+assert.match(refreshWorkflowSource, /node scripts\/check-shared-theme\.mjs/);
 const tentativesCheckoutStart = refreshWorkflowSource.indexOf("      - name: Check out Tentatives");
 const tentativesCheckoutEnd = refreshWorkflowSource.indexOf("\n      - name:", tentativesCheckoutStart + 1);
 assert.notEqual(tentativesCheckoutStart, -1, "the Tentatives checkout must exist");
@@ -223,7 +218,7 @@ assert.match(pagesWorkflowSource, /concurrency:\s*[\s\S]*group: pages\s*[\s\S]*c
 assert.equal((pagesWorkflowSource.match(/actions\/deploy-pages@/g) || []).length, 1);
 assert.match(
   pagesWorkflowSource,
-  /node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-pinned-theme\.mjs[\s\S]*actions\/upload-pages-artifact@/,
+  /node scripts\/check-projects-static\.mjs[\s\S]*node scripts\/check-shared-theme\.mjs[\s\S]*actions\/upload-pages-artifact@/,
 );
 
 const buildSfscStart = builderSource.indexOf("function buildSfsc(");

@@ -29,7 +29,7 @@ jobs:
       - name: Check project integration contracts
         run: |
           node scripts/check-projects-static.mjs
-          node scripts/check-pinned-theme.mjs
+          node scripts/check-shared-theme.mjs
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
