@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-03T19:31:25.000Z",
+  "generatedAt": "2026-10-03T22:11:18.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
-      "ref": "f476cf79b7247621a9cf5cc654b015c9e5a95390",
-      "updatedAt": "2026-10-03T12:19:42-07:00",
+      "ref": "fcbac8fc80f73a184a06216ac88b59191f685dad",
+      "updatedAt": "2026-10-03T15:11:03-07:00",
       "metrics": {
         "tentativeRulings": 382361,
-        "cases": 1582438,
+        "cases": 1453153,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,14 +45,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "39f41dd0954d0ff801c98144bbf5085190225264",
-      "updatedAt": "2026-10-03T12:12:40-07:00",
+      "ref": "5f4d34146520f8dce10bb54d013f16d74cb36da7",
+      "updatedAt": "2026-10-03T15:11:18-07:00",
       "metrics": {
-        "tentativeRulings": 60929,
+        "tentativeRulings": 60932,
         "parsedCounties": 34,
-        "documents": 14655,
-        "archivedFiles": 93348,
-        "documentBytes": 17237540864
+        "documents": 14657,
+        "archivedFiles": 93353,
+        "documentBytes": 17238589440
       },
       "charts": {
         "rulingsByCounty": [
@@ -232,7 +232,7 @@
       "updatedAt": "2026-10-02T22:17:09Z",
       "metrics": {
         "cases": 662520,
-        "documents": 0,
+        "documents": 15024602,
         "mirroredFiles": 662528,
         "documentBytes": 292553162,
         "snapshots": 662753
@@ -241,14 +241,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "79203cb48be9871d80fd66738de26946b11eb2da",
-      "updatedAt": "2026-10-03T12:31:25-07:00",
+      "ref": "7eacfaa21dbb44865481d61b3bcd604566b0320b",
+      "updatedAt": "2026-10-03T22:09:43Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
-        "documentBytes": 1089388259,
-        "snapshots": 426820
+        "documentBytes": 1106257591,
+        "snapshots": 426839
       },
       "charts": {}
     },
