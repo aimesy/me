@@ -7,14 +7,17 @@ const PROJECT_KEYS = ["sfsc", "tentatives", "themes", "kcsc", "nysc", "ndcs", "c
 const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
-  tentatives: { repo: "aimesy/tentatives", branch: "master", path: "LIVE.md" },
-  ndcs: { repo: "aimesy/ndcs-data", branch: "master", manifestPaths: ["data/common/manifest.json", "data/manifest.json"] },
+  // Private repositories are read through their data Workers (same paths as
+  // raw.githubusercontent.com). aimesy/ndcs-data has no Worker; its card uses
+  // the hourly assets/project-data.json.
+  tentatives: { repo: "aimesy/tentatives", base: "https://tentatives-data.amyc.us/", branch: "master", path: "LIVE.md" },
   nysc: {
     repo: "aimesy/nysc-data",
+    base: "https://nysc-data.amyc.us/",
     branch: "master",
     manifestPaths: ["data/common/manifest.json"],
   },
-  kcsc: { repo: "aimesy/kcsc-data", branch: "master", manifestPaths: ["data/manifest.json"] },
+  kcsc: { repo: "aimesy/kcsc-data", base: "https://kcsc-data.amyc.us/", branch: "master", manifestPaths: ["data/manifest.json"] },
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -213,7 +216,7 @@ function countySlug(value) {
 }
 
 function tentativesViewerUrl(row = null, query = "") {
-  const url = new URL("https://aimesy.github.io/tentatives/");
+  const url = new URL("https://tentatives.amyc.us/");
   if (row) url.searchParams.set("counties", countySlug(row.label));
   if (query) url.searchParams.set("q", query);
   return url.toString();
@@ -349,13 +352,15 @@ async function loadData() {
   return response.json();
 }
 
-function githubRawUrl({ repo, branch, path }) {
+function githubRawUrl({ repo, base, branch, path }) {
+  if (base) return `${base}${branch || "master"}/${path}`;
   return `https://raw.githubusercontent.com/${repo}/${branch || "HEAD"}/${path}?v=${Date.now()}`;
 }
 
 function githubStatsRawUrl(config, path) {
   return githubRawUrl({
     repo: config.statsRepo || config.repo,
+    base: config.statsRepo ? "" : config.base,
     branch: config.statsBranch || config.branch,
     path,
   });
