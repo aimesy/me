@@ -111,13 +111,15 @@ assert.match(projectsSource, /tentativesVisibleCount \+= TENTATIVES_PAGE_SIZE;[\
 assert.match(stylesSource, /\.mini-load-more\[hidden\]\s*\{\s*display:\s*none;/);
 for (const repositoryHref of [
   "https://github.com/aimesy/themes",
-  "https://github.com/aimesy/nysc",
-  "https://github.com/aimesy/ndcs-data",
-  "https://github.com/aimesy/civproidx",
 ]) {
   assert.match(indexSource, new RegExp(`href="${repositoryHref}">Repository<\\/a>`));
 }
 
+for (const repo of ["tentatives", "nysc", "nysc-data", "ndcs-data", "kcsc-data", "sfsc", "sfsc-data", "civproidx"]) {
+  assert.ok(!indexSource.includes(`https://github.com/aimesy/${repo}\"`), `${repo} must not expose a private Repository button`);
+}
+assert.match(projectsSource, /https:\/\/sfsc-data\.amyc\.us\/master\/archive\/case-directory\/manifest\.json/);
+assert.match(indexSource, /connect-src[^;]*https:\/\/sfsc-data\.amyc\.us/);
 const liveReposStart = projectsSource.indexOf("const LIVE_REPOS = {");
 const liveReposEnd = projectsSource.indexOf("\n};", liveReposStart);
 assert.notEqual(liveReposStart, -1, "LIVE_REPOS must exist");

@@ -2,11 +2,11 @@ const DATA_URL = "assets/project-data.json";
 const SFSC_BASE_URL = "https://sfsc.amyc.us/";
 const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const SFSC_CASE_TABLE_STATS_URL = `${SFSC_BASE_URL}data/case-table-stats.json`;
-const SFSC_CASE_DIRECTORY_MANIFEST_URL = "https://raw.githubusercontent.com/aimesy/sfsc-data/master/archive/case-directory/manifest.json";
+const SFSC_CASE_DIRECTORY_MANIFEST_URL = "https://sfsc-data.amyc.us/master/archive/case-directory/manifest.json";
 const PROJECT_KEYS = ["sfsc", "tentatives", "themes", "kcsc", "nysc", "ndcs", "civproidx"];
 const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
-  sfsc: { repo: "aimesy/sfsc", branch: "master", path: "LIVE.md" },
+  sfsc: { repo: "aimesy/sfsc", url: `${SFSC_BASE_URL}LIVE.md`, path: "LIVE.md" },
   // Private repositories are read through their data Workers (same paths as
   // raw.githubusercontent.com). aimesy/ndcs-data has no Worker; its card uses
   // the hourly assets/project-data.json.
@@ -352,7 +352,8 @@ async function loadData() {
   return response.json();
 }
 
-function githubRawUrl({ repo, base, branch, path }) {
+function githubRawUrl({ repo, url, base, branch, path }) {
+  if (url) return url;
   if (base) return `${base}${branch || "master"}/${path}`;
   return `https://raw.githubusercontent.com/${repo}/${branch || "HEAD"}/${path}?v=${Date.now()}`;
 }

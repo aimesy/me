@@ -44,6 +44,10 @@ jobs:
           ref: master
           path: sfsc
           token: ${{ secrets.GH_TOKEN }}
+          sparse-checkout: |
+            README.md
+            LIVE.md
+          sparse-checkout-cone-mode: false
 
       - name: Check out SFSC data
         uses: actions/checkout@v4
