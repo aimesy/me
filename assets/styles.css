@@ -1316,7 +1316,9 @@ input.mini-input {
   width: 68%;
 }
 
-.pdf-embed {
+.reader-embed {
+  display: block;
+  box-sizing: border-box;
   width: 100%;
   height: 560px;
   border: 1px solid var(--rule);
@@ -1324,7 +1326,7 @@ input.mini-input {
   background: var(--plain);
 }
 
-.fiction-project .pdf-embed {
+.fiction-project .reader-embed {
   height: min(68vh, 660px);
   min-height: 480px;
 }
@@ -1581,7 +1583,7 @@ input.mini-input {
     margin-left: 0;
   }
 
-  .pdf-embed {
+  .reader-embed {
     height: 440px;
   }
 
