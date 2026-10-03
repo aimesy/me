@@ -138,6 +138,8 @@ jobs:
           NDCS_REPO: ../ndcs-data
           NYSC_REPO: ../nysc-data
           KCSC_REPO: ../kcsc-data
+          # The releases API needs the token now that aimesy/nysc-data is private.
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: node scripts/build-project-data.mjs
 
       - name: Commit site refresh
