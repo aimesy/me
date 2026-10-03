@@ -302,6 +302,7 @@ function dataManifestStats(repoConfig) {
   const commonTables = commonManifest?.tables || {};
   const commonCaseRows = Number(commonTables?.cases?.rows || commonManifest?.case_count || commonManifest?.cases || 0);
   const commonDocumentRows = Number(commonTables?.documents?.rows || commonManifest?.documents || 0);
+  const indexedDocumentRows = Number(manifest?.features?.documents?.rows || 0);
   const caseDirectoryCases = Number(caseDirectoryManifest?.cases || 0);
   const caseDirectoryFiles = Number(caseDirectoryManifest?.scan?.result_files || 0);
   const caseDirectoryDocumentFiles = Number(caseDirectoryManifest?.scan?.document_byte_files || 0);
@@ -316,7 +317,7 @@ function dataManifestStats(repoConfig) {
   const archiveFiles = Number(manifest?.archive?.cases_index_rows || manifest?.archive?.cases || 0) + archiveIndexFiles;
   return {
     cases: archiveCases || commonCaseRows || caseDirectoryCases,
-    documents: commonDocumentRows || caseDirectoryDocumentRows,
+    documents: commonDocumentRows || indexedDocumentRows || caseDirectoryDocumentRows,
     mirroredFiles: promotedStats.mirroredFiles || archiveFiles + tableFiles || caseDirectoryFiles + caseDirectoryDocumentFiles,
     mirroredBytes: promotedStats.mirroredBytes || tableBytes,
     snapshots: archiveFiles || caseDirectoryFiles,
@@ -420,9 +421,6 @@ function buildSfsc(previousData = null) {
     Number(sourceCounts.case_table_rows || 0),
     Number(sourceCounts.case_index_rows || 0),
   );
-  const directoryRows = Number(caseDirectoryManifest?.case_count || 0)
-    + Number(caseDirectoryManifest?.restricted_count || 0)
-    + Number(caseDirectoryManifest?.indexed_count || 0);
   const liveDocumentBytes = liveBytes(liveTable, "archive size");
   return {
     repo: "aimesy/sfsc",
@@ -430,12 +428,10 @@ function buildSfsc(previousData = null) {
     updatedAt: repoUpdatedAt(config.sfsc),
     metrics: {
       tentativeRulings: liveCount(liveTable, "tentative rulings") || parsed.tentativeRulings,
-      cases: Math.max(
-        Number(previousData?.projects?.sfsc?.metrics?.cases || 0),
-        liveCount(liveTable, "case records", "dockets"),
-        sourceRows,
-        directoryRows,
-      ),
+      cases: Number(caseDirectoryManifest?.case_count || 0)
+        || liveCount(liveTable, "case records", "dockets")
+        || sourceRows
+        || Number(previousData?.projects?.sfsc?.metrics?.cases || 0),
       documents: liveCount(liveTable, "documents indexed", "case documents")
         || Number(caseTableStats?.case_documents || 0),
       documentsArchived: liveCount(liveTable, "documents archived"),

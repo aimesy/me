@@ -101,8 +101,8 @@ assert.match(themesSection, /href="https:\/\/github\.com\/aimesy\/themes">Reposi
 assert.match(kcscSection, /<span class="chip warn">BETA<\/span>/);
 assert.match(
   projectsSource,
-  /metric\(target === "kcsc" \? "Documents Indexed" : "files", formatNumber\(metrics\.mirroredFiles \|\| metrics\.documents\)\)/,
-  "KCSC must label its mirrored-file metric Documents Indexed without changing unrelated projects",
+  /metric\(target === "kcsc" \? "Documents Indexed" : "files", formatNumber\(target === "kcsc" \? metrics\.documents : metrics\.mirroredFiles \|\| metrics\.documents\)\)/,
+  "KCSC must show document index rows without changing unrelated file metrics",
 );
 assert.ok(indexSource.indexOf('id="kcsc"') < indexSource.indexOf('id="nysc"'), "KCSC must appear above NYSC");
 assert.match(projectsSource, /const TENTATIVES_PAGE_SIZE = 9;/);
@@ -274,7 +274,7 @@ const builderContext = {
 };
 vm.createContext(builderContext);
 vm.runInContext(`${buildSfscSource}\nthis.sfscProject = buildSfsc();`, builderContext);
-assert.equal(builderContext.sfscProject.metrics.cases, 1205055);
+assert.equal(builderContext.sfscProject.metrics.cases, 1012384);
 assert.equal(builderContext.sfscProject.metrics.documents, 4082942);
 assert.equal(builderContext.sfscProject.metrics.docketEntries, 9092102);
 assert.equal("searchSamples" in builderContext.sfscProject, false);
@@ -296,8 +296,8 @@ vm.runInContext(`this.sfscNonRegressingProject = buildSfsc({
 });`, builderContext);
 assert.equal(
   builderContext.sfscNonRegressingProject.metrics.cases,
-  1265222,
-  "the scheduled build must not replace a canonical SFSC count with a partial source count",
+  1012384,
+  "the scheduled build must use current canonical SFSC case count even when the cached total includes restricted rows",
 );
 
 const parseCountStart = projectsSource.indexOf("function parseCount(");
@@ -313,12 +313,16 @@ const runtimeContext = {
         metrics: { cases: 1265222, documents: 4082942, docketEntries: 9092102 },
         charts: { rulingsByDepartment: [] },
       },
+      kcsc: {
+        metrics: { cases: 662520, documents: 0, mirroredFiles: 662528 },
+        charts: {},
+      },
     },
   },
 };
 vm.createContext(runtimeContext);
 vm.runInContext(`${liveMetricSources}\napplyLiveMetrics("sfsc", new Map([
-  ["case records", "1"],
+  ["case records", "1,012,384"],
 ]));
 applySfscAggregateSources({
   rulingManifest: null,
@@ -327,9 +331,18 @@ applySfscAggregateSources({
 });`, runtimeContext);
 assert.equal(
   runtimeContext.projectData.projects.sfsc.metrics.cases,
-  1265222,
-  "a partial live table and missing full manifest must not overwrite the canonical SFSC count",
+  1012384,
+  "a current live table must correct the cached SFSC count when the manifest is unavailable",
 );
+
+vm.runInContext(`applySfscAggregateSources({
+  caseDirectoryManifest: { case_count: 1012384, restricted_count: 192671, source_counts: { case_table_rows: 1205055 } },
+});
+applyPublicDataManifests("kcsc", new Map([["data/manifest.json", {
+  archive: { cases: 662520 }, features: { documents: { rows: 15024602 } },
+}]]));`, runtimeContext);
+assert.equal(runtimeContext.projectData.projects.sfsc.metrics.cases, 1012384);
+assert.equal(runtimeContext.projectData.projects.kcsc.metrics.documents, 15024602);
 
 const functionStart = projectsSource.indexOf("function sfscDocketSearchUrl");
 const functionEnd = projectsSource.indexOf("\n}\n", functionStart);

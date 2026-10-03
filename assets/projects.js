@@ -156,11 +156,11 @@ function renderMetrics(target, metrics) {
     const rows = [
       metric("case records", formatNumber(metrics.cases)),
     ];
-    if (Number(metrics.documents || 0) > 0) {
+    if (target !== "kcsc" && Number(metrics.documents || 0) > 0) {
       rows.push(metric("documents indexed", formatNumber(metrics.documents)));
     }
     rows.push(
-      metric(target === "kcsc" ? "Documents Indexed" : "files", formatNumber(metrics.mirroredFiles || metrics.documents)),
+      metric(target === "kcsc" ? "Documents Indexed" : "files", formatNumber(target === "kcsc" ? metrics.documents : metrics.mirroredFiles || metrics.documents)),
       metric("archive size", formatArchiveSize(metrics.documentBytes)),
     );
     container.innerHTML = rows.join("");
@@ -452,6 +452,7 @@ function applyPublicDataManifests(key, manifests) {
   const documents = firstPositive(
     commonSummary.documents,
     commonTables.documents?.rows,
+    dataManifest.features?.documents?.rows,
     dataManifest.documents?.count,
     dataManifest.documents?.rows,
     dataTables.documents?.rows,
@@ -519,10 +520,7 @@ function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirecto
     positiveNumber(sourceCounts.case_table_rows),
     positiveNumber(sourceCounts.case_index_rows),
   );
-  const directoryRows = positiveNumber(caseDirectoryManifest?.case_count)
-    + positiveNumber(caseDirectoryManifest?.restricted_count)
-    + positiveNumber(caseDirectoryManifest?.indexed_count);
-  metrics.cases = maxPositive(metrics.cases, sourceRows, directoryRows);
+  metrics.cases = firstPositive(caseDirectoryManifest?.case_count, metrics.cases, sourceRows);
 }
 
 function applyLiveMetrics(key, table) {
@@ -532,10 +530,10 @@ function applyLiveMetrics(key, table) {
 
   if (key === "sfsc") {
     metrics.tentativeRulings = parseCount(table.get("tentative rulings")) || metrics.tentativeRulings;
-    metrics.cases = maxPositive(
-      metrics.cases,
+    metrics.cases = firstPositive(
       parseCount(table.get("case records")),
       parseCount(table.get("dockets")),
+      metrics.cases,
     );
     metrics.documents = parseCount(table.get("documents indexed")) || parseCount(table.get("case documents")) || metrics.documents;
     metrics.docketEntries = parseCount(table.get("docket entries")) || metrics.docketEntries;
