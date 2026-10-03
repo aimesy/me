@@ -860,12 +860,6 @@ h1 {
   background: var(--warn-bg);
 }
 
-.chip.offline {
-  color: var(--ink-2);
-  border-color: var(--ink-4);
-  background: var(--paper-3);
-}
-
 .app-shell {
   display: grid;
   gap: 0.85rem;
@@ -929,16 +923,6 @@ h1 {
 
 .project.no-preview .project-copy {
   border-right: 0;
-}
-
-.project.offline {
-  filter: grayscale(1);
-}
-
-.project.offline .project-head > div,
-.project.offline .project-copy > :not(.project-head),
-.project.offline .preview-stack > * {
-  opacity: 0.5;
 }
 
     .project-head {
