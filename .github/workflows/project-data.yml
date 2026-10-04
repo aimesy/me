@@ -63,7 +63,6 @@ jobs:
             LIVE.md
             archive/case-directory/manifest.json
             data/case-table-stats.json
-            data/judgment-rankings.json
           sparse-checkout-cone-mode: false
 
       - name: Check out Tentatives

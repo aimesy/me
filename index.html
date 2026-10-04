@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Projects | AMYC.US">
   <meta name="twitter:description" content="Public project index for SFSC, California tentative rulings, California Housing Permit Data, AMYC Themes, civil procedure research tools, NDCS, NYSC, and KCSC.">
   <meta name="theme-color" content="#24211d">
-  <link rel="stylesheet" href="assets/styles.css?v=sfsc-live-panel">
+  <link rel="stylesheet" href="assets/styles.css?v=sfsc-live-panel-2">
   <link rel="stylesheet" href="https://aimesy.github.io/themes/src/theme.css">
   <link rel="stylesheet" href="https://aimesy.github.io/themes/src/theme-bar.css">
   <link rel="stylesheet" href="https://aimesy.github.io/themes/src/bug-report.css">
@@ -83,7 +83,7 @@
         </div>
         <div class="project-note">
           <p>The San Francisco Superior Court is unusually open among California superior courts: its public site lets users look up civil cases by case number or party name, and its Register of Actions and almost all civil case documents are viewable online. Nonetheless, the limitations on these searches make it mostly useless for, for example, a pro se litigant looking for form motions or a researcher attempting to substantiate trends. Also, these records may be deleted at any time. This is not a hypothetical: discovery rulings from before March 19, 2024 have been trimmed from its tentatives page.</p>
-          <p>Besides the unavailability of other search fields, the case records and document images are not available as a bulk export. I have solved this by recording all publicly available dockets and records. The viewer adds numerous features, including document text search, case diagrams, deadline tables or timelines, etc. Litigants, attorneys, and judges each have profiles allowing lookup of all documents filed by or on behalf of them, as well as the cases and rulings associated with them. Have you ever wondered what goes on in the Asbestos Department? Some of the largest judgments ever rendered in San Francisco, as the <a href="#sfsc-judgment-rankings" data-sfsc-jump>judgment</a> and <a href="#sfsc-attorney-rankings" data-sfsc-jump>attorney</a> rankings attest.</p>
+          <p>Besides the unavailability of other search fields, the case records and document images are not available as a bulk export. I have solved this by recording all publicly available dockets and records. The viewer adds numerous features, including document text search, case diagrams, deadline tables or timelines, etc. Litigants, attorneys, and judges each have profiles allowing lookup of all documents filed by or on behalf of them, as well as the cases and rulings associated with them. Have you ever wondered what goes on in the Asbestos Department? Some of the largest judgments ever rendered in San Francisco, as the <a href="/stats/#sfsc-statistics">judgment</a> and <a href="/stats/#sfsc-statistics">attorney</a> rankings attest.</p>
         </div>
         <div class="metrics" data-metrics="sfsc"></div>
         <div class="tracker">
@@ -113,8 +113,6 @@
             <a href="#sfsc-recent" data-sfsc-jump>Recent</a>
             <a href="#sfsc-upcoming" data-sfsc-jump>Upcoming</a>
             <a href="#sfsc-numbers" data-sfsc-jump>Numbers</a>
-            <a href="#sfsc-judgment-rankings" data-sfsc-jump>Judgments</a>
-            <a href="#sfsc-attorney-rankings" data-sfsc-jump>Attorneys</a>
           </nav>
           <div class="sfsc-feed" data-sfsc-feed>
             <section class="sfsc-block" id="sfsc-recent" tabindex="-1" aria-labelledby="sfsc-recent-title">
@@ -138,20 +136,6 @@
               <div class="sfsc-tiles" data-sfsc-numbers></div>
               <h4 class="sfsc-subhead">Rulings by department</h4>
               <div class="sfsc-bars" data-sfsc-departments></div>
-            </section>
-            <section class="sfsc-block" id="sfsc-judgment-rankings" tabindex="-1" aria-labelledby="sfsc-judgment-title">
-              <header class="sfsc-block-head">
-                <h3 id="sfsc-judgment-title">Largest judgments</h3>
-              </header>
-              <ol class="sfsc-ranks" data-sfsc-judgments></ol>
-              <a class="sfsc-more" href="/stats/"><span data-sfsc-judgment-count>All</span> ranked judgments on the Stats page</a>
-            </section>
-            <section class="sfsc-block" id="sfsc-attorney-rankings" tabindex="-1" aria-labelledby="sfsc-attorney-title">
-              <header class="sfsc-block-head">
-                <h3 id="sfsc-attorney-title">Attorney rankings</h3>
-              </header>
-              <p class="sfsc-block-note">Attorneys ranked across SFSC dockets, overall and by matter type. Open the Stats page and choose Attorney rankings.</p>
-              <a class="sfsc-more" href="/stats/">Attorney rankings on the Stats page</a>
             </section>
           </div>
         </div>

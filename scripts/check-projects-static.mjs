@@ -100,24 +100,25 @@ const sfscPanelOrder = [
   'id="sfsc-recent"',
   'id="sfsc-upcoming"',
   'id="sfsc-numbers"',
-  'id="sfsc-judgment-rankings"',
-  'id="sfsc-attorney-rankings"',
 ].map((marker) => sfscSection.indexOf(marker));
-assert.ok(sfscPanelOrder.every((index) => index > 0), "the SFSC panel must keep all five sections");
+assert.ok(sfscPanelOrder.every((index) => index > 0), "the SFSC panel must keep its three sections");
 assert.deepEqual(
   [...sfscPanelOrder].sort((a, b) => a - b),
   sfscPanelOrder,
-  "the SFSC panel leads with recent tentatives, then upcoming hearings, numbers, and rankings",
+  "the SFSC panel leads with recent tentatives, then upcoming hearings and numbers",
 );
+assert.doesNotMatch(sfscSection, /rankings" tabindex|data-sfsc-judgments/, "rankings stay on the Stats page, not in the SFSC panel");
 assert.match(
   sfscSection,
-  /as the <a href="#sfsc-judgment-rankings" data-sfsc-jump>judgment<\/a> and <a href="#sfsc-attorney-rankings" data-sfsc-jump>attorney<\/a> rankings attest\./,
-  "the SFSC copy must link judgment and attorney to their rankings",
+  /as the <a href="\/stats\/#sfsc-statistics">judgment<\/a> and <a href="\/stats\/#sfsc-statistics">attorney<\/a> rankings attest\./,
+  "the SFSC copy must link judgment and attorney to the rankings on the Stats page",
 );
 assert.match(sfscSection, /data-sfsc-recent/);
 assert.match(sfscSection, /data-sfsc-upcoming/);
-assert.match(sfscSection, /data-sfsc-judgments/);
 assert.match(stylesSource, /\.sfsc-panel \{[^}]*contain: size;/, "the SFSC panel must take the copy column's height and scroll inside it");
+for (const match of stylesSource.matchAll(/\.project\.has-live-panel \{[^}]*grid-template-columns:\s*([^;]+);/g)) {
+  assert.equal(match[1].trim(), "1fr", "the SFSC panel keeps the shared project column width so card edges align");
+}
 assert.match(stylesSource, /\.project\.has-live-panel \.project-copy \{\s*display: contents;/, "single-column SFSC cards must lead with the live panel");
 for (const rulingSource of ["raw/dept", "tentatives.parquet", "tentative_dispositions"]) {
   assert.equal(projectsSource.includes(rulingSource), false, `projects.js must read rulings from project-data.json, not ${rulingSource}`);
@@ -164,9 +165,14 @@ assert.match(builderSource, /themes: buildThemes\(previous\)/);
 assert.match(refreshWorkflowSource, /- name: Check out Themes[\s\S]*repository: aimesy\/themes[\s\S]*path: themes/);
 assert.match(refreshWorkflowSource, /THEMES_REPO: \.\.\/themes/);
 
-assert.match(fictionSource, /class="map-switcher" role="radiogroup" aria-label="Ocilentra supplemental views"/);
-assert.doesNotMatch(fictionSource, /role="tablist"|role="tab"/);
-assert.match(stylesSource, /ocilentra-view-political:focus-visible[\s\S]*ocilentra-view-supplement:focus-visible/);
+// Ocilentra has its own site; the Fiction tab is a plain project card.
+assert.match(fictionSource, /<section class="project no-preview" id="ocilentra">/);
+assert.doesNotMatch(fictionSource, /preview-stack|<iframe|<object|map-switcher/, "the Fiction tab has no side panel or embedded reader");
+assert.match(fictionSource, /<div class="project-note">/, "the Fiction card carries the novel's blurb");
+assert.match(fictionSource, /<a class="hbtn" href="https:\/\/ocilentra\.com\/">Read online<\/a>/);
+assert.doesNotMatch(fictionSource, />Contents<\/a>|ocilentra\.com\/read\//, "the Fiction card does not link the contents page");
+assert.doesNotMatch(fictionSource, /frame-src/);
+assert.doesNotMatch(stylesSource, /fiction-project|map-switcher|reader-embed/, "retired Fiction side-panel styles stay removed");
 
 function cssColor(name) {
   const match = stylesSource.match(new RegExp(`--${name}:\\s*#([0-9a-f]{6})`, "i"));
@@ -372,8 +378,7 @@ const feedEnd = builderSource.indexOf("\nfunction buildSfsc(", feedStart);
 assert.notEqual(feedStart, -1, "the SFSC feed builder must exist");
 assert.notEqual(feedEnd, -1, "the SFSC feed builder must precede buildSfsc");
 const feedSource = builderSource.slice(feedStart, feedEnd);
-assert.doesNotMatch(feedSource, /archive\/|\.parquet|\.attorneys\b|\["attorneys"\]/, "the SFSC feed reads raw captures and case-level judgment fields only");
-assert.match(refreshWorkflowSource, /- name: Check out SFSC data[\s\S]*?^\s+data\/judgment-rankings\.json$/m);
+assert.doesNotMatch(feedSource, /archive\/|\.parquet|judgment-rankings/, "the SFSC feed reads raw tentative captures only");
 const captureFiles = {
   "raw/dept302/2026-10-05-000100.json": {
     scraped_at: "2026-10-02T00:01:00Z",
@@ -436,23 +441,12 @@ const feedContext = {
     assert.equal(options?.tree, true);
     return Object.keys(captureFiles);
   },
-  readRepoFile: (repo, path) => {
-    if (path === "data/judgment-rankings.json") {
-      return JSON.stringify({
-        published_judgment_count: 2,
-        rankings: [
-          { case_number: "CGC10000001", case_title: "SMALL VS. CLAIM", judgment_amount: 10, judgment_date: "2010-01-02 10:00:00", attorneys: [{ name: "Counsel" }] },
-          { case_number: "CPF15000002", case_title: "LARGE VS. AWARD", judgment_amount: 5000, judgment_date: "2015-03-04 10:00:00", attorneys: [{ name: "Counsel" }] },
-        ],
-      });
-    }
-    return captureFiles[path] ? JSON.stringify(captureFiles[path]) : "";
-  },
+  readRepoFile: (repo, path) => (captureFiles[path] ? JSON.stringify(captureFiles[path]) : ""),
   parseJson: (value) => (value ? JSON.parse(value) : null),
 };
 vm.createContext(feedContext);
-vm.runInContext(`${feedSource}\nthis.feed = buildSfscFeed();\nthis.rankings = buildSfscRankings();`, feedContext);
-const { feed, rankings } = feedContext;
+vm.runInContext(`${feedSource}\nthis.feed = buildSfscFeed();`, feedContext);
+const { feed } = feedContext;
 assert.deepEqual(JSON.parse(JSON.stringify(feed.days)), [
   { date: "2026-10-05", total: 3, departments: [{ department: "302", count: 2 }, { department: "204", count: 1 }] },
   { date: "2026-10-02", total: 1, departments: [{ department: "301", count: 1 }] },
@@ -464,10 +458,6 @@ assert.equal(feed.rulings[0].outcome.key, "sustained-leave");
 assert.equal(feed.rulings[0].time, "09:00 AM");
 assert.equal(feed.rulings[1].text, "Plaintiff Gamma's motion to compel is granted in part.", "a caption echo that decides nothing is dropped");
 assert.equal(feed.rulings[1].outcome.key, "partial");
-assert.deepEqual(rankings.judgments.top.map((row) => row.caseNumber), ["CPF15000002", "CGC10000001"]);
-assert.equal(rankings.judgments.count, 2);
-assert.equal("attorneys" in rankings.judgments.top[0], false, "attorney lists stay in the SFSC viewer");
-assert.equal(rankings.judgments.top[0].judgmentDate, "2015-03-04");
 
 const parseCountStart = projectsSource.indexOf("function parseCount(");
 const liveMetricsEnd = projectsSource.indexOf("\nfunction renderLiveMetricValues(", parseCountStart);

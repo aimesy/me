@@ -387,13 +387,6 @@ function formatCaseNumber(value) {
   return match ? `${match[1]}-${match[2]}-${match[3]}` : String(value || "");
 }
 
-const formatMoney = (value) => new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  notation: "compact",
-  maximumFractionDigits: 1,
-}).format(Number(value || 0));
-
 function sfscDepartmentName(department, calendar = "") {
   if (department === "304" && /discovery/i.test(calendar)) return "Asbestos Discovery";
   return SFSC_DEPARTMENTS[department]?.name || `Dept. ${department}`;
@@ -507,7 +500,6 @@ function renderSfscNumbers(project) {
     days.length && [formatNumber(days.reduce((sum, day) => sum + positiveNumber(day.total), 0)), `tentatives in the last ${days.length} hearing days`],
     project.metrics?.docketEntries && [formatNumber(project.metrics.docketEntries), "docket entries"],
     project.metrics?.documentsArchived && [formatNumber(project.metrics.documentsArchived), "documents archived"],
-    project.rankings?.judgments?.count && [formatNumber(project.rankings.judgments.count), "monetary judgments ranked"],
   ].filter(Boolean);
   container.innerHTML = tiles.map(([value, label]) => `
     <div class="sfsc-tile"><b>${escapeHtml(value)}</b><span>${escapeHtml(label)}</span></div>
@@ -536,26 +528,6 @@ function renderSfscDepartments(rows) {
   `).join("");
 }
 
-function renderSfscJudgments(judgments) {
-  const list = $('[data-sfsc-judgments]');
-  const count = $('[data-sfsc-judgment-count]');
-  if (count) count.textContent = judgments?.count ? formatNumber(judgments.count) : "All";
-  if (!list) return;
-  const rows = judgments?.top || [];
-  if (!rows.length) {
-    list.innerHTML = `<li class="mini-empty">Judgment rankings are unavailable right now.</li>`;
-    return;
-  }
-  list.innerHTML = rows.map((row) => `
-    <li>
-      <span class="sfsc-rank">${escapeHtml(row.rank)}</span>
-      <a class="sfsc-rank-title" href="${escapeAttribute(sfscCaseUrl(row.caseNumber))}">${escapeHtml(displayTitle(row.caseTitle) || formatCaseNumber(row.caseNumber))}</a>
-      <b class="sfsc-rank-value">${escapeHtml(formatMoney(row.amount))}</b>
-      <small>${escapeHtml([formatCaseNumber(row.caseNumber), row.judgmentDate.slice(0, 4)].filter(Boolean).join(" · "))}</small>
-    </li>
-  `).join("");
-}
-
 function renderSfscFeedAge(project = projectData?.projects?.sfsc) {
   const latest = project?.latestRuling
     || (project?.feed?.days || []).map((day) => day.date).sort().pop();
@@ -576,7 +548,6 @@ function renderSfscPanel() {
   renderSfscUpcoming(project.feed?.days || [], rows, today);
   renderSfscNumbers(project);
   renderSfscDepartments(project.charts?.rulingsByDepartment || []);
-  renderSfscJudgments(project.rankings?.judgments);
   renderSfscFeedAge(project);
 }
 

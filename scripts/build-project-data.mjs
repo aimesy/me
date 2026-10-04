@@ -607,30 +607,6 @@ function buildSfscFeed(previousData = null) {
   };
 }
 
-function buildSfscRankings(previousData = null) {
-  // Only case-level fields are copied; attorney lists stay in the viewer.
-  const rankings = parseJson(readRepoFile(config.sfscData, "data/judgment-rankings.json"));
-  const rows = Array.isArray(rankings?.rankings) ? rankings.rankings : [];
-  const top = rows
-    .filter((row) => row?.case_number && Number(row.judgment_amount) > 0)
-    .sort((a, b) => Number(b.judgment_amount) - Number(a.judgment_amount))
-    .slice(0, 5)
-    .map((row, index) => ({
-      rank: index + 1,
-      caseNumber: String(row.case_number),
-      caseTitle: String(row.case_title || "").replace(/\s+/g, " ").trim(),
-      amount: Number(row.judgment_amount),
-      judgmentDate: String(row.judgment_date || "").slice(0, 10),
-    }));
-  if (!top.length) return previousData?.projects?.sfsc?.rankings || null;
-  return {
-    judgments: {
-      count: Number(rankings.published_judgment_count || rows.length),
-      top,
-    },
-  };
-}
-
 function buildSfsc(previousData = null) {
   const readme = readRepoFile(config.sfsc, "README.md");
   // sfsc-data's LIVE.md is rewritten by each daily tentative publication.
@@ -811,7 +787,6 @@ const projects = {
   sfsc: {
     ...buildSfsc(previous),
     feed: buildSfscFeed(previous),
-    rankings: buildSfscRankings(previous),
   },
   tentatives: buildTentatives(previous),
   themes: buildThemes(previous),

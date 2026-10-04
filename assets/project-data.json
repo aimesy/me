@@ -760,48 +760,6 @@
             "text": "Cross-defendant Lisa Rose's motion for reconsideration of the July 10, 2026 oral ruling is denied. Rose has not presented any new law, facts or circumstances nor would this motion be timely had Rose complied with her obligation to submit a proposed order as…"
           }
         ]
-      },
-      "rankings": {
-        "judgments": {
-          "count": 186286,
-          "top": [
-            {
-              "rank": 1,
-              "caseNumber": "CPF15514095",
-              "caseTitle": "ALEXANDER GLIKLAD VS. MICHAEL CHERNEY",
-              "amount": 505093892.18,
-              "judgmentDate": "2015-01-21"
-            },
-            {
-              "rank": 2,
-              "caseNumber": "CGC20276823",
-              "caseTitle": "ADELINA SCHINDLER VS. ASBESTOS CORPORATION LIMITED ET AL",
-              "amount": 325000000,
-              "judgmentDate": "2023-02-01"
-            },
-            {
-              "rank": 3,
-              "caseNumber": "CGC99301917",
-              "caseTitle": "MILLER VS BANK OF AMERICA NT & SA",
-              "amount": 295651220,
-              "judgmentDate": "2005-03-04"
-            },
-            {
-              "rank": 4,
-              "caseNumber": "CPF16515362",
-              "caseTitle": "FLETCHER INTERNATIONAL, LTD., VS. ALPHONSE FLETCHER, JR. ET AL",
-              "amount": 213254195.73,
-              "judgmentDate": "2016-11-16"
-            },
-            {
-              "rank": 5,
-              "caseNumber": "CPF20516982",
-              "caseTitle": "GOOGLE LLC. VS. ANTHONY LEVANDOWSKI ET AL",
-              "amount": 179047998.64,
-              "judgmentDate": "2020-03-04"
-            }
-          ]
-        }
       }
     },
     "tentatives": {
