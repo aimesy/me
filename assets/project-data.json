@@ -6,6 +6,7 @@
       "repo": "aimesy/sfsc",
       "ref": "6dd82606be81f388982f4bf58a8f65e39ceb04ef",
       "updatedAt": "2026-10-03T19:51:06-07:00",
+      "latestRuling": "2026-10-05",
       "metrics": {
         "tentativeRulings": 384308,
         "cases": 1453162,
@@ -41,6 +42,766 @@
             "value": 34904
           }
         ]
+      },
+      "feed": {
+        "source": "aimesy/sfsc-data raw tentative captures",
+        "latestScrapedAt": "2026-10-04T03:13:22.724Z",
+        "days": [
+          {
+            "date": "2026-10-05",
+            "total": 81,
+            "departments": [
+              {
+                "department": "204",
+                "count": 47
+              },
+              {
+                "department": "301",
+                "count": 16
+              },
+              {
+                "department": "302",
+                "count": 9
+              },
+              {
+                "department": "501",
+                "count": 9
+              }
+            ]
+          },
+          {
+            "date": "2026-10-02",
+            "total": 48,
+            "departments": [
+              {
+                "department": "301",
+                "count": 18
+              },
+              {
+                "department": "302",
+                "count": 14
+              },
+              {
+                "department": "501",
+                "count": 14
+              },
+              {
+                "department": "204",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "date": "2026-10-01",
+            "total": 51,
+            "departments": [
+              {
+                "department": "302",
+                "count": 21
+              },
+              {
+                "department": "301",
+                "count": 15
+              },
+              {
+                "department": "501",
+                "count": 15
+              }
+            ]
+          },
+          {
+            "date": "2026-09-30",
+            "total": 72,
+            "departments": [
+              {
+                "department": "204",
+                "count": 28
+              },
+              {
+                "department": "501",
+                "count": 18
+              },
+              {
+                "department": "301",
+                "count": 13
+              },
+              {
+                "department": "302",
+                "count": 13
+              }
+            ]
+          },
+          {
+            "date": "2026-09-29",
+            "total": 85,
+            "departments": [
+              {
+                "department": "204",
+                "count": 30
+              },
+              {
+                "department": "501",
+                "count": 20
+              },
+              {
+                "department": "302",
+                "count": 17
+              },
+              {
+                "department": "301",
+                "count": 16
+              },
+              {
+                "department": "304",
+                "count": 2
+              }
+            ]
+          }
+        ],
+        "rulings": [
+          {
+            "date": "2026-10-05",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC21591698",
+            "caseTitle": "PABLO CORREA VS. QBAR INVESTMENTS, LLC, A CALIFORNIA CORPORATION ET AL",
+            "matter": "Notice Of Motion And Motion To Vacate Order Dismissing Entire Action Under Code Of Civil Procedure Section 473(B); Request To Determine Excluded Time Under Sections 583.340(C) And 583.360",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Pablo Correa's Motion to Vacate Order Dismissing Entire Action under Code of Civil Procedure section 473(b) and Request to Determine Excluded Time is granted."
+          },
+          {
+            "date": "2026-10-05",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24614539",
+            "caseTitle": "RON ROUSSELL VS. BOHEMIAN CLUB, A CALIFORNIA NONPROFIT CORPORATION ET AL",
+            "matter": "Notice Of Motion And Motion To Dismiss Plaintiffs Individual Claims With Prejudice And Consolidated Class And Paga Claims Without Prejudice",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion to dismiss plaintiff Ron Roussell's individual claims with prejudice and consolidated class and PAGA claims without prejudice is granted for good cause shown in the moving papers and the supplemental briefing in support of the motion."
+          },
+          {
+            "date": "2026-10-05",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC24615169",
+            "caseTitle": "JENNIFER SARKANY ET AL VS. CHRISTIE BARRETT WEST ET AL",
+            "matter": "Motion For Attorneys Fees As To Defendants",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion for Attorney's Fees Plaintiff's Motion for Attorney Fees is GRANTED. No opposition filed. Plaintiff is entitled to post-judgment attorney's fees and fees on appeal as follows: Mr. Hooshmand's - $23,328 (32.4 hours at $720/hour) Mr. Swanson…"
+          },
+          {
+            "date": "2026-10-05",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC23606488",
+            "caseTitle": "DISCOVER BANK VS. GRACE T CASANAS ET AL",
+            "matter": "Motion For Leave To Amend To File Plaintiffs First Amended Complaint",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Discover Bank's unopposed Motion for Leave to Amend to File Plaintiff's First Amended Complaint is granted. Plaintiff is granted leave to file its First Amended Complaint by October 19, 2026. The court has broad discretionary power under Code of…"
+          },
+          {
+            "date": "2026-10-05",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25623165",
+            "caseTitle": "JPMORGAN CHASE BANK, N.A. VS. JOEL B SCOTT",
+            "matter": "Notice Of Motion And Motion To Enter Judgment Under Terms Of Stipulated Settlement",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion for entry of judgment pursuant to Code of Civil Procedure, section 664.6, is granted for good cause shown in the moving papers. Plaintiff shall submit a proposed judgment in the amount of $25,955.38 in principal and $0 in costs."
+          },
+          {
+            "date": "2026-10-05",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26681737",
+            "caseTitle": "BWF FORGE TL PROPERTIES LLC VS. SARA ALAMO ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT And Notice Of Motion",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant's Motion for Summary Judgment is GRANTED. Defendant shifted the burden of showing that Plaintiff cannot establish its elements as a matter of law, because the 3-Day Notice to Pay Rent or Quit is defective under Eshagian v. Cepeda (2025) 112…"
+          },
+          {
+            "date": "2026-10-05",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC23611246",
+            "caseTitle": "ADELAIDA SALANGSANG ET AL VS. RICHARD J. KOLL ET AL",
+            "matter": "Notice Of Motion And Motion For Protective Order",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiffs Adelaida Salangsang and Eduardo Salangsang, Jr.'s Motion for Protective Order is denied without prejudice. Plaintiffs' motion for $2,000 sanctions is denied. Defendant John Van Koll's request for $1,650 sanctions against Plaintiffs is denied."
+          },
+          {
+            "date": "2026-10-05",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25624023",
+            "caseTitle": "LEONARD KEITH JR. ALFONSO VS. SCP PROPERTY MANAGEMENT, LLC, A LIMITED LIABILITY ET AL",
+            "matter": "Notice Of Motion And Motion For Preliminary Approval Of Class And Representative Action Settlement; Memorandum Of Points And Authorities",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF LEONARD ALFONSO's, INDIVIDUALLY AND ON BEHALF OF ALL OTHERS SIMILARLY SITUATED, Motion For Preliminary Approval Of Class And Representative Action Settlement. The unopposed motion for preliminary approval is granted. The court will sign the proposed…"
+          },
+          {
+            "date": "2026-10-02",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC20586984",
+            "caseTitle": "BARBRA DECKER VS. POSTMATES, INC. ET AL",
+            "matter": "MOTION TO DISMISS",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Barbra Decker's motion for an order for dismissal is granted. The supplemental briefing in support of this motion satisfies both the letter and spirit of the order filed April 9, 2026."
+          },
+          {
+            "date": "2026-10-02",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23608687",
+            "caseTitle": "NIKCOLE CUNNINGHAM VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
+            "matter": "MOTION FOR JUDGMENT ON THE PLEADINGS",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant the City and County of San Francisco and individual defendants' (collectively Defendants) motion for judgment on the pleadings is granted with leave to amend. A motion for judgment on the pleadings is equivalent to a demurrer and the grounds for…"
+          },
+          {
+            "date": "2026-10-02",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC23604413",
+            "caseTitle": "JACQUELINE FRANCIS VS. LEN FREEMAN ET AL",
+            "matter": "Notice Of Motion & Motion For Leave To File Second Amended Complaint",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF JACQUELINE FRANCIS Notice Of Motion & Motion For Leave To File Second Amended Complaint is conditionally GRANTED. Late-filed opposition and reply are stricken. The Court notes that a Motion to Withdraw Admissions is pending in department 301 for…"
+          },
+          {
+            "date": "2026-10-02",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25626976",
+            "caseTitle": "HOLLIDAY DEVELOPMENT, LLC VS. MNCVAD II-HOLLIDAY UNION JV LLC ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT Or In The Alternative, Summary Adjudication",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "MNCVAD II-Holliday Union JV LLC's motion for summary judgment or, in the alternative, summary adjudication of both causes of action in the complaint filed by plaintiff Holliday Development, LLC is denied in its entirety. MNCVAD's request for judicial notice…"
+          },
+          {
+            "date": "2026-10-02",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24618705",
+            "caseTitle": "JENNY LEE VS. ATLANTIS TOWING INC ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT / Amended Notice Of Motion And Motion For Summary Judgment, Or, In The Alternative, Summary Adjudication",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendants' motion for summary judgment is granted."
+          },
+          {
+            "date": "2026-10-02",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD25679798",
+            "caseTitle": "DAVID JESUE VS. SCOTT WOLF ET AL",
+            "matter": "Notice Of Motion And Motion To Enter Default",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF DAVID JESUE Notice Of Motion And Motion To Enter Default is GRANTED. Plaintiff requests entry of default only against Scott Wolf. This request is granted, and default is hereby entered as to Scott Wolf. However, the Court notes that Plaintiff does…"
+          },
+          {
+            "date": "2026-10-02",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25631652",
+            "caseTitle": "GURINDER KARLA VS. OCEAN BIOMEDICAL, INC. ET AL",
+            "matter": "MOTION TO STRIKE Amended COMPLAINT",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendants Chirnjeev Kathuria and Eizabeth Ng's motion to strike portions of the second amended complaint filed by plaintiff Gurinder Karla is: a) granted without leave to amend to the allegations seeking damages beyond the three-year statute of limitations…"
+          },
+          {
+            "date": "2026-10-02",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25630053",
+            "caseTitle": "GEORGE NICHOLAS POTTER VS. BRIAN T. BAST",
+            "matter": "Motion For Relief",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff George Potter's motion for relief is denied."
+          },
+          {
+            "date": "2026-10-01",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC22602884",
+            "caseTitle": "LADARRIS MATTHEW SAIN VS. MPARTICLE, INC. ET AL",
+            "matter": "Notice Of Motion And Motion To Substitute Ebony Sain In Place Of Plaintiff, Laddaris Sain",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Motion to substitute Ebony Sain in place of Laddaris Sain is granted. Good cause shown and no opposition filed. The court will sign the previously submitted proposed order."
+          },
+          {
+            "date": "2026-10-01",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC17562163",
+            "caseTitle": "HEATH-NEWTON LLP VS. ANDREW KEIGHERY ET AL",
+            "matter": "Notice Of Motion And Memorandum Of Points And Authorities In Support Of Motion To Set Aside Settlement Agreement And Vacate Stipulated Order; Declarations In Support",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF HEATH-NEWTON LLP's Motion To Set Aside Settlement Agreement And Vacate Stipulated Order. Heath-Newton LLP's motion to set aside settlement agreement is denied. This case arises from a collection action. Defendant Andrew Keighery did not appear, and…"
+          },
+          {
+            "date": "2026-10-01",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC24612227",
+            "caseTitle": "HONG ZHENG ET AL VS. GLENN FAMA ET AL",
+            "matter": "MOTION FOR SUMMARY ADJUDICATION",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "CROSS DEFENDANT HONG ZHENG , AS AN INDIVIDUAL AND AS TRUSTEE OF THE MACRO ROJO TRUST, HONG XIAO MOTION FOR SUMMARY ADJUDICATION is DENIED. Triable issues of fact exist re: reasonable expectation of privacy in the way the cameras are pointed and directed…"
+          },
+          {
+            "date": "2026-10-01",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC23611082",
+            "caseTitle": "JAMES HUBBART VS. DIANA HIGGINS ET AL",
+            "matter": "Notice Of Motion And Motion To Dismiss The Action For Failure To Substitute A Proper Party Defendant And Failure To Prosecute",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant Diana Higgins' motion to dismiss this action for failure to prosecute is granted. Good cause shown and no opposition filed. The court will sign the previously submitted proposed order."
+          },
+          {
+            "date": "2026-10-01",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25628461",
+            "caseTitle": "DSEAN WILLIAMS VS. SAN FRANCISCO MUNICIPAL TRANSPORTATION AGENCY ET AL",
+            "matter": "MOTION TO STRIKE Amended COMPLAINT",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "The motion to strike the first amended complaint is denied. Although the court has discretion to strike a late-filed pleading, here the first amended complaint was filed approximately two weeks late, a short delay. It appears that the pleading was unserved…"
+          },
+          {
+            "date": "2026-10-01",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25622608",
+            "caseTitle": "LINA LU VS. MILESTONE FINANCIAL, LLC ET AL",
+            "matter": "MOTION FOR SUMMARY ADJUDICATION Notice Of Motion And Motion For Summary Adjudication Of Issues; Memorandum Of Points And Authorities",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT MILESTONE FINANCIAL, LLC AKA MERS LINK 4 MOTION FOR SUMMARY ADJUDICATION Notice Of Motion And Motion For Summary Adjudication Of Issues is DENIED. Triable issues remain as to the purpose of the loan, whether defendant was a borrower, whether the…"
+          },
+          {
+            "date": "2026-10-01",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618394",
+            "caseTitle": "XUAN JIANG VS. XIAOYIN QU ET AL",
+            "matter": "Motion To Strike Plaintiff Xuan Jiangs Opposition To Defendant Xiaoyin Qus Motion For Summary Judgment, Or In The Alternative, Motion For Summary Adjudication",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Xiaoyin Qu's motion to strike plaintiff Xuan Jiang's opposition memorandum is denied. In the interests of justice, the court exercises its discretion to consider the entirety of that memorandum. Qu is not prejudiced by the court doing so."
+          },
+          {
+            "date": "2026-10-01",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25631397",
+            "caseTitle": "UNIQUA MACKEY VS. PLAZA EAST ASSOCIATES, L.P., A CALIFORNIA LIMITED ET AL",
+            "matter": "Motion To Compel Plaintiffs Further Responses To Requests For Production Of Documents, Set One, And Request For Monetary Sanctions Against Plaintiff And Her Counsel Jointly And Severally In The Amount Of $1,987.50",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "The motion to compel further responses to requests for production is denied as moot for the reasons stated in the court's order on defendant's motion to compel further responses to special interrogatories."
+          },
+          {
+            "date": "2026-09-30",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24611740",
+            "caseTitle": "VELOCITY INVESTMENTS, LLC VS. KELLY ALLARD ET AL",
+            "matter": "Notice Of Hearing - Motion To Enforce Settlement",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF VELOCITY INVESTMENTS, LLC's Hearing - Motion To Enforce Settlement. Plaintiff Velocity Investments, LLC's motion to enforce settlement is denied without prejudice to re-filing the motion with proof of service on defendant Kelly Allard. Although the…"
+          },
+          {
+            "date": "2026-09-30",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24611763",
+            "caseTitle": "LIBAH JEAN SHEPPARD VS. SAN FRANCISCO HEALTH CARE AND REHAB INC., A ET AL",
+            "matter": "MOTION FOR JUDGMENT ON THE PLEADINGS",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion for judgment on the pleadings is granted for good cause shown in the moving papers. The request for judicial notice is granted. Defendant shows that leave to amend would be futile in light of the conclusive effect of the deemed-admitted…"
+          },
+          {
+            "date": "2026-09-30",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25628329",
+            "caseTitle": "LAURENTIU TENE VS. MUSTAFA CHRIS YAZLIK ET AL",
+            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF LAURENTIU TENE MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD is GRANTED. Counsel to prepare an order. Withdrawal effective upon the filing of the proof of service of the signed order upon the client. =(501/CFH) Parties may appear in-person…"
+          },
+          {
+            "date": "2026-09-30",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24616750",
+            "caseTitle": "MICHELLE FULLER VS. BAMBOO INSURANCE, LLC",
+            "matter": "DEMURRER to Amended COMPLAINT",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "sustained-no-leave",
+              "label": "Sustained without leave"
+            },
+            "text": "The demurrer of defendant Bamboo IDE8 Insurance Services, LLC to all five causes of action in the third amended complaint (TAC) filed by plaintiff Michelle Fuller is: a) sustained without leave to amend as to the first, second and fifth causes of action for…"
+          },
+          {
+            "date": "2026-09-30",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24618429",
+            "caseTitle": "LADARRIS MATTHEW SAIN VS. MPARTICLE, INC. ET AL",
+            "matter": "Motion To Substitute Ebony Sain In Place Of Plaintiff, Laddaris Sain",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion to substitute Ebony Sain in place of plaintiff Laddaris Sain pursuant to Code of Civil Procedure, section 377.31, is granted for good cause shown in the moving papers. Moving party mentions a stipulation to consolidate actions that is…"
+          },
+          {
+            "date": "2026-09-30",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26682250",
+            "caseTitle": "JONES KONG TOM VS. DEIDRA CAHUA ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT DEIDRA CAHUA, PILAR PAYTON MOTION FOR SUMMARY JUDGMENT is GRANTED. Moving party shifted its burden. Plaintiff failed to create a triable issue of fact with competent admissible evidence. =(501/CFH) Parties may appear in-person, telephonically or via…"
+          },
+          {
+            "date": "2026-09-30",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25628852",
+            "caseTitle": "CANDACE LOW VS. SF AMC, LP, A CALIFORNIA LIMITED PARTNERSHIP DBA ET AL",
+            "matter": "MOTION FOR SUMMARY ADJUDICATION .",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Candace Low's motion for summary adjudication of the seventh, fifteenth and seventeenth affirmative defenses in defendants' answer is granted. All three of those affirmative defenses are adjudicated in favor of Low and against all of the named…"
+          },
+          {
+            "date": "2026-09-30",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24619725",
+            "caseTitle": "JIAHAO GUO VS. KARMACHECK, INC. ET AL",
+            "matter": "Motion For Leave To File First Amended Complaint To Substitute Informdata, Llc For Doe 1",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion for leave to file a first amended complaint is granted for good cause shown in the moving papers. Plaintiff shall file the proposed amended complaint attached as Exhibit A to the Fok Declaration within 10 days of this order. In light of…"
+          },
+          {
+            "date": "2026-09-29",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC18563676",
+            "caseTitle": "MARC BORACCHIA ET AL VS. NORTHWESTERN MUTUAL LIFE INSURANCE COMPANY ET AL",
+            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendants Northwestern Mutual Life Insurance Company and Northwestern Mutual Investment Services, LLC's application for the pro hac vice admission of Melissa Rodriguez is granted. Good causes shown and no opposition filed."
+          },
+          {
+            "date": "2026-09-29",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC26277391",
+            "caseTitle": "PATRICIA HALL VS. GENERAL ELECTRIL COMPANY ET AL",
+            "matter": "Notice Of Motion And Motion For Order Granting Preference In Setting Case For Trial, And Extending Discovery Cutoff",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion for Order Advancing the Current Trial Date with Preference, and Extending Discovery Cutoff is GRANTED under C.C.P. 36(a). Opposition filed by Defendant Kaiser Gypsum Company, Inc. Reply filed. Defendant's opposition is meritless. Where a…"
+          },
+          {
+            "date": "2026-09-29",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23610719",
+            "caseTitle": "TIMOTHY J. SLOAN VS. WELLS FARGO & COMPANY ET AL",
+            "matter": "Notice Of Unopposed Motion And Motion For Closure Of The Courtroom And Sealing Of Portions Of The Record",
+            "judge": "Cindee Mayfield",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Wells Fargo's unopposed motion to close the courtroom and seal portions of the record is granted in part. (1) The request to close the courtroom for the October 2, 2026 hearing on Wells Fargo's motion for summary judgment or, alternatively, summary…"
+          },
+          {
+            "date": "2026-09-29",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26636810",
+            "caseTitle": "CITY AND COUNTY OF SAN FRANCISCO ET AL VS. LEON WAYLAND MUY ET AL",
+            "matter": "Notice Of Intent To File Motion For Appointment Of Receiver And Order To Abate Substandard Building",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF CITY AND COUNTY OF SAN FRANCISCO A MUNICIPAL CORPORATION Notice Of Intent To File Motion For Appointment Of Receiver And Order To Abate Substandard Building is GRANTED as requested. Plaintiff to present an order for execution at the hearing…"
+          },
+          {
+            "date": "2026-09-29",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24613234",
+            "caseTitle": "MEGAN BROGGER VS. NOCTURNAL CODE, UNKNOWN ENTITY ET AL",
+            "matter": "Notice Of Motion And Motion To Withdraw Deemed Admissions",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant and cross-complainant Tatiana Shiff's motion to withdraw deemed admissions is denied. A judge may allow a party that has failed to serve any response to requests for admission to withdraw or amend its admissions even after ruling that the matters…"
+          },
+          {
+            "date": "2026-09-29",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24612227",
+            "caseTitle": "HONG ZHENG ET AL VS. GLENN FAMA ET AL",
+            "matter": "MOTION TO COMPEL INDEPENDENT MEDICAL EXAMINATIONS",
+            "judge": "Cindee Mayfield",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Defendants' motion to compel a mental examination is granted in part and denied in part. CCP 2032.310(b) states that a motion for mental examination must \"specify the time, place, manner, conditions, scope, and nature of the examination, as well as the…"
+          },
+          {
+            "date": "2026-09-29",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD25679339",
+            "caseTitle": "PARKMERCED OWNER, LLC VS. ABBY VAN KIRK ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Responses By Defendant To Form Interrogatories And To Deem Admitted By Defendant Requests For Admission And For Monetary Sanctions",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF PARKMERCED OWNER, LLC , A DELAWARE LIMITED LIABILITY COMPANY Notice Of Motion And Motion To Compel Responses By Defendant To Form Interrogatories And To Deem Admitted By Defendant Requests For Admission And For Monetary Sanctions is GRANTED, subject…"
+          },
+          {
+            "date": "2026-09-29",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24613234",
+            "caseTitle": "MEGAN BROGGER VS. NOCTURNAL CODE, UNKNOWN ENTITY ET AL",
+            "matter": "Notice And Motion For Reconsideration; Memorandum Of Points And Authorities",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Cross-defendant Lisa Rose's motion for reconsideration of the July 10, 2026 oral ruling is denied. Rose has not presented any new law, facts or circumstances nor would this motion be timely had Rose complied with her obligation to submit a proposed order as…"
+          }
+        ]
+      },
+      "rankings": {
+        "judgments": {
+          "count": 186286,
+          "top": [
+            {
+              "rank": 1,
+              "caseNumber": "CPF15514095",
+              "caseTitle": "ALEXANDER GLIKLAD VS. MICHAEL CHERNEY",
+              "amount": 505093892.18,
+              "judgmentDate": "2015-01-21"
+            },
+            {
+              "rank": 2,
+              "caseNumber": "CGC20276823",
+              "caseTitle": "ADELINA SCHINDLER VS. ASBESTOS CORPORATION LIMITED ET AL",
+              "amount": 325000000,
+              "judgmentDate": "2023-02-01"
+            },
+            {
+              "rank": 3,
+              "caseNumber": "CGC99301917",
+              "caseTitle": "MILLER VS BANK OF AMERICA NT & SA",
+              "amount": 295651220,
+              "judgmentDate": "2005-03-04"
+            },
+            {
+              "rank": 4,
+              "caseNumber": "CPF16515362",
+              "caseTitle": "FLETCHER INTERNATIONAL, LTD., VS. ALPHONSE FLETCHER, JR. ET AL",
+              "amount": 213254195.73,
+              "judgmentDate": "2016-11-16"
+            },
+            {
+              "rank": 5,
+              "caseNumber": "CPF20516982",
+              "caseTitle": "GOOGLE LLC. VS. ANTHONY LEVANDOWSKI ET AL",
+              "amount": 179047998.64,
+              "judgmentDate": "2020-03-04"
+            }
+          ]
+        }
       }
     },
     "tentatives": {

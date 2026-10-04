@@ -33,7 +33,7 @@ for (const retiredDependency of [
 }
 
 assert.match(indexSource, /data-sfsc-search/);
-assert.match(indexSource, /data-sfsc-results/);
+assert.doesNotMatch(indexSource, /data-sfsc-results/, "the SFSC panel must not return to a canned one-row search result");
 assert.match(indexSource, /<div class="title-block">\s*<h1>Projects<\/h1>\s*<\/div>/);
 assert.doesNotMatch(indexSource, /class="mini-pill"/);
 assert.match(indexSource, /<link rel="icon" href="data:,">/);
@@ -73,13 +73,12 @@ assert.match(contactSource, /<h2 id="contact-info-title">Contact information<\/h
 assert.match(contactSource, /mailto:me@amyc\.us/);
 assert.match(contactSource, /mailto:db@amyc\.us/);
 assert.match(contactSource, /https:\/\/github\.com\/aimesy/);
-assert.match(projectsSource, /const row = sfscSearchMode === "dockets"[\s\S]*sfscDocketSearchRow\(query\)[\s\S]*sfscRulingSearchRow\(query\)/);
-assert.match(projectsSource, /renderSfscResultRows\(container, \[row\], label\)/);
-assert.match(projectsSource, /input\.setAttribute\("aria-label", `Search \$\{label\}`\)/);
-assert.match(projectsSource, /sfscSearchMode === "dockets"\s*\?\s*sfscDocketSearchUrl\(event\.currentTarget\.value\)\s*:\s*sfscRulingSearchUrl\(event\.currentTarget\.value\)/);
+assert.match(projectsSource, /input\.setAttribute\("aria-label", `Search \$\{mode\.label\}`\)/);
+assert.match(projectsSource, /sfscSearchMode === "dockets" \? sfscDocketSearchUrl\(query\) : sfscRulingSearchUrl\(query\)/);
+assert.match(projectsSource, /\$\('\[data-sfsc-form\]'\)\?\.addEventListener\("submit"/);
+assert.match(indexSource, /<form class="mini-tools sfsc-search" data-sfsc-form role="search">/);
 assert.match(indexSource, /data-sfsc-search aria-label="Search court dockets"/);
 assert.match(indexSource, /data-mini-search="tentatives" aria-label="Search counties"/);
-assert.match(indexSource, /data-sfsc-results aria-live="polite"/);
 assert.match(indexSource, /data-mini-list="tentatives" aria-live="polite"/);
 assert.match(indexSource, /data-mini-more="tentatives" aria-controls="tentatives-county-list">Load more<\/button>/);
 const projectSection = (id) => {
@@ -91,6 +90,38 @@ const projectSection = (id) => {
   assert.notEqual(sectionEnd, -1, `${id} project card must be complete`);
   return indexSource.slice(sectionStart, sectionEnd + "</section>".length);
 };
+// The SFSC card nests <section> blocks, so slice it up to the next card.
+const sfscSection = indexSource.slice(
+  indexSource.lastIndexOf("<section", indexSource.indexOf('id="sfsc"')),
+  indexSource.indexOf('<section class="project" id="tentatives">'),
+);
+assert.match(sfscSection, /<section class="project has-live-panel" id="sfsc">/);
+const sfscPanelOrder = [
+  'id="sfsc-recent"',
+  'id="sfsc-upcoming"',
+  'id="sfsc-numbers"',
+  'id="sfsc-judgment-rankings"',
+  'id="sfsc-attorney-rankings"',
+].map((marker) => sfscSection.indexOf(marker));
+assert.ok(sfscPanelOrder.every((index) => index > 0), "the SFSC panel must keep all five sections");
+assert.deepEqual(
+  [...sfscPanelOrder].sort((a, b) => a - b),
+  sfscPanelOrder,
+  "the SFSC panel leads with recent tentatives, then upcoming hearings, numbers, and rankings",
+);
+assert.match(
+  sfscSection,
+  /as the <a href="#sfsc-judgment-rankings" data-sfsc-jump>judgment<\/a> and <a href="#sfsc-attorney-rankings" data-sfsc-jump>attorney<\/a> rankings attest\./,
+  "the SFSC copy must link judgment and attorney to their rankings",
+);
+assert.match(sfscSection, /data-sfsc-recent/);
+assert.match(sfscSection, /data-sfsc-upcoming/);
+assert.match(sfscSection, /data-sfsc-judgments/);
+assert.match(stylesSource, /\.sfsc-panel \{[^}]*contain: size;/, "the SFSC panel must take the copy column's height and scroll inside it");
+assert.match(stylesSource, /\.project\.has-live-panel \.project-copy \{\s*display: contents;/, "single-column SFSC cards must lead with the live panel");
+for (const rulingSource of ["raw/dept", "tentatives.parquet", "tentative_dispositions"]) {
+  assert.equal(projectsSource.includes(rulingSource), false, `projects.js must read rulings from project-data.json, not ${rulingSource}`);
+}
 const tentativesSection = projectSection("tentatives");
 const themesSection = projectSection("themes");
 const kcscSection = projectSection("kcsc");
@@ -335,6 +366,108 @@ const sfscDataCheckoutSource = refreshWorkflowSource.slice(
 );
 assert.match(sfscDataCheckoutSource, /sparse-checkout:\s*\|[\s\S]*^\s+LIVE\.md$/m,
   "the refresh must check out sfsc-data's LIVE.md");
+
+const feedStart = builderSource.indexOf("const SFSC_FEED_DAYS");
+const feedEnd = builderSource.indexOf("\nfunction buildSfsc(", feedStart);
+assert.notEqual(feedStart, -1, "the SFSC feed builder must exist");
+assert.notEqual(feedEnd, -1, "the SFSC feed builder must precede buildSfsc");
+const feedSource = builderSource.slice(feedStart, feedEnd);
+assert.doesNotMatch(feedSource, /archive\/|\.parquet|\.attorneys\b|\["attorneys"\]/, "the SFSC feed reads raw captures and case-level judgment fields only");
+assert.match(refreshWorkflowSource, /- name: Check out SFSC data[\s\S]*?^\s+data\/judgment-rankings\.json$/m);
+const captureFiles = {
+  "raw/dept302/2026-10-05-000100.json": {
+    scraped_at: "2026-10-02T00:01:00Z",
+    rulings: [{
+      "Case Number": "CGC26000001",
+      "Case Title": "ALPHA VS. BETA",
+      "Court Date": "2026-10-05 09:00 AM",
+      "Calendar Matter": "Demurrer",
+      Judge: "A. Judge",
+      Rulings: "Set for Law and Motion/Discovery Calendar on Monday, October 5, 2026, Line 1. Defendant's demurrer is overruled.",
+    }],
+  },
+  "raw/dept302/2026-10-05-030000.json": {
+    scraped_at: "2026-10-03T03:00:00Z",
+    rulings: [
+      {
+        "Case Number": "CGC26000001",
+        "Case Title": "ALPHA VS. BETA",
+        "Court Date": "2026-10-05 09:00 AM",
+        "Calendar Matter": "Demurrer",
+        Judge: "A. Judge",
+        Rulings: "Set for Law and Motion/Discovery Calendar on Monday, October 5, 2026, Line 1. Defendant's demurrer is sustained with leave to amend. For the 9:00 a.m. calendar, all attorneys and parties may appear remotely.",
+      },
+      {
+        "Case Number": "CGC26000003",
+        "Case Title": "DELTA VS. EPSILON",
+        "Court Date": "2026-10-05 09:00 AM",
+        "Calendar Matter": "Motion to strike",
+        Rulings: "(PART 2 OF 2) (Tentative ruling continued from previous entry) 8. No later than October 13.",
+      },
+    ],
+  },
+  "raw/dept204/2026-10-05-000025.json": {
+    scraped_at: "2026-10-02T00:00:25Z",
+    rulings: [{
+      "Case Number": "PES26000002",
+      "Case Title": "ESTATE OF X",
+      "Court Date": "2026-10-05 09:00 AM",
+      "Calendar Matter": "Petition",
+      Rulings: "Grant without hearing.",
+    }],
+  },
+  "raw/dept301/2026-10-02-000047.json": {
+    scraped_at: "2026-10-01T00:00:47Z",
+    rulings: [{
+      "Case Number": "CGC26000004",
+      "Case Title": "GAMMA VS. ZETA",
+      "Court Date": "2026-10-02 09:00 AM",
+      "Calendar Matter": "MOTION TO COMPEL",
+      Judge: "B. Judge",
+      Rulings: "PLAINTIFF GAMMA's MOTION TO COMPEL. Plaintiff Gamma's motion to compel is granted in part.",
+    }],
+  },
+  "raw/deptundefined/2015-11-05-150208.json": { scraped_at: "2015-11-05T00:00:00Z", rulings: [] },
+};
+const feedContext = {
+  config: { sfscData: {} },
+  listRepoFiles: (repo, prefix, options) => {
+    assert.equal(prefix, "raw/");
+    assert.equal(options?.tree, true);
+    return Object.keys(captureFiles);
+  },
+  readRepoFile: (repo, path) => {
+    if (path === "data/judgment-rankings.json") {
+      return JSON.stringify({
+        published_judgment_count: 2,
+        rankings: [
+          { case_number: "CGC10000001", case_title: "SMALL VS. CLAIM", judgment_amount: 10, judgment_date: "2010-01-02 10:00:00", attorneys: [{ name: "Counsel" }] },
+          { case_number: "CPF15000002", case_title: "LARGE VS. AWARD", judgment_amount: 5000, judgment_date: "2015-03-04 10:00:00", attorneys: [{ name: "Counsel" }] },
+        ],
+      });
+    }
+    return captureFiles[path] ? JSON.stringify(captureFiles[path]) : "";
+  },
+  parseJson: (value) => (value ? JSON.parse(value) : null),
+};
+vm.createContext(feedContext);
+vm.runInContext(`${feedSource}\nthis.feed = buildSfscFeed();\nthis.rankings = buildSfscRankings();`, feedContext);
+const { feed, rankings } = feedContext;
+assert.deepEqual(JSON.parse(JSON.stringify(feed.days)), [
+  { date: "2026-10-05", total: 3, departments: [{ department: "302", count: 2 }, { department: "204", count: 1 }] },
+  { date: "2026-10-02", total: 1, departments: [{ department: "301", count: 1 }] },
+]);
+assert.equal(feed.rulings.length, 2, "probate rulings are counted but not quoted, and continuation fragments are skipped");
+assert.equal(feed.rulings[0].caseNumber, "CGC26000001");
+assert.equal(feed.rulings[0].text, "Defendant's demurrer is sustained with leave to amend.", "the later capture wins and calendar boilerplate is trimmed");
+assert.equal(feed.rulings[0].outcome.key, "sustained-leave");
+assert.equal(feed.rulings[0].time, "09:00 AM");
+assert.equal(feed.rulings[1].text, "Plaintiff Gamma's motion to compel is granted in part.", "a caption echo that decides nothing is dropped");
+assert.equal(feed.rulings[1].outcome.key, "partial");
+assert.deepEqual(rankings.judgments.top.map((row) => row.caseNumber), ["CPF15000002", "CGC10000001"]);
+assert.equal(rankings.judgments.count, 2);
+assert.equal("attorneys" in rankings.judgments.top[0], false, "attorney lists stay in the SFSC viewer");
+assert.equal(rankings.judgments.top[0].judgmentDate, "2015-03-04");
 
 const parseCountStart = projectsSource.indexOf("function parseCount(");
 const liveMetricsEnd = projectsSource.indexOf("\nfunction renderLiveMetricValues(", parseCountStart);

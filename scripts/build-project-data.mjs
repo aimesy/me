@@ -409,6 +409,228 @@ function parseTentatives(readme) {
   };
 }
 
+// The home page's SFSC panel leads with the newest tentative rulings. They
+// come from sfsc-data's raw department captures (one JSON file per posted
+// hearing date), read through git so the sparse checkout stays small. The page
+// itself never fetches rulings; the viewer owns search and the Parquet files.
+const SFSC_FEED_DAYS = 5;
+const SFSC_FEED_RULINGS_PER_DAY = 8;
+const SFSC_FEED_TEXT_LENGTH = 260;
+const SFSC_FEED_CAPTURE = /^raw\/dept(\d{3})(?:\/([a-z-]+))?\/(\d{4}-\d{2}-\d{2})-\d+\.json$/;
+// Probate rulings are counted but not quoted: conservatorship calendars
+// describe incapacity and deaths, and most entries are procedural.
+const SFSC_FEED_COUNT_ONLY = new Set(["204"]);
+const SFSC_FEED_DEPARTMENT_ORDER = ["302", "304", "301", "501", "204"];
+const SFSC_FEED_OUTCOMES = [
+  ["partial", "Granted in part", /\bgranted in part\b|\bgrant(?:ed)? in part\b/],
+  ["sustained-no-leave", "Sustained without leave", /\bsustained without leave\b/],
+  ["sustained-leave", "Sustained with leave", /\bsustained with(?: \d+ days')? leave\b/],
+  ["sustained", "Sustained", /\bsustained\b/],
+  ["overruled", "Overruled", /\boverruled\b/],
+  ["denied", "Denied", /\bdenied\b|\bdeny\b/],
+  ["granted", "Granted", /\bgranted\b|\bgrant\b|\bapproved\b/],
+  ["continued", "Continued", /\bcontinued\b/],
+  ["off-calendar", "Off calendar", /\boff calendar\b|\bdropped\b|\bvacated\b/],
+  ["moot", "Moot", /\bmoot\b/],
+  ["hearing", "Hearing", /\bappearance required\b|\bhearing required\b|\bparties (?:are )?to appear\b/],
+];
+const SFSC_FEED_DECIDED = new Set(["partial", "sustained-no-leave", "sustained-leave", "sustained", "overruled", "denied", "granted"]);
+
+function sfscFeedCalendar(department, kind) {
+  if (department === "304") return kind === "discovery" ? "Asbestos Discovery" : "Asbestos Law and Motion";
+  return {
+    204: "Probate",
+    301: "Discovery",
+    302: "Civil Law and Motion",
+    501: "Real Property Court",
+  }[department] || `Dept. ${department}`;
+}
+
+const SFSC_FEED_DATED = /\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?[ -]\d{1,2}(?:,\s*|-)\d{4}\b/i;
+const SFSC_FEED_EMAILED = /\(?\**\s*(?:the court'?s )?(?:complete )?tentative ruling (?:in its entirety )?(?:has been )?e-?mailed to the parties\.?\s*\**\)?\.?/gi;
+
+function sfscFeedText(ruling, matter) {
+  let text = String(ruling || "")
+    .replace(/\s+/g, " ")
+    .replace(SFSC_FEED_EMAILED, " ")
+    .replace(/\(part (?:one|1) of [^)]+\)/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  // Drop the calendar preamble ("Set for Law and Motion ... 2026, Line 1."),
+  // a leading line number, and a repeated matter title so the snippet opens
+  // on the court's reasoning.
+  for (let pass = 0; pass < 4; pass += 1) {
+    const before = text;
+    text = text.replace(/^\d{1,3}\s*-\s*(?=[A-Z(])/, "").replace(/^\(\s*\)\.?\s*/, "");
+    const sentence = text.match(/^(.{0,220}?\.)\s+/)?.[1] || "";
+    const preamble = /^line \d+\.$/i.test(sentence)
+      || (SFSC_FEED_DATED.test(sentence) && /^(?:set for|matter on|on the)\b|\bcalendar (?:on|for)\b|\bline \d+\.$/i.test(sentence));
+    if (preamble) text = text.slice(sentence.length).trim();
+    if (text === before) break;
+  }
+  const cleanMatter = String(matter || "").replace(/\s+/g, " ").trim();
+  if (cleanMatter && text.toLowerCase().startsWith(cleanMatter.toLowerCase())) {
+    text = text.slice(cleanMatter.length).replace(/^[\s.:;-]+/, "");
+  }
+  // Many rulings open by echoing the caption ("PLAINTIFF X's MOTION TO
+  // DISMISS."); skip that sentence when it decides nothing.
+  const opening = text.match(/^(.{0,320}?\.)\s+(?=\S)/)?.[1] || "";
+  const letters = opening.replace(/[^A-Za-z]/g, "");
+  const shouting = letters.length > 0 && letters.replace(/[^A-Z]/g, "").length / letters.length >= 0.6;
+  const coreMatter = cleanMatter.replace(/^notice of (?:unopposed )?motion(?:,| and| &)\s*/i, "").toLowerCase();
+  const echoesMatter = coreMatter.length > 0 && opening.slice(0, -1).toLowerCase().endsWith(coreMatter);
+  if (opening && (shouting || echoesMatter) && !sfscFeedOutcome(opening)) text = text.slice(opening.length).trim();
+  const boilerplate = text.search(/\b(?:For the \d{1,2}:\d{2}|All attorneys and parties may appear|Remote hearings will be conducted|Zoom ID)\b/i);
+  if (boilerplate > 40) text = text.slice(0, boilerplate).trim();
+  if (text.length <= SFSC_FEED_TEXT_LENGTH) return text;
+  const cut = text.slice(0, SFSC_FEED_TEXT_LENGTH);
+  return `${cut.slice(0, Math.max(cut.lastIndexOf(" "), SFSC_FEED_TEXT_LENGTH - 40)).replace(/[\s,;:.]+$/, "")}…`;
+}
+
+function sfscFeedOutcome(text) {
+  const haystack = String(text || "").slice(0, 420).toLowerCase();
+  let best = null;
+  for (const [key, label, pattern] of SFSC_FEED_OUTCOMES) {
+    const index = haystack.search(pattern);
+    if (index >= 0 && (!best || index < best.index)) best = { key, label, index };
+  }
+  return best ? { key: best.key, label: best.label } : null;
+}
+
+function sfscFeedRank(row) {
+  const outcome = row.outcome?.key;
+  const outcomeRank = SFSC_FEED_DECIDED.has(outcome) ? 0 : outcome === "hearing" ? 1 : outcome === "off-calendar" ? 3 : 2;
+  const departmentRank = SFSC_FEED_DEPARTMENT_ORDER.indexOf(row.department);
+  return [outcomeRank, departmentRank < 0 ? 9 : departmentRank, row.time || "", row.caseNumber];
+}
+
+function compareSfscFeedRows(a, b) {
+  const left = sfscFeedRank(a);
+  const right = sfscFeedRank(b);
+  for (let index = 0; index < left.length; index += 1) {
+    if (left[index] < right[index]) return -1;
+    if (left[index] > right[index]) return 1;
+  }
+  return 0;
+}
+
+function pickSfscFeedRulings(rows, limit) {
+  // Round-robin across departments so one busy calendar cannot fill the feed.
+  const queues = new Map();
+  for (const row of [...rows].sort(compareSfscFeedRows)) {
+    if (!queues.has(row.department)) queues.set(row.department, []);
+    queues.get(row.department).push(row);
+  }
+  const ordered = [...queues.values()].sort((a, b) => compareSfscFeedRows(a[0], b[0]));
+  const picked = [];
+  while (picked.length < limit && ordered.some((queue) => queue.length)) {
+    for (const queue of ordered) {
+      if (queue.length && picked.length < limit) picked.push(queue.shift());
+    }
+  }
+  return picked;
+}
+
+function buildSfscFeed(previousData = null) {
+  const captures = listRepoFiles(config.sfscData, "raw/", { tree: true })
+    .map((file) => {
+      const match = file.match(SFSC_FEED_CAPTURE);
+      return match ? { file, department: match[1], kind: match[2] || "", date: match[3] } : null;
+    })
+    .filter(Boolean);
+  const days = [...new Set(captures.map((capture) => capture.date))].sort().reverse().slice(0, SFSC_FEED_DAYS);
+  const wanted = new Set(days);
+  const calendars = new Map();
+  let latestScrapedAt = "";
+
+  for (const capture of captures.filter((item) => wanted.has(item.date))) {
+    const page = parseJson(readRepoFile(config.sfscData, capture.file));
+    if (!page || !Array.isArray(page.rulings)) continue;
+    const scrapedAt = String(page.scraped_at || "");
+    if (scrapedAt > latestScrapedAt) latestScrapedAt = scrapedAt;
+    const key = `${capture.date}|${capture.department}|${capture.kind}`;
+    if (!calendars.has(key)) calendars.set(key, { ...capture, entries: new Map() });
+    const calendar = calendars.get(key);
+    // A hearing date can be captured more than once; the later capture wins.
+    for (const ruling of page.rulings) {
+      const caseNumber = String(ruling?.["Case Number"] || "").trim();
+      if (!caseNumber) continue;
+      const courtDate = String(ruling["Court Date"] || "");
+      const matter = String(ruling["Calendar Matter"] || "").replace(/\s+/g, " ").trim();
+      const entryKey = `${caseNumber}|${matter}|${courtDate}`;
+      const existing = calendar.entries.get(entryKey);
+      if (existing && existing.scrapedAt > scrapedAt) continue;
+      calendar.entries.set(entryKey, { scrapedAt, ruling, caseNumber, courtDate, matter });
+    }
+  }
+
+  const dayRows = new Map(days.map((date) => [date, { date, total: 0, departments: new Map(), rulings: [] }]));
+  for (const calendar of calendars.values()) {
+    const day = dayRows.get(calendar.date);
+    for (const entry of calendar.entries.values()) {
+      day.total += 1;
+      day.departments.set(calendar.department, (day.departments.get(calendar.department) || 0) + 1);
+      if (SFSC_FEED_COUNT_ONLY.has(calendar.department)) continue;
+      // Long rulings are split across entries; later parts are fragments.
+      if (/\(part (?:[2-9]|two|three|four|five) of [^)]+\)/i.test(entry.ruling.Rulings || "")) continue;
+      const text = sfscFeedText(entry.ruling.Rulings, entry.matter);
+      if (!text) continue;
+      const time = (entry.courtDate.match(/\b(\d{1,2}:\d{2}\s*[AP]M)\b/i) || [])[1] || "";
+      day.rulings.push({
+        date: calendar.date,
+        time: time.toUpperCase(),
+        department: calendar.department,
+        calendar: sfscFeedCalendar(calendar.department, calendar.kind),
+        caseNumber: entry.caseNumber,
+        caseTitle: String(entry.ruling["Case Title"] || "").replace(/\s+/g, " ").trim(),
+        matter: entry.matter,
+        judge: String(entry.ruling.Judge || "").trim(),
+        outcome: sfscFeedOutcome(text),
+        text,
+      });
+    }
+  }
+
+  const feedDays = [...dayRows.values()].filter((day) => day.total > 0);
+  if (!feedDays.length) return previousData?.projects?.sfsc?.feed || null;
+  return {
+    source: "aimesy/sfsc-data raw tentative captures",
+    latestScrapedAt: latestScrapedAt || null,
+    days: feedDays.map((day) => ({
+      date: day.date,
+      total: day.total,
+      departments: [...day.departments.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .map(([department, count]) => ({ department, count })),
+    })),
+    rulings: feedDays.flatMap((day) => pickSfscFeedRulings(day.rulings, SFSC_FEED_RULINGS_PER_DAY)),
+  };
+}
+
+function buildSfscRankings(previousData = null) {
+  // Only case-level fields are copied; attorney lists stay in the viewer.
+  const rankings = parseJson(readRepoFile(config.sfscData, "data/judgment-rankings.json"));
+  const rows = Array.isArray(rankings?.rankings) ? rankings.rankings : [];
+  const top = rows
+    .filter((row) => row?.case_number && Number(row.judgment_amount) > 0)
+    .sort((a, b) => Number(b.judgment_amount) - Number(a.judgment_amount))
+    .slice(0, 5)
+    .map((row, index) => ({
+      rank: index + 1,
+      caseNumber: String(row.case_number),
+      caseTitle: String(row.case_title || "").replace(/\s+/g, " ").trim(),
+      amount: Number(row.judgment_amount),
+      judgmentDate: String(row.judgment_date || "").slice(0, 10),
+    }));
+  if (!top.length) return previousData?.projects?.sfsc?.rankings || null;
+  return {
+    judgments: {
+      count: Number(rankings.published_judgment_count || rows.length),
+      top,
+    },
+  };
+}
+
 function buildSfsc(previousData = null) {
   const readme = readRepoFile(config.sfsc, "README.md");
   // sfsc-data's LIVE.md is rewritten by each daily tentative publication.
@@ -428,10 +650,12 @@ function buildSfsc(previousData = null) {
     Number(sourceCounts.case_index_rows || 0),
   );
   const liveDocumentBytes = liveTables.reduce((found, table) => found || liveBytes(table, "archive size"), 0);
+  const latestRuling = liveTables.map((table) => table.get("latest tentative ruling")).find(Boolean) || null;
   return {
     repo: "aimesy/sfsc",
     ref: repoHead(config.sfsc),
     updatedAt: repoUpdatedAt(config.sfsc),
+    latestRuling,
     metrics: {
       tentativeRulings: live("tentative rulings") || parsed.tentativeRulings,
       cases: Number(caseDirectoryManifest?.case_count || 0)
@@ -584,7 +808,11 @@ const publicReleaseStats = {
 };
 
 const projects = {
-  sfsc: buildSfsc(previous),
+  sfsc: {
+    ...buildSfsc(previous),
+    feed: buildSfscFeed(previous),
+    rankings: buildSfscRankings(previous),
+  },
   tentatives: buildTentatives(previous),
   themes: buildThemes(previous),
   kcsc: buildPublicDataProject(previous, "kcsc", "aimesy/kcsc-data", config.kcsc),

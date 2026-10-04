@@ -56,10 +56,14 @@ jobs:
           ref: master
           path: sfsc-data
           token: ${{ secrets.GH_TOKEN }}
+          # The SFSC panel's recent rulings come from the newest raw/dept*
+          # captures, which the builder reads through git (fetched on demand
+          # in this blobless sparse clone) rather than checking out raw/.
           sparse-checkout: |
             LIVE.md
             archive/case-directory/manifest.json
             data/case-table-stats.json
+            data/judgment-rankings.json
           sparse-checkout-cone-mode: false
 
       - name: Check out Tentatives
