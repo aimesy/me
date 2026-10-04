@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Projects | AMYC.US">
   <meta name="twitter:description" content="Public project index for SFSC, California tentative rulings, California Housing Permit Data, AMYC Themes, civil procedure research tools, NDCS, NYSC, and KCSC.">
   <meta name="theme-color" content="#24211d">
-  <link rel="stylesheet" href="assets/styles.css?v=sfsc-live-panel-2">
+  <link rel="stylesheet" href="assets/styles.css?v=sfsc-live-panel-3">
   <link rel="stylesheet" href="https://aimesy.github.io/themes/src/theme.css">
   <link rel="stylesheet" href="https://aimesy.github.io/themes/src/theme-bar.css">
   <link rel="stylesheet" href="https://aimesy.github.io/themes/src/bug-report.css">
@@ -98,45 +98,30 @@
           <a class="hbtn" href="mailto:db@amyc.us">Bulk Access</a>
         </div>
       </div>
-      <aside class="preview-stack sfsc-panel" aria-label="SFSC live panel">
+      <aside class="preview-stack sfsc-panel" aria-label="SFSC interface rendering">
         <div class="mini-ui sfsc-live">
-          <div class="mini-strip sfsc-strip"><strong>SFSC</strong><span class="sfsc-live-dot">Live</span><span class="sfsc-strip-age" data-live="sfsc-feed-age">loading</span></div>
-          <form class="mini-tools sfsc-search" data-sfsc-form role="search">
-            <div class="sfsc-modes" role="group" aria-label="Search scope">
-              <button class="mini-button active" type="button" data-sfsc-mode="dockets" aria-pressed="true">Dockets</button>
-              <button class="mini-button" type="button" data-sfsc-mode="rulings" aria-pressed="false">Tentatives</button>
-            </div>
-            <input class="mini-input" type="search" data-sfsc-search aria-label="Search court dockets" placeholder="Case number, party, attorney…">
-            <button class="mini-button sfsc-go" type="submit">Search</button>
+          <div class="mini-strip"><strong>SFSC</strong><span>Database</span></div>
+          <form class="mini-tools" data-sfsc-form role="search">
+            <button class="mini-button active" type="button" data-sfsc-mode="rulings" aria-pressed="true">Tentatives</button>
+            <button class="mini-button" type="button" data-sfsc-mode="dockets" aria-pressed="false">Dockets</button>
+            <input class="mini-input" type="search" data-sfsc-search aria-label="Search tentative rulings" placeholder="search tentative rulings">
+            <button class="mini-button" type="submit">Open</button>
           </form>
-          <nav class="sfsc-jump" aria-label="SFSC panel sections">
-            <a href="#sfsc-recent" data-sfsc-jump>Recent</a>
-            <a href="#sfsc-upcoming" data-sfsc-jump>Upcoming</a>
-            <a href="#sfsc-numbers" data-sfsc-jump>Numbers</a>
-          </nav>
-          <div class="sfsc-feed" data-sfsc-feed>
-            <section class="sfsc-block" id="sfsc-recent" tabindex="-1" aria-labelledby="sfsc-recent-title">
-              <header class="sfsc-block-head">
-                <h3 id="sfsc-recent-title">Recent tentatives</h3>
-                <a href="https://sfsc.amyc.us/#q=">All rulings</a>
-              </header>
-              <div class="sfsc-cards" data-sfsc-recent><div class="mini-empty">Loading rulings…</div></div>
-            </section>
-            <section class="sfsc-block" id="sfsc-upcoming" tabindex="-1" aria-labelledby="sfsc-upcoming-title">
-              <header class="sfsc-block-head">
-                <h3 id="sfsc-upcoming-title">Upcoming hearings</h3>
-              </header>
-              <div data-sfsc-upcoming><div class="mini-empty">Loading calendar…</div></div>
-            </section>
-            <section class="sfsc-block" id="sfsc-numbers" tabindex="-1" aria-labelledby="sfsc-numbers-title">
-              <header class="sfsc-block-head">
-                <h3 id="sfsc-numbers-title">By the numbers</h3>
-                <a href="/stats/">Stats</a>
-              </header>
-              <div class="sfsc-tiles" data-sfsc-numbers></div>
-              <h4 class="sfsc-subhead">Rulings by department</h4>
-              <div class="sfsc-bars" data-sfsc-departments></div>
-            </section>
+          <div class="sfsc-feed">
+            <div data-sfsc-view="rulings">
+              <h3 class="mini-section"><span>Recent tentatives</span><span data-live="sfsc-feed-age"></span></h3>
+              <div class="mini-table" data-sfsc-recent aria-live="polite"><div class="mini-empty">Loading rulings…</div></div>
+              <h3 class="mini-section"><span>Upcoming hearings</span><span data-sfsc-upcoming-date></span></h3>
+              <div class="mini-table" data-sfsc-upcoming></div>
+              <h3 class="mini-section"><span>Rulings by department</span></h3>
+              <div class="mini-table" data-sfsc-departments></div>
+            </div>
+            <div data-sfsc-view="dockets" hidden>
+              <h3 class="mini-section"><span>Docket archive</span></h3>
+              <div class="mini-table" data-sfsc-docket-stats></div>
+              <h3 class="mini-section"><span>Case records by prefix</span></h3>
+              <div class="mini-table" data-sfsc-prefixes></div>
+            </div>
           </div>
         </div>
       </aside>

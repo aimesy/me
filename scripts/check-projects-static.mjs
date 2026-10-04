@@ -76,8 +76,8 @@ assert.match(contactSource, /https:\/\/github\.com\/aimesy/);
 assert.match(projectsSource, /input\.setAttribute\("aria-label", `Search \$\{mode\.label\}`\)/);
 assert.match(projectsSource, /sfscSearchMode === "dockets" \? sfscDocketSearchUrl\(query\) : sfscRulingSearchUrl\(query\)/);
 assert.match(projectsSource, /\$\('\[data-sfsc-form\]'\)\?\.addEventListener\("submit"/);
-assert.match(indexSource, /<form class="mini-tools sfsc-search" data-sfsc-form role="search">/);
-assert.match(indexSource, /data-sfsc-search aria-label="Search court dockets"/);
+assert.match(indexSource, /<form class="mini-tools" data-sfsc-form role="search">/);
+assert.match(indexSource, /data-sfsc-search aria-label="Search tentative rulings"/);
 assert.match(indexSource, /data-mini-search="tentatives" aria-label="Search counties"/);
 assert.match(indexSource, /data-mini-list="tentatives" aria-live="polite"/);
 assert.match(indexSource, /data-mini-more="tentatives" aria-controls="tentatives-county-list">Load more<\/button>/);
@@ -96,25 +96,38 @@ const sfscSection = indexSource.slice(
   indexSource.indexOf('<section class="project" id="tentatives">'),
 );
 assert.match(sfscSection, /<section class="project has-live-panel" id="sfsc">/);
-const sfscPanelOrder = [
-  'id="sfsc-recent"',
-  'id="sfsc-upcoming"',
-  'id="sfsc-numbers"',
-].map((marker) => sfscSection.indexOf(marker));
-assert.ok(sfscPanelOrder.every((index) => index > 0), "the SFSC panel must keep its three sections");
+// Each tab owns its rows: tentative material never shows under Dockets.
+const rulingsView = sfscSection.slice(
+  sfscSection.indexOf('<div data-sfsc-view="rulings">'),
+  sfscSection.indexOf('<div data-sfsc-view="dockets" hidden>'),
+);
+const docketsView = sfscSection.slice(sfscSection.indexOf('<div data-sfsc-view="dockets" hidden>'));
+assert.ok(rulingsView.length > 0 && docketsView.length > 0, "the SFSC panel must have Tentatives and Dockets views");
+const sfscPanelOrder = ["data-sfsc-recent", "data-sfsc-upcoming", "data-sfsc-departments"].map((marker) => rulingsView.indexOf(marker));
+assert.ok(sfscPanelOrder.every((index) => index > 0), "the Tentatives view keeps recent, upcoming, and department rows");
 assert.deepEqual(
   [...sfscPanelOrder].sort((a, b) => a - b),
   sfscPanelOrder,
-  "the SFSC panel leads with recent tentatives, then upcoming hearings and numbers",
+  "the Tentatives view leads with recent tentatives, then upcoming hearings and department totals",
 );
+assert.match(docketsView, /data-sfsc-prefixes/);
+assert.doesNotMatch(docketsView, /data-sfsc-recent|data-sfsc-upcoming|data-sfsc-departments/, "tentative rows stay out of the Dockets view");
+assert.ok(
+  sfscSection.indexOf('data-sfsc-mode="rulings"') < sfscSection.indexOf('data-sfsc-mode="dockets"'),
+  "Tentatives is the first SFSC tab",
+);
+assert.match(projectsSource, /let sfscSearchMode = "rulings";/);
+assert.match(projectsSource, /view\.hidden = view\.dataset\.sfscView !== sfscSearchMode;/);
+// The panel uses the shared mini table and result rows, not its own visual language.
+assert.match(projectsSource, /<div class="mini-result">/);
+assert.match(projectsSource, /class="mini-row mini-row-link"/);
+assert.doesNotMatch(stylesSource, /\.sfsc-(?:chip|card|tone|outcome|tile|bar|jump)/, "the SFSC panel keeps the site's shared panel formatting");
 assert.doesNotMatch(sfscSection, /rankings" tabindex|data-sfsc-judgments/, "rankings stay on the Stats page, not in the SFSC panel");
 assert.match(
   sfscSection,
   /as the <a href="\/stats\/#sfsc-statistics">judgment<\/a> and <a href="\/stats\/#sfsc-statistics">attorney<\/a> rankings attest\./,
   "the SFSC copy must link judgment and attorney to the rankings on the Stats page",
 );
-assert.match(sfscSection, /data-sfsc-recent/);
-assert.match(sfscSection, /data-sfsc-upcoming/);
 assert.match(stylesSource, /\.sfsc-panel \{[^}]*contain: size;/, "the SFSC panel must take the copy column's height and scroll inside it");
 for (const match of stylesSource.matchAll(/\.project\.has-live-panel \{[^}]*grid-template-columns:\s*([^;]+);/g)) {
   assert.equal(match[1].trim(), "1fr", "the SFSC panel keeps the shared project column width so card edges align");

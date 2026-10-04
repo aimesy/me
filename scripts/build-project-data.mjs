@@ -646,6 +646,9 @@ function buildSfsc(previousData = null) {
     },
     charts: {
       rulingsByDepartment: parsed.departments,
+      casesByPrefix: (Array.isArray(caseDirectoryManifest?.prefixes) ? caseDirectoryManifest.prefixes : [])
+        .map((row) => ({ label: String(row.prefix || ""), value: Number(row.case_count || 0) }))
+        .filter((row) => row.label && row.value > 0),
     },
   };
 }

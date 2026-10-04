@@ -61,22 +61,20 @@ function metric(label, value, note = "") {
   `;
 }
 
-let sfscSearchMode = "dockets";
+let sfscSearchMode = "rulings";
 let projectData = null;
 const SFSC_COURT_TIME_ZONE = "America/Los_Angeles";
 const SFSC_RECENT_LIMIT = 5;
-const SFSC_UPCOMING_DAYS = 2;
-const SFSC_UPCOMING_MATTERS = 3;
 const SFSC_SEARCH_MODES = {
-  dockets: { label: "court dockets", placeholder: "Case number, party, attorney…" },
-  rulings: { label: "tentative rulings", placeholder: "Motion, ruling text, judge…" },
+  rulings: { label: "tentative rulings" },
+  dockets: { label: "court dockets" },
 };
 const SFSC_DEPARTMENTS = {
-  204: { name: "Probate", tone: "probate" },
-  301: { name: "Discovery", tone: "discovery" },
-  302: { name: "Law & Motion", tone: "civil" },
-  304: { name: "Asbestos", tone: "asbestos" },
-  501: { name: "Real Property", tone: "property" },
+  204: "Probate",
+  301: "Discovery",
+  302: "Civil Law and Motion",
+  304: "Asbestos",
+  501: "Real Property Court",
 };
 const SFSC_UPPER_WORDS = new Set(["LLC", "LLP", "LP", "PLLC", "USA", "US", "II", "III", "IV", "N.A", "NA", "NT", "SA", "JV", "PC", "APC", "DBA", "AKA", "FKA", "HOA", "CCP"]);
 const SFSC_WORD_FORMS = new Map([["inc", "Inc"], ["ltd", "Ltd"], ["corp", "Corp"], ["jpmorgan", "JPMorgan"]]);
@@ -306,10 +304,10 @@ function sfscSearchUrl(query = "") {
 }
 
 function renderSfscSearch() {
-  const mode = SFSC_SEARCH_MODES[sfscSearchMode] || SFSC_SEARCH_MODES.dockets;
+  const mode = SFSC_SEARCH_MODES[sfscSearchMode] || SFSC_SEARCH_MODES.rulings;
   const input = $('[data-sfsc-search]');
   if (input) {
-    input.placeholder = mode.placeholder;
+    input.placeholder = `search ${mode.label}`;
     input.setAttribute("aria-label", `Search ${mode.label}`);
   }
 
@@ -317,6 +315,11 @@ function renderSfscSearch() {
     const active = button.dataset.sfscMode === sfscSearchMode;
     button.classList.toggle("active", active);
     button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+
+  // Each tab shows only its own material.
+  $$('[data-sfsc-view]').forEach((view) => {
+    view.hidden = view.dataset.sfscView !== sfscSearchMode;
   });
 }
 
@@ -387,32 +390,27 @@ function formatCaseNumber(value) {
   return match ? `${match[1]}-${match[2]}-${match[3]}` : String(value || "");
 }
 
-function sfscDepartmentName(department, calendar = "") {
-  if (department === "304" && /discovery/i.test(calendar)) return "Asbestos Discovery";
-  return SFSC_DEPARTMENTS[department]?.name || `Dept. ${department}`;
-}
-
-function sfscTone(department) {
-  return `sfsc-tone-${SFSC_DEPARTMENTS[department]?.tone || "civil"}`;
-}
-
-function sfscDepartmentChip(department, { calendar = "", count = null, href = "" } = {}) {
-  const content = `<b>${escapeHtml(department)}</b>${escapeHtml(sfscDepartmentName(department, calendar))}${
-    count === null ? "" : `<span class="sfsc-chip-count">${escapeHtml(formatNumber(count))}</span>`
-  }`;
-  const className = `sfsc-chip ${sfscTone(department)}`;
-  return href
-    ? `<a class="${className}" href="${escapeAttribute(href)}">${content}</a>`
-    : `<span class="${className}">${content}</span>`;
-}
-
-function sfscOutcomeChip(outcome) {
-  if (!outcome?.key) return "";
-  return `<span class="sfsc-outcome" data-outcome="${escapeAttribute(outcome.key)}" title="Read from the tentative ruling text">${escapeHtml(outcome.label)}</span>`;
+function sfscDepartmentLabel(department, name = "") {
+  return `Dept ${department} · ${name || SFSC_DEPARTMENTS[department] || "Tentatives"}`;
 }
 
 function sfscRulingUrl(row) {
   return sfscRulingsUrl({ q: row.caseNumber, from: row.date, to: row.date });
+}
+
+function renderSfscRows(selector, rows, empty) {
+  const container = $(selector);
+  if (!container) return;
+  if (!rows.length) {
+    container.innerHTML = `<div class="mini-empty">${escapeHtml(empty)}</div>`;
+    return;
+  }
+  container.innerHTML = rows.map((row) => {
+    const content = `<span>${escapeHtml(row.label)}</span><b>${escapeHtml(row.value)}</b>`;
+    return row.href
+      ? `<a class="mini-row mini-row-link" href="${escapeAttribute(row.href)}">${content}</a>`
+      : `<div class="mini-row">${content}</div>`;
+  }).join("");
 }
 
 function renderSfscRecent(rows, today) {
@@ -425,107 +423,80 @@ function renderSfscRecent(rows, today) {
     .slice(0, SFSC_RECENT_LIMIT);
 
   if (!recent.length) {
-    container.innerHTML = `<div class="mini-empty">Recent rulings are unavailable right now. <a href="${escapeAttribute(sfscRulingSearchUrl())}">Open the rulings index</a>.</div>`;
+    container.innerHTML = `<div class="mini-empty">Recent rulings are unavailable right now.</div>`;
     return;
   }
 
   container.innerHTML = recent.map((row) => `
-    <article class="sfsc-card ${sfscTone(row.department)}">
-      <div class="sfsc-card-meta">
-        <time datetime="${escapeAttribute(row.date)}">${escapeHtml(formatCourtDate(row.date))}</time>
-        ${sfscDepartmentChip(row.department, { calendar: row.calendar })}
-        ${sfscOutcomeChip(row.outcome)}
+    <div class="mini-result">
+      <div class="mini-result-main">
+        <div class="mini-result-title">${escapeHtml(displayTitle(row.caseTitle) || formatCaseNumber(row.caseNumber))}</div>
+        <div class="mini-result-meta">${escapeHtml([
+          formatCourtDate(row.date, { month: "short", day: "numeric" }),
+          `Dept ${row.department}`,
+          row.outcome?.label,
+        ].filter(Boolean).join(" / "))}</div>
+        <div class="mini-result-detail">${escapeHtml(displayMatter(row.matter))}</div>
       </div>
-      <a class="sfsc-card-title" href="${escapeAttribute(sfscRulingUrl(row))}">${escapeHtml(displayTitle(row.caseTitle) || formatCaseNumber(row.caseNumber))}</a>
-      <div class="sfsc-card-matter">${escapeHtml(displayMatter(row.matter))}</div>
-      <p class="sfsc-card-text">${escapeHtml(row.text)}</p>
-      <div class="sfsc-card-foot">
-        <a href="${escapeAttribute(sfscCaseUrl(row.caseNumber))}">${escapeHtml(formatCaseNumber(row.caseNumber))}</a>
-        ${row.judge ? `<span>${escapeHtml(row.judge)}</span>` : ""}
-      </div>
-    </article>
+      <a class="mini-result-link" href="${escapeAttribute(sfscRulingUrl(row))}">View</a>
+    </div>
   `).join("");
 }
 
-function renderSfscUpcoming(days, rows, today) {
-  const container = $('[data-sfsc-upcoming]');
-  if (!container) return;
-  const upcoming = days
+function renderSfscUpcoming(days, today) {
+  const next = days
     .filter((day) => day.date >= today)
-    .sort((a, b) => a.date.localeCompare(b.date))
-    .slice(0, SFSC_UPCOMING_DAYS);
-
-  if (!upcoming.length) {
-    container.innerHTML = `<div class="mini-empty">Tentatives for the next court day are not posted yet. The court posts them the court day before each hearing.</div>`;
-    return;
-  }
-
-  container.innerHTML = upcoming.map((day) => {
-    const matters = rows.filter((row) => row.date === day.date).slice(0, SFSC_UPCOMING_MATTERS);
-    return `
-      <div class="sfsc-day">
-        <div class="sfsc-day-head">
-          <div class="sfsc-day-date">
-            <b>${escapeHtml(formatCourtDate(day.date, { weekday: "long", month: "short", day: "numeric" }))}</b>
-            <span>${escapeHtml(relativeCourtDay(day.date, today))}</span>
-          </div>
-          <a class="sfsc-day-total" href="${escapeAttribute(sfscRulingsUrl({ from: day.date, to: day.date }))}">
-            <b>${escapeHtml(formatNumber(day.total))}</b> tentatives posted
-          </a>
-        </div>
-        <div class="sfsc-day-depts">
-          ${(day.departments || []).map((item) => sfscDepartmentChip(item.department, {
-            count: item.count,
-            href: sfscRulingsUrl({ dept: item.department, from: day.date, to: day.date }),
-          })).join("")}
-        </div>
-        ${matters.length ? `<ul class="sfsc-day-matters">${matters.map((row) => `
-          <li class="${sfscTone(row.department)}">
-            <span class="sfsc-time">${escapeHtml(row.time.replace(/^0/, ""))}</span>
-            <a href="${escapeAttribute(sfscRulingUrl(row))}">${escapeHtml(displayMatter(row.matter))}</a>
-            ${sfscOutcomeChip(row.outcome)}
-            <small>${escapeHtml(displayTitle(row.caseTitle))}</small>
-          </li>
-        `).join("")}</ul>` : ""}
-      </div>
-    `;
-  }).join("");
-}
-
-function renderSfscNumbers(project) {
-  const container = $('[data-sfsc-numbers]');
-  if (!container) return;
-  const days = project.feed?.days || [];
-  const tiles = [
-    days.length && [formatNumber(days.reduce((sum, day) => sum + positiveNumber(day.total), 0)), `tentatives in the last ${days.length} hearing days`],
-    project.metrics?.docketEntries && [formatNumber(project.metrics.docketEntries), "docket entries"],
-    project.metrics?.documentsArchived && [formatNumber(project.metrics.documentsArchived), "documents archived"],
-  ].filter(Boolean);
-  container.innerHTML = tiles.map(([value, label]) => `
-    <div class="sfsc-tile"><b>${escapeHtml(value)}</b><span>${escapeHtml(label)}</span></div>
-  `).join("");
+    .sort((a, b) => a.date.localeCompare(b.date))[0];
+  setText('[data-sfsc-upcoming-date]', next
+    ? `${formatCourtDate(next.date)} · ${relativeCourtDay(next.date, today).toLowerCase()}`
+    : "");
+  const rows = next ? [
+    {
+      label: "All departments",
+      value: `${formatNumber(next.total)} posted`,
+      href: sfscRulingsUrl({ from: next.date, to: next.date }),
+    },
+    ...(next.departments || []).map((item) => ({
+      label: sfscDepartmentLabel(item.department),
+      value: formatNumber(item.count),
+      href: sfscRulingsUrl({ dept: item.department, from: next.date, to: next.date }),
+    })),
+  ] : [];
+  renderSfscRows('[data-sfsc-upcoming]', rows, "Tentatives for the next court day are not posted yet.");
 }
 
 function renderSfscDepartments(rows) {
-  const container = $('[data-sfsc-departments]');
-  if (!container) return;
   const departments = rows
     .map((row) => {
       const match = String(row.label || "").match(/(\d{3})\s*-\s*(.+)$/);
-      return match ? { department: match[1], name: match[2], value: positiveNumber(row.value), latest: row.latest || "" } : null;
+      return match ? { department: match[1], name: match[2], value: positiveNumber(row.value) } : null;
     })
     .filter((row) => row?.value)
-    .sort((a, b) => b.value - a.value);
-  const max = Math.max(1, ...departments.map((row) => row.value));
-  container.innerHTML = departments.map((row) => `
-    <a class="sfsc-bar ${sfscTone(row.department)}" href="${escapeAttribute(sfscRulingsUrl({ dept: row.department }))}"${
-      row.latest ? ` title="Latest ruling ${escapeAttribute(formatCourtDate(row.latest, { month: "short", day: "numeric", year: "numeric" }))}"` : ""
-    }>
-      <span class="sfsc-bar-label"><b>${escapeHtml(row.department)}</b>${escapeHtml(row.name)}</span>
-      <span class="sfsc-bar-value">${escapeHtml(formatNumber(row.value))}</span>
-      <span class="sfsc-bar-track"><span style="width: ${Math.max(2, (row.value / max) * 100).toFixed(1)}%"></span></span>
-    </a>
-  `).join("");
+    .sort((a, b) => b.value - a.value)
+    .map((row) => ({
+      label: sfscDepartmentLabel(row.department, row.name),
+      value: `${formatNumber(row.value)} rulings`,
+      href: sfscRulingsUrl({ dept: row.department }),
+    }));
+  renderSfscRows('[data-sfsc-departments]', departments, "Department totals are unavailable right now.");
+}
+
+function renderSfscDockets(project) {
+  const metrics = project.metrics || {};
+  renderSfscRows('[data-sfsc-docket-stats]', [
+    metrics.docketEntries && { label: "Docket entries", value: formatNumber(metrics.docketEntries) },
+    metrics.documentsArchived && { label: "Documents archived", value: formatNumber(metrics.documentsArchived) },
+  ].filter(Boolean), "Docket totals are unavailable right now.");
+
+  const prefixes = (project.charts?.casesByPrefix || [])
+    .filter((row) => /^[A-Z]{3}$/.test(row.label) && positiveNumber(row.value))
+    .sort((a, b) => b.value - a.value)
+    .map((row) => ({
+      label: row.label,
+      value: `${formatNumber(row.value)} cases`,
+      href: sfscDocketSearchUrl(row.label),
+    }));
+  renderSfscRows('[data-sfsc-prefixes]', prefixes, "Case counts are unavailable right now.");
 }
 
 function renderSfscFeedAge(project = projectData?.projects?.sfsc) {
@@ -534,7 +505,7 @@ function renderSfscFeedAge(project = projectData?.projects?.sfsc) {
   const checked = project?.feed?.latestScrapedAt;
   setLiveText(
     "sfsc-feed-age",
-    latest ? `through ${formatCourtDate(latest)}` : "loading",
+    latest ? `through ${formatCourtDate(latest, { month: "short", day: "numeric" })}` : "",
     checked ? `Court page last checked ${new Date(checked).toLocaleString()}` : "",
   );
 }
@@ -545,29 +516,10 @@ function renderSfscPanel() {
   const today = courtToday();
   const rows = (project.feed?.rulings || []).filter((row) => row?.caseNumber && row?.date);
   renderSfscRecent(rows, today);
-  renderSfscUpcoming(project.feed?.days || [], rows, today);
-  renderSfscNumbers(project);
+  renderSfscUpcoming(project.feed?.days || [], today);
   renderSfscDepartments(project.charts?.rulingsByDepartment || []);
+  renderSfscDockets(project);
   renderSfscFeedAge(project);
-}
-
-function revealSfscBlock(id) {
-  const target = document.getElementById(id);
-  const feed = target?.closest('[data-sfsc-feed]');
-  if (!target || !feed) return false;
-  const behavior = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
-  if (feed.scrollHeight > feed.clientHeight + 1 && getComputedStyle(feed).overflowY !== "visible") {
-    // Desktop: the panel scrolls on its own, so move it rather than the page.
-    feed.scrollTo({ top: target.offsetTop - 4, behavior });
-    feed.closest(".sfsc-panel")?.scrollIntoView({ block: "nearest", behavior });
-  } else {
-    target.scrollIntoView({ block: "start", behavior });
-  }
-  target.focus({ preventScroll: true });
-  target.classList.remove("is-flashing");
-  void target.offsetWidth;
-  target.classList.add("is-flashing");
-  return true;
 }
 
 function setText(selector, text) {
@@ -742,6 +694,11 @@ function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirecto
   if (caseTableStats) {
     metrics.documents = positiveNumber(caseTableStats.case_documents) || metrics.documents;
     metrics.docketEntries = positiveNumber(caseTableStats.docket_entries) || metrics.docketEntries;
+  }
+
+  const prefixes = Array.isArray(caseDirectoryManifest?.prefixes) ? caseDirectoryManifest.prefixes : [];
+  if (prefixes.length) {
+    project.charts.casesByPrefix = prefixes.map((row) => ({ label: row.prefix, value: positiveNumber(row.case_count) }));
   }
 
   const sourceCounts = caseDirectoryManifest?.source_counts || {};
@@ -920,20 +877,14 @@ function render(data) {
 
 $$('[data-sfsc-mode]').forEach((button) => {
   button.addEventListener("click", () => {
-    sfscSearchMode = button.dataset.sfscMode || "dockets";
+    sfscSearchMode = button.dataset.sfscMode || "rulings";
     renderSfscSearch();
-    $('[data-sfsc-search]')?.focus();
   });
 });
 
 $('[data-sfsc-form]')?.addEventListener("submit", (event) => {
   event.preventDefault();
   window.location.assign(sfscSearchUrl($('[data-sfsc-search]')?.value));
-});
-
-document.addEventListener("click", (event) => {
-  const link = event.target.closest?.("a[data-sfsc-jump]");
-  if (link && revealSfscBlock(link.hash.slice(1))) event.preventDefault();
 });
 
 renderSfscSearch();

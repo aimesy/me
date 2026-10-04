@@ -41,6 +41,116 @@
             "label": "Dept. 501 - Real Property Court",
             "value": 34904
           }
+        ],
+        "casesByPrefix": [
+          {
+            "label": "CGC",
+            "value": 432111
+          },
+          {
+            "label": "CRI",
+            "value": 343393
+          },
+          {
+            "label": "CSM",
+            "value": 187928
+          },
+          {
+            "label": "CUD",
+            "value": 97146
+          },
+          {
+            "label": "FDI",
+            "value": 98678
+          },
+          {
+            "label": "FCS",
+            "value": 94408
+          },
+          {
+            "label": "PES",
+            "value": 42598
+          },
+          {
+            "label": "FDV",
+            "value": 30015
+          },
+          {
+            "label": "CPF",
+            "value": 28817
+          },
+          {
+            "label": "CNC",
+            "value": 25608
+          },
+          {
+            "label": "PDW",
+            "value": 21512
+          },
+          {
+            "label": "FSD",
+            "value": 15803
+          },
+          {
+            "label": "PCN",
+            "value": 9453
+          },
+          {
+            "label": "PTR",
+            "value": 6506
+          },
+          {
+            "label": "FMS",
+            "value": 3533
+          },
+          {
+            "label": "APP",
+            "value": 5017
+          },
+          {
+            "label": "PGN",
+            "value": 4145
+          },
+          {
+            "label": "FPT",
+            "value": 689
+          },
+          {
+            "label": "FLD",
+            "value": 2809
+          },
+          {
+            "label": "DPO",
+            "value": 1351
+          },
+          {
+            "label": "ALM",
+            "value": 897
+          },
+          {
+            "label": "CJC",
+            "value": 279
+          },
+          {
+            "label": "PPF",
+            "value": 227
+          },
+          {
+            "label": "PED",
+            "value": 205
+          },
+          {
+            "label": "(none)",
+            "value": 24
+          },
+          {
+            "label": "CMS",
+            "value": 9
+          },
+          {
+            "label": "CXX",
+            "value": 1
+          }
         ]
       },
       "feed": {

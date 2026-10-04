@@ -1268,20 +1268,13 @@ input.mini-input {
   font-size: 0.6rem;
 }
 
-/* SFSC live panel: recent tentatives, upcoming hearings, numbers. It keeps the
-   shared 280px column so card edges line up down the page. */
+/* SFSC panel: tabbed mini tables in the shared 280px column. The copy column
+   sets the card height and the rows scroll inside it. */
 .sfsc-panel {
   display: flex;
   flex-direction: column;
-  /* The copy column alone sets the card height; the feed scrolls inside it. */
   contain: size;
 }
-
-.sfsc-tone-civil { --tone: color-mix(in oklab, #2563eb 72%, var(--ink)); }
-.sfsc-tone-discovery { --tone: color-mix(in oklab, #7c3aed 72%, var(--ink)); }
-.sfsc-tone-asbestos { --tone: color-mix(in oklab, #dc2626 72%, var(--ink)); }
-.sfsc-tone-property { --tone: color-mix(in oklab, #059669 68%, var(--ink)); }
-.sfsc-tone-probate { --tone: color-mix(in oklab, #d97706 64%, var(--ink)); }
 
 .sfsc-live {
   flex: 1;
@@ -1290,93 +1283,7 @@ input.mini-input {
   flex-direction: column;
 }
 
-.sfsc-strip {
-  gap: 0.45rem;
-}
-
-.sfsc-live-dot {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.sfsc-live-dot::before {
-  content: "";
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 50%;
-  background: var(--chrome-accent);
-  animation: sfsc-pulse 2.4s ease-out infinite;
-}
-
-.sfsc-strip-age {
-  margin-left: auto;
-  white-space: nowrap;
-}
-
-@keyframes sfsc-pulse {
-  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--chrome-accent) 65%, transparent); }
-  70%, 100% { box-shadow: 0 0 0 0.4rem transparent; }
-}
-
-.sfsc-search {
-  align-items: stretch;
-}
-
-.sfsc-modes {
-  display: flex;
-  flex: 1 1 100%;
-}
-
-.sfsc-modes .mini-button {
-  flex: 1;
-}
-
-.sfsc-modes .mini-button + .mini-button {
-  margin-left: -1px;
-}
-
-.sfsc-search .mini-input {
-  min-width: 0;
-}
-
-.sfsc-go {
-  flex: 0 0 auto;
-  background: var(--chrome);
-  border-color: var(--chrome-rule);
-  color: var(--chrome-accent);
-  font-weight: 700;
-}
-
-.sfsc-jump {
-  display: flex;
-  gap: 0.1rem;
-  padding: 0.22rem 0.4rem;
-  overflow-x: auto;
-  border-bottom: 1px solid var(--rule);
-  background: var(--paper-2);
-  scrollbar-width: none;
-}
-
-.sfsc-jump a {
-  padding: 0.14rem 0.36rem;
-  border-radius: 999px;
-  color: var(--ink-2);
-  font: 600 0.56rem/1.2 var(--font-mono);
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.sfsc-jump a:hover,
-.sfsc-jump a:focus-visible {
-  background: var(--paper);
-  color: var(--link);
-}
-
 .sfsc-feed {
-  position: relative;
   flex: 1;
   min-height: 0;
   overflow-y: auto;
@@ -1384,413 +1291,27 @@ input.mini-input {
   scrollbar-width: thin;
 }
 
-.sfsc-block {
-  padding: 0.5rem 0.5rem 0.62rem;
+.mini-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.3rem 0.45rem;
   border-bottom: 1px solid var(--rule-2);
-  scroll-margin-top: 0.25rem;
-  outline: none;
-}
-
-.sfsc-block:last-child {
-  border-bottom: 0;
-}
-
-.sfsc-block:focus-visible {
-  box-shadow: inset 0 0 0 2px var(--link);
-}
-
-.sfsc-block.is-flashing {
-  animation: sfsc-flash 1.8s ease-out;
-}
-
-@keyframes sfsc-flash {
-  0%, 35% { background: color-mix(in srgb, var(--chrome-accent) 24%, var(--paper)); }
-  100% { background: transparent; }
-}
-
-.sfsc-block-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-bottom: 0.42rem;
-}
-
-.sfsc-block-head h3 {
-  margin: 0;
-  color: var(--ink);
-  font: 700 0.88rem/1.15 var(--font-serif);
-}
-
-.sfsc-block-head a {
-  color: var(--link);
-  font: 700 0.56rem/1.3 var(--font-mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.sfsc-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.28rem;
-  padding: 0.1rem 0.38rem;
-  border: 1px solid color-mix(in srgb, var(--tone) 38%, var(--paper));
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--tone) 12%, var(--paper));
-  color: color-mix(in oklab, var(--tone) 80%, var(--ink));
-  font: 600 0.56rem/1.25 var(--font-mono);
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  text-transform: none;
-  white-space: nowrap;
-}
-
-.sfsc-chip b {
-  font-weight: 800;
-}
-
-a.sfsc-chip:hover,
-a.sfsc-chip:focus-visible {
-  background: color-mix(in srgb, var(--tone) 22%, var(--paper));
-  text-decoration: none;
-}
-
-.sfsc-chip-count {
-  padding-left: 0.28rem;
-  border-left: 1px solid color-mix(in srgb, var(--tone) 38%, var(--paper));
-  color: var(--ink);
-  font-variant-numeric: tabular-nums;
-}
-
-.sfsc-outcome {
-  --tone: var(--ink-3);
-  display: inline-flex;
-  align-items: center;
-  padding: 0.12rem 0.38rem;
-  border-radius: 2px;
-  background: var(--tone);
-  color: var(--paper);
-  font: 800 0.54rem/1.2 var(--font-mono);
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.sfsc-outcome[data-outcome="granted"] { --tone: var(--ok); }
-.sfsc-outcome[data-outcome="denied"],
-.sfsc-outcome[data-outcome="sustained-no-leave"] { --tone: var(--warn); }
-.sfsc-outcome[data-outcome="partial"],
-.sfsc-outcome[data-outcome="sustained"],
-.sfsc-outcome[data-outcome="sustained-leave"] { --tone: var(--warn-ink); }
-.sfsc-outcome[data-outcome="overruled"] { --tone: var(--link); }
-.sfsc-outcome[data-outcome="hearing"] { --tone: var(--accent); }
-
-.sfsc-cards {
-  display: grid;
-  gap: 0.42rem;
-}
-
-.sfsc-card {
-  position: relative;
-  display: grid;
-  gap: 0.24rem;
-  padding: 0.45rem 0.5rem 0.45rem 0.66rem;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  background: var(--plain);
-}
-
-.sfsc-card::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  bottom: -1px;
-  left: -1px;
-  width: 4px;
-  border-radius: 3px 0 0 3px;
-  background: var(--tone);
-}
-
-.sfsc-card-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.28rem;
-  color: var(--ink-3);
-  font: 700 0.56rem/1.2 var(--font-mono);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.sfsc-card-meta .sfsc-outcome {
-  margin-left: auto;
-}
-
-.sfsc-card-title {
-  display: -webkit-box;
-  overflow: hidden;
-  color: var(--ink);
-  font: 700 0.8rem/1.25 var(--font-serif);
-  text-decoration: none;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.sfsc-card-title:hover,
-.sfsc-card-title:focus-visible {
-  color: var(--link);
-  text-decoration: underline;
-}
-
-.sfsc-card-matter {
-  overflow: hidden;
-  color: color-mix(in oklab, var(--tone) 55%, var(--ink));
-  font: 700 0.6rem/1.3 var(--font-mono);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.sfsc-card-text {
-  display: -webkit-box;
-  margin: 0;
-  overflow: hidden;
+  background: var(--paper-2);
   color: var(--ink-2);
-  font-size: 0.7rem;
-  line-height: 1.4;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.sfsc-card-foot {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem 0.6rem;
-  color: var(--ink-3);
-  font: 0.56rem/1.3 var(--font-mono);
-}
-
-.sfsc-card-foot a {
-  color: var(--link);
+  font-family: var(--font-mono);
+  font-size: 0.61rem;
   font-weight: 700;
-}
-
-.sfsc-day {
-  display: grid;
-  gap: 0.4rem;
-  padding: 0.48rem 0.52rem;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--chrome-accent) 16%, var(--plain)), var(--plain) 62%);
-}
-
-.sfsc-day + .sfsc-day {
-  margin-top: 0.42rem;
-}
-
-.sfsc-day-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.sfsc-day-date b {
-  display: block;
-  color: var(--ink);
-  font: 700 0.9rem/1.1 var(--font-serif);
-}
-
-.sfsc-day-date span {
-  color: var(--accent);
-  font: 800 0.54rem/1.4 var(--font-mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.sfsc-day-total {
-  flex: 0 0 auto;
+.mini-section span + span {
   color: var(--ink-3);
-  font: 600 0.54rem/1.2 var(--font-mono);
-  letter-spacing: 0.05em;
-  text-align: right;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.sfsc-day-total b {
-  display: block;
-  color: var(--ink);
-  font: 800 1.2rem/1 var(--font-mono);
-  font-variant-numeric: tabular-nums;
-}
-
-.sfsc-day-total:hover b {
-  color: var(--link);
-}
-
-.sfsc-day-depts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-}
-
-.sfsc-day-matters {
-  display: grid;
-  gap: 0.32rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.sfsc-day-matters li {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 0.08rem 0.4rem;
-  padding-left: 0.42rem;
-  border-left: 3px solid var(--tone);
-}
-
-.sfsc-time {
-  color: var(--ink-3);
-  font: 700 0.56rem/1.3 var(--font-mono);
-  white-space: nowrap;
-}
-
-.sfsc-day-matters a {
-  overflow: hidden;
-  color: var(--ink);
-  font-size: 0.68rem;
-  font-weight: 600;
-  line-height: 1.3;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.sfsc-day-matters a:hover,
-.sfsc-day-matters a:focus-visible {
-  color: var(--link);
-  text-decoration: underline;
-}
-
-.sfsc-day-matters small {
-  grid-column: 2 / -1;
-  overflow: hidden;
-  color: var(--ink-3);
-  font: 0.58rem/1.3 var(--font-mono);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.sfsc-tiles {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.3rem;
-}
-
-.sfsc-tile {
-  padding: 0.4rem 0.46rem;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  background: var(--plain);
-}
-
-.sfsc-tile:first-child {
-  grid-column: 1 / -1;
-  border-color: var(--chrome-rule);
-  background: var(--chrome);
-}
-
-.sfsc-tile b {
-  display: block;
-  color: var(--ink);
-  font: 800 0.96rem/1.05 var(--font-mono);
-  font-variant-numeric: tabular-nums;
-}
-
-.sfsc-tile span {
-  display: block;
-  margin-top: 0.16rem;
-  color: var(--ink-3);
-  font: 600 0.54rem/1.25 var(--font-mono);
+  font-weight: 400;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.sfsc-tile:first-child b {
-  color: var(--chrome-accent);
-}
-
-.sfsc-tile:first-child span {
-  color: var(--chrome-ink);
-}
-
-.sfsc-subhead {
-  margin: 0.6rem 0 0.32rem;
-  color: var(--ink-3);
-  font: 700 0.56rem/1.2 var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.sfsc-bars {
-  display: grid;
-  gap: 0.34rem;
-}
-
-.sfsc-bar {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.14rem 0.5rem;
-  color: inherit;
-  text-decoration: none;
-}
-
-.sfsc-bar-label {
-  overflow: hidden;
-  color: var(--ink-2);
-  font: 0.62rem/1.25 var(--font-mono);
-  text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.sfsc-bar-label b {
-  margin-right: 0.36rem;
-  color: var(--tone);
-}
-
-.sfsc-bar-value {
-  color: var(--ink);
-  font: 700 0.62rem/1.25 var(--font-mono);
-  font-variant-numeric: tabular-nums;
-}
-
-.sfsc-bar-track {
-  grid-column: 1 / -1;
-  height: 6px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: var(--paper-3);
-}
-
-.sfsc-bar-track > span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--tone);
-}
-
-.sfsc-bar:hover .sfsc-bar-label,
-.sfsc-bar:focus-visible .sfsc-bar-label {
-  color: var(--link);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sfsc-live-dot::before,
-  .sfsc-block.is-flashing {
-    animation: none;
-  }
 }
 
 .mini-pdf {
@@ -2004,70 +1525,20 @@ a.sfsc-chip:focus-visible {
     overflow: visible;
   }
 
-  /* Sections follow each other on a phone; the jump links add nothing. */
-  .sfsc-jump {
-    display: none;
+  /* Touch-sized controls in every card panel; 16px input text keeps iOS
+     from zooming on focus. */
+  .mini-button,
+  .mini-input {
+    min-height: 2.1rem;
   }
 
-  /* Touch-sized controls, and 16px text so iOS does not zoom on focus. */
-  .sfsc-search .mini-button,
-  .sfsc-search .mini-input {
-    min-height: 2.25rem;
-    font-size: 0.72rem;
-  }
-
-  .sfsc-search .mini-input {
+  .mini-input {
+    min-width: 60%;
     font-size: 16px;
   }
 
-  /* Recent rulings become a swipeable row instead of a tall stack. */
-  .sfsc-cards {
-    display: flex;
-    gap: 0.5rem;
-    margin-inline: -0.5rem;
-    padding: 0 0.5rem 0.4rem;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-padding-inline: 0.5rem;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .sfsc-cards::-webkit-scrollbar {
-    display: none;
-  }
-
-  .sfsc-card {
-    flex: 0 0 min(84%, 340px);
-    scroll-snap-align: start;
-  }
-
-  .sfsc-cards > .mini-empty {
-    flex: 1;
-  }
-
-  .sfsc-card-text {
-    -webkit-line-clamp: 4;
-  }
-
-  .sfsc-chip {
-    padding: 0.22rem 0.5rem;
-    font-size: 0.62rem;
-  }
-
-  .sfsc-day-matters a {
-    font-size: 0.74rem;
-  }
-
-  .sfsc-tiles {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .sfsc-tile:first-child {
-    grid-column: auto;
-  }
-
-  .sfsc-bar {
-    padding-block: 0.12rem;
+  .mini-row,
+  .mini-result {
+    padding-block: 0.45rem;
   }
 }
