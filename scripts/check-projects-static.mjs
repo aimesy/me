@@ -300,6 +300,42 @@ assert.equal(
   "the scheduled build must use current canonical SFSC case count even when the cached total includes restricted rows",
 );
 
+const liveHelperSource = ["numberText", "parseBytes", "parseLiveTable", "liveCount", "liveBytes"].map((name) => {
+  const start = builderSource.indexOf(`function ${name}(`);
+  assert.notEqual(start, -1, `${name} must exist`);
+  return builderSource.slice(start, builderSource.indexOf("\n}\n", start) + 3);
+}).join("\n");
+const sfscLiveTable = (rulings) => `| Metric | Count |\n|---|---:|\n| Tentative rulings | ${rulings} |\n`;
+const liveContext = {
+  config: { sfsc: sfscConfig, sfscData: sfscDataConfig },
+  dataLive: sfscLiveTable("384,308"),
+  readRepoFile(repo, path) {
+    if (path !== "LIVE.md") return "";
+    return repo === sfscDataConfig ? liveContext.dataLive : sfscLiveTable("382,361");
+  },
+  parseSfsc: () => ({ departments: [], tentativeRulings: 0 }),
+  parseJson: (value) => value ? JSON.parse(value) : null,
+  repoHead: () => "test-ref",
+  repoUpdatedAt: () => "2026-10-04T00:00:00Z",
+  repoFileSize: () => 0,
+};
+vm.createContext(liveContext);
+vm.runInContext(`${liveHelperSource}\n${buildSfscSource}
+this.fromData = buildSfsc();
+this.dataLive = "";
+this.fromFallback = buildSfsc();`, liveContext);
+assert.equal(liveContext.fromData.metrics.tentativeRulings, 384308,
+  "sfsc-data's LIVE.md, rewritten by each daily publication, must supply SFSC tentative rulings first");
+assert.equal(liveContext.fromFallback.metrics.tentativeRulings, 382361,
+  "aimesy/sfsc's committed LIVE.md must remain the fallback");
+const sfscDataCheckoutStart = refreshWorkflowSource.indexOf("      - name: Check out SFSC data");
+const sfscDataCheckoutSource = refreshWorkflowSource.slice(
+  sfscDataCheckoutStart,
+  refreshWorkflowSource.indexOf("\n      - name:", sfscDataCheckoutStart + 1),
+);
+assert.match(sfscDataCheckoutSource, /sparse-checkout:\s*\|[\s\S]*^\s+LIVE\.md$/m,
+  "the refresh must check out sfsc-data's LIVE.md");
+
 const parseCountStart = projectsSource.indexOf("function parseCount(");
 const liveMetricsEnd = projectsSource.indexOf("\nfunction renderLiveMetricValues(", parseCountStart);
 assert.notEqual(parseCountStart, -1, "parseCount must exist");

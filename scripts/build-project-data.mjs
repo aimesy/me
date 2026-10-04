@@ -411,7 +411,13 @@ function parseTentatives(readme) {
 
 function buildSfsc(previousData = null) {
   const readme = readRepoFile(config.sfsc, "README.md");
-  const liveTable = parseLiveTable(readRepoFile(config.sfsc, "LIVE.md"));
+  // sfsc-data's LIVE.md is rewritten by each daily tentative publication.
+  // aimesy/sfsc's committed LIVE.md, then its README, are fallbacks.
+  const liveTables = [
+    parseLiveTable(readRepoFile(config.sfscData, "LIVE.md")),
+    parseLiveTable(readRepoFile(config.sfsc, "LIVE.md")),
+  ];
+  const live = (...labels) => liveTables.reduce((found, table) => found || liveCount(table, ...labels), 0);
   const parsed = parseSfsc(readme);
   const caseTableStats = parseJson(readRepoFile(config.sfscData, "data/case-table-stats.json"));
   const caseDirectoryManifest = parseJson(readRepoFile(config.sfscData, "archive/case-directory/manifest.json"));
@@ -421,21 +427,21 @@ function buildSfsc(previousData = null) {
     Number(sourceCounts.case_table_rows || 0),
     Number(sourceCounts.case_index_rows || 0),
   );
-  const liveDocumentBytes = liveBytes(liveTable, "archive size");
+  const liveDocumentBytes = liveTables.reduce((found, table) => found || liveBytes(table, "archive size"), 0);
   return {
     repo: "aimesy/sfsc",
     ref: repoHead(config.sfsc),
     updatedAt: repoUpdatedAt(config.sfsc),
     metrics: {
-      tentativeRulings: liveCount(liveTable, "tentative rulings") || parsed.tentativeRulings,
+      tentativeRulings: live("tentative rulings") || parsed.tentativeRulings,
       cases: Number(caseDirectoryManifest?.case_count || 0)
-        || liveCount(liveTable, "case records", "dockets")
+        || live("case records", "dockets")
         || sourceRows
         || Number(previousData?.projects?.sfsc?.metrics?.cases || 0),
-      documents: liveCount(liveTable, "documents indexed", "case documents")
+      documents: live("documents indexed", "case documents")
         || Number(caseTableStats?.case_documents || 0),
-      documentsArchived: liveCount(liveTable, "documents archived"),
-      docketEntries: liveCount(liveTable, "docket entries") || Number(caseTableStats?.docket_entries || 0),
+      documentsArchived: live("documents archived"),
+      docketEntries: live("docket entries") || Number(caseTableStats?.docket_entries || 0),
       documentBytes: liveDocumentBytes || repoFileSize(config.sfsc, "data/documents.parquet"),
     },
     charts: {

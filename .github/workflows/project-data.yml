@@ -57,6 +57,7 @@ jobs:
           path: sfsc-data
           token: ${{ secrets.GH_TOKEN }}
           sparse-checkout: |
+            LIVE.md
             archive/case-directory/manifest.json
             data/case-table-stats.json
           sparse-checkout-cone-mode: false
