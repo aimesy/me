@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T05:47:54.000Z",
+  "generatedAt": "2026-10-04T18:22:48.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 432111
+            "value": 432115
           },
           {
             "label": "CRI",
@@ -77,7 +77,7 @@
           },
           {
             "label": "CPF",
-            "value": 28817
+            "value": 28818
           },
           {
             "label": "CNC",
@@ -874,14 +874,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives",
-      "ref": "868e9f7ddd494779effa53b96e2bc48351cb9083",
-      "updatedAt": "2026-10-04T05:42:49Z",
+      "ref": "5ade23141d2256321813a28fbe88196063d5b1ac",
+      "updatedAt": "2026-10-04T18:22:48Z",
       "metrics": {
-        "tentativeRulings": 60967,
+        "tentativeRulings": 60982,
         "parsedCounties": 34,
-        "documents": 14663,
-        "archivedFiles": 93404,
-        "documentBytes": 17249075200
+        "documents": 14667,
+        "archivedFiles": 93423,
+        "documentBytes": 17251172352
       },
       "charts": {
         "rulingsByCounty": [
@@ -1076,7 +1076,7 @@
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
-        "documentBytes": 1370521750,
+        "documentBytes": 1406640630,
         "snapshots": 426872
       },
       "charts": {}
