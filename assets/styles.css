@@ -1307,6 +1307,17 @@ input.mini-input {
   text-transform: uppercase;
 }
 
+.mini-result-row {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mini-result-row:hover,
+.mini-result-row:focus-visible {
+  background: var(--row-hover);
+  text-decoration: none;
+}
+
 .mini-section span + span {
   color: var(--ink-3);
   font-weight: 400;
@@ -1494,35 +1505,13 @@ input.mini-input {
 }
 
 @media (max-width: 820px) {
-  /* Single column: lead with the live panel, then the explanation. */
-  .project.has-live-panel {
-    grid-template-columns: 1fr;
-    row-gap: 0.55rem;
-    padding-block: 0.65rem;
+  /* Single column: the SFSC panel would drown out the card, so it is not shown. */
+  .project.has-live-panel .sfsc-panel {
+    display: none;
   }
 
   .project.has-live-panel .project-copy {
-    display: contents;
-  }
-
-  .project.has-live-panel .project-copy > * {
-    margin-inline: 0.65rem;
-  }
-
-  .project.has-live-panel .project-head { order: 1; }
-  .project.has-live-panel .metrics { order: 2; }
-  .project.has-live-panel .project-note { order: 4; }
-  .project.has-live-panel .tracker { order: 5; }
-  .project.has-live-panel .links { order: 6; }
-
-  .project.has-live-panel .sfsc-panel {
-    order: 3;
-    contain: none;
-    border-block: 1px solid var(--rule);
-  }
-
-  .sfsc-feed {
-    overflow: visible;
+    border-bottom: 0;
   }
 
   /* Touch-sized controls in every card panel; 16px input text keeps iOS

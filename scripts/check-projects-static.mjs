@@ -111,6 +111,7 @@ assert.deepEqual(
   "the Tentatives view leads with recent tentatives, then upcoming hearings and department totals",
 );
 assert.match(docketsView, /data-sfsc-prefixes/);
+assert.doesNotMatch(docketsView, /data-sfsc-docket-stats/, "the Dockets view lists case records by prefix only");
 assert.doesNotMatch(docketsView, /data-sfsc-recent|data-sfsc-upcoming|data-sfsc-departments/, "tentative rows stay out of the Dockets view");
 assert.ok(
   sfscSection.indexOf('data-sfsc-mode="rulings"') < sfscSection.indexOf('data-sfsc-mode="dockets"'),
@@ -119,7 +120,8 @@ assert.ok(
 assert.match(projectsSource, /let sfscSearchMode = "rulings";/);
 assert.match(projectsSource, /view\.hidden = view\.dataset\.sfscView !== sfscSearchMode;/);
 // The panel uses the shared mini table and result rows, not its own visual language.
-assert.match(projectsSource, /<div class="mini-result">/);
+assert.match(projectsSource, /<a class="mini-result mini-result-row" href=/, "a recent ruling row links to the ruling as a whole");
+assert.doesNotMatch(projectsSource, />View<\/a>/, "the outcome, not a View button, fills a ruling row's action slot");
 assert.match(projectsSource, /class="mini-row mini-row-link"/);
 assert.doesNotMatch(stylesSource, /\.sfsc-(?:chip|card|tone|outcome|tile|bar|jump)/, "the SFSC panel keeps the site's shared panel formatting");
 assert.doesNotMatch(sfscSection, /rankings" tabindex|data-sfsc-judgments/, "rankings stay on the Stats page, not in the SFSC panel");
@@ -132,7 +134,11 @@ assert.match(stylesSource, /\.sfsc-panel \{[^}]*contain: size;/, "the SFSC panel
 for (const match of stylesSource.matchAll(/\.project\.has-live-panel \{[^}]*grid-template-columns:\s*([^;]+);/g)) {
   assert.equal(match[1].trim(), "1fr", "the SFSC panel keeps the shared project column width so card edges align");
 }
-assert.match(stylesSource, /\.project\.has-live-panel \.project-copy \{\s*display: contents;/, "single-column SFSC cards must lead with the live panel");
+assert.match(
+  stylesSource,
+  /@media \(max-width: 820px\) \{\s*\/\*[^*]*\*\/\s*\.project\.has-live-panel \.sfsc-panel \{\s*display: none;/,
+  "the SFSC panel is not shown on single-column screens",
+);
 for (const rulingSource of ["raw/dept", "tentatives.parquet", "tentative_dispositions"]) {
   assert.equal(projectsSource.includes(rulingSource), false, `projects.js must read rulings from project-data.json, not ${rulingSource}`);
 }

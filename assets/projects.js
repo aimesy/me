@@ -427,19 +427,16 @@ function renderSfscRecent(rows, today) {
     return;
   }
 
+  // The whole row opens the ruling; the outcome takes the action slot.
   container.innerHTML = recent.map((row) => `
-    <div class="mini-result">
+    <a class="mini-result mini-result-row" href="${escapeAttribute(sfscRulingUrl(row))}">
       <div class="mini-result-main">
         <div class="mini-result-title">${escapeHtml(displayTitle(row.caseTitle) || formatCaseNumber(row.caseNumber))}</div>
-        <div class="mini-result-meta">${escapeHtml([
-          formatCourtDate(row.date, { month: "short", day: "numeric" }),
-          `Dept ${row.department}`,
-          row.outcome?.label,
-        ].filter(Boolean).join(" / "))}</div>
+        <div class="mini-result-meta">${escapeHtml(`${formatCourtDate(row.date, { month: "short", day: "numeric" })} / Dept ${row.department}`)}</div>
         <div class="mini-result-detail">${escapeHtml(displayMatter(row.matter))}</div>
       </div>
-      <a class="mini-result-link" href="${escapeAttribute(sfscRulingUrl(row))}">View</a>
-    </div>
+      ${row.outcome?.label ? `<span class="mini-result-link" title="Read from the tentative ruling text">${escapeHtml(row.outcome.label)}</span>` : ""}
+    </a>
   `).join("");
 }
 
@@ -482,12 +479,6 @@ function renderSfscDepartments(rows) {
 }
 
 function renderSfscDockets(project) {
-  const metrics = project.metrics || {};
-  renderSfscRows('[data-sfsc-docket-stats]', [
-    metrics.docketEntries && { label: "Docket entries", value: formatNumber(metrics.docketEntries) },
-    metrics.documentsArchived && { label: "Documents archived", value: formatNumber(metrics.documentsArchived) },
-  ].filter(Boolean), "Docket totals are unavailable right now.");
-
   const prefixes = (project.charts?.casesByPrefix || [])
     .filter((row) => /^[A-Z]{3}$/.test(row.label) && positiveNumber(row.value))
     .sort((a, b) => b.value - a.value)
