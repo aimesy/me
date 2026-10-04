@@ -1270,24 +1270,13 @@ input.mini-input {
 
 /* SFSC live panel: recent tentatives, upcoming hearings, numbers, rankings. */
 .project.has-live-panel {
-  grid-template-columns: minmax(0, 1fr) clamp(320px, 32vw, 420px);
-}
-
-/* When the panel is taller than the copy, keep the live figures and links
-   level with the panel's foot instead of leaving a gap under them. */
-.project.has-live-panel .project-copy {
-  grid-template-rows: auto auto 1fr auto auto;
-}
-
-.project.has-live-panel .metrics {
-  align-self: end;
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 27vw, 360px);
 }
 
 .sfsc-panel {
   display: flex;
   flex-direction: column;
-  min-height: 500px;
-  /* The copy column sets the card height; the feed scrolls inside it. */
+  /* The copy column alone sets the card height; the feed scrolls inside it. */
   contain: size;
 }
 
@@ -2229,7 +2218,6 @@ a.sfsc-chip:focus-visible {
 
   .project.has-live-panel .sfsc-panel {
     order: 3;
-    min-height: 0;
     contain: none;
     border-block: 1px solid var(--rule);
   }
