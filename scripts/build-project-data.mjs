@@ -49,6 +49,14 @@ const config = {
     repo: process.env.KCSC_REPO || path.resolve(repoRoot, "..", "..", "projects", "kcsc-data"),
     ref: process.env.KCSC_REF || "",
   },
+  mfa: {
+    repo: process.env.MFA_DATA_REPO || path.resolve(repoRoot, "..", "..", "projects", "mfa-data"),
+    ref: process.env.MFA_DATA_REF || "",
+  },
+  cfhe: {
+    repo: process.env.CFHE_DATA_REPO || path.resolve(repoRoot, "..", "..", "projects", "cfhe-data"),
+    ref: process.env.CFHE_DATA_REF || "",
+  },
 };
 
 function runGit(repo, args) {
@@ -772,6 +780,68 @@ function buildPublicDataProject(previous, key, repoName, repoConfig, releaseStat
   }, releaseStats);
 }
 
+// Release counts from aimesy/mfa-data's manifest.json, which its release
+// pipeline writes with every release.
+function buildMfa(previous) {
+  const manifest = parseJson(readRepoFile(config.mfa, "manifest.json"));
+  if (!manifest) {
+    return previous?.projects?.mfa || {
+      repo: "aimesy/mfa-data",
+      ref: null,
+      updatedAt: null,
+      metrics: {},
+      charts: {},
+    };
+  }
+
+  return {
+    repo: "aimesy/mfa-data",
+    ref: repoHead(config.mfa),
+    updatedAt: repoUpdatedAt(config.mfa),
+    metrics: {
+      jurisdictions: Number(manifest.receiving_entities || 0),
+      reports: Number(manifest.source_reports || 0),
+      feePrograms: Number(manifest.fee_programs || 0),
+      figures: Number(manifest.distinct_printed_figures || 0),
+    },
+    charts: {},
+  };
+}
+
+// Permit counts from aimesy/cfhe-data's audit summary. projects.js reads the
+// same file live from raw.githubusercontent.com (cfheMetrics in both places).
+function cfheMetrics(metadata) {
+  const units = Number(metadata.selected_units || 0);
+  const duplicateUnits = Number(metadata.removed_units || 0);
+  return {
+    jurisdictions: Number(metadata.jurisdiction_count || 0),
+    units: Math.max(units - duplicateUnits, 0),
+    duplicateUnits,
+    throughYear: Number(metadata.cutoff_year || 0),
+  };
+}
+
+function buildCfhe(previous) {
+  const audit = parseJson(readRepoFile(config.cfhe, "data/processed/audit_summary.json"));
+  if (!audit?.metadata) {
+    return previous?.projects?.cfhe || {
+      repo: "aimesy/cfhe-data",
+      ref: null,
+      updatedAt: null,
+      metrics: {},
+      charts: {},
+    };
+  }
+
+  return {
+    repo: "aimesy/cfhe-data",
+    ref: repoHead(config.cfhe),
+    updatedAt: repoUpdatedAt(config.cfhe),
+    metrics: cfheMetrics(audit.metadata),
+    charts: {},
+  };
+}
+
 const dataPath = path.join(repoRoot, "assets", "project-data.json");
 let previous = null;
 if (existsSync(dataPath)) {
@@ -797,6 +867,8 @@ const projects = {
   nysc: buildPublicDataProject(previous, "nysc", "aimesy/nysc-data", config.nysc, publicReleaseStats.nysc),
   ndcs: buildPublicDataProject(previous, "ndcs", "aimesy/ndcs-data", config.ndcs),
   civproidx: buildCivProIdx(previous),
+  mfa: buildMfa(previous),
+  cfhe: buildCfhe(previous),
 };
 const projectDates = Object.values(projects)
   .map((project) => project.updatedAt)

@@ -187,7 +187,20 @@ const liveReposSource = projectsSource.slice(liveReposStart, liveReposEnd + 3);
 assert.doesNotMatch(liveReposSource, /cividx/);
 assert.match(liveReposSource, /nysc:[\s\S]*manifestPaths: \["data\/common\/manifest\.json"\]/);
 assert.doesNotMatch(liveReposSource, /archive\/case-directory|shards\/documents|releaseAssetPrefix/);
-assert.match(projectsSource, /const PROJECT_KEYS = \["sfsc", "tentatives", "themes", "kcsc", "nysc", "ndcs", "civproidx"\];/);
+assert.match(projectsSource, /const PROJECT_KEYS = \["sfsc", "tentatives", "themes", "kcsc", "nysc", "mfa", "cfhe", "ndcs", "civproidx"\];/);
+// MFA and CFHE show live boxes: MFA from the hourly builder (mfa-data is private
+// and its Worker has no open path), CFHE also live from its public audit summary.
+assert.match(mfaSection, /data-metrics="mfa"/);
+assert.match(projectSection("cfhe-data"), /data-metrics="cfhe"/);
+assert.match(projectsSource, /const MFA_JURISDICTIONS_TOTAL = \d+;/, "the MFA jurisdictions box keeps one denominator constant");
+assert.match(liveReposSource, /cfhe: \{ repo: "aimesy\/cfhe-data", branch: "master", summaryPath: "data\/processed\/audit_summary\.json" \}/);
+assert.doesNotMatch(liveReposSource, /repo: "aimesy\/mfa-data"/, "projects.js must not fetch the private MFA release");
+assert.match(builderSource, /mfa: buildMfa\(previous\)/);
+assert.match(builderSource, /cfhe: buildCfhe\(previous\)/);
+assert.match(refreshWorkflowSource, /- name: Check out MFA data[\s\S]*repository: aimesy\/mfa-data[\s\S]*path: mfa-data/);
+assert.match(refreshWorkflowSource, /- name: Check out CFHE data[\s\S]*repository: aimesy\/cfhe-data[\s\S]*path: cfhe-data/);
+assert.match(refreshWorkflowSource, /MFA_DATA_REPO: \.\.\/mfa-data/);
+assert.match(refreshWorkflowSource, /CFHE_DATA_REPO: \.\.\/cfhe-data/);
 assert.match(builderSource, /themes: buildThemes\(previous\)/);
 assert.match(refreshWorkflowSource, /- name: Check out Themes[\s\S]*repository: aimesy\/themes[\s\S]*path: themes/);
 assert.match(refreshWorkflowSource, /THEMES_REPO: \.\.\/themes/);
