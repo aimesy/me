@@ -156,6 +156,14 @@ assert.match(
   "KCSC must show document index rows without changing unrelated file metrics",
 );
 assert.ok(indexSource.indexOf('id="kcsc"') < indexSource.indexOf('id="nysc"'), "KCSC must appear above NYSC");
+// Publicly accessible projects sit above the pending ones: MFA, then CFHE, then NDCS.
+assert.ok(indexSource.indexOf('id="nysc"') < indexSource.indexOf('id="mfa"'), "MFA must appear below NYSC");
+assert.ok(indexSource.indexOf('id="mfa"') < indexSource.indexOf('id="cfhe-data"'), "MFA must appear above CFHE");
+assert.ok(indexSource.indexOf('id="cfhe-data"') < indexSource.indexOf('id="ndcs"'), "CFHE must appear above NDCS");
+const mfaSection = projectSection("mfa");
+assert.match(mfaSection, /<a class="hbtn" href="https:\/\/mfa\.amyc\.us\/">Viewer<\/a>/);
+assert.match(mfaSection, /<div class="project-note">/, "the MFA card carries a project description");
+assert.match(projectSection("cfhe-data"), /<div class="project-note">/, "the CFHE card carries a project description");
 assert.match(projectsSource, /const TENTATIVES_PAGE_SIZE = 9;/);
 assert.match(projectsSource, /const visible = filtered\.slice\(0, tentativesVisibleCount\);/);
 assert.match(projectsSource, /tentativesVisibleCount \+= TENTATIVES_PAGE_SIZE;[\s\S]*renderTentativesSearch\(\);/);
@@ -166,7 +174,7 @@ for (const repositoryHref of [
   assert.match(indexSource, new RegExp(`href="${repositoryHref}">Repository<\\/a>`));
 }
 
-for (const repo of ["tentatives", "nysc", "nysc-data", "ndcs-data", "kcsc-data", "sfsc", "sfsc-data", "civproidx"]) {
+for (const repo of ["tentatives", "nysc", "nysc-data", "ndcs-data", "kcsc-data", "sfsc", "sfsc-data", "civproidx", "mfa-data"]) {
   assert.ok(!indexSource.includes(`https://github.com/aimesy/${repo}\"`), `${repo} must not expose a private Repository button`);
 }
 assert.match(projectsSource, /https:\/\/sfsc-data\.amyc\.us\/master\/archive\/case-directory\/manifest\.json/);
