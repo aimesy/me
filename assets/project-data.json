@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T19:46:31.000Z",
+  "generatedAt": "2026-10-07T00:18:05.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -155,8 +155,56 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-04T03:13:22.724Z",
+        "latestScrapedAt": "2026-10-07T00:03:04.581Z",
         "days": [
+          {
+            "date": "2026-10-07",
+            "total": 102,
+            "departments": [
+              {
+                "department": "204",
+                "count": 55
+              },
+              {
+                "department": "302",
+                "count": 17
+              },
+              {
+                "department": "501",
+                "count": 17
+              },
+              {
+                "department": "301",
+                "count": 13
+              }
+            ]
+          },
+          {
+            "date": "2026-10-06",
+            "total": 111,
+            "departments": [
+              {
+                "department": "204",
+                "count": 52
+              },
+              {
+                "department": "301",
+                "count": 20
+              },
+              {
+                "department": "302",
+                "count": 14
+              },
+              {
+                "department": "501",
+                "count": 13
+              },
+              {
+                "department": "304",
+                "count": 12
+              }
+            ]
+          },
           {
             "date": "2026-10-05",
             "total": 81,
@@ -218,57 +266,249 @@
                 "count": 15
               }
             ]
-          },
-          {
-            "date": "2026-09-30",
-            "total": 72,
-            "departments": [
-              {
-                "department": "204",
-                "count": 28
-              },
-              {
-                "department": "501",
-                "count": 18
-              },
-              {
-                "department": "301",
-                "count": 13
-              },
-              {
-                "department": "302",
-                "count": 13
-              }
-            ]
-          },
-          {
-            "date": "2026-09-29",
-            "total": 85,
-            "departments": [
-              {
-                "department": "204",
-                "count": 30
-              },
-              {
-                "department": "501",
-                "count": 20
-              },
-              {
-                "department": "302",
-                "count": 17
-              },
-              {
-                "department": "301",
-                "count": 16
-              },
-              {
-                "department": "304",
-                "count": 2
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-07",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC10501770",
+            "caseTitle": "NEWPORT CAPITAL RECOVERY GROUP II LLC, A LIMITED VS. ANJELLE Y LOUIE et al",
+            "matter": "HEARING ON CLAIM OF EXEMPTION",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Judgment debtor/defendant Anjelle Y. Louie's claim of exemption from wage garnishment is granted in part. Defendant claims she needs all her earnings to support self and family. However, the financial statement submitted must be inaccurate, as the monthly…"
+          },
+          {
+            "date": "2026-10-07",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24617601",
+            "caseTitle": "KUN WANG VS. UBER TECHNOLOGY INC., A DELAWARE CORPORATION ET AL",
+            "matter": "MOTION TO QUASH SUBPOENAS",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Specially appearing defendant Leandro Cancado's motion to quash service of summons is denied. \"When a defendant challenges the court's personal jurisdiction on the ground of improper service of process, the burden is on the plaintiff to prove the existence of…"
+          },
+          {
+            "date": "2026-10-07",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC24619945",
+            "caseTitle": "STEPHAN HOWSEPIAN ET AL VS. SALMAN SHARIAT ET AL",
+            "matter": "Notice Of Defendant Salman Shariats Special Motion To Strike Protected Portions Of Plaintiffs First Amended Complaint (Slapp)",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Line 2 DEFENDANT SALMAN SHARIAT Notice Of Defendant Salman Shariats Special Motion To Strike Protected Portions Of Plaintiffs First Amended Complaint (Slapp) is GRANTED on the terms proposed by the Plaintiff. Parties to prepare a stipulation and order and…"
+          },
+          {
+            "date": "2026-10-07",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25622892",
+            "caseTitle": "VICTORIA GOLUNOVA ET AL VS. ONGARO PC, A CALIFORNIA PROFESSIONAL CORPORATION ET AL",
+            "matter": "Motion To Continue Stay Of The Proceeding Through February 28, 2027 Due To Medical Inability To Participate",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiffs Victoria Golunova, Mariya Rychkova, Andrey Rychkov, and Igor Lyustin's (collectively, \"Plaintiffs\") unopposed motion to continue the stay of this proceeding through February 28, 2027 is granted, subject to the conditions requested by defendants…"
+          },
+          {
+            "date": "2026-10-07",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25623921",
+            "caseTitle": "CAPITAL ONE, N.A. VS. ANA M RIVERA",
+            "matter": "Motion To Vacate Dismissal And Enter Judgment Under Terms Of Stipulated Settlement",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion for entry of judgment pursuant to Code of Civil Procedure, section 664.6, is granted for good cause shown in the moving papers. Plaintiff shall submit a proposed judgment in the amount of $2010.05 in principal and $358.61 in costs."
+          },
+          {
+            "date": "2026-10-07",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25623983",
+            "caseTitle": "KURT GRIMES VS. RUSHMORE LOAN MANAGEMENT SERVICES, LLC ET AL",
+            "matter": "DEMURRER to Amended COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "sustained-leave",
+              "label": "Sustained with leave"
+            },
+            "text": "BANK TRUST NATIONAL ASSOCIATION, NOT IN ITS DEMURRER to 3RD Amended COMPLAINT is SUSTAINED with leave to amend to address all issues raised by the demurrer in good faith. Plaintiff shall have 30 days from notice of entry of order to file and sever an amended…"
+          },
+          {
+            "date": "2026-10-07",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25627680",
+            "caseTitle": "ROSA E. MENJIVAR NUNES VS. FCA US LLC, A DELAWARE LIMITED LIABILITY COMPANY ET AL",
+            "matter": "Motion For An Order Deeming The Truth Of Matters Admitted In Plaintiffs Requests For Admissions (Set One) (Motions)",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Rosa Menjivar Nunes's unopposed motion for an order that defendant FCA US, LLC be deemed to have admitted the truth of the matters set forth in plaintiff's request for admissions, set one, is granted. (Code Civ. Proc. sec. 2033.280, subds. (a).) The…"
+          },
+          {
+            "date": "2026-10-07",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25630065",
+            "caseTitle": "CASSANDRA FARR ET AL VS. KHAN ROADSIDE ASSISTANCE, LLC ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Plaintiffs Responses To Request For Production Of Documents, Set One And For Sanctions",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant Agero Administrative Service Corp.'s motion to compel responses from plaintiff Cassandra Farr to its requests for production of documents, to compel responses from plaintiff Myair Logan to its requests for production, and for sanctions, is granted…"
+          },
+          {
+            "date": "2026-10-06",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25622880",
+            "caseTitle": "CHARLES OWEN VS. WALGREEN CO. ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Attendance At Deposition Of Plaintiff, Charles Owen; Memorandum Of Points And Authorities; Declaration Of Michael Kruppe, Esq.; Request For Monetary Sanctions Of $3,019.50; [Proposed] Order",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT WALGREEN CO'S Motion to Compel Attendance At Deposition Of Plaintiff, Charles Owen. Defendant Walgreen Co.'s (\"Walgreen\") motion to compel plaintiff Charles Owen's deposition is granted. Owens must submit to a deposition on a mutually agreeable date…"
+          },
+          {
+            "date": "2026-10-06",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC25277274",
+            "caseTitle": "DOUGLAS UNDERWOOD ET AL VS. GENERAL ELECTRIC COMPANY ET AL",
+            "matter": "Notice Of Motion And Motion For Order Advancing The Current Trial Date With Preference; And Extending Discovery Cutoff",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion for Order Advancing the Current Trial Date with Preference, and Extending Discovery Cutoff is GRANTED under C.C.P. sec 36(a). No opposition filed. 1. The trial date is advanced to January 25, 2027, at 11:15 a.m. in Department 206. a. Last…"
+          },
+          {
+            "date": "2026-10-06",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23610561",
+            "caseTitle": "JASON DEWITT VS. JACINTO JOSE VALDOVINO ET AL **Provide Access**",
+            "matter": "Motion For Order Deeming Requests For Admission Admitted",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Jacinto Valdovino's motion for a deemed-admitted order is denied but alternative relief is granted. Valdovino does not show proper service on Jason Dewitt, who lacked an attorney at the time the discovery was served. However, Dewitt now has the RFAs. It would…"
+          },
+          {
+            "date": "2026-10-06",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC23605112",
+            "caseTitle": "TROY REESE ET AL VS. MARTHA ALVAREZ ET AL",
+            "matter": "MOTION FOR LEAVE TO File Revised Cross Complaint",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Line 1 DEFENDANT MARTHA ALVAREZ MOTION FOR LEAVE TO File Revised Cross Complaint is GRANTED. Defendant shall file and serve Cross-Complaint forthwith. The Court makes no determination as to the sufficiency of the pleadings, and Plaintiff may address them by…"
+          },
+          {
+            "date": "2026-10-06",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25625444",
+            "caseTitle": "YOANN THERER VS. CRENN DINING GROUP, LLC ET AL",
+            "matter": "MOTION TO QUASH SUBPOENAS",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff Yoann Therer's motion to quash the August 5, 2026 subpoena seeking documents from third party Quince, Inc. is granted in part and denied in part. Since the motion to quash is granted in part and denied in part, Plaintiff Therer's request for…"
+          },
+          {
+            "date": "2026-10-06",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC25277315",
+            "caseTitle": "JIMMY NEUKIRCHNER VS. GENERAL ELECTRIC COMPANY ET AL",
+            "matter": "Notice Of Motion And Motion For Order Advancing The Current Trial Date With Preference; And Extending Discovery Cutoff",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion for Order Advancing the Current Trial Date with Preference, and Extending Discovery Cutoff is GRANTED under C.C.P. sec 36(a). No opposition filed. 1. The trial date is advanced to January 25, 2027, at 11:15 a.m. in Department 206. a. Last…"
+          },
+          {
+            "date": "2026-10-06",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23610719",
+            "caseTitle": "TIMOTHY J. SLOAN VS. WELLS FARGO & COMPANY ET AL",
+            "matter": "Notice Of Motion To Seal Documents Related To Plaintiffs Opposition To Wells Fargos Motion For Summary Judgment, Or In The Alternative, Summary Adjudication",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT WELLS FARGO & COMPANY's Motion To Seal Documents Related To Plaintiffs Opposition To Wells Fargos Motion For Summary Judgment, Or In The Alternative, Summary Adjudication. Granted as stated in the court's companion order on Wells Fargo's motion to…"
+          },
+          {
+            "date": "2026-10-06",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26636535",
+            "caseTitle": "SHANDA LOVE VS. SHAWNY KOBAY WILLIAMS ET AL",
+            "matter": "Notice Of Motion And Motion For Order Declaring Shanda Love To Be A Vexatious Litigant, Motion For Security, And For A Prefiling Order Prohibiting The Filing Of New Litigation; **First Appearance Fees Paid**",
+            "judge": "",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Line 4 DEFENDANT SHAWNY WILLIAMS Notice Of Motion And Motion For Order Declaring Shanda Love To Be A Vexatious Litigant, Motion For Security, And For A Prefiling Order Prohibiting The Filing Of New Litigation is GRANTED in part. Plaintiff is a vexatious…"
+          },
           {
             "date": "2026-10-05",
             "time": "09:00 AM",
@@ -628,246 +868,6 @@
               "label": "Denied"
             },
             "text": "The motion to compel further responses to requests for production is denied as moot for the reasons stated in the court's order on defendant's motion to compel further responses to special interrogatories."
-          },
-          {
-            "date": "2026-09-30",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24611740",
-            "caseTitle": "VELOCITY INVESTMENTS, LLC VS. KELLY ALLARD ET AL",
-            "matter": "Notice Of Hearing - Motion To Enforce Settlement",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF VELOCITY INVESTMENTS, LLC's Hearing - Motion To Enforce Settlement. Plaintiff Velocity Investments, LLC's motion to enforce settlement is denied without prejudice to re-filing the motion with proof of service on defendant Kelly Allard. Although the…"
-          },
-          {
-            "date": "2026-09-30",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24611763",
-            "caseTitle": "LIBAH JEAN SHEPPARD VS. SAN FRANCISCO HEALTH CARE AND REHAB INC., A ET AL",
-            "matter": "MOTION FOR JUDGMENT ON THE PLEADINGS",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for judgment on the pleadings is granted for good cause shown in the moving papers. The request for judicial notice is granted. Defendant shows that leave to amend would be futile in light of the conclusive effect of the deemed-admitted…"
-          },
-          {
-            "date": "2026-09-30",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC25628329",
-            "caseTitle": "LAURENTIU TENE VS. MUSTAFA CHRIS YAZLIK ET AL",
-            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "PLAINTIFF LAURENTIU TENE MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD is GRANTED. Counsel to prepare an order. Withdrawal effective upon the filing of the proof of service of the signed order upon the client. =(501/CFH) Parties may appear in-person…"
-          },
-          {
-            "date": "2026-09-30",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24616750",
-            "caseTitle": "MICHELLE FULLER VS. BAMBOO INSURANCE, LLC",
-            "matter": "DEMURRER to Amended COMPLAINT",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "sustained-no-leave",
-              "label": "Sustained without leave"
-            },
-            "text": "The demurrer of defendant Bamboo IDE8 Insurance Services, LLC to all five causes of action in the third amended complaint (TAC) filed by plaintiff Michelle Fuller is: a) sustained without leave to amend as to the first, second and fifth causes of action for…"
-          },
-          {
-            "date": "2026-09-30",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24618429",
-            "caseTitle": "LADARRIS MATTHEW SAIN VS. MPARTICLE, INC. ET AL",
-            "matter": "Motion To Substitute Ebony Sain In Place Of Plaintiff, Laddaris Sain",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion to substitute Ebony Sain in place of plaintiff Laddaris Sain pursuant to Code of Civil Procedure, section 377.31, is granted for good cause shown in the moving papers. Moving party mentions a stipulation to consolidate actions that is…"
-          },
-          {
-            "date": "2026-09-30",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26682250",
-            "caseTitle": "JONES KONG TOM VS. DEIDRA CAHUA ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "DEFENDANT DEIDRA CAHUA, PILAR PAYTON MOTION FOR SUMMARY JUDGMENT is GRANTED. Moving party shifted its burden. Plaintiff failed to create a triable issue of fact with competent admissible evidence. =(501/CFH) Parties may appear in-person, telephonically or via…"
-          },
-          {
-            "date": "2026-09-30",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25628852",
-            "caseTitle": "CANDACE LOW VS. SF AMC, LP, A CALIFORNIA LIMITED PARTNERSHIP DBA ET AL",
-            "matter": "MOTION FOR SUMMARY ADJUDICATION .",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Candace Low's motion for summary adjudication of the seventh, fifteenth and seventeenth affirmative defenses in defendants' answer is granted. All three of those affirmative defenses are adjudicated in favor of Low and against all of the named…"
-          },
-          {
-            "date": "2026-09-30",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24619725",
-            "caseTitle": "JIAHAO GUO VS. KARMACHECK, INC. ET AL",
-            "matter": "Motion For Leave To File First Amended Complaint To Substitute Informdata, Llc For Doe 1",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for leave to file a first amended complaint is granted for good cause shown in the moving papers. Plaintiff shall file the proposed amended complaint attached as Exhibit A to the Fok Declaration within 10 days of this order. In light of…"
-          },
-          {
-            "date": "2026-09-29",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC18563676",
-            "caseTitle": "MARC BORACCHIA ET AL VS. NORTHWESTERN MUTUAL LIFE INSURANCE COMPANY ET AL",
-            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendants Northwestern Mutual Life Insurance Company and Northwestern Mutual Investment Services, LLC's application for the pro hac vice admission of Melissa Rodriguez is granted. Good causes shown and no opposition filed."
-          },
-          {
-            "date": "2026-09-29",
-            "time": "09:00 AM",
-            "department": "304",
-            "calendar": "Asbestos Law and Motion",
-            "caseNumber": "CGC26277391",
-            "caseTitle": "PATRICIA HALL VS. GENERAL ELECTRIL COMPANY ET AL",
-            "matter": "Notice Of Motion And Motion For Order Granting Preference In Setting Case For Trial, And Extending Discovery Cutoff",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff's Motion for Order Advancing the Current Trial Date with Preference, and Extending Discovery Cutoff is GRANTED under C.C.P. 36(a). Opposition filed by Defendant Kaiser Gypsum Company, Inc. Reply filed. Defendant's opposition is meritless. Where a…"
-          },
-          {
-            "date": "2026-09-29",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23610719",
-            "caseTitle": "TIMOTHY J. SLOAN VS. WELLS FARGO & COMPANY ET AL",
-            "matter": "Notice Of Unopposed Motion And Motion For Closure Of The Courtroom And Sealing Of Portions Of The Record",
-            "judge": "Cindee Mayfield",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Wells Fargo's unopposed motion to close the courtroom and seal portions of the record is granted in part. (1) The request to close the courtroom for the October 2, 2026 hearing on Wells Fargo's motion for summary judgment or, alternatively, summary…"
-          },
-          {
-            "date": "2026-09-29",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC26636810",
-            "caseTitle": "CITY AND COUNTY OF SAN FRANCISCO ET AL VS. LEON WAYLAND MUY ET AL",
-            "matter": "Notice Of Intent To File Motion For Appointment Of Receiver And Order To Abate Substandard Building",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "PLAINTIFF CITY AND COUNTY OF SAN FRANCISCO A MUNICIPAL CORPORATION Notice Of Intent To File Motion For Appointment Of Receiver And Order To Abate Substandard Building is GRANTED as requested. Plaintiff to present an order for execution at the hearing…"
-          },
-          {
-            "date": "2026-09-29",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24613234",
-            "caseTitle": "MEGAN BROGGER VS. NOCTURNAL CODE, UNKNOWN ENTITY ET AL",
-            "matter": "Notice Of Motion And Motion To Withdraw Deemed Admissions",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant and cross-complainant Tatiana Shiff's motion to withdraw deemed admissions is denied. A judge may allow a party that has failed to serve any response to requests for admission to withdraw or amend its admissions even after ruling that the matters…"
-          },
-          {
-            "date": "2026-09-29",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24612227",
-            "caseTitle": "HONG ZHENG ET AL VS. GLENN FAMA ET AL",
-            "matter": "MOTION TO COMPEL INDEPENDENT MEDICAL EXAMINATIONS",
-            "judge": "Cindee Mayfield",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Defendants' motion to compel a mental examination is granted in part and denied in part. CCP 2032.310(b) states that a motion for mental examination must \"specify the time, place, manner, conditions, scope, and nature of the examination, as well as the…"
-          },
-          {
-            "date": "2026-09-29",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25679339",
-            "caseTitle": "PARKMERCED OWNER, LLC VS. ABBY VAN KIRK ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Responses By Defendant To Form Interrogatories And To Deem Admitted By Defendant Requests For Admission And For Monetary Sanctions",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "PLAINTIFF PARKMERCED OWNER, LLC , A DELAWARE LIMITED LIABILITY COMPANY Notice Of Motion And Motion To Compel Responses By Defendant To Form Interrogatories And To Deem Admitted By Defendant Requests For Admission And For Monetary Sanctions is GRANTED, subject…"
-          },
-          {
-            "date": "2026-09-29",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24613234",
-            "caseTitle": "MEGAN BROGGER VS. NOCTURNAL CODE, UNKNOWN ENTITY ET AL",
-            "matter": "Notice And Motion For Reconsideration; Memorandum Of Points And Authorities",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Cross-defendant Lisa Rose's motion for reconsideration of the July 10, 2026 oral ruling is denied. Rose has not presented any new law, facts or circumstances nor would this motion be timely had Rose complied with her obligation to submit a proposed order as…"
           }
         ]
       }
@@ -1070,14 +1070,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "985c257924590e3e5a137119082a2391f8932a2a",
-      "updatedAt": "2026-10-06T19:46:31Z",
+      "ref": "410f76afe208ba1b5b9421f9e29d16dafc46a9e1",
+      "updatedAt": "2026-10-07T00:18:05Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 426921
+        "snapshots": 426926
       },
       "charts": {}
     },
