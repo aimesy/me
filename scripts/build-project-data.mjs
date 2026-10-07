@@ -660,7 +660,7 @@ function buildTentatives(previousData = null) {
   const previousMetrics = previousData?.projects?.tentatives?.metrics || {};
   const liveDocumentBytes = liveBytes(liveTable, "archive size");
   return {
-    repo: "aimesy/tentatives",
+    repo: "aimesy/tentatives-data",
     ref: repoHead(config.tentatives),
     updatedAt: repoUpdatedAt(config.tentatives),
     metrics: {

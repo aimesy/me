@@ -68,7 +68,7 @@ jobs:
       - name: Check out Tentatives
         uses: actions/checkout@v4
         with:
-          repository: aimesy/tentatives
+          repository: aimesy/tentatives-data
           ref: master
           path: tentatives
           token: ${{ secrets.GH_TOKEN }}

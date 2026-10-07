@@ -10,7 +10,7 @@ const LIVE_REPOS = {
   // Private repositories are read through their data Workers (same paths as
   // raw.githubusercontent.com). aimesy/ndcs-data has no Worker; its card uses
   // the hourly assets/project-data.json.
-  tentatives: { repo: "aimesy/tentatives", base: "https://tentatives-data.amyc.us/", branch: "master", path: "LIVE.md" },
+  tentatives: { repo: "aimesy/tentatives-data", base: "https://tentatives-data.amyc.us/", branch: "master", path: "LIVE.md" },
   nysc: {
     repo: "aimesy/nysc-data",
     base: "https://nysc-data.amyc.us/",
