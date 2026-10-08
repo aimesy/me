@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T00:38:26.000Z",
+  "generatedAt": "2026-10-08T07:14:52.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-05",
       "metrics": {
         "tentativeRulings": 384308,
-        "cases": 1453172,
+        "cases": 1453173,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -57,7 +57,7 @@
           },
           {
             "label": "CUD",
-            "value": 97151
+            "value": 97152
           },
           {
             "label": "FDI",
@@ -155,8 +155,26 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-07T00:03:04.581Z",
+        "latestScrapedAt": "2026-10-08T02:04:15.009Z",
         "days": [
+          {
+            "date": "2026-10-08",
+            "total": 35,
+            "departments": [
+              {
+                "department": "501",
+                "count": 18
+              },
+              {
+                "department": "301",
+                "count": 9
+              },
+              {
+                "department": "302",
+                "count": 8
+              }
+            ]
+          },
           {
             "date": "2026-10-07",
             "total": 102,
@@ -248,27 +266,129 @@
                 "count": 2
               }
             ]
-          },
-          {
-            "date": "2026-10-01",
-            "total": 51,
-            "departments": [
-              {
-                "department": "302",
-                "count": 21
-              },
-              {
-                "department": "301",
-                "count": 15
-              },
-              {
-                "department": "501",
-                "count": 15
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-08",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC20583328",
+            "caseTitle": "PATRICK BRADFORD VS. PROFESSIONAL TECHNICAL SECURITY SERVICES, INC. ET AL",
+            "matter": "Notice Of Motion And Motion For Dismissal Of Class Action Lawsuit Without Prejudice",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Patrick Bradford's unopposed motion for dismissal of class action lawsuit without prejudice is granted for the reasons set forth in Plaintiff's moving papers; good cause has been shown. (Cal. Rules of Court, rule 3.770.) Court will sign the proposed…"
+          },
+          {
+            "date": "2026-10-08",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23608569",
+            "caseTitle": "LI CHANG KUANG VS. KENNY WONG ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Discovery",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiffs Li Chang Kuang and Tommy Chan's motion to compel responses to discovery and for a deemed-admitted order is denied as moot. In the original briefing, defendant Kenny Wong contended he did not receive the discovery at issue. While the motion was…"
+          },
+          {
+            "date": "2026-10-08",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC24613631",
+            "caseTitle": "PPF OFF ONE MARITIME PLAZA, LP. A DELAWARE LIMITED VS. MAXIMUS REAL ESTATE PARTNERS, LTD., FORMERLY DOING ET AL",
+            "matter": "Notice Of Motion And Motion For Entry Of Judgment Per Stipulation",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "A DELAWARE LIMITED PARTNERSHIP Notice Of Motion And Motion For Entry Of Judgment Per Stipulation is GRANTED as requested per the Notice of Motion 1:3-4 (\"...Plaintiff... moves the Court for entry of judgment pursuant to stipulation in the amount of…"
+          },
+          {
+            "date": "2026-10-08",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618954",
+            "caseTitle": "MARKEISE LACEY VS. CITY AND COUNTY OF SAN FRANCISCO, A PUBLIC ENTITY ET AL",
+            "matter": "Notice Of Motion And Motion To Have Requests For Admissions Deemed Admitted",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant City and County of San Francisco's unopposed motion for an order that plaintiff Markeise Lacey be deemed to have admitted the truth of the matters set forth in CCSF's Requests for Admissions, Set Two, is granted. (Code Civ. Proc. sec. 2033.280…"
+          },
+          {
+            "date": "2026-10-08",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24617729",
+            "caseTitle": "VELOCITY INVESTMENTS, LLC VS. EULALIO ROSALES ET AL",
+            "matter": "Notice Of Hearing - Motion To Enforce Settlement",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Velocity Investments, LLC's motion to set aside dismissal and enter judgment in accord with a settlement agreement is denied without prejudice. Velocity does not provide an authenticated copy of the settlement agreement."
+          },
+          {
+            "date": "2026-10-08",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25622560",
+            "caseTitle": "THREE EMBARCADERO CENTER VENTURE VS. AUTZU DRIVESHARING INC. ET AL",
+            "matter": "MOTION FOR LEAVE TO File Second Amended Cross-Complaint",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "A DELAWARE CORPORATION MOTION FOR LEAVE TO File Second Amended Cross-Complaint is GRANTED as follows: based on (1) the dates of the filing of the Cross-Complaint, June 25, 2025, and First Amended Cross-Complaint, December 5, 2025 and (2) the alleged date of…"
+          },
+          {
+            "date": "2026-10-08",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25628268",
+            "caseTitle": "CAPITAL ONE, N.A., VS. FLAVIA C DE SOUZA ET AL",
+            "matter": "Motion To Enter Judgment Pursuant To Ccp",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion by Plaintiff Capital One, N.A., successor by merger to Discover Bank, to enter judgment under terms of a stipulated settlement pursuant to Code of Civil Procedure section 664.6 is granted. If parties to a pending litigation stipulate, in…"
+          },
+          {
+            "date": "2026-10-08",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26639057",
+            "caseTitle": "PABLO MARTINEZ HERNANDEZ VS. MERCEDES-BENZ USA, LLC ET AL",
+            "matter": "MOTION TO COMPEL ARBITRATION",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant Mercedes-Benz USA, LLC's unopposed motion to compel arbitration is granted. The case is stayed pending arbitration. On a motion to compel arbitration, the moving party \"bears the burden of proving the existence of a valid arbitration agreement by…"
+          },
           {
             "date": "2026-10-07",
             "time": "09:00 AM",
@@ -748,126 +868,6 @@
               "label": "Denied"
             },
             "text": "Plaintiff George Potter's motion for relief is denied."
-          },
-          {
-            "date": "2026-10-01",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC22602884",
-            "caseTitle": "LADARRIS MATTHEW SAIN VS. MPARTICLE, INC. ET AL",
-            "matter": "Notice Of Motion And Motion To Substitute Ebony Sain In Place Of Plaintiff, Laddaris Sain",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Motion to substitute Ebony Sain in place of Laddaris Sain is granted. Good cause shown and no opposition filed. The court will sign the previously submitted proposed order."
-          },
-          {
-            "date": "2026-10-01",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC17562163",
-            "caseTitle": "HEATH-NEWTON LLP VS. ANDREW KEIGHERY ET AL",
-            "matter": "Notice Of Motion And Memorandum Of Points And Authorities In Support Of Motion To Set Aside Settlement Agreement And Vacate Stipulated Order; Declarations In Support",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF HEATH-NEWTON LLP's Motion To Set Aside Settlement Agreement And Vacate Stipulated Order. Heath-Newton LLP's motion to set aside settlement agreement is denied. This case arises from a collection action. Defendant Andrew Keighery did not appear, and…"
-          },
-          {
-            "date": "2026-10-01",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC24612227",
-            "caseTitle": "HONG ZHENG ET AL VS. GLENN FAMA ET AL",
-            "matter": "MOTION FOR SUMMARY ADJUDICATION",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "CROSS DEFENDANT HONG ZHENG , AS AN INDIVIDUAL AND AS TRUSTEE OF THE MACRO ROJO TRUST, HONG XIAO MOTION FOR SUMMARY ADJUDICATION is DENIED. Triable issues of fact exist re: reasonable expectation of privacy in the way the cameras are pointed and directed…"
-          },
-          {
-            "date": "2026-10-01",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23611082",
-            "caseTitle": "JAMES HUBBART VS. DIANA HIGGINS ET AL",
-            "matter": "Notice Of Motion And Motion To Dismiss The Action For Failure To Substitute A Proper Party Defendant And Failure To Prosecute",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant Diana Higgins' motion to dismiss this action for failure to prosecute is granted. Good cause shown and no opposition filed. The court will sign the previously submitted proposed order."
-          },
-          {
-            "date": "2026-10-01",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25628461",
-            "caseTitle": "DSEAN WILLIAMS VS. SAN FRANCISCO MUNICIPAL TRANSPORTATION AGENCY ET AL",
-            "matter": "MOTION TO STRIKE Amended COMPLAINT",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "The motion to strike the first amended complaint is denied. Although the court has discretion to strike a late-filed pleading, here the first amended complaint was filed approximately two weeks late, a short delay. It appears that the pleading was unserved…"
-          },
-          {
-            "date": "2026-10-01",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC25622608",
-            "caseTitle": "LINA LU VS. MILESTONE FINANCIAL, LLC ET AL",
-            "matter": "MOTION FOR SUMMARY ADJUDICATION Notice Of Motion And Motion For Summary Adjudication Of Issues; Memorandum Of Points And Authorities",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "DEFENDANT MILESTONE FINANCIAL, LLC AKA MERS LINK 4 MOTION FOR SUMMARY ADJUDICATION Notice Of Motion And Motion For Summary Adjudication Of Issues is DENIED. Triable issues remain as to the purpose of the loan, whether defendant was a borrower, whether the…"
-          },
-          {
-            "date": "2026-10-01",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24618394",
-            "caseTitle": "XUAN JIANG VS. XIAOYIN QU ET AL",
-            "matter": "Motion To Strike Plaintiff Xuan Jiangs Opposition To Defendant Xiaoyin Qus Motion For Summary Judgment, Or In The Alternative, Motion For Summary Adjudication",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant Xiaoyin Qu's motion to strike plaintiff Xuan Jiang's opposition memorandum is denied. In the interests of justice, the court exercises its discretion to consider the entirety of that memorandum. Qu is not prejudiced by the court doing so."
-          },
-          {
-            "date": "2026-10-01",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25631397",
-            "caseTitle": "UNIQUA MACKEY VS. PLAZA EAST ASSOCIATES, L.P., A CALIFORNIA LIMITED ET AL",
-            "matter": "Motion To Compel Plaintiffs Further Responses To Requests For Production Of Documents, Set One, And Request For Monetary Sanctions Against Plaintiff And Her Counsel Jointly And Severally In The Amount Of $1,987.50",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "The motion to compel further responses to requests for production is denied as moot for the reasons stated in the court's order on defendant's motion to compel further responses to special interrogatories."
           }
         ]
       }
@@ -1070,14 +1070,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "8ae6a2bf92b31b03e5e9db1e428d75658e562668",
-      "updatedAt": "2026-10-08T00:38:26Z",
+      "ref": "dc39443022846b7bbdac64cf04de5673775151e8",
+      "updatedAt": "2026-10-08T07:14:52Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 426950
+        "snapshots": 426964
       },
       "charts": {}
     },
@@ -1149,8 +1149,8 @@
     },
     "cfhe": {
       "repo": "aimesy/cfhe-data",
-      "ref": "3a46d6cc289d59767ff7872c7add225f44942b76",
-      "updatedAt": "2026-10-02T20:09:22+00:00",
+      "ref": "22057b3a17d8f81157e056a9f0964ada2cc9ab72",
+      "updatedAt": "2026-10-07T20:48:22Z",
       "metrics": {
         "jurisdictions": 539,
         "units": 497440,
