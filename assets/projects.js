@@ -3,7 +3,9 @@ const SFSC_BASE_URL = "https://sfsc.amyc.us/";
 const SFSC_MANIFEST_URL = `${SFSC_BASE_URL}data/manifest.json`;
 const SFSC_CASE_TABLE_STATS_URL = `${SFSC_BASE_URL}data/case-table-stats.json`;
 const SFSC_CASE_DIRECTORY_MANIFEST_URL = "https://sfsc-data.amyc.us/master/archive/case-directory/manifest.json";
-const PROJECT_KEYS = ["sfsc", "tentatives", "themes", "kcsc", "nysc", "ndcs", "civproidx"];
+const PROJECT_KEYS = ["sfsc", "tentatives", "themes", "kcsc", "nysc", "mfa", "cfhe", "ndcs", "civproidx"];
+// Denominator for the MFA "jurisdictions" box ("330/N"). 0 shows the count alone.
+const MFA_JURISDICTIONS_TOTAL = 0;
 const PUBLIC_DATA_KEYS = new Set(["ndcs", "nysc", "kcsc"]);
 const LIVE_REPOS = {
   sfsc: { repo: "aimesy/sfsc", url: `${SFSC_BASE_URL}LIVE.md`, path: "LIVE.md" },
@@ -18,6 +20,9 @@ const LIVE_REPOS = {
     manifestPaths: ["data/common/manifest.json"],
   },
   kcsc: { repo: "aimesy/kcsc-data", base: "https://kcsc-data.amyc.us/", branch: "master", manifestPaths: ["data/manifest.json"] },
+  // aimesy/cfhe-data is public, so its audit summary is read from GitHub.
+  // aimesy/mfa-data has no open path; its card uses assets/project-data.json.
+  cfhe: { repo: "aimesy/cfhe-data", branch: "master", summaryPath: "data/processed/audit_summary.json" },
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -158,6 +163,25 @@ function renderMetrics(target, metrics) {
       metric("counties", formatNumber(metrics.parsedCounties)),
       metric("documents indexed", formatNumber(metrics.documents)),
       metric("archive size", formatArchiveSize(metrics.documentBytes)),
+    ].join("");
+  }
+
+  if (target === "mfa") {
+    const jurisdictions = formatNumber(metrics.jurisdictions);
+    container.innerHTML = [
+      metric("jurisdictions", MFA_JURISDICTIONS_TOTAL ? `${jurisdictions}/${formatNumber(MFA_JURISDICTIONS_TOTAL)}` : jurisdictions),
+      metric("reports", formatNumber(metrics.reports)),
+      metric("fee programs", formatNumber(metrics.feePrograms)),
+      metric("figures", formatNumber(metrics.figures)),
+    ].join("");
+  }
+
+  if (target === "cfhe") {
+    container.innerHTML = [
+      metric("jurisdictions", formatNumber(metrics.jurisdictions)),
+      metric("units permitted", formatNumber(metrics.units)),
+      metric("duplicate units removed", formatNumber(metrics.duplicateUnits)),
+      metric("data through", metrics.throughYear ? String(metrics.throughYear) : "unknown"),
     ].join("");
   }
 
@@ -804,6 +828,35 @@ async function loadSfscAggregateSources() {
   applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirectoryManifest });
 }
 
+// Same reading as cfheMetrics in scripts/build-project-data.mjs.
+function applyCfheSummary(summary) {
+  const project = projectData?.projects?.cfhe;
+  const metadata = summary?.metadata;
+  if (!project || !metadata) return;
+  const units = positiveNumber(metadata.selected_units);
+  const duplicateUnits = positiveNumber(metadata.removed_units);
+  project.metrics = {
+    jurisdictions: positiveNumber(metadata.jurisdiction_count) || project.metrics.jurisdictions,
+    units: Math.max(units - duplicateUnits, 0) || project.metrics.units,
+    duplicateUnits: duplicateUnits || project.metrics.duplicateUnits,
+    throughYear: positiveNumber(metadata.cutoff_year) || project.metrics.throughYear,
+  };
+}
+
+async function loadLiveSummary(key, config) {
+  if (!config.summaryPath) return;
+  try {
+    const response = await fetch(githubStatsRawUrl(config, config.summaryPath), { cache: "no-store" });
+    if (!response.ok) {
+      console.warn(`${key} summary unavailable: ${response.status}`);
+      return;
+    }
+    if (key === "cfhe") applyCfheSummary(await response.json());
+  } catch (error) {
+    console.warn(`${key} summary unavailable`, error);
+  }
+}
+
 async function loadLiveRepo(key, config) {
   if (config.path) {
     try {
@@ -824,6 +877,7 @@ async function loadLiveRepo(key, config) {
   }
 
   await loadPublicDataManifests(key, config);
+  await loadLiveSummary(key, config);
   renderLiveMetricValues();
   renderLiveAges();
 }
@@ -862,6 +916,8 @@ function render(data) {
   setText('[data-live="ndcs-ref"]', shortHash(projects.ndcs?.ref));
   setText('[data-live="nysc-ref"]', shortHash(projects.nysc?.ref));
   setText('[data-live="kcsc-ref"]', shortHash(projects.kcsc?.ref));
+  setText('[data-live="mfa-ref"]', shortHash(projects.mfa?.ref));
+  setText('[data-live="cfhe-ref"]', shortHash(projects.cfhe?.ref));
   startLiveAgeTimer();
   refreshLiveRepos().catch((error) => console.error(error));
 }

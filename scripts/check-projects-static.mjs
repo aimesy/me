@@ -156,6 +156,14 @@ assert.match(
   "KCSC must show document index rows without changing unrelated file metrics",
 );
 assert.ok(indexSource.indexOf('id="kcsc"') < indexSource.indexOf('id="nysc"'), "KCSC must appear above NYSC");
+// Publicly accessible projects sit above the pending ones: MFA, then CFHE, then NDCS.
+assert.ok(indexSource.indexOf('id="nysc"') < indexSource.indexOf('id="mfa"'), "MFA must appear below NYSC");
+assert.ok(indexSource.indexOf('id="mfa"') < indexSource.indexOf('id="cfhe-data"'), "MFA must appear above CFHE");
+assert.ok(indexSource.indexOf('id="cfhe-data"') < indexSource.indexOf('id="ndcs"'), "CFHE must appear above NDCS");
+const mfaSection = projectSection("mfa");
+assert.match(mfaSection, /<a class="hbtn" href="https:\/\/mfa\.amyc\.us\/">Viewer<\/a>/);
+assert.match(mfaSection, /<div class="project-note">/, "the MFA card carries a project description");
+assert.match(projectSection("cfhe-data"), /<div class="project-note">/, "the CFHE card carries a project description");
 assert.match(projectsSource, /const TENTATIVES_PAGE_SIZE = 9;/);
 assert.match(projectsSource, /const visible = filtered\.slice\(0, tentativesVisibleCount\);/);
 assert.match(projectsSource, /tentativesVisibleCount \+= TENTATIVES_PAGE_SIZE;[\s\S]*renderTentativesSearch\(\);/);
@@ -166,7 +174,7 @@ for (const repositoryHref of [
   assert.match(indexSource, new RegExp(`href="${repositoryHref}">Repository<\\/a>`));
 }
 
-for (const repo of ["tentatives", "nysc", "nysc-data", "ndcs-data", "kcsc-data", "sfsc", "sfsc-data", "civproidx"]) {
+for (const repo of ["tentatives", "nysc", "nysc-data", "ndcs-data", "kcsc-data", "sfsc", "sfsc-data", "civproidx", "mfa-data"]) {
   assert.ok(!indexSource.includes(`https://github.com/aimesy/${repo}\"`), `${repo} must not expose a private Repository button`);
 }
 assert.match(projectsSource, /https:\/\/sfsc-data\.amyc\.us\/master\/archive\/case-directory\/manifest\.json/);
@@ -179,7 +187,20 @@ const liveReposSource = projectsSource.slice(liveReposStart, liveReposEnd + 3);
 assert.doesNotMatch(liveReposSource, /cividx/);
 assert.match(liveReposSource, /nysc:[\s\S]*manifestPaths: \["data\/common\/manifest\.json"\]/);
 assert.doesNotMatch(liveReposSource, /archive\/case-directory|shards\/documents|releaseAssetPrefix/);
-assert.match(projectsSource, /const PROJECT_KEYS = \["sfsc", "tentatives", "themes", "kcsc", "nysc", "ndcs", "civproidx"\];/);
+assert.match(projectsSource, /const PROJECT_KEYS = \["sfsc", "tentatives", "themes", "kcsc", "nysc", "mfa", "cfhe", "ndcs", "civproidx"\];/);
+// MFA and CFHE show live boxes: MFA from the hourly builder (mfa-data is private
+// and its Worker has no open path), CFHE also live from its public audit summary.
+assert.match(mfaSection, /data-metrics="mfa"/);
+assert.match(projectSection("cfhe-data"), /data-metrics="cfhe"/);
+assert.match(projectsSource, /const MFA_JURISDICTIONS_TOTAL = \d+;/, "the MFA jurisdictions box keeps one denominator constant");
+assert.match(liveReposSource, /cfhe: \{ repo: "aimesy\/cfhe-data", branch: "master", summaryPath: "data\/processed\/audit_summary\.json" \}/);
+assert.doesNotMatch(liveReposSource, /repo: "aimesy\/mfa-data"/, "projects.js must not fetch the private MFA release");
+assert.match(builderSource, /mfa: buildMfa\(previous\)/);
+assert.match(builderSource, /cfhe: buildCfhe\(previous\)/);
+assert.match(refreshWorkflowSource, /- name: Check out MFA data[\s\S]*repository: aimesy\/mfa-data[\s\S]*path: mfa-data/);
+assert.match(refreshWorkflowSource, /- name: Check out CFHE data[\s\S]*repository: aimesy\/cfhe-data[\s\S]*path: cfhe-data/);
+assert.match(refreshWorkflowSource, /MFA_DATA_REPO: \.\.\/mfa-data/);
+assert.match(refreshWorkflowSource, /CFHE_DATA_REPO: \.\.\/cfhe-data/);
 assert.match(builderSource, /themes: buildThemes\(previous\)/);
 assert.match(refreshWorkflowSource, /- name: Check out Themes[\s\S]*repository: aimesy\/themes[\s\S]*path: themes/);
 assert.match(refreshWorkflowSource, /THEMES_REPO: \.\.\/themes/);

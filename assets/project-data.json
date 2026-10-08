@@ -1134,6 +1134,30 @@
           }
         ]
       }
+    },
+    "mfa": {
+      "repo": "aimesy/mfa-data",
+      "ref": "0fef4c0607c451ea11d3c07fc6f5162a976a3a04",
+      "updatedAt": "2026-10-04T16:02:00-07:00",
+      "metrics": {
+        "jurisdictions": 330,
+        "reports": 1016,
+        "feePrograms": 2014,
+        "figures": 4599
+      },
+      "charts": {}
+    },
+    "cfhe": {
+      "repo": "aimesy/cfhe-data",
+      "ref": "3a46d6cc289d59767ff7872c7add225f44942b76",
+      "updatedAt": "2026-10-02T20:09:22+00:00",
+      "metrics": {
+        "jurisdictions": 539,
+        "units": 497440,
+        "duplicateUnits": 60412,
+        "throughYear": 2025
+      },
+      "charts": {}
     }
   }
 }
