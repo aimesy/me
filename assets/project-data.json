@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T20:50:45.000Z",
+  "generatedAt": "2026-10-09T01:14:32.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -155,8 +155,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-08T02:04:15.009Z",
+        "latestScrapedAt": "2026-10-09T00:53:13.331Z",
         "days": [
+          {
+            "date": "2026-10-09",
+            "total": 49,
+            "departments": [
+              {
+                "department": "302",
+                "count": 17
+              },
+              {
+                "department": "501",
+                "count": 16
+              },
+              {
+                "department": "301",
+                "count": 15
+              },
+              {
+                "department": "204",
+                "count": 1
+              }
+            ]
+          },
           {
             "date": "2026-10-08",
             "total": 35,
@@ -244,31 +266,129 @@
                 "count": 9
               }
             ]
-          },
-          {
-            "date": "2026-10-02",
-            "total": 48,
-            "departments": [
-              {
-                "department": "301",
-                "count": 18
-              },
-              {
-                "department": "302",
-                "count": 14
-              },
-              {
-                "department": "501",
-                "count": 14
-              },
-              {
-                "department": "204",
-                "count": 2
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-09",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC18571386",
+            "caseTitle": "CHARLES LI VS. MEI LING FANG ET AL",
+            "matter": "MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant Shuzhen Tu's motion to set aside the default entered against her on September 9, 2026 is granted."
+          },
+          {
+            "date": "2026-10-09",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC17561297",
+            "caseTitle": "ELIZABETH KARNAZES VS. PHIL MARTIN",
+            "matter": "Amended Notice Of Motion And Motion For Order Compelling Plf To Appear For Deposition And For Sanctions",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "MARTIN'S Motion For Order Compelling Plf To Appear For Deposition And For Sanctions Defendant Philip Martin's motion to compel plaintiff Elizabeth Karnazes to appear for deposition on or before October 16, 2026, and for sanctions, is granted in part. Martin…"
+          },
+          {
+            "date": "2026-10-09",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC23604790",
+            "caseTitle": "FEI SU ET AL VS. HUI QIN WU ET AL",
+            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Line 2 PLAINTIFF FEI SU, FUQING SU, JUHUA ZHANG, CODY JAFFE MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD is GRANTED. =(501/SKF) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849; or Phone Dial in…"
+          },
+          {
+            "date": "2026-10-09",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC18571386",
+            "caseTitle": "CHARLES LI VS. MEI LING FANG ET AL",
+            "matter": "Notice Of Motion And Motion To Vacate Default Judgment",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Shuzhen Tu's motion to vacate the default judgment entered on April 29, 2026 is denied."
+          },
+          {
+            "date": "2026-10-09",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24616427",
+            "caseTitle": "JULIANI RODRIGUEZ VS. CITY AND COUNTY OF SAN FRANCISCO",
+            "matter": "MOTION FOR SUMMARY JUDGMENT .",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant City and County of San Francisco's motion for summary judgment is denied. *THE COURT'S FULL AND COMPLETE TENTATIVE RULING HAS BEEN EMAILED TO COUNSEL*"
+          },
+          {
+            "date": "2026-10-09",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25628904",
+            "caseTitle": "ANNA RAWN VS. 516 ELLIS I7, LP ET AL",
+            "matter": "Motion For Leave To File Cross-Complaint",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Motion For Leave To File Cross-Complaint is DENIED without prejudice to be brought if trial is continued. The Court notes that this motion is not supported by any evidence from which a Court may determine (or even infer) that \"party who failed to plead the…"
+          },
+          {
+            "date": "2026-10-09",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618998",
+            "caseTitle": "MOR FLEISHER LEACH VS. DEEL US LLC, ALSO REFERRED TO AS DEEL, AND LETS ET AL",
+            "matter": "MOTION FOR LEAVE TO To File Cross-Complaint",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Deel US LLC's (\"Deel\") motion to file cross-complaint is denied. The court concludes that it is not \"in the interest of justice\" to allow the filing at this late stage of the proceedings. (Code Civ. Proc. section 428.50, subd. (c).) Defendant argues…"
+          },
+          {
+            "date": "2026-10-09",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25626133",
+            "caseTitle": "ACE PROPERTY AND CASUALTY INSURANCE COMPANY ET AL VS. ALLIED FIRE PROTECTION ET AL",
+            "matter": "MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-25-625800 WITH CASE CGC-25-626133",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Matter on calendar for Friday, October 9, 2026, Line 1 - DEFENDANT ALLIED FIRE PROTECTION'S MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-25-625800 WITH CASE CGC-25-626133 Allied Fire Protection's unopposed motion to consolidate is granted for good cause shown…"
+          },
           {
             "date": "2026-10-08",
             "time": "09:00 AM",
@@ -748,140 +868,20 @@
               "label": "Granted"
             },
             "text": "PLAINTIFF LEONARD ALFONSO's, INDIVIDUALLY AND ON BEHALF OF ALL OTHERS SIMILARLY SITUATED, Motion For Preliminary Approval Of Class And Representative Action Settlement. The unopposed motion for preliminary approval is granted. The court will sign the proposed…"
-          },
-          {
-            "date": "2026-10-02",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC20586984",
-            "caseTitle": "BARBRA DECKER VS. POSTMATES, INC. ET AL",
-            "matter": "MOTION TO DISMISS",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Barbra Decker's motion for an order for dismissal is granted. The supplemental briefing in support of this motion satisfies both the letter and spirit of the order filed April 9, 2026."
-          },
-          {
-            "date": "2026-10-02",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23608687",
-            "caseTitle": "NIKCOLE CUNNINGHAM VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
-            "matter": "MOTION FOR JUDGMENT ON THE PLEADINGS",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant the City and County of San Francisco and individual defendants' (collectively Defendants) motion for judgment on the pleadings is granted with leave to amend. A motion for judgment on the pleadings is equivalent to a demurrer and the grounds for…"
-          },
-          {
-            "date": "2026-10-02",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC23604413",
-            "caseTitle": "JACQUELINE FRANCIS VS. LEN FREEMAN ET AL",
-            "matter": "Notice Of Motion & Motion For Leave To File Second Amended Complaint",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "PLAINTIFF JACQUELINE FRANCIS Notice Of Motion & Motion For Leave To File Second Amended Complaint is conditionally GRANTED. Late-filed opposition and reply are stricken. The Court notes that a Motion to Withdraw Admissions is pending in department 301 for…"
-          },
-          {
-            "date": "2026-10-02",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25626976",
-            "caseTitle": "HOLLIDAY DEVELOPMENT, LLC VS. MNCVAD II-HOLLIDAY UNION JV LLC ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT Or In The Alternative, Summary Adjudication",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "MNCVAD II-Holliday Union JV LLC's motion for summary judgment or, in the alternative, summary adjudication of both causes of action in the complaint filed by plaintiff Holliday Development, LLC is denied in its entirety. MNCVAD's request for judicial notice…"
-          },
-          {
-            "date": "2026-10-02",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24618705",
-            "caseTitle": "JENNY LEE VS. ATLANTIS TOWING INC ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT / Amended Notice Of Motion And Motion For Summary Judgment, Or, In The Alternative, Summary Adjudication",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendants' motion for summary judgment is granted."
-          },
-          {
-            "date": "2026-10-02",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25679798",
-            "caseTitle": "DAVID JESUE VS. SCOTT WOLF ET AL",
-            "matter": "Notice Of Motion And Motion To Enter Default",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "PLAINTIFF DAVID JESUE Notice Of Motion And Motion To Enter Default is GRANTED. Plaintiff requests entry of default only against Scott Wolf. This request is granted, and default is hereby entered as to Scott Wolf. However, the Court notes that Plaintiff does…"
-          },
-          {
-            "date": "2026-10-02",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25631652",
-            "caseTitle": "GURINDER KARLA VS. OCEAN BIOMEDICAL, INC. ET AL",
-            "matter": "MOTION TO STRIKE Amended COMPLAINT",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendants Chirnjeev Kathuria and Eizabeth Ng's motion to strike portions of the second amended complaint filed by plaintiff Gurinder Karla is: a) granted without leave to amend to the allegations seeking damages beyond the three-year statute of limitations…"
-          },
-          {
-            "date": "2026-10-02",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25630053",
-            "caseTitle": "GEORGE NICHOLAS POTTER VS. BRIAN T. BAST",
-            "matter": "Motion For Relief",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff George Potter's motion for relief is denied."
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "1bea0616d30cd6c5bfcf999fdc2146007e9e914b",
-      "updatedAt": "2026-10-08T00:38:18Z",
+      "ref": "ca5fd1154590947f4628c746f29eb2b7c7359259",
+      "updatedAt": "2026-10-09T00:40:21Z",
       "metrics": {
-        "tentativeRulings": 62200,
+        "tentativeRulings": 62485,
         "parsedCounties": 34,
-        "documents": 15041,
-        "archivedFiles": 95068,
-        "documentBytes": 17491296256
+        "documents": 15167,
+        "archivedFiles": 95726,
+        "documentBytes": 17626562560
       },
       "charts": {
         "rulingsByCounty": [
@@ -1070,14 +1070,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "db826b4ae5fb8534d0f6fe59757446ff7790bb3e",
-      "updatedAt": "2026-10-08T20:18:50Z",
+      "ref": "122792a148f0e6e5c2c69b99a7c4a3fbb9fde7b7",
+      "updatedAt": "2026-10-09T01:14:32Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 426985
+        "snapshots": 426991
       },
       "charts": {}
     },
