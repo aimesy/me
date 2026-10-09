@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-09T16:14:47.000Z",
+  "generatedAt": "2026-10-09T19:14:41.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "544df669528937a61ecfc310218c02e5ae44ec6b",
       "updatedAt": "2026-10-03T22:47:54-07:00",
-      "latestRuling": "2026-10-05",
+      "latestRuling": "2026-10-09",
       "metrics": {
-        "tentativeRulings": 384308,
+        "tentativeRulings": 384588,
         "cases": 1453173,
         "documents": 4082942,
         "documentsArchived": 94046,
@@ -1070,14 +1070,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "e7b5de1d41350582f0b9d8038545bd47e183f8a6",
-      "updatedAt": "2026-10-09T15:57:34Z",
+      "ref": "30ef0feb9a77fbb82704a5eb1e52fd7b1a5f99f1",
+      "updatedAt": "2026-10-09T17:28:54Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 427001
+        "snapshots": 427002
       },
       "charts": {}
     },
@@ -1137,8 +1137,8 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "4ad099fd8a07fee5862936028a74a8f740e0026c",
-      "updatedAt": "2026-10-09T16:14:47Z",
+      "ref": "b303b6967eeff5cbdce49d98117da714e1fde1d8",
+      "updatedAt": "2026-10-09T19:14:41Z",
       "metrics": {
         "jurisdictions": 339,
         "reports": 1052,
