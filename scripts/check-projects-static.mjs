@@ -159,7 +159,7 @@ assert.ok(indexSource.indexOf('id="kcsc"') < indexSource.indexOf('id="nysc"'), "
 // Cards are grouped Judicial, Municipal, then Other. Within a group, publicly
 // accessible projects sit above the pending ones.
 const PROJECT_GROUPS = [
-  ["judicial", "Judicial", ["sfsc", "tentatives", "kcsc", "nysc", "ndcs", "civproidx"]],
+  ["judicial", "Judicial", ["sfsc", "tentatives", "kcsc", "nysc", "ndcs"]],
   ["municipal", "Municipal", ["mfa", "cfhe-data"]],
   ["other", "Other", ["themes"]],
 ];
