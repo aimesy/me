@@ -866,6 +866,17 @@ h1 {
   padding: 0.85rem;
 }
 
+/* EB Garamond SemiBold, trimmed to basic Latin with its true small caps (the
+   smcp and c2sc glyphs), for the category bar and group labels. SIL Open Font
+   License: fonts/EBGaramond-OFL.txt. Preloaded by index.html. */
+@font-face {
+  font-family: "EB Garamond";
+  src: url("fonts/eb-garamond-semibold-sc.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}
+
 /* Projects page: cards grouped under Judicial, Municipal, and Other, with one
    category control at the top. It sticks as a frosted bar, and its highlight
    slides to the group in view (assets/projects.js). The page is a flex column,
@@ -904,11 +915,16 @@ h1 {
   border-bottom: 1px solid var(--rule);
 }
 
+.category-link,
+.project-group-head {
+  font: 600 1rem/1 "EB Garamond", var(--font-serif);
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.07em;
+}
+
 .category-link {
-  padding: 0.62rem 0 0.55rem;
+  padding: 0.5rem 0 0.44rem;
   color: var(--ink-3);
-  font: 400 0.92rem/1.2 var(--font-serif);
-  letter-spacing: 0.01em;
   transition: color 220ms ease;
 }
 
@@ -921,13 +937,13 @@ h1 {
   color: var(--ink);
 }
 
-/* A hairline under the current category, resting on the rule. */
+/* A line under the current category, resting on the rule. */
 .category-indicator {
   position: absolute;
   bottom: -1px;
   left: 0;
   width: 0;
-  height: 1px;
+  height: 2px;
   background: var(--ink);
   opacity: 0;
 }
@@ -947,21 +963,19 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  scroll-margin-top: 2.9rem;
+  scroll-margin-top: 2.5rem;
 }
 
 .project-group + .project-group {
-  margin-top: 0.6rem;
+  margin-top: 0.2rem;
 }
 
 .project-group-head {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin: 0 0 -0.3rem;
-  color: var(--ink-3);
-  font: 400 0.84rem/1.2 var(--font-serif);
-  letter-spacing: 0.02em;
+  margin: 0 0 -0.5rem;
+  color: var(--ink);
 }
 
 .project-group-head::after {
@@ -1652,10 +1666,10 @@ input.mini-input {
   }
 
   .category-link {
-    padding-block: 0.75rem 0.68rem;
+    padding-block: 0.66rem 0.6rem;
   }
 
   .project-group {
-    scroll-margin-top: 3.3rem;
+    scroll-margin-top: 3rem;
   }
 }

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import vm from "node:vm";
 
 const projectsSource = readFileSync(new URL("../assets/projects.js", import.meta.url), "utf8").replaceAll("\r\n", "\n");
@@ -188,6 +188,14 @@ assert.match(stylesSource, /\.category-nav \{[^}]*position: sticky;/, "the categ
 assert.match(stylesSource, /\.project-index \{\s*display: flex;/, "the page is a flex column, since a sticky grid item is held to its own row");
 assert.match(stylesSource, /\.category-nav \+ \.project-group > \.project-group-head \{[^}]*clip-path: inset\(50%\);/, "the first group's label stays available to screen readers");
 assert.match(projectsSource, /link\.setAttribute\("aria-current", "true"\)/, "the control marks the group in view");
+// The bar and group labels use EB Garamond's own small caps, self-hosted (the
+// CSP allows fonts from this origin only) with its license beside it.
+const smallCapsFont = new URL("../assets/fonts/eb-garamond-semibold-sc.woff2", import.meta.url);
+assert.ok(existsSync(smallCapsFont), "the small-caps font file must exist");
+assert.ok(existsSync(new URL("../assets/fonts/EBGaramond-OFL.txt", import.meta.url)), "the font's OFL license must ship with it");
+assert.match(indexSource, /<link rel="preload" href="assets\/fonts\/eb-garamond-semibold-sc\.woff2" as="font" type="font\/woff2" crossorigin>/);
+assert.match(stylesSource, /@font-face \{\s*font-family: "EB Garamond";\s*src: url\("fonts\/eb-garamond-semibold-sc\.woff2"\) format\("woff2"\);/);
+assert.match(stylesSource, /\.category-link,\s*\.project-group-head \{\s*font: 600 [^;]*"EB Garamond"[^;]*;\s*font-variant-caps: all-small-caps;/, "the bar and labels set true small caps from the self-hosted face");
 const mfaSection = projectSection("mfa");
 assert.match(mfaSection, /<span class="chip warn">BETA<\/span>/, "the MFA card is marked Beta");
 assert.match(mfaSection, /<a class="hbtn" href="https:\/\/mfa\.amyc\.us\/">Viewer<\/a>/);
