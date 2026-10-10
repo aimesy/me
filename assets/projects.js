@@ -996,7 +996,9 @@ if (categoryNav) {
     }
     const from = links[index];
     const to = links[Math.min(index + 1, links.length - 1)];
-    indicator.style.width = `${from.offsetWidth + (to.offsetWidth - from.offsetWidth) * progress}px`;
+    // Letter-spacing follows the last letter too; the line stops at the letter.
+    const trailing = parseFloat(getComputedStyle(from).letterSpacing) || 0;
+    indicator.style.width = `${from.offsetWidth + (to.offsetWidth - from.offsetWidth) * progress - trailing}px`;
     indicator.style.transform = `translateX(${from.offsetLeft + (to.offsetLeft - from.offsetLeft) * progress}px)`;
     const nearest = progress >= 0.5 ? to : from;
     if (nearest !== currentLink) {

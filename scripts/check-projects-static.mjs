@@ -195,7 +195,7 @@ assert.ok(existsSync(smallCapsFont), "the small-caps font file must exist");
 assert.ok(existsSync(new URL("../assets/fonts/EBGaramond-OFL.txt", import.meta.url)), "the font's OFL license must ship with it");
 assert.match(indexSource, /<link rel="preload" href="assets\/fonts\/eb-garamond-semibold-sc\.woff2" as="font" type="font\/woff2" crossorigin>/);
 assert.match(stylesSource, /@font-face \{\s*font-family: "EB Garamond";\s*src: url\("fonts\/eb-garamond-semibold-sc\.woff2"\) format\("woff2"\);/);
-assert.match(stylesSource, /\.category-link,\s*\.project-group-head \{\s*font: 600 [^;]*"EB Garamond"[^;]*;\s*font-variant-caps: all-small-caps;/, "the bar and labels set true small caps from the self-hosted face");
+assert.match(stylesSource, /\.category-link,\s*\.project-group-head \{\s*font: 600 [^;]*"EB Garamond"[^;]*;\s*font-variant-caps: small-caps;/, "the bar and labels set true small caps, with full capitals, from the self-hosted face");
 const mfaSection = projectSection("mfa");
 assert.match(mfaSection, /<span class="chip warn">BETA<\/span>/, "the MFA card is marked Beta");
 assert.match(mfaSection, /<a class="hbtn" href="https:\/\/mfa\.amyc\.us\/">Viewer<\/a>/);

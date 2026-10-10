@@ -867,7 +867,8 @@ h1 {
 }
 
 /* EB Garamond SemiBold, trimmed to basic Latin with its true small caps (the
-   smcp and c2sc glyphs), for the category bar and group labels. SIL Open Font
+   smcp and c2sc glyphs), for the category bar and group labels, which keep
+   full capitals for initials. SIL Open Font
    License: fonts/EBGaramond-OFL.txt. Preloaded by index.html. */
 @font-face {
   font-family: "EB Garamond";
@@ -886,13 +887,26 @@ h1 {
   flex-direction: column;
 }
 
+/* The category bar is the header's closing row: flush under the site nav,
+   full width, carrying the header's bottom rule, and it sticks once the
+   header scrolls away. The site nav's own bottom rule gives way to a light
+   divider, like the one above it. */
+header:has(+ .project-index) {
+  border-bottom: 0;
+}
+
+header:has(+ .project-index) .toolbar {
+  border-bottom-color: var(--rule-2);
+}
+
 .category-nav {
   position: sticky;
   top: 0;
   z-index: 5;
-  margin: -0.35rem -0.85rem -0.25rem;
+  margin: -0.85rem -0.85rem -0.25rem;
   padding: 0 0.85rem;
   background: var(--paper-2);
+  border-bottom: 2px solid var(--rule);
 }
 
 /* Once stuck, a short fade softens cards passing under the bar. */
@@ -901,7 +915,7 @@ h1 {
   position: absolute;
   left: 0;
   right: 0;
-  top: 100%;
+  top: calc(100% + 2px);
   height: 0.7rem;
   background: linear-gradient(var(--paper-2), transparent);
   pointer-events: none;
@@ -911,19 +925,18 @@ h1 {
   position: relative;
   display: flex;
   align-items: baseline;
-  gap: 1.75rem;
-  border-bottom: 1px solid var(--rule);
+  gap: 1.1rem;
 }
 
 .category-link,
 .project-group-head {
-  font: 600 1rem/1 "EB Garamond", var(--font-serif);
-  font-variant-caps: all-small-caps;
-  letter-spacing: 0.07em;
+  font: 600 0.9rem/1 "EB Garamond", var(--font-serif);
+  font-variant-caps: small-caps;
+  letter-spacing: 0.035em;
 }
 
 .category-link {
-  padding: 0.5rem 0 0.44rem;
+  padding: 0.56rem 0 0.5rem;
   color: var(--ink-3);
   transition: color 220ms ease;
 }
@@ -937,10 +950,10 @@ h1 {
   color: var(--ink);
 }
 
-/* A line under the current category, resting on the rule. */
+/* The current category darkens its stretch of the header's bottom rule. */
 .category-indicator {
   position: absolute;
-  bottom: -1px;
+  bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
@@ -1598,7 +1611,7 @@ input.mini-input {
   }
 
   .category-nav {
-    margin-inline: -0.6rem;
+    margin: -0.6rem -0.6rem -0.25rem;
     padding-inline: 0.6rem;
   }
 
