@@ -866,9 +866,13 @@ h1 {
   padding: 0.85rem;
 }
 
-/* Projects page: cards grouped under Judicial, Municipal, and Other. */
+/* Projects page: cards grouped under Judicial, Municipal, and Other. Each
+   group's bar names every group, sticks while its group scrolls past, and
+   links the other groups. Flex, not grid: a sticky grid item is held to its
+   own row and never sticks. */
 .project-group {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.85rem;
 }
 
@@ -876,21 +880,44 @@ h1 {
   margin-top: 0.45rem;
 }
 
-.project-group-head {
+.project-group-bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0 0 -0.35rem;
-  color: var(--ink-2);
+  align-items: stretch;
+  gap: 1.1rem;
+  margin-bottom: -0.25rem;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule);
   font: 700 0.68rem/1.2 var(--font-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.project-group-head::after {
-  content: "";
-  flex: 1;
-  border-top: 1px solid var(--rule);
+.project-group-head,
+.project-group-link {
+  margin: 0 0 -1px;
+  padding: 0.45rem 0 0.38rem;
+  border-bottom: 2px solid transparent;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.project-group-head {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.project-group-link {
+  color: var(--ink-3);
+}
+
+.project-group-link:hover,
+.project-group-link:focus-visible {
+  color: var(--link);
+  border-bottom-color: var(--rule);
+  text-decoration: none;
 }
 
 .stats-shell {
@@ -1557,5 +1584,10 @@ input.mini-input {
   .mini-row,
   .mini-result {
     padding-block: 0.45rem;
+  }
+
+  .project-group-head,
+  .project-group-link {
+    padding-block: 0.72rem 0.62rem;
   }
 }

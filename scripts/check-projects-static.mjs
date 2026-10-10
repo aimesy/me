@@ -169,14 +169,25 @@ assert.deepEqual(
   PROJECT_GROUPS.flatMap(([, , ids]) => ids),
   "every project card belongs to exactly one group, in group order",
 );
-const groupStarts = [...indexSource.matchAll(/<section class="project-group" aria-labelledby="group-([a-z]+)">/g)];
+const groupStarts = [...indexSource.matchAll(/<section class="project-group" id="([a-z]+)" aria-labelledby="group-\1">/g)];
 assert.deepEqual(groupStarts.map((match) => match[1]), PROJECT_GROUPS.map(([key]) => key), "the Projects page groups cards Judicial, Municipal, then Other");
 groupStarts.forEach((match, index) => {
   const [key, label, ids] = PROJECT_GROUPS[index];
   const groupSource = indexSource.slice(match.index, groupStarts[index + 1]?.index ?? indexSource.indexOf("</main>"));
-  assert.match(groupSource, new RegExp(`<h2 class="project-group-head" id="group-${key}">${label}</h2>`), `the ${label} group has its heading`);
+  // Every bar names all groups in order: its own as the heading, the others as
+  // links to their sections (not their sticky bars, which scroll with the page).
+  const barItems = PROJECT_GROUPS.map(([otherKey, otherLabel]) => otherKey === key
+    ? `<h2 class="project-group-head" id="group-${key}">${label}</h2>`
+    : `<a class="project-group-link" href="#${otherKey}">${otherLabel}</a>`);
+  assert.match(
+    groupSource,
+    new RegExp(`<div class="project-group-bar">\\s*${barItems.join("\\s*")}\\s*</div>`),
+    `the ${label} bar names every group and links the others`,
+  );
   assert.deepEqual(projectCardIds(groupSource), ids, `the ${label} group lists ${ids.join(", ")}`);
 });
+assert.match(stylesSource, /\.project-group-bar \{[^}]*position: sticky;/, "each group's bar stays in view while its group scrolls");
+assert.doesNotMatch(stylesSource, /\.project-group \{[^}]*display: grid;/, "a grid group would hold its sticky bar to one row");
 const mfaSection = projectSection("mfa");
 assert.match(mfaSection, /<span class="chip warn">BETA<\/span>/, "the MFA card is marked Beta");
 assert.match(mfaSection, /<a class="hbtn" href="https:\/\/mfa\.amyc\.us\/">Viewer<\/a>/);
