@@ -174,20 +174,20 @@ assert.deepEqual(groupStarts.map((match) => match[1]), PROJECT_GROUPS.map(([key]
 groupStarts.forEach((match, index) => {
   const [key, label, ids] = PROJECT_GROUPS[index];
   const groupSource = indexSource.slice(match.index, groupStarts[index + 1]?.index ?? indexSource.indexOf("</main>"));
-  // Every bar names all groups in order: its own as the heading, the others as
-  // links to their sections (not their sticky bars, which scroll with the page).
-  const barItems = PROJECT_GROUPS.map(([otherKey, otherLabel]) => otherKey === key
-    ? `<h2 class="project-group-head" id="group-${key}">${label}</h2>`
-    : `<a class="project-group-link" href="#${otherKey}">${otherLabel}</a>`);
-  assert.match(
-    groupSource,
-    new RegExp(`<div class="project-group-bar">\\s*${barItems.join("\\s*")}\\s*</div>`),
-    `the ${label} bar names every group and links the others`,
-  );
+  assert.match(groupSource, new RegExp(`^<section[^>]*>\\s*<h2 class="project-group-head" id="group-${key}">${label}</h2>`), `the ${label} group opens with its heading`);
   assert.deepEqual(projectCardIds(groupSource), ids, `the ${label} group lists ${ids.join(", ")}`);
 });
-assert.match(stylesSource, /\.project-group-bar \{[^}]*position: sticky;/, "each group's bar stays in view while its group scrolls");
-assert.doesNotMatch(stylesSource, /\.project-group \{[^}]*display: grid;/, "a grid group would hold its sticky bar to one row");
+// One category control heads the page and links every group, in group order,
+// to its section. Its highlight follows the group in view.
+assert.match(
+  indexSource,
+  new RegExp(`<main class="app-shell project-index">\\s*<nav class="category-nav" aria-label="Project categories">\\s*<div class="category-control">\\s*<span class="category-indicator" aria-hidden="true"></span>\\s*${PROJECT_GROUPS.map(([key, label]) => `<a class="category-link" href="#${key}">${label}</a>`).join("\\s*")}\\s*</div>\\s*</nav>\\s*<section class="project-group" id="${PROJECT_GROUPS[0][0]}"`),
+  "the category control heads the Projects page and links each group",
+);
+assert.match(stylesSource, /\.category-nav \{[^}]*position: sticky;/, "the category control stays in view while the page scrolls");
+assert.match(stylesSource, /\.project-index \{\s*display: flex;/, "the page is a flex column, since a sticky grid item is held to its own row");
+assert.match(stylesSource, /\.category-nav \+ \.project-group > \.project-group-head \{[^}]*clip-path: inset\(50%\);/, "the first group's label stays available to screen readers");
+assert.match(projectsSource, /link\.setAttribute\("aria-current", "true"\)/, "the control marks the group in view");
 const mfaSection = projectSection("mfa");
 assert.match(mfaSection, /<span class="chip warn">BETA<\/span>/, "the MFA card is marked Beta");
 assert.match(mfaSection, /<a class="hbtn" href="https:\/\/mfa\.amyc\.us\/">Viewer<\/a>/);

@@ -866,58 +866,125 @@ h1 {
   padding: 0.85rem;
 }
 
-/* Projects page: cards grouped under Judicial, Municipal, and Other. Each
-   group's bar names every group, sticks while its group scrolls past, and
-   links the other groups. Flex, not grid: a sticky grid item is held to its
-   own row and never sticks. */
+/* Projects page: cards grouped under Judicial, Municipal, and Other, with one
+   category control at the top. It sticks as a frosted bar, and its highlight
+   slides to the group in view (assets/projects.js). The page is a flex column,
+   not the shell's grid: a sticky grid item is held to its own row. */
+.project-index {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: -0.35rem -0.85rem -0.2rem;
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid transparent;
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.category-nav[data-stuck] {
+  background: color-mix(in srgb, var(--paper-2) 95%, transparent);
+  border-bottom-color: var(--rule);
+  box-shadow: 0 6px 18px -10px color-mix(in srgb, var(--ink) 35%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
+}
+
+.category-control {
+  position: relative;
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  background: var(--paper);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.category-indicator {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  width: 0;
+  border-radius: 3px;
+  background: var(--ink);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--ink) 30%, transparent);
+  opacity: 0;
+}
+
+.category-control[data-ready] .category-indicator {
+  opacity: 1;
+  transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), width 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.category-link {
+  position: relative;
+  z-index: 1;
+  padding: 0.32rem 0.85rem;
+  border-radius: 3px;
+  color: var(--ink-3);
+  font: 600 0.66rem/1.2 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 200ms ease;
+}
+
+.category-link:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.category-link[aria-current="true"] {
+  color: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-nav,
+  .category-link,
+  .category-control[data-ready] .category-indicator {
+    transition: none;
+  }
+}
+
 .project-group {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+  scroll-margin-top: 3.4rem;
 }
 
 .project-group + .project-group {
   margin-top: 0.45rem;
 }
 
-.project-group-bar {
-  position: sticky;
-  top: 0;
-  z-index: 2;
+.project-group-head {
   display: flex;
-  align-items: stretch;
-  gap: 1.1rem;
-  margin-bottom: -0.25rem;
-  background: var(--paper-2);
-  border-bottom: 1px solid var(--rule);
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 -0.35rem;
+  color: var(--ink-2);
   font: 700 0.68rem/1.2 var(--font-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.project-group-head,
-.project-group-link {
-  margin: 0 0 -1px;
-  padding: 0.45rem 0 0.38rem;
-  border-bottom: 2px solid transparent;
-  font: inherit;
-  letter-spacing: inherit;
+.project-group-head::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--rule);
 }
 
-.project-group-head {
-  color: var(--ink);
-  border-bottom-color: var(--ink);
-}
-
-.project-group-link {
-  color: var(--ink-3);
-}
-
-.project-group-link:hover,
-.project-group-link:focus-visible {
-  color: var(--link);
-  border-bottom-color: var(--rule);
-  text-decoration: none;
+/* The control names the first group, so its label is for screen readers only. */
+.category-nav + .project-group > .project-group-head {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .stats-shell {
@@ -1523,6 +1590,11 @@ input.mini-input {
     padding-right: 0.6rem;
   }
 
+  .category-nav {
+    margin-inline: -0.6rem;
+    padding-inline: 0.6rem;
+  }
+
   .stats-source-note .hbtn {
     margin-left: 0;
   }
@@ -1586,8 +1658,11 @@ input.mini-input {
     padding-block: 0.45rem;
   }
 
-  .project-group-head,
-  .project-group-link {
-    padding-block: 0.72rem 0.62rem;
+  .category-link {
+    padding-block: 0.6rem;
+  }
+
+  .project-group {
+    scroll-margin-top: 4.2rem;
   }
 }

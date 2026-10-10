@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Projects | AMYC.US">
   <meta name="twitter:description" content="Public project index for SFSC, California tentative rulings, KCSC, NYSC, California mitigation fees, California Housing Permit Data, NDCS, civil procedure research tools, and AMYC Themes.">
   <meta name="theme-color" content="#24211d">
-  <link rel="stylesheet" href="assets/styles.css?v=project-groups-2">
+  <link rel="stylesheet" href="assets/styles.css?v=project-groups-3">
   <link rel="stylesheet" href="https://aimesy.github.io/themes/src/theme.css">
   <link rel="stylesheet" href="https://aimesy.github.io/themes/src/theme-bar.css">
   <link rel="stylesheet" href="https://aimesy.github.io/themes/src/bug-report.css">
@@ -72,13 +72,18 @@
     </nav>
   </header>
 
-  <main class="app-shell">
-    <section class="project-group" id="judicial" aria-labelledby="group-judicial">
-      <div class="project-group-bar">
-        <h2 class="project-group-head" id="group-judicial">Judicial</h2>
-        <a class="project-group-link" href="#municipal">Municipal</a>
-        <a class="project-group-link" href="#other">Other</a>
+  <main class="app-shell project-index">
+    <nav class="category-nav" aria-label="Project categories">
+      <div class="category-control">
+        <span class="category-indicator" aria-hidden="true"></span>
+        <a class="category-link" href="#judicial">Judicial</a>
+        <a class="category-link" href="#municipal">Municipal</a>
+        <a class="category-link" href="#other">Other</a>
       </div>
+    </nav>
+
+    <section class="project-group" id="judicial" aria-labelledby="group-judicial">
+      <h2 class="project-group-head" id="group-judicial">Judicial</h2>
       <section class="project has-live-panel" id="sfsc">
         <div class="project-copy">
           <div class="project-head">
@@ -286,11 +291,7 @@
     </section>
 
     <section class="project-group" id="municipal" aria-labelledby="group-municipal">
-      <div class="project-group-bar">
-        <a class="project-group-link" href="#judicial">Judicial</a>
-        <h2 class="project-group-head" id="group-municipal">Municipal</h2>
-        <a class="project-group-link" href="#other">Other</a>
-      </div>
+      <h2 class="project-group-head" id="group-municipal">Municipal</h2>
       <section class="project no-preview" id="mfa">
         <div class="project-copy">
           <div class="project-head">
@@ -347,11 +348,7 @@
     </section>
 
     <section class="project-group" id="other" aria-labelledby="group-other">
-      <div class="project-group-bar">
-        <a class="project-group-link" href="#judicial">Judicial</a>
-        <a class="project-group-link" href="#municipal">Municipal</a>
-        <h2 class="project-group-head" id="group-other">Other</h2>
-      </div>
+      <h2 class="project-group-head" id="group-other">Other</h2>
       <section class="project no-preview" id="themes">
         <div class="project-copy">
           <div class="project-head">

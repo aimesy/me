@@ -950,6 +950,65 @@ $('[data-mini-clear="tentatives"]')?.addEventListener("click", () => {
   input?.focus();
 });
 
+// The category control: its highlight slides to the group in view, it frosts
+// once it sticks, and its links scroll smoothly. A group is current once its
+// label reaches the control; the last group is too short to get there, so the
+// page bottom selects it.
+const categoryNav = $(".category-nav");
+if (categoryNav) {
+  const control = categoryNav.querySelector(".category-control");
+  const indicator = categoryNav.querySelector(".category-indicator");
+  const links = [...categoryNav.querySelectorAll(".category-link")];
+  const groups = $$(".project-group");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let currentLink = null;
+  let frame = 0;
+
+  const placeIndicator = () => {
+    if (!currentLink) return;
+    indicator.style.width = `${currentLink.offsetWidth}px`;
+    indicator.style.transform = `translateX(${currentLink.offsetLeft}px)`;
+  };
+
+  const updateCategoryNav = () => {
+    frame = 0;
+    const navBox = categoryNav.getBoundingClientRect();
+    categoryNav.toggleAttribute("data-stuck", navBox.top <= 0);
+    let current = groups[0];
+    groups.forEach((group) => {
+      if (group.getBoundingClientRect().top <= navBox.bottom + 24) current = group;
+    });
+    if (Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight - 2) current = groups.at(-1);
+    const link = links.find((candidate) => candidate.hash === `#${current.id}`);
+    if (link && link !== currentLink) {
+      currentLink?.removeAttribute("aria-current");
+      link.setAttribute("aria-current", "true");
+      currentLink = link;
+      placeIndicator();
+    }
+  };
+  const scheduleCategoryNav = () => {
+    if (!frame) frame = requestAnimationFrame(updateCategoryNav);
+  };
+
+  links.forEach((link) => link.addEventListener("click", (event) => {
+    const target = document.getElementById(link.hash.slice(1));
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth" });
+    history.pushState(null, "", link.hash);
+  }));
+  window.addEventListener("scroll", scheduleCategoryNav, { passive: true });
+  window.addEventListener("resize", () => {
+    placeIndicator();
+    scheduleCategoryNav();
+  });
+  document.fonts?.ready.then(placeIndicator);
+  updateCategoryNav();
+  // Place the highlight before turning on its slide, so it doesn't slide in on load.
+  requestAnimationFrame(() => control.setAttribute("data-ready", ""));
+}
+
 loadData()
   .then(render)
   .catch((error) => {
