@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T19:14:41.000Z",
+  "generatedAt": "2026-10-10T00:40:39.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-09",
       "metrics": {
         "tentativeRulings": 384588,
-        "cases": 1453173,
+        "cases": 1453484,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 432115
+            "value": 432146
           },
           {
             "label": "CRI",
@@ -53,43 +53,43 @@
           },
           {
             "label": "CSM",
-            "value": 187928
+            "value": 187987
           },
           {
             "label": "CUD",
-            "value": 97152
+            "value": 97164
           },
           {
             "label": "FDI",
-            "value": 98678
+            "value": 98731
           },
           {
             "label": "FCS",
-            "value": 94408
+            "value": 94434
           },
           {
             "label": "PES",
-            "value": 42598
+            "value": 42616
           },
           {
             "label": "FDV",
-            "value": 30015
+            "value": 30042
           },
           {
             "label": "CPF",
-            "value": 28818
+            "value": 28836
           },
           {
             "label": "CNC",
-            "value": 25608
+            "value": 25620
           },
           {
             "label": "PDW",
-            "value": 21512
+            "value": 21535
           },
           {
             "label": "FSD",
-            "value": 15803
+            "value": 15808
           },
           {
             "label": "PCN",
@@ -97,27 +97,27 @@
           },
           {
             "label": "PTR",
-            "value": 6506
+            "value": 6516
           },
           {
             "label": "FMS",
-            "value": 3533
+            "value": 3538
           },
           {
             "label": "APP",
-            "value": 5017
+            "value": 5019
           },
           {
             "label": "PGN",
-            "value": 4145
+            "value": 4151
           },
           {
             "label": "FPT",
-            "value": 689
+            "value": 691
           },
           {
             "label": "FLD",
-            "value": 2809
+            "value": 2811
           },
           {
             "label": "DPO",
@@ -155,8 +155,18 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-09T00:53:13.331Z",
+        "latestScrapedAt": "2026-10-10T00:02:19.950Z",
         "days": [
+          {
+            "date": "2026-10-13",
+            "total": 48,
+            "departments": [
+              {
+                "department": "204",
+                "count": 48
+              }
+            ]
+          },
           {
             "date": "2026-10-09",
             "total": 49,
@@ -242,28 +252,6 @@
               {
                 "department": "304",
                 "count": 12
-              }
-            ]
-          },
-          {
-            "date": "2026-10-05",
-            "total": 81,
-            "departments": [
-              {
-                "department": "204",
-                "count": 47
-              },
-              {
-                "department": "301",
-                "count": 16
-              },
-              {
-                "department": "302",
-                "count": 9
-              },
-              {
-                "department": "501",
-                "count": 9
               }
             ]
           }
@@ -748,140 +736,20 @@
               "label": "Granted in part"
             },
             "text": "Line 4 DEFENDANT SHAWNY WILLIAMS Notice Of Motion And Motion For Order Declaring Shanda Love To Be A Vexatious Litigant, Motion For Security, And For A Prefiling Order Prohibiting The Filing Of New Litigation is GRANTED in part. Plaintiff is a vexatious…"
-          },
-          {
-            "date": "2026-10-05",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC21591698",
-            "caseTitle": "PABLO CORREA VS. QBAR INVESTMENTS, LLC, A CALIFORNIA CORPORATION ET AL",
-            "matter": "Notice Of Motion And Motion To Vacate Order Dismissing Entire Action Under Code Of Civil Procedure Section 473(B); Request To Determine Excluded Time Under Sections 583.340(C) And 583.360",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Pablo Correa's Motion to Vacate Order Dismissing Entire Action under Code of Civil Procedure section 473(b) and Request to Determine Excluded Time is granted."
-          },
-          {
-            "date": "2026-10-05",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24614539",
-            "caseTitle": "RON ROUSSELL VS. BOHEMIAN CLUB, A CALIFORNIA NONPROFIT CORPORATION ET AL",
-            "matter": "Notice Of Motion And Motion To Dismiss Plaintiffs Individual Claims With Prejudice And Consolidated Class And Paga Claims Without Prejudice",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion to dismiss plaintiff Ron Roussell's individual claims with prejudice and consolidated class and PAGA claims without prejudice is granted for good cause shown in the moving papers and the supplemental briefing in support of the motion."
-          },
-          {
-            "date": "2026-10-05",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC24615169",
-            "caseTitle": "JENNIFER SARKANY ET AL VS. CHRISTIE BARRETT WEST ET AL",
-            "matter": "Motion For Attorneys Fees As To Defendants",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff's Motion for Attorney's Fees Plaintiff's Motion for Attorney Fees is GRANTED. No opposition filed. Plaintiff is entitled to post-judgment attorney's fees and fees on appeal as follows: Mr. Hooshmand's - $23,328 (32.4 hours at $720/hour) Mr. Swanson…"
-          },
-          {
-            "date": "2026-10-05",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23606488",
-            "caseTitle": "DISCOVER BANK VS. GRACE T CASANAS ET AL",
-            "matter": "Motion For Leave To Amend To File Plaintiffs First Amended Complaint",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Discover Bank's unopposed Motion for Leave to Amend to File Plaintiff's First Amended Complaint is granted. Plaintiff is granted leave to file its First Amended Complaint by October 19, 2026. The court has broad discretionary power under Code of…"
-          },
-          {
-            "date": "2026-10-05",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25623165",
-            "caseTitle": "JPMORGAN CHASE BANK, N.A. VS. JOEL B SCOTT",
-            "matter": "Notice Of Motion And Motion To Enter Judgment Under Terms Of Stipulated Settlement",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for entry of judgment pursuant to Code of Civil Procedure, section 664.6, is granted for good cause shown in the moving papers. Plaintiff shall submit a proposed judgment in the amount of $25,955.38 in principal and $0 in costs."
-          },
-          {
-            "date": "2026-10-05",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26681737",
-            "caseTitle": "BWF FORGE TL PROPERTIES LLC VS. SARA ALAMO ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT And Notice Of Motion",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant's Motion for Summary Judgment is GRANTED. Defendant shifted the burden of showing that Plaintiff cannot establish its elements as a matter of law, because the 3-Day Notice to Pay Rent or Quit is defective under Eshagian v. Cepeda (2025) 112…"
-          },
-          {
-            "date": "2026-10-05",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23611246",
-            "caseTitle": "ADELAIDA SALANGSANG ET AL VS. RICHARD J. KOLL ET AL",
-            "matter": "Notice Of Motion And Motion For Protective Order",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiffs Adelaida Salangsang and Eduardo Salangsang, Jr.'s Motion for Protective Order is denied without prejudice. Plaintiffs' motion for $2,000 sanctions is denied. Defendant John Van Koll's request for $1,650 sanctions against Plaintiffs is denied."
-          },
-          {
-            "date": "2026-10-05",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25624023",
-            "caseTitle": "LEONARD KEITH JR. ALFONSO VS. SCP PROPERTY MANAGEMENT, LLC, A LIMITED LIABILITY ET AL",
-            "matter": "Notice Of Motion And Motion For Preliminary Approval Of Class And Representative Action Settlement; Memorandum Of Points And Authorities",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "PLAINTIFF LEONARD ALFONSO's, INDIVIDUALLY AND ON BEHALF OF ALL OTHERS SIMILARLY SITUATED, Motion For Preliminary Approval Of Class And Representative Action Settlement. The unopposed motion for preliminary approval is granted. The court will sign the proposed…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "ca5fd1154590947f4628c746f29eb2b7c7359259",
-      "updatedAt": "2026-10-09T00:40:21Z",
+      "ref": "69ab0043c230af549db6daf273c3906d8053a816",
+      "updatedAt": "2026-10-10T00:40:39Z",
       "metrics": {
-        "tentativeRulings": 62485,
+        "tentativeRulings": 62829,
         "parsedCounties": 34,
-        "documents": 15167,
-        "archivedFiles": 95726,
-        "documentBytes": 17626562560
+        "documents": 15265,
+        "archivedFiles": 96238,
+        "documentBytes": 17690525696
       },
       "charts": {
         "rulingsByCounty": [
