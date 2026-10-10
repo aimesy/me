@@ -866,6 +866,33 @@ h1 {
   padding: 0.85rem;
 }
 
+/* Projects page: cards grouped under Judicial, Municipal, and Other. */
+.project-group {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.project-group + .project-group {
+  margin-top: 0.45rem;
+}
+
+.project-group-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 -0.35rem;
+  color: var(--ink-2);
+  font: 700 0.68rem/1.2 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-group-head::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--rule);
+}
+
 .stats-shell {
   padding: 0.75rem 0.85rem 0;
 }
@@ -934,7 +961,8 @@ h1 {
       border-bottom: 1px solid var(--rule-2);
     }
 
-h2 {
+h2,
+.project-head h3 {
   margin: 0 0 0.12rem;
   font: 700 1.02rem/1.15 var(--font-serif);
   letter-spacing: 0;

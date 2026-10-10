@@ -156,11 +156,29 @@ assert.match(
   "KCSC must show document index rows without changing unrelated file metrics",
 );
 assert.ok(indexSource.indexOf('id="kcsc"') < indexSource.indexOf('id="nysc"'), "KCSC must appear above NYSC");
-// Publicly accessible projects sit above the pending ones: MFA, then CFHE, then NDCS.
-assert.ok(indexSource.indexOf('id="nysc"') < indexSource.indexOf('id="mfa"'), "MFA must appear below NYSC");
-assert.ok(indexSource.indexOf('id="mfa"') < indexSource.indexOf('id="cfhe-data"'), "MFA must appear above CFHE");
-assert.ok(indexSource.indexOf('id="cfhe-data"') < indexSource.indexOf('id="ndcs"'), "CFHE must appear above NDCS");
+// Cards are grouped Judicial, Municipal, then Other. Within a group, publicly
+// accessible projects sit above the pending ones.
+const PROJECT_GROUPS = [
+  ["judicial", "Judicial", ["sfsc", "tentatives", "kcsc", "nysc", "ndcs", "civproidx"]],
+  ["municipal", "Municipal", ["mfa", "cfhe-data"]],
+  ["other", "Other", ["themes"]],
+];
+const projectCardIds = (source) => [...source.matchAll(/<section class="project(?: [^"]*)?" id="([^"]+)">/g)].map((match) => match[1]);
+assert.deepEqual(
+  projectCardIds(indexSource),
+  PROJECT_GROUPS.flatMap(([, , ids]) => ids),
+  "every project card belongs to exactly one group, in group order",
+);
+const groupStarts = [...indexSource.matchAll(/<section class="project-group" aria-labelledby="group-([a-z]+)">/g)];
+assert.deepEqual(groupStarts.map((match) => match[1]), PROJECT_GROUPS.map(([key]) => key), "the Projects page groups cards Judicial, Municipal, then Other");
+groupStarts.forEach((match, index) => {
+  const [key, label, ids] = PROJECT_GROUPS[index];
+  const groupSource = indexSource.slice(match.index, groupStarts[index + 1]?.index ?? indexSource.indexOf("</main>"));
+  assert.match(groupSource, new RegExp(`<h2 class="project-group-head" id="group-${key}">${label}</h2>`), `the ${label} group has its heading`);
+  assert.deepEqual(projectCardIds(groupSource), ids, `the ${label} group lists ${ids.join(", ")}`);
+});
 const mfaSection = projectSection("mfa");
+assert.match(mfaSection, /<span class="chip warn">BETA<\/span>/, "the MFA card is marked Beta");
 assert.match(mfaSection, /<a class="hbtn" href="https:\/\/mfa\.amyc\.us\/">Viewer<\/a>/);
 assert.match(mfaSection, /<div class="project-note">/, "the MFA card carries a project description");
 assert.match(projectSection("cfhe-data"), /<div class="project-note">/, "the CFHE card carries a project description");
