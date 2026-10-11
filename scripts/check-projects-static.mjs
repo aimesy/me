@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import vm from "node:vm";
 
 const projectsSource = readFileSync(new URL("../assets/projects.js", import.meta.url), "utf8").replaceAll("\r\n", "\n");
@@ -159,7 +159,7 @@ assert.ok(indexSource.indexOf('id="kcsc"') < indexSource.indexOf('id="nysc"'), "
 // Cards are grouped Judicial, Municipal, then Other. Within a group, publicly
 // accessible projects sit above the pending ones.
 const PROJECT_GROUPS = [
-  ["judicial", "Judicial", ["sfsc", "tentatives", "kcsc", "nysc", "ndcs", "civproidx"]],
+  ["judicial", "Judicial", ["sfsc", "tentatives", "kcsc", "nysc", "ndcs"]],
   ["municipal", "Municipal", ["mfa", "cfhe-data"]],
   ["other", "Other", ["themes"]],
 ];
@@ -169,14 +169,33 @@ assert.deepEqual(
   PROJECT_GROUPS.flatMap(([, , ids]) => ids),
   "every project card belongs to exactly one group, in group order",
 );
-const groupStarts = [...indexSource.matchAll(/<section class="project-group" aria-labelledby="group-([a-z]+)">/g)];
+const groupStarts = [...indexSource.matchAll(/<section class="project-group" id="([a-z]+)" aria-labelledby="group-\1">/g)];
 assert.deepEqual(groupStarts.map((match) => match[1]), PROJECT_GROUPS.map(([key]) => key), "the Projects page groups cards Judicial, Municipal, then Other");
 groupStarts.forEach((match, index) => {
   const [key, label, ids] = PROJECT_GROUPS[index];
   const groupSource = indexSource.slice(match.index, groupStarts[index + 1]?.index ?? indexSource.indexOf("</main>"));
-  assert.match(groupSource, new RegExp(`<h2 class="project-group-head" id="group-${key}">${label}</h2>`), `the ${label} group has its heading`);
+  assert.match(groupSource, new RegExp(`^<section[^>]*>\\s*<h2 class="project-group-head" id="group-${key}">${label}</h2>`), `the ${label} group opens with its heading`);
   assert.deepEqual(projectCardIds(groupSource), ids, `the ${label} group lists ${ids.join(", ")}`);
 });
+// One category control heads the page and links every group, in group order,
+// to its section. Its highlight follows the group in view.
+assert.match(
+  indexSource,
+  new RegExp(`<main class="app-shell project-index">\\s*<nav class="category-nav" aria-label="Project categories">\\s*<div class="category-control">\\s*<span class="category-indicator" aria-hidden="true"></span>\\s*${PROJECT_GROUPS.map(([key, label]) => `<a class="category-link" href="#${key}">${label}</a>`).join("\\s*")}\\s*</div>\\s*</nav>\\s*<section class="project-group" id="${PROJECT_GROUPS[0][0]}"`),
+  "the category control heads the Projects page and links each group",
+);
+assert.match(stylesSource, /\.category-nav \{[^}]*position: sticky;/, "the category control stays in view while the page scrolls");
+assert.match(stylesSource, /\.project-index \{\s*display: flex;/, "the page is a flex column, since a sticky grid item is held to its own row");
+assert.match(stylesSource, /\.category-nav \+ \.project-group > \.project-group-head \{[^}]*clip-path: inset\(50%\);/, "the first group's label stays available to screen readers");
+assert.match(projectsSource, /link\.setAttribute\("aria-current", "true"\)/, "the control marks the group in view");
+// The bar and group labels use EB Garamond's own small caps, self-hosted (the
+// CSP allows fonts from this origin only) with its license beside it.
+const smallCapsFont = new URL("../assets/fonts/eb-garamond-semibold-sc.woff2", import.meta.url);
+assert.ok(existsSync(smallCapsFont), "the small-caps font file must exist");
+assert.ok(existsSync(new URL("../assets/fonts/EBGaramond-OFL.txt", import.meta.url)), "the font's OFL license must ship with it");
+assert.match(indexSource, /<link rel="preload" href="assets\/fonts\/eb-garamond-semibold-sc\.woff2" as="font" type="font\/woff2" crossorigin>/);
+assert.match(stylesSource, /@font-face \{\s*font-family: "EB Garamond";\s*src: url\("fonts\/eb-garamond-semibold-sc\.woff2"\) format\("woff2"\);/);
+assert.match(stylesSource, /\.category-link,\s*\.project-group-head \{\s*font: 600 [^;]*"EB Garamond"[^;]*;\s*font-variant-caps: small-caps;/, "the bar and labels set true small caps, with full capitals, from the self-hosted face");
 const mfaSection = projectSection("mfa");
 assert.match(mfaSection, /<span class="chip warn">BETA<\/span>/, "the MFA card is marked Beta");
 assert.match(mfaSection, /<a class="hbtn" href="https:\/\/mfa\.amyc\.us\/">Viewer<\/a>/);

@@ -950,6 +950,100 @@ $('[data-mini-clear="tentatives"]')?.addEventListener("click", () => {
   input?.focus();
 });
 
+// The category control. Its hairline follows the scroll: as the next group
+// comes up, the line glides across in step, so it never jumps. A group is
+// current once its label reaches the bar. The last groups are too short to
+// get there, so over the final stretch of the page the line labels must cross
+// sweeps down the screen and each group still gets its turn. Links scroll to
+// the point where their group becomes current, smoothly unless reduced motion.
+const categoryNav = $(".category-nav");
+if (categoryNav) {
+  const control = categoryNav.querySelector(".category-control");
+  const indicator = categoryNav.querySelector(".category-indicator");
+  const links = [...categoryNav.querySelectorAll(".category-link")];
+  const groups = links.map((link) => document.getElementById(link.hash.slice(1)));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const smoothstep = (t) => t * t * (3 - 2 * t);
+  let currentLink = null;
+  let frame = 0;
+
+  // The scroll offset at which each group becomes current.
+  const groupStarts = () => {
+    const bar = categoryNav.offsetHeight + 24;
+    const bottom = document.documentElement.scrollHeight - window.innerHeight;
+    const sweep = Math.min(window.innerHeight * 0.6, bottom);
+    const rate = sweep > 0 ? (window.innerHeight - 1 - bar) / sweep : 0;
+    return groups.map((group) => {
+      const natural = window.scrollY + group.getBoundingClientRect().top - bar;
+      if (!sweep || natural <= bottom - sweep) return Math.min(natural, bottom);
+      return Math.min((natural + (bottom - sweep) * rate) / (1 + rate), bottom);
+    });
+  };
+
+  const updateCategoryNav = () => {
+    frame = 0;
+    categoryNav.toggleAttribute("data-stuck", categoryNav.getBoundingClientRect().top <= 0);
+    const y = window.scrollY;
+    const starts = groupStarts();
+    let index = 0;
+    while (index + 1 < starts.length && y >= starts[index + 1]) index += 1;
+    let progress = 0;
+    if (index + 1 < starts.length) {
+      // Half the distance at most, so the line rests on each group for a while.
+      const glide = Math.min(240, window.innerHeight * 0.3, (starts[index + 1] - starts[index]) / 2);
+      const into = y - (starts[index + 1] - glide);
+      if (glide > 0 && into > 0) progress = smoothstep(Math.min(into / glide, 1));
+    }
+    const from = links[index];
+    const to = links[Math.min(index + 1, links.length - 1)];
+    // Letter-spacing follows the last letter too; the line stops at the letter.
+    const trailing = parseFloat(getComputedStyle(from).letterSpacing) || 0;
+    indicator.style.width = `${from.offsetWidth + (to.offsetWidth - from.offsetWidth) * progress - trailing}px`;
+    indicator.style.transform = `translateX(${from.offsetLeft + (to.offsetLeft - from.offsetLeft) * progress}px)`;
+    const nearest = progress >= 0.5 ? to : from;
+    if (nearest !== currentLink) {
+      links.forEach((link) => {
+        if (link === nearest) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+      currentLink = nearest;
+    }
+  };
+  const scheduleCategoryNav = () => {
+    if (!frame) frame = requestAnimationFrame(updateCategoryNav);
+  };
+  const scrollToGroup = (index, behavior) => {
+    window.scrollTo({ top: Math.max(0, Math.ceil(groupStarts()[index]) + 1), behavior });
+  };
+
+  links.forEach((link, index) => link.addEventListener("click", (event) => {
+    event.preventDefault();
+    scrollToGroup(index, reduceMotion.matches ? "auto" : "smooth");
+    history.pushState(null, "", link.hash);
+  }));
+  // A link from elsewhere (amyc.us/#municipal) lands where its group is current
+  // and stays there while live data fills in the cards above, until the
+  // visitor scrolls or clicks.
+  let landing = links.findIndex((link) => link.hash === window.location.hash);
+  const land = () => {
+    if (landing >= 0) scrollToGroup(landing, "auto");
+  };
+  ["wheel", "touchstart", "keydown", "pointerdown"].forEach((type) => {
+    window.addEventListener(type, () => { landing = -1; }, { once: true, passive: true });
+  });
+  new ResizeObserver(() => {
+    land();
+    scheduleCategoryNav();
+  }).observe(document.body);
+  window.addEventListener("load", land);
+  window.addEventListener("scroll", scheduleCategoryNav, { passive: true });
+  window.addEventListener("resize", scheduleCategoryNav);
+  document.fonts?.ready.then(scheduleCategoryNav);
+  land();
+  updateCategoryNav();
+  control.setAttribute("data-ready", "");
+}
+
 loadData()
   .then(render)
   .catch((error) => {

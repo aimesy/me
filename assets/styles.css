@@ -866,31 +866,145 @@ h1 {
   padding: 0.85rem;
 }
 
-/* Projects page: cards grouped under Judicial, Municipal, and Other. */
+/* EB Garamond SemiBold, trimmed to basic Latin with its true small caps (the
+   smcp and c2sc glyphs), for the category bar and group labels, which keep
+   full capitals for initials. SIL Open Font
+   License: fonts/EBGaramond-OFL.txt. Preloaded by index.html. */
+@font-face {
+  font-family: "EB Garamond";
+  src: url("fonts/eb-garamond-semibold-sc.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Projects page: cards grouped under Judicial, Municipal, and Other, with one
+   category control at the top. It sticks as a frosted bar, and its highlight
+   slides to the group in view (assets/projects.js). The page is a flex column,
+   not the shell's grid: a sticky grid item is held to its own row. */
+.project-index {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The category bar is the header's closing row: flush under the site nav,
+   full width, carrying the header's bottom rule, and it sticks once the
+   header scrolls away. The site nav's own bottom rule gives way to a light
+   divider, like the one above it. */
+header:has(+ .project-index) {
+  border-bottom: 0;
+}
+
+header:has(+ .project-index) .toolbar {
+  border-bottom-color: var(--rule-2);
+}
+
+.category-nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: -0.85rem -0.85rem -0.25rem;
+  padding: 0 0.85rem;
+  background: var(--paper-2);
+  border-bottom: 2px solid var(--rule);
+}
+
+/* Once stuck, a short fade softens cards passing under the bar. */
+.category-nav[data-stuck]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 2px);
+  height: 0.7rem;
+  background: linear-gradient(var(--paper-2), transparent);
+  pointer-events: none;
+}
+
+.category-control {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+}
+
+.category-link,
+.project-group-head {
+  font: 600 0.8rem/1 "EB Garamond", var(--font-serif);
+  font-variant-caps: small-caps;
+  letter-spacing: 0.035em;
+}
+
+.category-link {
+  padding: 0.56rem 0 0.5rem;
+  color: var(--ink-3);
+  transition: color 220ms ease;
+}
+
+.category-link:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.category-link[aria-current="true"] {
+  color: var(--ink);
+}
+
+/* The current category darkens its stretch of the header's bottom rule. */
+.category-indicator {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--ink);
+  opacity: 0;
+}
+
+/* Placed by assets/projects.js, which moves it with the scroll. */
+.category-control[data-ready] .category-indicator {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-link {
+    transition: none;
+  }
+}
+
 .project-group {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.85rem;
+  scroll-margin-top: 2.5rem;
 }
 
 .project-group + .project-group {
-  margin-top: 0.45rem;
+  margin-top: 0.2rem;
 }
 
 .project-group-head {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  margin: 0 0 -0.35rem;
-  color: var(--ink-2);
-  font: 700 0.68rem/1.2 var(--font-mono);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  gap: 0.75rem;
+  margin: 0 0 -0.5rem;
+  color: var(--ink);
 }
 
 .project-group-head::after {
   content: "";
   flex: 1;
   border-top: 1px solid var(--rule);
+}
+
+/* The control names the first group, so its label is for screen readers only. */
+.category-nav + .project-group > .project-group-head {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .stats-shell {
@@ -1496,6 +1610,11 @@ input.mini-input {
     padding-right: 0.6rem;
   }
 
+  .category-nav {
+    margin: -0.6rem -0.6rem -0.25rem;
+    padding-inline: 0.6rem;
+  }
+
   .stats-source-note .hbtn {
     margin-left: 0;
   }
@@ -1557,5 +1676,13 @@ input.mini-input {
   .mini-row,
   .mini-result {
     padding-block: 0.45rem;
+  }
+
+  .category-link {
+    padding-block: 0.66rem 0.6rem;
+  }
+
+  .project-group {
+    scroll-margin-top: 3rem;
   }
 }

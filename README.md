@@ -2,7 +2,7 @@
 
 Static project, stats, fiction, and contact index for amyc.us.
 
-The Projects page groups its cards under Judicial (court records and research), Municipal (local-agency data), and Other headings. `scripts/check-projects-static.mjs` pins each card's group and order.
+The Projects page groups its cards under Judicial (court records and research), Municipal (local-agency data), and Other. A category bar, the header's closing row, links each group (`#judicial`, `#municipal`, `#other`) in EB Garamond small caps (self-hosted in `assets/fonts/` with its OFL license). It sticks to the top while scrolling, and `assets/projects.js` moves the line under the current category with the scroll. `scripts/check-projects-static.mjs` pins each card's group and order and the control's links.
 
 The Stats page embeds the live SFSC and KCSC statistics workspaces inline in full-width windows inside independently collapsible, state-persisted sections. SFSC opens to attorney and judgment rankings; KCSC opens to its archive dashboard, aggregates, attorney rankings, and judgment rankings. Keep the embedded displays primary; full-screen links are secondary escape hatches, not a replacement for the statistics interfaces. The page's `assets/data-index.css` and `assets/data-index.js` keep their names from the retired Data page.
 
