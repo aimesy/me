@@ -930,7 +930,7 @@ header:has(+ .project-index) .toolbar {
 
 .category-link,
 .project-group-head {
-  font: 600 0.9rem/1 "EB Garamond", var(--font-serif);
+  font: 600 0.8rem/1 "EB Garamond", var(--font-serif);
   font-variant-caps: small-caps;
   letter-spacing: 0.035em;
 }
