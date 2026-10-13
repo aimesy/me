@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T00:37:15.000Z",
+  "generatedAt": "2026-10-13T00:53:19.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -8,8 +8,8 @@
       "updatedAt": "2026-10-03T22:47:54-07:00",
       "latestRuling": "2026-10-13",
       "metrics": {
-        "tentativeRulings": 384628,
-        "cases": 1453537,
+        "tentativeRulings": 384685,
+        "cases": 1453576,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 432149
+            "value": 432151
           },
           {
             "label": "CRI",
@@ -53,15 +53,15 @@
           },
           {
             "label": "CSM",
-            "value": 187997
+            "value": 188005
           },
           {
             "label": "CUD",
-            "value": 97167
+            "value": 97170
           },
           {
             "label": "FDI",
-            "value": 98741
+            "value": 98745
           },
           {
             "label": "FCS",
@@ -69,23 +69,23 @@
           },
           {
             "label": "PES",
-            "value": 42616
+            "value": 42620
           },
           {
             "label": "FDV",
-            "value": 30045
+            "value": 30048
           },
           {
             "label": "CPF",
-            "value": 28838
+            "value": 28839
           },
           {
             "label": "CNC",
-            "value": 25629
+            "value": 25630
           },
           {
             "label": "PDW",
-            "value": 21538
+            "value": 21540
           },
           {
             "label": "FSD",
@@ -93,31 +93,31 @@
           },
           {
             "label": "PCN",
-            "value": 9456
+            "value": 9458
           },
           {
             "label": "PTR",
-            "value": 6516
+            "value": 6518
           },
           {
             "label": "FMS",
-            "value": 3538
+            "value": 3539
           },
           {
             "label": "APP",
-            "value": 5019
+            "value": 5021
           },
           {
             "label": "PGN",
-            "value": 4155
+            "value": 4156
           },
           {
             "label": "FPT",
-            "value": 693
+            "value": 695
           },
           {
             "label": "FLD",
-            "value": 2811
+            "value": 2812
           },
           {
             "label": "DPO",
@@ -155,15 +155,27 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-12T00:02:36.159Z",
+        "latestScrapedAt": "2026-10-13T00:02:47.195Z",
         "days": [
           {
             "date": "2026-10-13",
-            "total": 48,
+            "total": 104,
             "departments": [
               {
                 "department": "204",
                 "count": 48
+              },
+              {
+                "department": "302",
+                "count": 22
+              },
+              {
+                "department": "501",
+                "count": 19
+              },
+              {
+                "department": "301",
+                "count": 15
               }
             ]
           },
@@ -257,6 +269,126 @@
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-13",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25622786",
+            "caseTitle": "JAY ARTHUR BERGERS III VS. NOAH RAY GARCIA ET AL",
+            "matter": "Notice Of Motion And Motion For Order Deeming Admitted Matters Specified In Requests For Admission, Set One, Directed To Defendant Noah Ray Garcia; Request For Monetary Sanctions Of $1,060",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff's Motion for Order Deeming Admitted Matters Specified in Requests for Admission, Set One, Directed to Defendant Noah Ray Garcia and sanctions is granted in part."
+          },
+          {
+            "date": "2026-10-13",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23608569",
+            "caseTitle": "LI CHANG KUANG VS. KENNY WONG ET AL",
+            "matter": "MOTION TO STRIKE Amended COMPLAINT",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Kenny Wong's motion to strike portions of Plaintiffs Li Chang Kuang and Tommy Chan's First Amended Complaint (FAC) is denied. The court's tentative ruling in its entirety has been sent to counsel via email."
+          },
+          {
+            "date": "2026-10-13",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC22599795",
+            "caseTitle": "CITY AND COUNTY OF SAN FRANCISCO, A MUNICIPAL ET AL VS. NAIM JAMALI, IN HIS INDIVIDUAL CAPACITY AND AS ET AL",
+            "matter": "PLAINTIFF CITY AND COUNTY OF SAN FRANCISCOS MOTION FOR ATTORNEYS FEES POST APPEAL",
+            "judge": "",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Line 2 PLAINTIFF CITY AND COUNTY OF SAN FRANCISCOS MOTION FOR ATTORNEYS FEES POST APPEAL is GRANTED in part. The attorney's fees are awarded at the hourly rates requested for the requested hours, except, (1) the time to prepare for oral argument on appeal is…"
+          },
+          {
+            "date": "2026-10-13",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25622786",
+            "caseTitle": "JAY ARTHUR BERGERS III VS. NOAH RAY GARCIA ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Defendant Yvonne Morales'S Responses To Form Interrogatories, Set One, And Special Interrogatories, Set One; Request For Monetary Sanctions Of $810",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff's Motion to Compel Defendant Yvonne Morales' Responses to Form Interrogatories, Set One, and Special Interrogatories, Set One and sanctions is granted in part."
+          },
+          {
+            "date": "2026-10-13",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23608569",
+            "caseTitle": "LI CHANG KUANG VS. KENNY WONG ET AL",
+            "matter": "DEMURRER to Amended COMPLAINT",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "sustained-no-leave",
+              "label": "Sustained without leave"
+            },
+            "text": "Defendant Kenny Wong's demurrer to Plaintiffs Li Chang Kuang and Tommy Chan's First Amended Complaint (FAC) is sustained without leave to amend as to the first cause of action for financial elder abuse as to plaintiff Kuang only, to the extent Kuang pleads…"
+          },
+          {
+            "date": "2026-10-13",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26682238",
+            "caseTitle": "MERCY HOUSING CALIFORNIA VS. NIERRAH WILLIAMS ET AL",
+            "matter": "MOTION FOR SET ASIDE/VACATE JUDGMENT",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Line 8 DEFENDANT NIERRAH WILLIAMS MOTION FOR SET ASIDE/VACATE JUDGMENT is GRANTED. No opposition filed. The default and judgment entered on August 6, 2026 are set aside and vacated. The writ issued on September 8, 2026 is recalled. Defendant Nierrah Williams…"
+          },
+          {
+            "date": "2026-10-13",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25622786",
+            "caseTitle": "JAY ARTHUR BERGERS III VS. NOAH RAY GARCIA ET AL",
+            "matter": "Notice Of Motion And Motion For Order Deeming Admitted Matters Specified In Requests For Admission, Set One, Directed To Defendant Yvonne Morales; Request For Monetary Sanctions Of $685",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff's Motion for Order Deeming Admitted Matters Specified in Requests for Admission, Set One, Directed to Defendant Yvonne Morales and sanctions is granted in part."
+          },
+          {
+            "date": "2026-10-13",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24618267",
+            "caseTitle": "A. M. VS. SAN FRANCISCO UNIFIED SCHOOL DISTRICT ET AL",
+            "matter": "Notice Of Motion And Motion To File Opposition To Good Faith Settlement Motion Under Seal",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The San Francisco Unified School District's motion to seal is granted. The District has filed public redacted and conditionally sealed unredacted documents in this case: the Memorandum of Points and Authorities in Support of Opposition to Plaintiff's Motion…"
+          },
           {
             "date": "2026-10-09",
             "time": "09:00 AM",
@@ -742,14 +874,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "5b4ccdbec0131af20766a205d050d98f3b943f2e",
-      "updatedAt": "2026-10-12T00:37:15Z",
+      "ref": "f9ee7aeec236f9675dd745bc9e624e451115dc25",
+      "updatedAt": "2026-10-13T00:53:19Z",
       "metrics": {
-        "tentativeRulings": 63958,
+        "tentativeRulings": 63968,
         "parsedCounties": 34,
-        "documents": 15535,
-        "archivedFiles": 97398,
-        "documentBytes": 17861443584
+        "documents": 15543,
+        "archivedFiles": 97647,
+        "documentBytes": 17930649600
       },
       "charts": {
         "rulingsByCounty": [
