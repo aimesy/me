@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-13",
       "metrics": {
         "tentativeRulings": 384685,
-        "cases": 1453577,
+        "cases": 1453578,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 432152
+            "value": 432153
           },
           {
             "label": "CRI",
