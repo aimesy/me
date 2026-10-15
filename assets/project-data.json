@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T00:36:44.000Z",
+  "generatedAt": "2026-10-15T06:40:46.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-15",
       "metrics": {
         "tentativeRulings": 384829,
-        "cases": 1453633,
+        "cases": 1453635,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 432155
+            "value": 432157
           },
           {
             "label": "CRI",
@@ -1129,13 +1129,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "7328652e6e701c2f4e3478504cfa7aaa7ffb934e",
-      "updatedAt": "2026-10-10T10:06:07Z",
+      "ref": "f9a0540e441e9a3c9b1a0d84b94dcabf57c8863f",
+      "updatedAt": "2026-10-15T06:40:46Z",
       "metrics": {
-        "jurisdictions": 348,
-        "reports": 1094,
-        "feePrograms": 2210,
-        "figures": 5001
+        "jurisdictions": 353,
+        "reports": 1142,
+        "feePrograms": 2324,
+        "figures": 5238
       },
       "charts": {}
     },
