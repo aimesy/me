@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T06:40:46.000Z",
+  "generatedAt": "2026-10-15T10:04:13.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-15",
       "metrics": {
         "tentativeRulings": 384829,
-        "cases": 1453635,
+        "cases": 1453636,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -57,7 +57,7 @@
           },
           {
             "label": "CUD",
-            "value": 97176
+            "value": 97177
           },
           {
             "label": "FDI",
@@ -1129,8 +1129,8 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "f9a0540e441e9a3c9b1a0d84b94dcabf57c8863f",
-      "updatedAt": "2026-10-15T06:40:46Z",
+      "ref": "7752ebbcbee5ba87f0b07f336a1b8903c6abc401",
+      "updatedAt": "2026-10-15T10:04:13Z",
       "metrics": {
         "jurisdictions": 353,
         "reports": 1142,
