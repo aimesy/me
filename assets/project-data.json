@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T10:04:13.000Z",
+  "generatedAt": "2026-10-15T15:35:20.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-15",
       "metrics": {
         "tentativeRulings": 384829,
-        "cases": 1453636,
+        "cases": 1454511,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 432157
+            "value": 432906
           },
           {
             "label": "CRI",
@@ -61,7 +61,7 @@
           },
           {
             "label": "FDI",
-            "value": 98756
+            "value": 98775
           },
           {
             "label": "FCS",
@@ -69,7 +69,7 @@
           },
           {
             "label": "PES",
-            "value": 42621
+            "value": 42622
           },
           {
             "label": "FDV",
@@ -77,11 +77,11 @@
           },
           {
             "label": "CPF",
-            "value": 28841
+            "value": 28943
           },
           {
             "label": "CNC",
-            "value": 25634
+            "value": 25635
           },
           {
             "label": "PDW",
@@ -97,7 +97,7 @@
           },
           {
             "label": "PTR",
-            "value": 6518
+            "value": 6519
           },
           {
             "label": "FMS",
@@ -109,11 +109,11 @@
           },
           {
             "label": "PGN",
-            "value": 4157
+            "value": 4158
           },
           {
             "label": "FPT",
-            "value": 696
+            "value": 697
           },
           {
             "label": "FLD",
@@ -1129,13 +1129,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "7752ebbcbee5ba87f0b07f336a1b8903c6abc401",
-      "updatedAt": "2026-10-15T10:04:13Z",
+      "ref": "f18295ef01acca0a8b897e1f10f83d33b94c805c",
+      "updatedAt": "2026-10-15T15:35:20Z",
       "metrics": {
-        "jurisdictions": 353,
-        "reports": 1142,
-        "feePrograms": 2324,
-        "figures": 5238
+        "jurisdictions": 355,
+        "reports": 1149,
+        "feePrograms": 2339,
+        "figures": 5256
       },
       "charts": {}
     },
