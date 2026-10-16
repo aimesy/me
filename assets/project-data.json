@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T00:01:18.000Z",
+  "generatedAt": "2026-10-16T05:01:11.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-16",
       "metrics": {
         "tentativeRulings": 384869,
-        "cases": 1454511,
+        "cases": 1455271,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 432906
+            "value": 433565
           },
           {
             "label": "CRI",
@@ -53,19 +53,19 @@
           },
           {
             "label": "CSM",
-            "value": 188019
+            "value": 188026
           },
           {
             "label": "CUD",
-            "value": 97177
+            "value": 97179
           },
           {
             "label": "FDI",
-            "value": 98775
+            "value": 98782
           },
           {
             "label": "FCS",
-            "value": 94435
+            "value": 94437
           },
           {
             "label": "PES",
@@ -73,15 +73,15 @@
           },
           {
             "label": "FDV",
-            "value": 30052
+            "value": 30055
           },
           {
             "label": "CPF",
-            "value": 28943
+            "value": 29015
           },
           {
             "label": "CNC",
-            "value": 25635
+            "value": 25638
           },
           {
             "label": "PDW",
@@ -93,7 +93,7 @@
           },
           {
             "label": "PCN",
-            "value": 9459
+            "value": 9460
           },
           {
             "label": "PTR",
@@ -109,11 +109,11 @@
           },
           {
             "label": "PGN",
-            "value": 4158
+            "value": 4159
           },
           {
             "label": "FPT",
-            "value": 697
+            "value": 700
           },
           {
             "label": "FLD",
@@ -870,14 +870,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "a8ff04ac38250174fa4a3bec0b04346967980fbb",
-      "updatedAt": "2026-10-16T00:01:18Z",
+      "ref": "e3148e281e0019db1cc2609187feac8fea763492",
+      "updatedAt": "2026-10-16T00:49:21Z",
       "metrics": {
-        "tentativeRulings": 64585,
+        "tentativeRulings": 65003,
         "parsedCounties": 34,
-        "documents": 15765,
-        "archivedFiles": 98692,
-        "documentBytes": 18081644544
+        "documents": 15897,
+        "archivedFiles": 99281,
+        "documentBytes": 18159239168
       },
       "charts": {
         "rulingsByCounty": [
@@ -1053,14 +1053,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "2cc321f0b7681bcb9baff6b424106e91a4e03ce7",
-      "updatedAt": "2026-10-15T23:20:32Z",
+      "ref": "db88d56c33d1d57bfea13dd2f7b5b313607ea5af",
+      "updatedAt": "2026-10-16T04:10:34Z",
       "metrics": {
-        "cases": 712373,
-        "documents": 16061737,
-        "mirroredFiles": 712381,
-        "documentBytes": 306984586,
-        "snapshots": 712653
+        "cases": 713580,
+        "documents": 16086182,
+        "mirroredFiles": 713588,
+        "documentBytes": 307316221,
+        "snapshots": 713861
       },
       "charts": {}
     },
@@ -1133,13 +1133,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "a89726acb18b8cc8e20af508f1f40751ab330725",
-      "updatedAt": "2026-10-15T21:04:18Z",
+      "ref": "4f05ec932514e07a6f46a51c89027188c737a55d",
+      "updatedAt": "2026-10-16T05:01:11Z",
       "metrics": {
-        "jurisdictions": 357,
-        "reports": 1156,
-        "feePrograms": 2352,
-        "figures": 5273
+        "jurisdictions": 358,
+        "reports": 1164,
+        "feePrograms": 2355,
+        "figures": 5293
       },
       "charts": {}
     },
