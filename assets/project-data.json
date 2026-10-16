@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-15T21:04:18.000Z",
+  "generatedAt": "2026-10-16T00:01:18.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "4e0217032679ab25b2d45a055f0583fc90e22c83",
       "updatedAt": "2026-10-13T06:14:42Z",
-      "latestRuling": "2026-10-15",
+      "latestRuling": "2026-10-16",
       "metrics": {
-        "tentativeRulings": 384829,
+        "tentativeRulings": 384869,
         "cases": 1454511,
         "documents": 4082942,
         "documentsArchived": 94046,
@@ -155,8 +155,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-15T00:03:17.741Z",
+        "latestScrapedAt": "2026-10-16T00:02:43.865Z",
         "days": [
+          {
+            "date": "2026-10-16",
+            "total": 43,
+            "departments": [
+              {
+                "department": "301",
+                "count": 18
+              },
+              {
+                "department": "501",
+                "count": 12
+              },
+              {
+                "department": "302",
+                "count": 9
+              },
+              {
+                "department": "204",
+                "count": 4
+              }
+            ]
+          },
           {
             "date": "2026-10-15",
             "total": 56,
@@ -240,27 +262,129 @@
                 "count": 1
               }
             ]
-          },
-          {
-            "date": "2026-10-08",
-            "total": 35,
-            "departments": [
-              {
-                "department": "501",
-                "count": 18
-              },
-              {
-                "department": "301",
-                "count": 9
-              },
-              {
-                "department": "302",
-                "count": 8
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-16",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25630386",
+            "caseTitle": "LISA ADKINS VS. OPEN TOP SIGHTSEEING SAN FRANCISCO, LLC ET AL",
+            "matter": "Notice Of Motion And Motion For Order Requiring Out-Of-State Plaintiff To File An Undertaking To Secure An Award Of Costs Pursuant To Code Of Civil Procedure Section 1030; Memorandum Of Points And Authorities; And Declaration Of Colton G. Walters; And Declaration Of Andrew Smith",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Open Top Sightseeing San Francisco, LLC's motion for an order requiring out-of-state plaintiff Lisa Adkins to file a security is denied."
+          },
+          {
+            "date": "2026-10-16",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23606779",
+            "caseTitle": "TERRY BROWN ET AL VS. WALGREENS BOOTS ALLIANCE, INC, A CORPORATION ET AL",
+            "matter": "MOTION FOR SUMMARY ADJUDICATION .",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendants' (Walgreens Boots Alliance and Walgreen Co.) motion for summary adjudication on the claim for punitive damages under Civil Code, 3294 is denied."
+          },
+          {
+            "date": "2026-10-16",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21596771",
+            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
+            "matter": "Notice Of Conditional Joinder To Defendants Lara Kelly?S And Chris Kelly?S Motion To Bifurcate Under Code Of Civil Procedure Section 598",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Line 1 DEFENDANT DAVID KALLMEYER , AN INDIVIDUAL, MICHAEL COMAROTO, GFDS ENGINEERS Notice Of Conditional Joinder To Defendants Lara Kelly?S And Chris Kelly?S Motion To Bifurcate Under Code Of Civil Procedure Section 598 is DENIED. =(501/SKF) Parties may…"
+          },
+          {
+            "date": "2026-10-16",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC26635372",
+            "caseTitle": "SAMANTHA PRINCE VS. PAUL J STEINER ET AL",
+            "matter": "MOTION TO STAY PROCEEDINGS",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Defendant Paul Steiner's motion to stay proceedings is granted in part, subject to a carve-out permitting discovery and Steiner's deposition."
+          },
+          {
+            "date": "2026-10-16",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25626643",
+            "caseTitle": "ADRIANO BORTOLUCCI VS. MAYA PRIMAVERA GARCIA-URBANO",
+            "matter": "Motion For Judgment On Pleadings",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Maya Primavera Garcia-Urbano's motion for judgment on the pleadings is denied as to the first cause of action and granted with 10 days' leave to amend as to the second cause of action."
+          },
+          {
+            "date": "2026-10-16",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21596771",
+            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
+            "matter": "Motion To Bifurcate Under Code Of Civil Procedure Section 598",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Line 1 DEFENDANT CHRIS KELLY INDIVIDUALLY AND AS CO-TRUSTEE OF THE KELLY FAMILY TRUST, LARA KELLY Motion To Bifurcate Under Code Of Civil Procedure Section 598 is DENIED without prejudice to be brought before the trial judge upon assignment to the trial…"
+          },
+          {
+            "date": "2026-10-16",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC26636372",
+            "caseTitle": "SHARON STOTT VS. WILLIAM-SONOMA, INC. ET AL",
+            "matter": "Motion To Compel Production Of Documents Responsive To Request No. 6 Of Plaintiffs First Request For Production Of Documents",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff Sharon Stott's motion to compel production of documents responsive to Request for Production of Documents, Set One, No. 6 is granted in part. Plaintiff's request that this court order Defendant Williams-Sonoma Advertising, Inc. (\"WSAI\" or…"
+          },
+          {
+            "date": "2026-10-16",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26632709",
+            "caseTitle": "AHARON WEINER VS. POSTMAN, INC. ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Further Responses To Form Interrogatories - Employment",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Aharon Weiner's motion to compel further responses to employment form interrogatories is granted."
+          },
           {
             "date": "2026-10-15",
             "time": "09:00 AM",
@@ -740,134 +864,14 @@
               "label": "Granted"
             },
             "text": "Matter on calendar for Friday, October 9, 2026, Line 1 - DEFENDANT ALLIED FIRE PROTECTION'S MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-25-625800 WITH CASE CGC-25-626133 Allied Fire Protection's unopposed motion to consolidate is granted for good cause shown…"
-          },
-          {
-            "date": "2026-10-08",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC20583328",
-            "caseTitle": "PATRICK BRADFORD VS. PROFESSIONAL TECHNICAL SECURITY SERVICES, INC. ET AL",
-            "matter": "Notice Of Motion And Motion For Dismissal Of Class Action Lawsuit Without Prejudice",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Patrick Bradford's unopposed motion for dismissal of class action lawsuit without prejudice is granted for the reasons set forth in Plaintiff's moving papers; good cause has been shown. (Cal. Rules of Court, rule 3.770.) Court will sign the proposed…"
-          },
-          {
-            "date": "2026-10-08",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23608569",
-            "caseTitle": "LI CHANG KUANG VS. KENNY WONG ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Discovery",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiffs Li Chang Kuang and Tommy Chan's motion to compel responses to discovery and for a deemed-admitted order is denied as moot. In the original briefing, defendant Kenny Wong contended he did not receive the discovery at issue. While the motion was…"
-          },
-          {
-            "date": "2026-10-08",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC24613631",
-            "caseTitle": "PPF OFF ONE MARITIME PLAZA, LP. A DELAWARE LIMITED VS. MAXIMUS REAL ESTATE PARTNERS, LTD., FORMERLY DOING ET AL",
-            "matter": "Notice Of Motion And Motion For Entry Of Judgment Per Stipulation",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "A DELAWARE LIMITED PARTNERSHIP Notice Of Motion And Motion For Entry Of Judgment Per Stipulation is GRANTED as requested per the Notice of Motion 1:3-4 (\"...Plaintiff... moves the Court for entry of judgment pursuant to stipulation in the amount of…"
-          },
-          {
-            "date": "2026-10-08",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24618954",
-            "caseTitle": "MARKEISE LACEY VS. CITY AND COUNTY OF SAN FRANCISCO, A PUBLIC ENTITY ET AL",
-            "matter": "Notice Of Motion And Motion To Have Requests For Admissions Deemed Admitted",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant City and County of San Francisco's unopposed motion for an order that plaintiff Markeise Lacey be deemed to have admitted the truth of the matters set forth in CCSF's Requests for Admissions, Set Two, is granted. (Code Civ. Proc. sec. 2033.280…"
-          },
-          {
-            "date": "2026-10-08",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24617729",
-            "caseTitle": "VELOCITY INVESTMENTS, LLC VS. EULALIO ROSALES ET AL",
-            "matter": "Notice Of Hearing - Motion To Enforce Settlement",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Velocity Investments, LLC's motion to set aside dismissal and enter judgment in accord with a settlement agreement is denied without prejudice. Velocity does not provide an authenticated copy of the settlement agreement."
-          },
-          {
-            "date": "2026-10-08",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC25622560",
-            "caseTitle": "THREE EMBARCADERO CENTER VENTURE VS. AUTZU DRIVESHARING INC. ET AL",
-            "matter": "MOTION FOR LEAVE TO File Second Amended Cross-Complaint",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "A DELAWARE CORPORATION MOTION FOR LEAVE TO File Second Amended Cross-Complaint is GRANTED as follows: based on (1) the dates of the filing of the Cross-Complaint, June 25, 2025, and First Amended Cross-Complaint, December 5, 2025 and (2) the alleged date of…"
-          },
-          {
-            "date": "2026-10-08",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25628268",
-            "caseTitle": "CAPITAL ONE, N.A., VS. FLAVIA C DE SOUZA ET AL",
-            "matter": "Motion To Enter Judgment Pursuant To Ccp",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion by Plaintiff Capital One, N.A., successor by merger to Discover Bank, to enter judgment under terms of a stipulated settlement pursuant to Code of Civil Procedure section 664.6 is granted. If parties to a pending litigation stipulate, in…"
-          },
-          {
-            "date": "2026-10-08",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26639057",
-            "caseTitle": "PABLO MARTINEZ HERNANDEZ VS. MERCEDES-BENZ USA, LLC ET AL",
-            "matter": "MOTION TO COMPEL ARBITRATION",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant Mercedes-Benz USA, LLC's unopposed motion to compel arbitration is granted. The case is stayed pending arbitration. On a motion to compel arbitration, the moving party \"bears the burden of proving the existence of a valid arbitration agreement by…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "ba5ead8df4fcda3d2c6886f0e838e26e8c3d2a01",
-      "updatedAt": "2026-10-15T00:36:44Z",
+      "ref": "a8ff04ac38250174fa4a3bec0b04346967980fbb",
+      "updatedAt": "2026-10-16T00:01:18Z",
       "metrics": {
         "tentativeRulings": 64585,
         "parsedCounties": 34,
@@ -1049,14 +1053,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "ee510ae43af41dac1e9fa77169e862c0b19944ed",
-      "updatedAt": "2026-10-15T18:18:53Z",
+      "ref": "2cc321f0b7681bcb9baff6b424106e91a4e03ce7",
+      "updatedAt": "2026-10-15T23:20:32Z",
       "metrics": {
-        "cases": 711225,
-        "documents": 16041051,
-        "mirroredFiles": 711233,
-        "documentBytes": 306680015,
-        "snapshots": 711504
+        "cases": 712373,
+        "documents": 16061737,
+        "mirroredFiles": 712381,
+        "documentBytes": 306984586,
+        "snapshots": 712653
       },
       "charts": {}
     },
