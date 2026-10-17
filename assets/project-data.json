@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T23:03:06.000Z",
+  "generatedAt": "2026-10-17T00:38:58.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-16",
       "metrics": {
         "tentativeRulings": 384869,
-        "cases": 1455271,
+        "cases": 1455332,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 433565
+            "value": 433592
           },
           {
             "label": "CRI",
@@ -53,7 +53,7 @@
           },
           {
             "label": "CSM",
-            "value": 188026
+            "value": 188032
           },
           {
             "label": "CUD",
@@ -61,31 +61,31 @@
           },
           {
             "label": "FDI",
-            "value": 98782
+            "value": 98790
           },
           {
             "label": "FCS",
-            "value": 94437
+            "value": 94439
           },
           {
             "label": "PES",
-            "value": 42622
+            "value": 42623
           },
           {
             "label": "FDV",
-            "value": 30055
+            "value": 30057
           },
           {
             "label": "CPF",
-            "value": 29015
+            "value": 29023
           },
           {
             "label": "CNC",
-            "value": 25638
+            "value": 25639
           },
           {
             "label": "PDW",
-            "value": 21545
+            "value": 21548
           },
           {
             "label": "FSD",
@@ -97,7 +97,7 @@
           },
           {
             "label": "PTR",
-            "value": 6519
+            "value": 6520
           },
           {
             "label": "FMS",
@@ -109,11 +109,11 @@
           },
           {
             "label": "PGN",
-            "value": 4159
+            "value": 4160
           },
           {
             "label": "FPT",
-            "value": 700
+            "value": 701
           },
           {
             "label": "FLD",
@@ -155,8 +155,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-16T00:02:43.865Z",
+        "latestScrapedAt": "2026-10-17T00:23:03.257Z",
         "days": [
+          {
+            "date": "2026-10-19",
+            "total": 97,
+            "departments": [
+              {
+                "department": "204",
+                "count": 48
+              },
+              {
+                "department": "501",
+                "count": 18
+              },
+              {
+                "department": "301",
+                "count": 16
+              },
+              {
+                "department": "302",
+                "count": 15
+              }
+            ]
+          },
           {
             "date": "2026-10-16",
             "total": 43,
@@ -240,31 +262,129 @@
                 "count": 15
               }
             ]
-          },
-          {
-            "date": "2026-10-09",
-            "total": 49,
-            "departments": [
-              {
-                "department": "302",
-                "count": 17
-              },
-              {
-                "department": "501",
-                "count": 16
-              },
-              {
-                "department": "301",
-                "count": 15
-              },
-              {
-                "department": "204",
-                "count": 1
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC22600252",
+            "caseTitle": "BANK OF AMERICA, N.A. VS. DAVID ELLIOTT WISE",
+            "matter": "Notice Of Motion And Motion To Enter Judgment Under Terms Of Stipulated Judgment",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Bank of America, N.A.'s unopposed motion to enter judgment under terms of stipulated settlement is granted. Bank of America's unopposed request for judicial notice -- that the Court take judicial notice of the parties' Stipulation Agreement, which…"
+          },
+          {
+            "date": "2026-10-19",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC22599451",
+            "caseTitle": "HEATHER GREGG VS. JAMES J. CUNNINGHAM ET AL",
+            "matter": "PLAINTIFF'S EX PARTE APPLICATION FOR ORDER TO FILE EXHIBITS A AND B UNDER SEAL FOR IN CAMERA REVIEW BY THE COURT ONLY",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff's ex parte application to seal is denied without prejudice. A document for which sealing is sought may be conditionally lodged under seal and a noticed motion can be filed. The documents remain conditionally sealed until the motion to seal is heard…"
+          },
+          {
+            "date": "2026-10-19",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD25679339",
+            "caseTitle": "PARKMERCED OWNER, LLC VS. ABBY VAN KIRK ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT Notice Of Motion; Memorandum Of Points And Authorities; Declaration Of Dylan K. Y. Tong",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Line 9 PLAINTIFF PARKMERCED OWNER, LLC , A DELAWARE LIMITED LIABILITY COMPANY MOTION FOR SUMMARY JUDGMENT Notice Of Motion is DENIED. Plaintiff has failed to meet its initial burden of establishing, with competent evidence, that there is no triable issue and…"
+          },
+          {
+            "date": "2026-10-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24613070",
+            "caseTitle": "NOB HILL CONSTRUCTION, INC., VS. HARLAN L. SOUTH ET AL",
+            "matter": "Notice Of Motion For Order That Matters Specified In Requests For Admission (Set One) Be Deemed Admitted",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Nob Hill Construction, Inc.'s unopposed motion for an order that defendant Harlan L. South be deemed to have admitted the truth of all matters and the genuiness of documents specified in Plaintiff's Requests for Admissions is granted. (Code Civ…"
+          },
+          {
+            "date": "2026-10-19",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23608427",
+            "caseTitle": "ABDUL RASHID PATEL ET AL VS. NASIR PATEL ET AL",
+            "matter": "Notice Of Application And Application To Sell Real Property Seneca Avenue",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF ABDUL PATEL'S Application to Sell Real Property Seneca Avenue. Plaintiffs' application to sell real property (Seneca Avenue) is denied without prejudice. Code of Civil Procedure section 704.750(a) provides: Promptly after a dwelling is levied upon…"
+          },
+          {
+            "date": "2026-10-19",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD25680208",
+            "caseTitle": "JOHN STEWART COMPANY VS. MARTIN REED ET AL",
+            "matter": "Plaintiffs Notice Of Motion And Motion To Enforce Settlement Agreement",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Line 5 PLAINTIFF JOHN STEWART COMPANY Plaintiffs Notice Of Motion And Motion To Enforce Settlement Agreement is DENIED. All of Defendant's written objections to Plaintiff's evidence are sustained. The Corrected Declaration of Willie Abasta, filed September…"
+          },
+          {
+            "date": "2026-10-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC26634512",
+            "caseTitle": "STEPHEN MASSEY VS. PURPLE STAR MD ET AL",
+            "matter": "Notice Of Motion And Motion For Specified Discovery (Sac)",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff's motion for specified discovery is denied. Plaintiff does not establish good cause for discovery; among other things, he fails to cogently identify what limited discovery is necessary to defendant DELC LLC's anti-SLAPP motion directed to causes of…"
+          },
+          {
+            "date": "2026-10-19",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23608427",
+            "caseTitle": "ABDUL RASHID PATEL ET AL VS. NASIR PATEL ET AL",
+            "matter": "Notice Of Motion And Motion For Attorneys Fees On Appeal",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff's unopposed motion for fees on appeal is granted in part. Plaintiffs' unopposed request for judicial notice is granted. Plaintiff is entitled to its fees for prevailing on the appeal per Penal Code section 496 and Welfare & Institutions Code section…"
+          },
           {
             "date": "2026-10-16",
             "time": "09:00 AM",
@@ -744,140 +864,20 @@
               "label": "Granted"
             },
             "text": "The San Francisco Unified School District's motion to seal is granted. The District has filed public redacted and conditionally sealed unredacted documents in this case: the Memorandum of Points and Authorities in Support of Opposition to Plaintiff's Motion…"
-          },
-          {
-            "date": "2026-10-09",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC18571386",
-            "caseTitle": "CHARLES LI VS. MEI LING FANG ET AL",
-            "matter": "MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant Shuzhen Tu's motion to set aside the default entered against her on September 9, 2026 is granted."
-          },
-          {
-            "date": "2026-10-09",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC17561297",
-            "caseTitle": "ELIZABETH KARNAZES VS. PHIL MARTIN",
-            "matter": "Amended Notice Of Motion And Motion For Order Compelling Plf To Appear For Deposition And For Sanctions",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "MARTIN'S Motion For Order Compelling Plf To Appear For Deposition And For Sanctions Defendant Philip Martin's motion to compel plaintiff Elizabeth Karnazes to appear for deposition on or before October 16, 2026, and for sanctions, is granted in part. Martin…"
-          },
-          {
-            "date": "2026-10-09",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC23604790",
-            "caseTitle": "FEI SU ET AL VS. HUI QIN WU ET AL",
-            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Line 2 PLAINTIFF FEI SU, FUQING SU, JUHUA ZHANG, CODY JAFFE MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD is GRANTED. =(501/SKF) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849; or Phone Dial in…"
-          },
-          {
-            "date": "2026-10-09",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC18571386",
-            "caseTitle": "CHARLES LI VS. MEI LING FANG ET AL",
-            "matter": "Notice Of Motion And Motion To Vacate Default Judgment",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant Shuzhen Tu's motion to vacate the default judgment entered on April 29, 2026 is denied."
-          },
-          {
-            "date": "2026-10-09",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24616427",
-            "caseTitle": "JULIANI RODRIGUEZ VS. CITY AND COUNTY OF SAN FRANCISCO",
-            "matter": "MOTION FOR SUMMARY JUDGMENT .",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant City and County of San Francisco's motion for summary judgment is denied. *THE COURT'S FULL AND COMPLETE TENTATIVE RULING HAS BEEN EMAILED TO COUNSEL*"
-          },
-          {
-            "date": "2026-10-09",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC25628904",
-            "caseTitle": "ANNA RAWN VS. 516 ELLIS I7, LP ET AL",
-            "matter": "Motion For Leave To File Cross-Complaint",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Motion For Leave To File Cross-Complaint is DENIED without prejudice to be brought if trial is continued. The Court notes that this motion is not supported by any evidence from which a Court may determine (or even infer) that \"party who failed to plead the…"
-          },
-          {
-            "date": "2026-10-09",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24618998",
-            "caseTitle": "MOR FLEISHER LEACH VS. DEEL US LLC, ALSO REFERRED TO AS DEEL, AND LETS ET AL",
-            "matter": "MOTION FOR LEAVE TO To File Cross-Complaint",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant Deel US LLC's (\"Deel\") motion to file cross-complaint is denied. The court concludes that it is not \"in the interest of justice\" to allow the filing at this late stage of the proceedings. (Code Civ. Proc. section 428.50, subd. (c).) Defendant argues…"
-          },
-          {
-            "date": "2026-10-09",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25626133",
-            "caseTitle": "ACE PROPERTY AND CASUALTY INSURANCE COMPANY ET AL VS. ALLIED FIRE PROTECTION ET AL",
-            "matter": "MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-25-625800 WITH CASE CGC-25-626133",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Matter on calendar for Friday, October 9, 2026, Line 1 - DEFENDANT ALLIED FIRE PROTECTION'S MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-25-625800 WITH CASE CGC-25-626133 Allied Fire Protection's unopposed motion to consolidate is granted for good cause shown…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "e3148e281e0019db1cc2609187feac8fea763492",
-      "updatedAt": "2026-10-16T00:49:21Z",
+      "ref": "1751b5f2aa8d660453fc76087c7454b0334820ea",
+      "updatedAt": "2026-10-17T00:38:58Z",
       "metrics": {
-        "tentativeRulings": 65003,
+        "tentativeRulings": 65375,
         "parsedCounties": 34,
-        "documents": 15897,
-        "archivedFiles": 99281,
-        "documentBytes": 18159239168
+        "documents": 16043,
+        "archivedFiles": 99768,
+        "documentBytes": 18204327936
       },
       "charts": {
         "rulingsByCounty": [
@@ -1053,14 +1053,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "d8b39f11d16316fb62ff03dfa761415c596c72ce",
-      "updatedAt": "2026-10-16T19:35:12Z",
+      "ref": "64a4eefb6cd14d278fcc9f681db1d0f0b4a65e79",
+      "updatedAt": "2026-10-17T00:13:38Z",
       "metrics": {
-        "cases": 719069,
-        "documents": 16204150,
-        "mirroredFiles": 719077,
-        "documentBytes": 309150565,
-        "snapshots": 719350
+        "cases": 720446,
+        "documents": 16236950,
+        "mirroredFiles": 720454,
+        "documentBytes": 309583298,
+        "snapshots": 720727
       },
       "charts": {}
     },
