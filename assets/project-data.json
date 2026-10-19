@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T23:01:39.000Z",
+  "generatedAt": "2026-10-19T01:11:01.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-19",
       "metrics": {
         "tentativeRulings": 384960,
-        "cases": 1455344,
+        "cases": 1455349,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 433599
+            "value": 433601
           },
           {
             "label": "CRI",
@@ -57,7 +57,7 @@
           },
           {
             "label": "CUD",
-            "value": 97179
+            "value": 97180
           },
           {
             "label": "FDI",
@@ -77,7 +77,7 @@
           },
           {
             "label": "CPF",
-            "value": 29024
+            "value": 29025
           },
           {
             "label": "CNC",
@@ -109,7 +109,7 @@
           },
           {
             "label": "PGN",
-            "value": 4160
+            "value": 4161
           },
           {
             "label": "FPT",
@@ -155,7 +155,7 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-18T00:22:27.218Z",
+        "latestScrapedAt": "2026-10-19T00:02:02.326Z",
         "days": [
           {
             "date": "2026-10-19",
@@ -870,14 +870,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "1cad9bba5c7717e6926115a876cd7b6c4e000e82",
-      "updatedAt": "2026-10-18T11:31:03Z",
+      "ref": "69dee7ebb1aae309f7b068609bb689cc7f6b1299",
+      "updatedAt": "2026-10-19T00:35:47Z",
       "metrics": {
         "tentativeRulings": 66802,
         "parsedCounties": 34,
         "documents": 16408,
-        "archivedFiles": 101209,
-        "documentBytes": 18440257536
+        "archivedFiles": 101224,
+        "documentBytes": 18444451840
       },
       "charts": {
         "rulingsByCounty": [
@@ -1133,13 +1133,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "35455d8f65d7f47b9f076845ddddf76882e491ce",
-      "updatedAt": "2026-10-18T23:01:39Z",
+      "ref": "c6ac9e0b2757a31a13a2eb133a6c86b908dd2f9c",
+      "updatedAt": "2026-10-19T01:11:01Z",
       "metrics": {
-        "jurisdictions": 366,
-        "reports": 1190,
-        "feePrograms": 2405,
-        "figures": 5360
+        "jurisdictions": 368,
+        "reports": 1194,
+        "feePrograms": 2408,
+        "figures": 5365
       },
       "charts": {}
     },
