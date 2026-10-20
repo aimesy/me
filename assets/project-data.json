@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T23:12:20.000Z",
+  "generatedAt": "2026-10-20T04:25:35.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-19",
       "metrics": {
         "tentativeRulings": 384960,
-        "cases": 1455349,
+        "cases": 1455373,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 433601
+            "value": 433602
           },
           {
             "label": "CRI",
@@ -53,39 +53,39 @@
           },
           {
             "label": "CSM",
-            "value": 188032
+            "value": 188036
           },
           {
             "label": "CUD",
-            "value": 97180
+            "value": 97182
           },
           {
             "label": "FDI",
-            "value": 98790
+            "value": 98792
           },
           {
             "label": "FCS",
-            "value": 94440
+            "value": 94441
           },
           {
             "label": "PES",
-            "value": 42623
+            "value": 42628
           },
           {
             "label": "FDV",
-            "value": 30057
+            "value": 30058
           },
           {
             "label": "CPF",
-            "value": 29025
+            "value": 29026
           },
           {
             "label": "CNC",
-            "value": 25639
+            "value": 25640
           },
           {
             "label": "PDW",
-            "value": 21548
+            "value": 21551
           },
           {
             "label": "FSD",
@@ -101,11 +101,11 @@
           },
           {
             "label": "FMS",
-            "value": 3539
+            "value": 3540
           },
           {
             "label": "APP",
-            "value": 5022
+            "value": 5023
           },
           {
             "label": "PGN",
@@ -117,7 +117,7 @@
           },
           {
             "label": "FLD",
-            "value": 2812
+            "value": 2813
           },
           {
             "label": "DPO",
@@ -155,8 +155,34 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-19T00:02:02.326Z",
+        "latestScrapedAt": "2026-10-20T00:02:25.898Z",
         "days": [
+          {
+            "date": "2026-10-20",
+            "total": 98,
+            "departments": [
+              {
+                "department": "204",
+                "count": 47
+              },
+              {
+                "department": "301",
+                "count": 21
+              },
+              {
+                "department": "501",
+                "count": 16
+              },
+              {
+                "department": "302",
+                "count": 11
+              },
+              {
+                "department": "304",
+                "count": 3
+              }
+            ]
+          },
           {
             "date": "2026-10-19",
             "total": 97,
@@ -240,31 +266,126 @@
                 "count": 10
               }
             ]
-          },
-          {
-            "date": "2026-10-13",
-            "total": 104,
-            "departments": [
-              {
-                "department": "204",
-                "count": 48
-              },
-              {
-                "department": "302",
-                "count": 22
-              },
-              {
-                "department": "501",
-                "count": 19
-              },
-              {
-                "department": "301",
-                "count": 15
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-20",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24615898",
+            "caseTitle": "MURIELLE MUTZEL VS. PEET'S COFFEE AND TEA, INC., ET AL",
+            "matter": "MOTION TO DISMISS FOR FAILURE TO PROSCECUTE",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Peet's Coffee and Tea, Inc.'s (\"Peet's\") Motion to Dismiss for Failure to Prosecute is denied without prejudice. \"A party seeking dismissal of a case under Code of Civil Procedure sections 583.410 - 583.430 must serve and file a notice of motion at…"
+          },
+          {
+            "date": "2026-10-20",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC26277396",
+            "caseTitle": "MICHAEL FINN ET AL VS. CARRIER CORPORATION ET AL",
+            "matter": "Notice Of Motion And Motion For Order Granting Preference In Setting Case For Trial, And Extending Discovery Cutoff",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion for Order Granting Preference in Setting Case for Trial and Extending Discovery Cutoff is GRANTED under C.C.P. Section 36(a). Opposition filed by Defendants (1) Sterling Wander LLLP; (2) Metalclad Insulation and BASF Corporation; (3) Union…"
+          },
+          {
+            "date": "2026-10-20",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26632947",
+            "caseTitle": "WELLS FARGO BANK, N.A. VS. FRANCIS TSANG",
+            "matter": "MOTION FOR SUMMARY JUDGMENT",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff Wells Fargo Bank, N.A.'s motion for summary judgment is denied. Plaintiff mischaracterizes the record; defendant did not admit all of the cited facts. (See UMF 15, 30.) Defendant expressly denied that he (1) authorized all of the charges, (2) failed…"
+          },
+          {
+            "date": "2026-10-20",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26632351",
+            "caseTitle": "JAMES PERKINS ET AL VS. FUZHOU WU ET AL",
+            "matter": "ORDER TO SHOW CAUSE RE PRELIMINARY INJUNCTION AND TEMPORARY RESTRAINING ORDER",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Line 3 ORDER TO SHOW CAUSE RE PRELIMINARY INJUNCTION AND TEMPORARY RESTRAINING ORDER is GRANTED. Plaintiffs to post $90,984 with the Court no later than November 2, 2026. Temporary Restraining Order shall remain in effect until 5:00 p.m. on November 2, 2026…"
+          },
+          {
+            "date": "2026-10-20",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25625066",
+            "caseTitle": "DARREN ODESNIK VS. EUREKA VALLEY ADVISORS, INC., A CALIFORNIA ET AL",
+            "matter": "DEMURRER to COMPLAINT",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "overruled",
+              "label": "Overruled"
+            },
+            "text": "Defendant Nathan Whittington's demurrer to Plaintiff Darren Odesnik's Fifth Cause of Action for Breach of Fiduciary Duty is overruled."
+          },
+          {
+            "date": "2026-10-20",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC26277399",
+            "caseTitle": "LAURA L. ANGELES VS. A B C AUTO PARTS ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT / Notice Of Motion And Motion For Summary Judgment",
+            "judge": "Victor M. Hwang",
+            "outcome": null,
+            "text": "Defendant GTE Operations Support Incorporated on Behalf Of Zinsco Electrical Products, incorrectly sued herein as \"Osram-Sylvania Inc., Individually and as Successor-In-Interest to General Telephone & Electronics Corporation, A/K/A Gte Corporation as…"
+          },
+          {
+            "date": "2026-10-20",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26636131",
+            "caseTitle": "MARYAM NAGHAVI VS. JAMARA JOHNSON WILSON ET AL",
+            "matter": "MOTION TO STRIKE COMPLAINT",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Jamara Johnson Wilson's motion to strike is denied. The court's tentative ruling in its entirety has been sent to counsel via email."
+          },
+          {
+            "date": "2026-10-20",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26681710",
+            "caseTitle": "FILLMORE CENTER ASSOCIATES, LP VS. JESSICA HUNTER ET AL",
+            "matter": "Notice Of Motion, Motion, Memorandum Of Points And Authorities And Declaration In Support Of Motion To Vacate Judgment; Proposed Order",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Line 6 DEFENDANT JESSICA HUNTER , AN INDIVIDUAL Notice Of Motion, Motion, Memorandum Of Points And Authorities And Declaration In Support Of Motion To Vacate Judgment is DENIED. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video -…"
+          },
           {
             "date": "2026-10-19",
             "time": "09:00 AM",
@@ -744,140 +865,20 @@
               "label": "Granted in part"
             },
             "text": "Plaintiff Amirali Rahmatian's motion for attorney's fees and costs is granted in part and denied in part."
-          },
-          {
-            "date": "2026-10-13",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25622786",
-            "caseTitle": "JAY ARTHUR BERGERS III VS. NOAH RAY GARCIA ET AL",
-            "matter": "Notice Of Motion And Motion For Order Deeming Admitted Matters Specified In Requests For Admission, Set One, Directed To Defendant Noah Ray Garcia; Request For Monetary Sanctions Of $1,060",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Plaintiff's Motion for Order Deeming Admitted Matters Specified in Requests for Admission, Set One, Directed to Defendant Noah Ray Garcia and sanctions is granted in part."
-          },
-          {
-            "date": "2026-10-13",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23608569",
-            "caseTitle": "LI CHANG KUANG VS. KENNY WONG ET AL",
-            "matter": "MOTION TO STRIKE Amended COMPLAINT",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant Kenny Wong's motion to strike portions of Plaintiffs Li Chang Kuang and Tommy Chan's First Amended Complaint (FAC) is denied. The court's tentative ruling in its entirety has been sent to counsel via email."
-          },
-          {
-            "date": "2026-10-13",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC22599795",
-            "caseTitle": "CITY AND COUNTY OF SAN FRANCISCO, A MUNICIPAL ET AL VS. NAIM JAMALI, IN HIS INDIVIDUAL CAPACITY AND AS ET AL",
-            "matter": "PLAINTIFF CITY AND COUNTY OF SAN FRANCISCOS MOTION FOR ATTORNEYS FEES POST APPEAL",
-            "judge": "",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Line 2 PLAINTIFF CITY AND COUNTY OF SAN FRANCISCOS MOTION FOR ATTORNEYS FEES POST APPEAL is GRANTED in part. The attorney's fees are awarded at the hourly rates requested for the requested hours, except, (1) the time to prepare for oral argument on appeal is…"
-          },
-          {
-            "date": "2026-10-13",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25622786",
-            "caseTitle": "JAY ARTHUR BERGERS III VS. NOAH RAY GARCIA ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Defendant Yvonne Morales'S Responses To Form Interrogatories, Set One, And Special Interrogatories, Set One; Request For Monetary Sanctions Of $810",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Plaintiff's Motion to Compel Defendant Yvonne Morales' Responses to Form Interrogatories, Set One, and Special Interrogatories, Set One and sanctions is granted in part."
-          },
-          {
-            "date": "2026-10-13",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23608569",
-            "caseTitle": "LI CHANG KUANG VS. KENNY WONG ET AL",
-            "matter": "DEMURRER to Amended COMPLAINT",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "sustained-no-leave",
-              "label": "Sustained without leave"
-            },
-            "text": "Defendant Kenny Wong's demurrer to Plaintiffs Li Chang Kuang and Tommy Chan's First Amended Complaint (FAC) is sustained without leave to amend as to the first cause of action for financial elder abuse as to plaintiff Kuang only, to the extent Kuang pleads…"
-          },
-          {
-            "date": "2026-10-13",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26682238",
-            "caseTitle": "MERCY HOUSING CALIFORNIA VS. NIERRAH WILLIAMS ET AL",
-            "matter": "MOTION FOR SET ASIDE/VACATE JUDGMENT",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Line 8 DEFENDANT NIERRAH WILLIAMS MOTION FOR SET ASIDE/VACATE JUDGMENT is GRANTED. No opposition filed. The default and judgment entered on August 6, 2026 are set aside and vacated. The writ issued on September 8, 2026 is recalled. Defendant Nierrah Williams…"
-          },
-          {
-            "date": "2026-10-13",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25622786",
-            "caseTitle": "JAY ARTHUR BERGERS III VS. NOAH RAY GARCIA ET AL",
-            "matter": "Notice Of Motion And Motion For Order Deeming Admitted Matters Specified In Requests For Admission, Set One, Directed To Defendant Yvonne Morales; Request For Monetary Sanctions Of $685",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Plaintiff's Motion for Order Deeming Admitted Matters Specified in Requests for Admission, Set One, Directed to Defendant Yvonne Morales and sanctions is granted in part."
-          },
-          {
-            "date": "2026-10-13",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24618267",
-            "caseTitle": "A. M. VS. SAN FRANCISCO UNIFIED SCHOOL DISTRICT ET AL",
-            "matter": "Notice Of Motion And Motion To File Opposition To Good Faith Settlement Motion Under Seal",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The San Francisco Unified School District's motion to seal is granted. The District has filed public redacted and conditionally sealed unredacted documents in this case: the Memorandum of Points and Authorities in Support of Opposition to Plaintiff's Motion…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "69dee7ebb1aae309f7b068609bb689cc7f6b1299",
-      "updatedAt": "2026-10-19T00:35:47Z",
+      "ref": "4a535b03bb9a8091dca64b455de392f102d6bf54",
+      "updatedAt": "2026-10-20T00:40:01Z",
       "metrics": {
-        "tentativeRulings": 66802,
+        "tentativeRulings": 66826,
         "parsedCounties": 34,
-        "documents": 16408,
-        "archivedFiles": 101224,
-        "documentBytes": 18444451840
+        "documents": 16416,
+        "archivedFiles": 101445,
+        "documentBytes": 18504220672
       },
       "charts": {
         "rulingsByCounty": [
@@ -1053,14 +1054,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "616c854d590f7a69d41b9f663b8cb56bbb931220",
-      "updatedAt": "2026-10-19T23:12:20Z",
+      "ref": "1f158bb3eff4987693ae0fba36db30d37b238193",
+      "updatedAt": "2026-10-20T04:25:35Z",
       "metrics": {
-        "cases": 743130,
-        "documents": 16716250,
-        "mirroredFiles": 743138,
-        "documentBytes": 316268867,
-        "snapshots": 743415
+        "cases": 744142,
+        "documents": 16738362,
+        "mirroredFiles": 744150,
+        "documentBytes": 316635266,
+        "snapshots": 744427
       },
       "charts": {}
     },
