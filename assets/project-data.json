@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T22:06:04.000Z",
+  "generatedAt": "2026-10-21T01:50:55.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-19",
       "metrics": {
         "tentativeRulings": 384960,
-        "cases": 1455373,
+        "cases": 1455396,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 433602
+            "value": 433603
           },
           {
             "label": "CRI",
@@ -53,19 +53,19 @@
           },
           {
             "label": "CSM",
-            "value": 188036
+            "value": 188041
           },
           {
             "label": "CUD",
-            "value": 97182
+            "value": 97187
           },
           {
             "label": "FDI",
-            "value": 98792
+            "value": 98794
           },
           {
             "label": "FCS",
-            "value": 94441
+            "value": 94444
           },
           {
             "label": "PES",
@@ -73,7 +73,7 @@
           },
           {
             "label": "FDV",
-            "value": 30058
+            "value": 30062
           },
           {
             "label": "CPF",
@@ -85,11 +85,11 @@
           },
           {
             "label": "PDW",
-            "value": 21551
+            "value": 21553
           },
           {
             "label": "FSD",
-            "value": 15810
+            "value": 15811
           },
           {
             "label": "PCN",
@@ -155,8 +155,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-20T00:02:25.898Z",
+        "latestScrapedAt": "2026-10-21T00:02:32.322Z",
         "days": [
+          {
+            "date": "2026-10-21",
+            "total": 96,
+            "departments": [
+              {
+                "department": "204",
+                "count": 57
+              },
+              {
+                "department": "301",
+                "count": 21
+              },
+              {
+                "department": "302",
+                "count": 9
+              },
+              {
+                "department": "501",
+                "count": 9
+              }
+            ]
+          },
           {
             "date": "2026-10-20",
             "total": 98,
@@ -244,31 +266,129 @@
                 "count": 17
               }
             ]
-          },
-          {
-            "date": "2026-10-14",
-            "total": 100,
-            "departments": [
-              {
-                "department": "204",
-                "count": 58
-              },
-              {
-                "department": "501",
-                "count": 18
-              },
-              {
-                "department": "302",
-                "count": 14
-              },
-              {
-                "department": "301",
-                "count": 10
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-21",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25627570",
+            "caseTitle": "CAPITAL ONE, N.A. VS. BLAINE R DENTON",
+            "matter": "Motion To Vacate Dismissal And Enter Judgment Under Terms Of Stipulated Settlement",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion by Plaintiff Capital One, N.A., to enter judgment under terms of a stipulated settlement pursuant to Code of Civil Procedure section 664.6 is granted. Capital One's request that the court take judicial notice of the Stipulation Agreement…"
+          },
+          {
+            "date": "2026-10-21",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25623753",
+            "caseTitle": "HOMIRA MRFAKHRAEI ET AL VS. YIP CHEONG ATTAR LO ET AL",
+            "matter": "Motion To Compel Plaintiffs Homira Mreakhraeis And Neda Najaafis Responses To Form Interrogatories, Set One; And Request For Sanctions In The Amount Of $1,180.00",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "2 - Defendant YIP CHEONG ATTAR LO's motion to compel plaintiffs HOMIRA MRFAKHRAEI and NEDA NAJAAFI to respond to defendant's first set of form interrogatories is granted for good cause shown. Plaintiffs shall provide complete, verified, objection-free…"
+          },
+          {
+            "date": "2026-10-21",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26637817",
+            "caseTitle": "DENNIS VILLACRUSIS ET AL VS. REAL TIME RESOLUTIONS, INC. ET AL",
+            "matter": "DEMURRER to COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "sustained",
+              "label": "Sustained"
+            },
+            "text": "Line 3 DEFENDANT REAL TIME RESOLUTIONS, INC., RRA CP OPPORTUNITY TRUST 2, AVIATOR PROPERTIES, LLC DEMURRER to COMPLAINT is sustained. Demurrer is sustained without leave to amend as to the quiet title cause of action. Non-opposition filed. Demurrer is…"
+          },
+          {
+            "date": "2026-10-21",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25628536",
+            "caseTitle": "LINDA J. HOLL ET AL VS. ROSS CRUM ET AL",
+            "matter": "MOTION / Notice Of Motion & Motion To Disqualify Plaintiffs' Counsel Paul H. Melbostad And G3mh, Llp",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant TDG, Inc.'s motion to disqualify Plaintiffs Linda Holl and Larry Metzger's counsel, Paul H. Melbostad and g3mh, LLP, is denied."
+          },
+          {
+            "date": "2026-10-21",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25623753",
+            "caseTitle": "HOMIRA MRFAKHRAEI ET AL VS. YIP CHEONG ATTAR LO ET AL",
+            "matter": "MOTION TO COMPEL RESPONSES TO ADMISSION/INTERROGATORIES",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant YIP CHEONG ATTAR LO's motion to compel plaintiffs HOMIRA MRFAKHRAEI and NEDA NAJAAFI to respond to defendant's first set of special interrogatories is granted for good cause shown. Plaintiffs shall provide complete, verified, objection-free…"
+          },
+          {
+            "date": "2026-10-21",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26682827",
+            "caseTitle": "ROBERT B PITTS HOUSING PARTNERS, LP VS. REGINA HARRIS ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT ; Memorandum Of Points And Authorities Iso Defendant'S Motion For Summary Judgment",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Line 8 DEFENDANT REGINA HARRIS MOTION FOR SUMMARY JUDGMENT ; Memorandum Of Points And Authorities Iso Defendant'S Motion For Summary Judgment is DENIED. Defendant has failed to meet her initial burden of showing, with competent evidence, that Plaintiff cannot…"
+          },
+          {
+            "date": "2026-10-21",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25630126",
+            "caseTitle": "ISABEL R. VS. DQE ASSOCIATES, LLC ET AL",
+            "matter": "MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Intervenor Hiscox Insurance Company Inc.'s motion to set aside the entry of default against Defendant DQE Associates, LLC (\"DQE\") is denied. The court takes judicial notice of Exhibit 1 (proof of service of summons of the complaint) and Exhibit 2 (request for…"
+          },
+          {
+            "date": "2026-10-21",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25623783",
+            "caseTitle": "KERLEY SCHAFFER LLP, A CALIFORNIA CORPORATION VS. US BANK NATIONAL ASSOCIATION, A CORPORTION ET AL",
+            "matter": "Notice Of Motion And Motion Of Cross-Complainant John Hofmeyer To Stay Proceedings On First Amended-Cross Complaint Pending Further Family Court Proceedings",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Cross-complainant John Hofmeyer's unopposed motion to stay proceedings on his first amended cross-complaint is granted."
+          },
           {
             "date": "2026-10-20",
             "time": "09:00 AM",
@@ -745,140 +865,20 @@
               "label": "Granted in part"
             },
             "text": "DEFENDANT SB TECHNOLOGY, INC.'S Motion to Compel Production of Plaintiff's Medical Records. Defendant SB Technology, Inc. d/b/a SandboxAQ's motion to compel production of Plaintiff Robert Bender's medical records is granted in part and denied in part. The…"
-          },
-          {
-            "date": "2026-10-14",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24612574",
-            "caseTitle": "ESTHER SOLORZANO VS. MAVENFORM, INC. DBA PATHRISE ET AL",
-            "matter": "Motion To Strike Responsive Pleading Of Leif Technologies, Inc. And Leif Servicing, Llc",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Esther Solorzano's motion to strike responsive pleading of defendants Leif Technologies, Inc. and Leif Servicing, LLC (collectively, the \"Leif Defendants\") is conditionally GRANTED. Plaintiff's request for judicial notice of Exhibits 1 to 7 therein…"
-          },
-          {
-            "date": "2026-10-14",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24620841",
-            "caseTitle": "ANDREA COOKS VS. ON LOK COMMUNITY HOUSING, INC. ET AL",
-            "matter": "Notice Of Motion And Motion For Preliminary Approval Of Class Settlement",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for preliminary approval of class settlement is granted for good cause shown in the moving papers. The court will sign the revised proposed order submitted with the supplemental brief on October 7."
-          },
-          {
-            "date": "2026-10-14",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26682971",
-            "caseTitle": "TENDERLOIN HOUSING CLINIC, INC. VS. ROGER BASSO ET AL",
-            "matter": "Plaintiff'S Notice Of Motion And Motion To Deem Matters Admitted Per Requests For Admission, Set One, To Defendant Roger Basso",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff'S Notice Of Motion And Motion To Deem Matters Admitted Per Requests For Admission is DENIED. Neither the discovery at issue nor proof of service thereof were provided with the moving papers. The Court also notes that no courtesy copies were provided…"
-          },
-          {
-            "date": "2026-10-14",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25630990",
-            "caseTitle": "VANCE RANDALL HARDISTY ET AL VS. FCA US LLC, A DELAWARE LIMITED LIABILITY ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Responses, Without Objections, To Plaintiffs? Requests For Production Of Documents (Set One)",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiffs Vance Hardisty and Julie Hardisty's unopposed Motion to Compel Responses, without Objections, to Plaintiffs' Requests for Production of Documents, Set One (\"RFPs\"), is granted. Plaintiffs served their RFPs on August 12, 2026. Defendant FCA US, LLC…"
-          },
-          {
-            "date": "2026-10-14",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25627083",
-            "caseTitle": "HELEN CHUNG VS. SAMSARA, INC.; A DELAWARE CORPORATION ET AL",
-            "matter": "Motion To Compel The Deposition Of Sanjit Biswas",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff Helen Chung's motion to compel the deposition of Sanjit Biswas and request for monetary sanctions is denied. This motion seeks to compel the deposition of Defendant Samsara, Inc.'s Chief Executive Officer, Sanjit Biswas. Samsara objected to this…"
-          },
-          {
-            "date": "2026-10-14",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26683246",
-            "caseTitle": "BWF FORGE TL PROPERTIES OWNER, LLC VS. KARL GORDON ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Discovery Responses And Deem Admissions From Defendant Karl Gordon; Request For Sanctions Of $2,560.00; Memorandum Of Points And Authrorities In Support",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Line 8 PLAINTIFF BWF FORGE TL PROPERTIES OWNER, LLC Notice Of Motion And Motion To Compel Discovery Responses And Deem Admissions From Defendant Karl Gordon; Request For Sanctions Of $2,560.00 is DENIED without prejudice. No foundation for the statement in…"
-          },
-          {
-            "date": "2026-10-14",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25630990",
-            "caseTitle": "VANCE RANDALL HARDISTY ET AL VS. FCA US LLC, A DELAWARE LIMITED LIABILITY ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Responses, Without Objections, To Plaintiffs Form And Special Interrogatories (Set One)",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiffs Vance Hardisty and Julie Hardisty's unopposed Motion to Compel Responses, without Objections, to Plaintiffs' Form and Special Interrogatories, Set One, from Defendant FCA US LLC is granted. Plaintiffs served their Form Interrogatories, Set One, and…"
-          },
-          {
-            "date": "2026-10-14",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25627263",
-            "caseTitle": "AMIRALI RAHMATIAN VS. FCA US LLC ET AL",
-            "matter": "Motion For Payment Of Attorneys Fees And Reimbursement Of Costs And Expenses",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Plaintiff Amirali Rahmatian's motion for attorney's fees and costs is granted in part and denied in part."
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "4a535b03bb9a8091dca64b455de392f102d6bf54",
-      "updatedAt": "2026-10-20T00:40:01Z",
+      "ref": "5f17771e57b0ad31068968a059c030ba06f13f51",
+      "updatedAt": "2026-10-21T00:40:40Z",
       "metrics": {
-        "tentativeRulings": 66826,
+        "tentativeRulings": 67185,
         "parsedCounties": 34,
-        "documents": 16416,
-        "archivedFiles": 101445,
-        "documentBytes": 18504220672
+        "documents": 16531,
+        "archivedFiles": 102085,
+        "documentBytes": 18633195520
       },
       "charts": {
         "rulingsByCounty": [
@@ -1054,14 +1054,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "9e09b9fa18dfcce32d98abaf3a5ffdf7c37166f1",
-      "updatedAt": "2026-10-20T19:46:45Z",
+      "ref": "56ed8e6fe5169e64dc431bea0f06b619c8b0474d",
+      "updatedAt": "2026-10-21T01:18:18Z",
       "metrics": {
-        "cases": 748426,
-        "documents": 16833163,
-        "mirroredFiles": 748434,
-        "documentBytes": 317997533,
-        "snapshots": 748711
+        "cases": 750109,
+        "documents": 16867079,
+        "mirroredFiles": 750117,
+        "documentBytes": 318472229,
+        "snapshots": 750394
       },
       "charts": {}
     },
@@ -1134,13 +1134,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "833103c620683589674a0a0e72a7260c9f365e0b",
-      "updatedAt": "2026-10-20T22:06:04Z",
+      "ref": "6c127137263fa1a51117353000399d7370fe5d44",
+      "updatedAt": "2026-10-21T01:50:55Z",
       "metrics": {
-        "jurisdictions": 382,
-        "reports": 1267,
-        "feePrograms": 2540,
-        "figures": 5739
+        "jurisdictions": 383,
+        "reports": 1273,
+        "feePrograms": 2547,
+        "figures": 5765
       },
       "charts": {}
     },
