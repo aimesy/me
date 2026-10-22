@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T19:34:59.000Z",
+  "generatedAt": "2026-10-22T00:21:14.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -155,7 +155,7 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-21T00:02:32.322Z",
+        "latestScrapedAt": "2026-10-22T00:01:13.925Z",
         "days": [
           {
             "date": "2026-10-21",
@@ -246,24 +246,6 @@
               {
                 "department": "204",
                 "count": 4
-              }
-            ]
-          },
-          {
-            "date": "2026-10-15",
-            "total": 56,
-            "departments": [
-              {
-                "department": "301",
-                "count": 20
-              },
-              {
-                "department": "501",
-                "count": 19
-              },
-              {
-                "department": "302",
-                "count": 17
               }
             ]
           }
@@ -745,134 +727,14 @@
               "label": "Granted"
             },
             "text": "Plaintiff Aharon Weiner's motion to compel further responses to employment form interrogatories is granted."
-          },
-          {
-            "date": "2026-10-15",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24619156",
-            "caseTitle": "JENNIFER MARSHALL ET AL VS. AIRBNB, INC. ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Compliance With Court Order; Request For Sanctions; Memorandum And Points Of Authority; Declaration Of Pedro P. Echarte Iii",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Jennifer Marshall's motion to compel Defendants Airbnb, Inc.'s, Airbnb Payments, Inc., and Airbnb Travel, LLC's (collectively, \"Airbnb\") compliance with the July 8, 2026 court order is granted. Airbnb shall submit a code-compliant privilege log in…"
-          },
-          {
-            "date": "2026-10-15",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25627041",
-            "caseTitle": "CHRISTOPHER MCCLEARY VS. ROBERTO VALENTINO SANCHEZ",
-            "matter": "Notice Of Application For Writ Of Possession And Hearing",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF CHRISTOPHER MCCLEARY'S Application for Writ of Possession and Hearing. Plaintiff Christopher McCleary's application for writ of possession is denied. First, McCleary has not filed a proof of service of summons and complaint. His July 1, 2026, proof…"
-          },
-          {
-            "date": "2026-10-15",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC24617633",
-            "caseTitle": "WESTFIELD 816-818 MISSION STREET LLC, VS. NASS ENTERPRISE, INC., A CALIFORNIA CORPORATION ET AL",
-            "matter": "Notice Of Motion And Motion For Attorney Fees Against Defendants Nass Enterprise, Inc., Atiqur Rahman, Shahidul Haque, Saleh Sarwar, And Naresh Gupta",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Line 3 PLAINTIFF WESTFIELD 816-818 MISSION STREET LLC, A DELAWARE LIMITED LIABILITY COMPANY Notice Of Motion And Motion For Attorney Fees Against Defendants Nass Enterprise, Inc., Atiqur Rahman, Shahidul Haque, Saleh Sarwar, And Naresh Gupta is DENIED. Moving…"
-          },
-          {
-            "date": "2026-10-15",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24620084",
-            "caseTitle": "JOHNATHAN SYDNOR VS. TENDERLOIN HOUSING CLINIC,INC. ET AL",
-            "matter": "Motion For Dismissal Of Entire Action, Including Individual, Class, And Representative (Paga) Claims, Against Defendant Central City Hospitality House, Pursuant To Crc 3.770",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion of plaintiff Johnathan Syndor for dismissal of entire action, including individual, class, and representative PAGA claims against defendant Central City Hospitality House, is granted for good cause shown in the moving papers. In light of…"
-          },
-          {
-            "date": "2026-10-15",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25631325",
-            "caseTitle": "REBECCA MARIE GARCIA VS. COUNTY OF SAN FRANCISCO, A PUBLIC ENTITY ET AL",
-            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for withdrawal of attorney of record is granted for good cause shown in the moving papers. The court will sign the order on the Judicial Council form."
-          },
-          {
-            "date": "2026-10-15",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC25622934",
-            "caseTitle": "DANIEL HAIM HOFFMAN ET AL VS. DAVID KOSLOWSKI ET AL",
-            "matter": "Notice Of Motion And Motion To Appoint Broker And Referee Pursuant To Partition Of Real Property Act",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Line 4 PLAINTIFF DANIEL HOFFMAN AN INDIVIDUAL, JENNY HOFFMAN, JESSICA HOFFMAN Notice Of Motion And Motion To Appoint Broker And Referee Pursuant To Partition Of Real Property Act is GRANTED as requested, except parties to meet and confer on the form of order…"
-          },
-          {
-            "date": "2026-10-15",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25624424",
-            "caseTitle": "ANWAR YOUNG VS. CORE1 SECURITY SERVICES, INC., A CALIFORNIA ET AL",
-            "matter": "MOTION TO DISMISS",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed request for dismissal of plaintiff Anwar Young's claims with prejudice and Plaintiff's class and PAGA claims without prejudice is granted for good cause shown in the moving papers. In light of the circumstances set out in the moving papers and…"
-          },
-          {
-            "date": "2026-10-15",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25631667",
-            "caseTitle": "ROBERT BENDER VS. SB TECHNOLOGY, INC., A DELAWARE CORPORATION ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Production Of Plaintiffs Medical Records - Redacted",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "DEFENDANT SB TECHNOLOGY, INC.'S Motion to Compel Production of Plaintiff's Medical Records. Defendant SB Technology, Inc. d/b/a SandboxAQ's motion to compel production of Plaintiff Robert Bender's medical records is granted in part and denied in part. The…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "8843c74240c180e139cfa44c21196e77c95aaea8",
-      "updatedAt": "2026-10-21T19:34:22Z",
+      "ref": "0e95e106d36755af0ee4ffdcb858f0a55737cc97",
+      "updatedAt": "2026-10-22T00:21:14Z",
       "metrics": {
         "tentativeRulings": 68310,
         "parsedCounties": 34,
