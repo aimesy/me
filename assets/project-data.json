@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T00:21:14.000Z",
+  "generatedAt": "2026-10-22T07:44:23.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -155,8 +155,18 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-22T00:01:13.925Z",
+        "latestScrapedAt": "2026-10-22T02:57:03.279Z",
         "days": [
+          {
+            "date": "2026-10-22",
+            "total": 15,
+            "departments": [
+              {
+                "department": "501",
+                "count": 15
+              }
+            ]
+          },
           {
             "date": "2026-10-21",
             "total": 96,
@@ -251,6 +261,126 @@
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-22",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21596771",
+            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
+            "matter": "Motion For An Order Determining Good Faith Settlement",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "CROSS DEFENDANT CORNERSTONEHD CONSTRUCTION INC., DANIEL DE FILIPPIS Motion For An Order Determining Good Faith Settlement is DENIED without prejudice for the moving party to re-file and provide evidentiary showing, through expert declarations or other means…"
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21596771",
+            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
+            "matter": "Motion And Notice Of Hearing Re Good Faith Settlement",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Motion And Notice Of Hearing Re Good Faith Settlement is DENIED without prejudice for the moving party to re-file and provide evidentiary showing, through expert declarations or other means that the proposed settlement is within the reasonable range permitted…"
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC23610891",
+            "caseTitle": "SARAH LEWIS VS. KENNETH RUNYON ET AL",
+            "matter": "MOTION TO STRIKE Amended COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "DEFENDANT LUIS MAGALLON MOTION TO STRIKE Amended COMPLAINT is GRANTED in part and DENIED in part. Motion is GRANTED without leave to amend as to the Second, Third and Fifth Causes of action as to Defendant Magallon. Motion is denied as to the request to…"
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25632515",
+            "caseTitle": "CARMELA CICCONE TROTTA VS. CALVIN LIU ET AL",
+            "matter": "MOTION FOR LEAVE TO File Cross-Complaint; Declaration Of Justin C. Ellis",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT CALVIN LIU AN INDIVIDUAL, SUXIAN LIU MOTION FOR LEAVE TO File Cross-Complaint is GRANTED. Defendants shall file and serve their Cross-Complaint forthwith. The trial date of April 12, 2027 remains. If the Cross-Complaint is not ready for April 12…"
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD25678200",
+            "caseTitle": "53 COLTON LP VS. CHENELLE YOUNG ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT Mpa",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The Court treats Defendant Young's motion for summary judgment as a motion for judgment on the pleadings. The motion is GRANTED with leave to amend the Complaint within 5 days of notice of entry of order. Plaintiff's opposition contends that \"the Notice to…"
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26683510",
+            "caseTitle": "PETER H.E. PETRACCA-NAUJOKS ET AL VS. MELANIE WOOD ET AL",
+            "matter": "DEMURRER to COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "overruled",
+              "label": "Overruled"
+            },
+            "text": "DEFENDANT MELANIE WOOD DEMURRER to COMPLAINT is OVERRULED, 5 days to answer from notice of entry of order. The Complaint is not uncertain. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849…"
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC23610891",
+            "caseTitle": "SARAH LEWIS VS. KENNETH RUNYON ET AL",
+            "matter": "DEMURRER to Amended COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "moot",
+              "label": "Moot"
+            },
+            "text": "DEFENDANT LUIS MAGALLON DEMURRER to Amended COMPLAINT is moot. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849; or Phone Dial in: (669) 254-5252; Webinar ID: 160 560 5023; Password…"
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC23611378",
+            "caseTitle": "LAURENCE F. NASEY VS. FELL HOLDINGS LLC, A DELAWARE LIMITED LIABILITY ET AL",
+            "matter": "MOTION TO EXPUNGE LIS PENDENS/PENDENCY OF ACTION",
+            "judge": "",
+            "outcome": {
+              "key": "continued",
+              "label": "Continued"
+            },
+            "text": "DEFENDANT 1215 FELL SF OWNER LLC MOTION TO EXPUNGE LIS PENDENS/PENDENCY OF ACTION is continued to November 3, 2026 of the Court's own motion. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password…"
+          },
           {
             "date": "2026-10-21",
             "time": "09:00 AM",
@@ -733,14 +863,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "0e95e106d36755af0ee4ffdcb858f0a55737cc97",
-      "updatedAt": "2026-10-22T00:21:14Z",
+      "ref": "37e788eb153016e99fe31cd388de07f05d18aa03",
+      "updatedAt": "2026-10-22T02:18:29Z",
       "metrics": {
-        "tentativeRulings": 68310,
+        "tentativeRulings": 68339,
         "parsedCounties": 34,
-        "documents": 16871,
-        "archivedFiles": 103313,
-        "documentBytes": 18782093312
+        "documents": 16880,
+        "archivedFiles": 103496,
+        "documentBytes": 18840813568
       },
       "charts": {
         "rulingsByCounty": [
@@ -916,27 +1046,27 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "c9dedb4be13ddd703de70e85ff3cc9440dd7f5fb",
-      "updatedAt": "2026-10-21T19:03:16Z",
+      "ref": "56084db2610feb777d9bd4bcaad62c3809a1c30f",
+      "updatedAt": "2026-10-22T02:34:58Z",
       "metrics": {
         "cases": 754617,
         "documents": 16966457,
         "mirroredFiles": 754625,
         "documentBytes": 319894979,
-        "snapshots": 754906
+        "snapshots": 754907
       },
       "charts": {}
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "30ef0feb9a77fbb82704a5eb1e52fd7b1a5f99f1",
-      "updatedAt": "2026-10-09T17:28:54Z",
+      "ref": "cf4a3f2fca4021160b4f84ff6798bbfe68cb6b43",
+      "updatedAt": "2026-10-22T06:14:48Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 427002
+        "snapshots": 427018
       },
       "charts": {}
     },
@@ -996,24 +1126,24 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "6070322acd84465362f06f150f534ec42a097f5b",
-      "updatedAt": "2026-10-21T16:40:03Z",
+      "ref": "c77e97e2150922946b7f79035a6d2ef66effb743",
+      "updatedAt": "2026-10-22T07:44:23Z",
       "metrics": {
-        "jurisdictions": 392,
-        "reports": 1327,
-        "feePrograms": 2719,
-        "figures": 6140
+        "jurisdictions": 393,
+        "reports": 1336,
+        "feePrograms": 2755,
+        "figures": 6258
       },
       "charts": {}
     },
     "cfhe": {
       "repo": "aimesy/cfhe-data",
-      "ref": "9f99b528a9210faba1327c9226ed1a2580e5b443",
-      "updatedAt": "2026-10-21T19:34:59Z",
+      "ref": "ad018829ca361aaab775373c60d890eb51ebb260",
+      "updatedAt": "2026-10-22T05:27:16Z",
       "metrics": {
         "jurisdictions": 539,
-        "units": 498793,
-        "duplicateUnits": 60412,
+        "units": 495332,
+        "duplicateUnits": 63873,
         "throughYear": 2025
       },
       "charts": {}
