@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T03:31:43.000Z",
+  "generatedAt": "2026-10-23T12:38:56.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-23",
       "metrics": {
         "tentativeRulings": 385239,
-        "cases": 1455452,
+        "cases": 1455740,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 433605
+            "value": 433804
           },
           {
             "label": "CRI",
@@ -61,7 +61,7 @@
           },
           {
             "label": "FDI",
-            "value": 98803
+            "value": 98824
           },
           {
             "label": "FCS",
@@ -69,7 +69,7 @@
           },
           {
             "label": "PES",
-            "value": 42632
+            "value": 42633
           },
           {
             "label": "FDV",
@@ -77,7 +77,7 @@
           },
           {
             "label": "CPF",
-            "value": 29026
+            "value": 29092
           },
           {
             "label": "CNC",
@@ -109,7 +109,7 @@
           },
           {
             "label": "PGN",
-            "value": 4161
+            "value": 4162
           },
           {
             "label": "FPT",
@@ -155,8 +155,18 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-23T00:54:06.099Z",
+        "latestScrapedAt": "2026-10-23T11:24:57.260Z",
         "days": [
+          {
+            "date": "2026-10-26",
+            "total": 54,
+            "departments": [
+              {
+                "department": "204",
+                "count": 54
+              }
+            ]
+          },
           {
             "date": "2026-10-23",
             "total": 48,
@@ -242,28 +252,6 @@
               {
                 "department": "304",
                 "count": 3
-              }
-            ]
-          },
-          {
-            "date": "2026-10-19",
-            "total": 97,
-            "departments": [
-              {
-                "department": "204",
-                "count": 48
-              },
-              {
-                "department": "501",
-                "count": 18
-              },
-              {
-                "department": "301",
-                "count": 16
-              },
-              {
-                "department": "302",
-                "count": 15
               }
             ]
           }
@@ -745,126 +733,6 @@
               "label": "Denied"
             },
             "text": "Line 6 DEFENDANT JESSICA HUNTER , AN INDIVIDUAL Notice Of Motion, Motion, Memorandum Of Points And Authorities And Declaration In Support Of Motion To Vacate Judgment is DENIED. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video -…"
-          },
-          {
-            "date": "2026-10-19",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC22600252",
-            "caseTitle": "BANK OF AMERICA, N.A. VS. DAVID ELLIOTT WISE",
-            "matter": "Notice Of Motion And Motion To Enter Judgment Under Terms Of Stipulated Judgment",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Bank of America, N.A.'s unopposed motion to enter judgment under terms of stipulated settlement is granted. Bank of America's unopposed request for judicial notice -- that the Court take judicial notice of the parties' Stipulation Agreement, which…"
-          },
-          {
-            "date": "2026-10-19",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC22599451",
-            "caseTitle": "HEATHER GREGG VS. JAMES J. CUNNINGHAM ET AL",
-            "matter": "PLAINTIFF'S EX PARTE APPLICATION FOR ORDER TO FILE EXHIBITS A AND B UNDER SEAL FOR IN CAMERA REVIEW BY THE COURT ONLY",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff's ex parte application to seal is denied without prejudice. A document for which sealing is sought may be conditionally lodged under seal and a noticed motion can be filed. The documents remain conditionally sealed until the motion to seal is heard…"
-          },
-          {
-            "date": "2026-10-19",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25679339",
-            "caseTitle": "PARKMERCED OWNER, LLC VS. ABBY VAN KIRK ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT Notice Of Motion; Memorandum Of Points And Authorities; Declaration Of Dylan K. Y. Tong",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Line 9 PLAINTIFF PARKMERCED OWNER, LLC , A DELAWARE LIMITED LIABILITY COMPANY MOTION FOR SUMMARY JUDGMENT Notice Of Motion is DENIED. Plaintiff has failed to meet its initial burden of establishing, with competent evidence, that there is no triable issue and…"
-          },
-          {
-            "date": "2026-10-19",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24613070",
-            "caseTitle": "NOB HILL CONSTRUCTION, INC., VS. HARLAN L. SOUTH ET AL",
-            "matter": "Notice Of Motion For Order That Matters Specified In Requests For Admission (Set One) Be Deemed Admitted",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Nob Hill Construction, Inc.'s unopposed motion for an order that defendant Harlan L. South be deemed to have admitted the truth of all matters and the genuiness of documents specified in Plaintiff's Requests for Admissions is granted. (Code Civ…"
-          },
-          {
-            "date": "2026-10-19",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23608427",
-            "caseTitle": "ABDUL RASHID PATEL ET AL VS. NASIR PATEL ET AL",
-            "matter": "Notice Of Application And Application To Sell Real Property Seneca Avenue",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF ABDUL PATEL'S Application to Sell Real Property Seneca Avenue. Plaintiffs' application to sell real property (Seneca Avenue) is denied without prejudice. Code of Civil Procedure section 704.750(a) provides: Promptly after a dwelling is levied upon…"
-          },
-          {
-            "date": "2026-10-19",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25680208",
-            "caseTitle": "JOHN STEWART COMPANY VS. MARTIN REED ET AL",
-            "matter": "Plaintiffs Notice Of Motion And Motion To Enforce Settlement Agreement",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Line 5 PLAINTIFF JOHN STEWART COMPANY Plaintiffs Notice Of Motion And Motion To Enforce Settlement Agreement is DENIED. All of Defendant's written objections to Plaintiff's evidence are sustained. The Corrected Declaration of Willie Abasta, filed September…"
-          },
-          {
-            "date": "2026-10-19",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC26634512",
-            "caseTitle": "STEPHEN MASSEY VS. PURPLE STAR MD ET AL",
-            "matter": "Notice Of Motion And Motion For Specified Discovery (Sac)",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff's motion for specified discovery is denied. Plaintiff does not establish good cause for discovery; among other things, he fails to cogently identify what limited discovery is necessary to defendant DELC LLC's anti-SLAPP motion directed to causes of…"
-          },
-          {
-            "date": "2026-10-19",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23608427",
-            "caseTitle": "ABDUL RASHID PATEL ET AL VS. NASIR PATEL ET AL",
-            "matter": "Notice Of Motion And Motion For Attorneys Fees On Appeal",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Plaintiff's unopposed motion for fees on appeal is granted in part. Plaintiffs' unopposed request for judicial notice is granted. Plaintiff is entitled to its fees for prevailing on the appeal per Penal Code section 496 and Welfare & Institutions Code section…"
           }
         ]
       }
@@ -1054,14 +922,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "22d249e94730fb060a88b6a421c1b65ac74399a3",
-      "updatedAt": "2026-10-23T01:24:14Z",
+      "ref": "9d20b3f8975d100447bc420aa2be9a9cf3ef338b",
+      "updatedAt": "2026-10-23T12:38:56Z",
       "metrics": {
-        "cases": 762762,
-        "documents": 17146466,
-        "mirroredFiles": 762770,
-        "documentBytes": 322436442,
-        "snapshots": 763052
+        "cases": 764946,
+        "documents": 17200408,
+        "mirroredFiles": 764954,
+        "documentBytes": 323228120,
+        "snapshots": 765236
       },
       "charts": {}
     },
