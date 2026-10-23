@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-22T21:31:01.000Z",
+  "generatedAt": "2026-10-23T01:29:07.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "4e0217032679ab25b2d45a055f0583fc90e22c83",
       "updatedAt": "2026-10-13T06:14:42Z",
-      "latestRuling": "2026-10-19",
+      "latestRuling": "2026-10-23",
       "metrics": {
-        "tentativeRulings": 384960,
-        "cases": 1455396,
+        "tentativeRulings": 385239,
+        "cases": 1455452,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 433603
+            "value": 433605
           },
           {
             "label": "CRI",
@@ -53,27 +53,27 @@
           },
           {
             "label": "CSM",
-            "value": 188041
+            "value": 188054
           },
           {
             "label": "CUD",
-            "value": 97187
+            "value": 97191
           },
           {
             "label": "FDI",
-            "value": 98794
+            "value": 98803
           },
           {
             "label": "FCS",
-            "value": 94444
+            "value": 94446
           },
           {
             "label": "PES",
-            "value": 42628
+            "value": 42632
           },
           {
             "label": "FDV",
-            "value": 30062
+            "value": 30066
           },
           {
             "label": "CPF",
@@ -81,11 +81,11 @@
           },
           {
             "label": "CNC",
-            "value": 25640
+            "value": 25643
           },
           {
             "label": "PDW",
-            "value": 21553
+            "value": 21558
           },
           {
             "label": "FSD",
@@ -93,19 +93,19 @@
           },
           {
             "label": "PCN",
-            "value": 9461
+            "value": 9462
           },
           {
             "label": "PTR",
-            "value": 6521
+            "value": 6523
           },
           {
             "label": "FMS",
-            "value": 3540
+            "value": 3541
           },
           {
             "label": "APP",
-            "value": 5023
+            "value": 5024
           },
           {
             "label": "PGN",
@@ -113,11 +113,11 @@
           },
           {
             "label": "FPT",
-            "value": 702
+            "value": 706
           },
           {
             "label": "FLD",
-            "value": 2813
+            "value": 2814
           },
           {
             "label": "DPO",
@@ -155,12 +155,42 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-22T02:57:03.279Z",
+        "latestScrapedAt": "2026-10-23T00:54:06.099Z",
         "days": [
           {
-            "date": "2026-10-22",
-            "total": 15,
+            "date": "2026-10-23",
+            "total": 48,
             "departments": [
+              {
+                "department": "501",
+                "count": 22
+              },
+              {
+                "department": "301",
+                "count": 13
+              },
+              {
+                "department": "302",
+                "count": 10
+              },
+              {
+                "department": "204",
+                "count": 3
+              }
+            ]
+          },
+          {
+            "date": "2026-10-22",
+            "total": 49,
+            "departments": [
+              {
+                "department": "302",
+                "count": 18
+              },
+              {
+                "department": "301",
+                "count": 16
+              },
               {
                 "department": "501",
                 "count": 15
@@ -236,31 +266,159 @@
                 "count": 15
               }
             ]
-          },
-          {
-            "date": "2026-10-16",
-            "total": 43,
-            "departments": [
-              {
-                "department": "301",
-                "count": 18
-              },
-              {
-                "department": "501",
-                "count": 12
-              },
-              {
-                "department": "302",
-                "count": 9
-              },
-              {
-                "department": "204",
-                "count": 4
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-23",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC23608600",
+            "caseTitle": "CUPERTINO ELECTRIC, INC., A DELAWARE CORPORATION VS. BETA ENGINEERING CALIFORNIA LP, A DELAWARE LIMITED ET AL",
+            "matter": "Motion Of Cupertino Electric, Inc. For Determination Of Good Faith Settlement; Memorandum Of Points And Authorities",
+            "judge": "Ross C. Moody",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF CUPERTINO ELECTRIC, INC.'s Motion For Determination Of Good Faith Settlement. Motion for Good Faith Settlement is Granted. Plaintiff Cupertino Electric, Inc. seeks an order determining that the Settlement Agreement and Mutual Release between CEI and…"
+          },
+          {
+            "date": "2026-10-23",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC22599451",
+            "caseTitle": "HEATHER GREGG VS. JAMES J. CUNNINGHAM ET AL",
+            "matter": "PLAINTIFF'S EX PARTE APPLICATION TO CONTINUE HEARING ON DEFENDANT JAMES J. CUNNINGHAM'S MOTION FOR SUMMARY JUDGMENT AND TO RESET BRIEFING DEADLINES",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff Heather Gregg's ex parte application to continue the hearing on defendant James J. Cunningham's motion for summary judgment is granted in part and denied in part. Gregg initially sought this relief ex parte but did not provide any medical…"
+          },
+          {
+            "date": "2026-10-23",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26637145",
+            "caseTitle": "JACOB MAX EISNER GUY VS. MARSHA ANN IRWIN ET AL",
+            "matter": "MOTION TO STRIKE CROSS COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "CROSS DEFENDANT JACOB EISNER GUY MOTION TO STRIKE CROSS COMPLAINT is GRANTED as requested in the Notice of Motion as to the claims arising out of protected activity contained in the 5th, 6th and 7th causes of action and prayer for relief. Opposing party…"
+          },
+          {
+            "date": "2026-10-23",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25626604",
+            "caseTitle": "FRANK EDWARD MERRITT VS. GERALDINE LYNN SMITH-WANK ET AL",
+            "matter": "Motion To Compel Further Response And Inspection Of The Physical Binder Under Request For Production No. 1; Memorandum; Declaration",
+            "judge": "Ross C. Moody",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff Frank Edward Merritt's motion to compel further response and inspection of the physical binder under request for production no. 1 is denied. On reply, Plaintiff no longer asks for a further written response. Instead, Plaintiff only asks for an order…"
+          },
+          {
+            "date": "2026-10-23",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24616887",
+            "caseTitle": "HOWARD HONG VS. HIPCAMP, A CORPORATION DOING BUSINESS IN THE ET AL",
+            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion for pro hac vice admission of Edward Ciarimboli is granted."
+          },
+          {
+            "date": "2026-10-23",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD25678311",
+            "caseTitle": "DE WOLF REALTY VS. KELESSERY FANNY ET AL",
+            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT KELESSERY FANNY MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD is GRANTED. No opposition filed. Defendant's counsel to prepare an order.=(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password…"
+          },
+          {
+            "date": "2026-10-23",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25626604",
+            "caseTitle": "FRANK EDWARD MERRITT VS. GERALDINE LYNN SMITH-WANK ET AL",
+            "matter": "Motion To Compel Further Verified Response To Form Interrogatory General No. 17.1",
+            "judge": "Ross C. Moody",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Frank Edward Merritt's motion to compel further verified responses to Form Interrogatory General No. 17.1 is granted. On reply, Merritt withdraws the motion as it applies to RFA number 8. The court only considers Form Interrogatory number 17.1 as to…"
+          },
+          {
+            "date": "2026-10-23",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25621291",
+            "caseTitle": "MATTHEW HUTCHINSON ET AL VS. KIPP BAY AREA SCHOOLS ET AL",
+            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion for pro hac vice admission of Paul J. Lukas is granted."
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC18568750",
+            "caseTitle": "OLUSOJI FANOIKI VS. 1081-1087 MISSISSIPPI STREET ET AL",
+            "matter": "Notice Of Hearing On Petition To Vacate, Or In The Alternative, Correct Arbitration Award",
+            "judge": "Ross C. Moody",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Petitioner Olusoji Fanoiki's petition to vacate or, in the alternative, correct the arbitration award is denied."
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23604413",
+            "caseTitle": "JACQUELINE FRANCIS VS. LEN FREEMAN ET AL",
+            "matter": "Notice Of Motion And Motion Of Defendants Tracy Dearman And Tcgsf, Inc. To Withdraw Admissions; Declaration Of Sara Sadri",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendants Tracy Dearman and TCGSF, Inc.'s motion to withdraw admissions is denied. The court's tentative ruling in its entirety has been sent to counsel via email."
+          },
           {
             "date": "2026-10-22",
             "time": "09:30 AM",
@@ -275,6 +433,36 @@
               "label": "Denied"
             },
             "text": "CROSS DEFENDANT CORNERSTONEHD CONSTRUCTION INC., DANIEL DE FILIPPIS Motion For An Order Determining Good Faith Settlement is DENIED without prejudice for the moving party to re-file and provide evidentiary showing, through expert declarations or other means…"
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25627868",
+            "caseTitle": "DUYEN NGUYEN VS. TRINA MUI ET AL",
+            "matter": "Notice Of Motion And Motion For Good Faith Settlement",
+            "judge": "Ross C. Moody",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant The Metropolitan Association's unopposed motion or good faith settlement is granted. The court concludes that the $70,000 settlement is in good faith under the factors enunciated in Tech-Bilt, Inc. v. Woodward-Clyde & Associates (1985) 38 Cal.3d…"
+          },
+          {
+            "date": "2026-10-22",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23608687",
+            "caseTitle": "NIKCOLE CUNNINGHAM VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
+            "matter": "Notice Of Motion And Motion For Order Regarding Electronic Service",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "The City and County of San Francisco's motion to compel plaintiff Nikcole Cunningham to accept electronic service is granted in part and denied in part. As the City acknowledges, self-represented litigants are not required to accept electronic service. The…"
           },
           {
             "date": "2026-10-22",
@@ -293,93 +481,33 @@
           },
           {
             "date": "2026-10-22",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC23610891",
-            "caseTitle": "SARAH LEWIS VS. KENNETH RUNYON ET AL",
-            "matter": "MOTION TO STRIKE Amended COMPLAINT",
-            "judge": "",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25627868",
+            "caseTitle": "DUYEN NGUYEN VS. TRINA MUI ET AL",
+            "matter": "Notice Of Motion To Compel Further Responses To Form Interrogatory Nos. 9.1(C) And 9.2 (Set One)",
+            "judge": "Ross C. Moody",
             "outcome": {
               "key": "partial",
               "label": "Granted in part"
             },
-            "text": "DEFENDANT LUIS MAGALLON MOTION TO STRIKE Amended COMPLAINT is GRANTED in part and DENIED in part. Motion is GRANTED without leave to amend as to the Second, Third and Fifth Causes of action as to Defendant Magallon. Motion is denied as to the request to…"
+            "text": "Defendant Trina Mui's motion to compel further responses to form interrogatories No. 9.1(c) and 9.2 is granted in part and denied in part. The motion is denied as moot as to compelling further responses to form interrogatories 9.1(c) and 9.2. On September 14…"
           },
           {
             "date": "2026-10-22",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC25632515",
-            "caseTitle": "CARMELA CICCONE TROTTA VS. CALVIN LIU ET AL",
-            "matter": "MOTION FOR LEAVE TO File Cross-Complaint; Declaration Of Justin C. Ellis",
-            "judge": "",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24617499",
+            "caseTitle": "ELLEN SAKOLOFF VS. THE CITY AND COUNTY OF SAN FRANCISCO, A PUBLIC ET AL",
+            "matter": "MOTION FOR LEAVE TO Leave To File Cross Complaint",
+            "judge": "Christine Van Aken",
             "outcome": {
               "key": "granted",
               "label": "Granted"
             },
-            "text": "DEFENDANT CALVIN LIU AN INDIVIDUAL, SUXIAN LIU MOTION FOR LEAVE TO File Cross-Complaint is GRANTED. Defendants shall file and serve their Cross-Complaint forthwith. The trial date of April 12, 2027 remains. If the Cross-Complaint is not ready for April 12…"
-          },
-          {
-            "date": "2026-10-22",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25678200",
-            "caseTitle": "53 COLTON LP VS. CHENELLE YOUNG ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT Mpa",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The Court treats Defendant Young's motion for summary judgment as a motion for judgment on the pleadings. The motion is GRANTED with leave to amend the Complaint within 5 days of notice of entry of order. Plaintiff's opposition contends that \"the Notice to…"
-          },
-          {
-            "date": "2026-10-22",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26683510",
-            "caseTitle": "PETER H.E. PETRACCA-NAUJOKS ET AL VS. MELANIE WOOD ET AL",
-            "matter": "DEMURRER to COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "overruled",
-              "label": "Overruled"
-            },
-            "text": "DEFENDANT MELANIE WOOD DEMURRER to COMPLAINT is OVERRULED, 5 days to answer from notice of entry of order. The Complaint is not uncertain. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849…"
-          },
-          {
-            "date": "2026-10-22",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC23610891",
-            "caseTitle": "SARAH LEWIS VS. KENNETH RUNYON ET AL",
-            "matter": "DEMURRER to Amended COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "moot",
-              "label": "Moot"
-            },
-            "text": "DEFENDANT LUIS MAGALLON DEMURRER to Amended COMPLAINT is moot. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849; or Phone Dial in: (669) 254-5252; Webinar ID: 160 560 5023; Password…"
-          },
-          {
-            "date": "2026-10-22",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC23611378",
-            "caseTitle": "LAURENCE F. NASEY VS. FELL HOLDINGS LLC, A DELAWARE LIMITED LIABILITY ET AL",
-            "matter": "MOTION TO EXPUNGE LIS PENDENS/PENDENCY OF ACTION",
-            "judge": "",
-            "outcome": {
-              "key": "continued",
-              "label": "Continued"
-            },
-            "text": "DEFENDANT 1215 FELL SF OWNER LLC MOTION TO EXPUNGE LIS PENDENS/PENDENCY OF ACTION is continued to November 3, 2026 of the Court's own motion. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password…"
+            "text": "DEFENDANT CITY AND COUNTY OF SAN FRANCISCO'S Motion for Leave to File Cross Complaint. The City and County of San Francisco's unopposed motion for leave to file a cross complaint against JDB Construction, Inc. is granted for good cause shown. The City shall…"
           },
           {
             "date": "2026-10-21",
@@ -737,140 +865,20 @@
               "label": "Granted in part"
             },
             "text": "Plaintiff's unopposed motion for fees on appeal is granted in part. Plaintiffs' unopposed request for judicial notice is granted. Plaintiff is entitled to its fees for prevailing on the appeal per Penal Code section 496 and Welfare & Institutions Code section…"
-          },
-          {
-            "date": "2026-10-16",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25630386",
-            "caseTitle": "LISA ADKINS VS. OPEN TOP SIGHTSEEING SAN FRANCISCO, LLC ET AL",
-            "matter": "Notice Of Motion And Motion For Order Requiring Out-Of-State Plaintiff To File An Undertaking To Secure An Award Of Costs Pursuant To Code Of Civil Procedure Section 1030; Memorandum Of Points And Authorities; And Declaration Of Colton G. Walters; And Declaration Of Andrew Smith",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant Open Top Sightseeing San Francisco, LLC's motion for an order requiring out-of-state plaintiff Lisa Adkins to file a security is denied."
-          },
-          {
-            "date": "2026-10-16",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23606779",
-            "caseTitle": "TERRY BROWN ET AL VS. WALGREENS BOOTS ALLIANCE, INC, A CORPORATION ET AL",
-            "matter": "MOTION FOR SUMMARY ADJUDICATION .",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendants' (Walgreens Boots Alliance and Walgreen Co.) motion for summary adjudication on the claim for punitive damages under Civil Code, 3294 is denied."
-          },
-          {
-            "date": "2026-10-16",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC21596771",
-            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
-            "matter": "Notice Of Conditional Joinder To Defendants Lara Kelly?S And Chris Kelly?S Motion To Bifurcate Under Code Of Civil Procedure Section 598",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Line 1 DEFENDANT DAVID KALLMEYER , AN INDIVIDUAL, MICHAEL COMAROTO, GFDS ENGINEERS Notice Of Conditional Joinder To Defendants Lara Kelly?S And Chris Kelly?S Motion To Bifurcate Under Code Of Civil Procedure Section 598 is DENIED. =(501/SKF) Parties may…"
-          },
-          {
-            "date": "2026-10-16",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC26635372",
-            "caseTitle": "SAMANTHA PRINCE VS. PAUL J STEINER ET AL",
-            "matter": "MOTION TO STAY PROCEEDINGS",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Defendant Paul Steiner's motion to stay proceedings is granted in part, subject to a carve-out permitting discovery and Steiner's deposition."
-          },
-          {
-            "date": "2026-10-16",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25626643",
-            "caseTitle": "ADRIANO BORTOLUCCI VS. MAYA PRIMAVERA GARCIA-URBANO",
-            "matter": "Motion For Judgment On Pleadings",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant Maya Primavera Garcia-Urbano's motion for judgment on the pleadings is denied as to the first cause of action and granted with 10 days' leave to amend as to the second cause of action."
-          },
-          {
-            "date": "2026-10-16",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC21596771",
-            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
-            "matter": "Motion To Bifurcate Under Code Of Civil Procedure Section 598",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Line 1 DEFENDANT CHRIS KELLY INDIVIDUALLY AND AS CO-TRUSTEE OF THE KELLY FAMILY TRUST, LARA KELLY Motion To Bifurcate Under Code Of Civil Procedure Section 598 is DENIED without prejudice to be brought before the trial judge upon assignment to the trial…"
-          },
-          {
-            "date": "2026-10-16",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC26636372",
-            "caseTitle": "SHARON STOTT VS. WILLIAM-SONOMA, INC. ET AL",
-            "matter": "Motion To Compel Production Of Documents Responsive To Request No. 6 Of Plaintiffs First Request For Production Of Documents",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Plaintiff Sharon Stott's motion to compel production of documents responsive to Request for Production of Documents, Set One, No. 6 is granted in part. Plaintiff's request that this court order Defendant Williams-Sonoma Advertising, Inc. (\"WSAI\" or…"
-          },
-          {
-            "date": "2026-10-16",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26632709",
-            "caseTitle": "AHARON WEINER VS. POSTMAN, INC. ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Further Responses To Form Interrogatories - Employment",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Aharon Weiner's motion to compel further responses to employment form interrogatories is granted."
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "37e788eb153016e99fe31cd388de07f05d18aa03",
-      "updatedAt": "2026-10-22T02:18:29Z",
+      "ref": "d517fc831d80711694787aafaa17e69d3e59b38d",
+      "updatedAt": "2026-10-23T00:19:34Z",
       "metrics": {
-        "tentativeRulings": 68339,
+        "tentativeRulings": 68753,
         "parsedCounties": 34,
-        "documents": 16880,
-        "archivedFiles": 103496,
-        "documentBytes": 18840813568
+        "documents": 17010,
+        "archivedFiles": 104117,
+        "documentBytes": 18956156928
       },
       "charts": {
         "rulingsByCounty": [
@@ -1046,27 +1054,27 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "8d65a85ac78afe89a259aaca943e63f3370e1530",
-      "updatedAt": "2026-10-22T19:24:56Z",
+      "ref": "22d249e94730fb060a88b6a421c1b65ac74399a3",
+      "updatedAt": "2026-10-23T01:24:14Z",
       "metrics": {
-        "cases": 760656,
-        "documents": 17102428,
-        "mirroredFiles": 760664,
-        "documentBytes": 321804344,
-        "snapshots": 760946
+        "cases": 762762,
+        "documents": 17146466,
+        "mirroredFiles": 762770,
+        "documentBytes": 322436442,
+        "snapshots": 763052
       },
       "charts": {}
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "cf4a3f2fca4021160b4f84ff6798bbfe68cb6b43",
-      "updatedAt": "2026-10-22T06:14:48Z",
+      "ref": "ab7f39cf6deb484354796a05d0238a039b171c36",
+      "updatedAt": "2026-10-23T00:07:50Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 427018
+        "snapshots": 427020
       },
       "charts": {}
     },
@@ -1126,13 +1134,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "6c6b9ccaab84485ca34d8eac675dbce686bb26c1",
-      "updatedAt": "2026-10-22T21:31:01Z",
+      "ref": "740c81230be769cccd1a5a68a1927fca8eacd0ea",
+      "updatedAt": "2026-10-23T01:29:07Z",
       "metrics": {
-        "jurisdictions": 404,
-        "reports": 1368,
-        "feePrograms": 2947,
-        "figures": 6743
+        "jurisdictions": 409,
+        "reports": 1378,
+        "feePrograms": 2981,
+        "figures": 6821
       },
       "charts": {}
     },
