@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T00:18:16.000Z",
+  "generatedAt": "2026-10-24T00:54:45.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-26",
       "metrics": {
         "tentativeRulings": 385337,
-        "cases": 1456013,
+        "cases": 1456463,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434032
+            "value": 434399
           },
           {
             "label": "CRI",
@@ -53,7 +53,7 @@
           },
           {
             "label": "CSM",
-            "value": 188054
+            "value": 188062
           },
           {
             "label": "CUD",
@@ -61,7 +61,7 @@
           },
           {
             "label": "FDI",
-            "value": 98831
+            "value": 98843
           },
           {
             "label": "FCS",
@@ -69,19 +69,19 @@
           },
           {
             "label": "PES",
-            "value": 42633
+            "value": 42635
           },
           {
             "label": "FDV",
-            "value": 30066
+            "value": 30071
           },
           {
             "label": "CPF",
-            "value": 29130
+            "value": 29176
           },
           {
             "label": "CNC",
-            "value": 25643
+            "value": 25647
           },
           {
             "label": "PDW",
@@ -89,7 +89,7 @@
           },
           {
             "label": "FSD",
-            "value": 15811
+            "value": 15812
           },
           {
             "label": "PCN",
@@ -97,7 +97,7 @@
           },
           {
             "label": "PTR",
-            "value": 6523
+            "value": 6525
           },
           {
             "label": "FMS",
@@ -109,11 +109,11 @@
           },
           {
             "label": "PGN",
-            "value": 4162
+            "value": 4163
           },
           {
             "label": "FPT",
-            "value": 706
+            "value": 708
           },
           {
             "label": "FLD",
@@ -1067,14 +1067,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "ab7f39cf6deb484354796a05d0238a039b171c36",
-      "updatedAt": "2026-10-23T00:07:50Z",
+      "ref": "20b7b5b8820a527219a8d14c8b9bd172ba74bfab",
+      "updatedAt": "2026-10-24T00:54:45Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 427020
+        "snapshots": 427022
       },
       "charts": {}
     },
