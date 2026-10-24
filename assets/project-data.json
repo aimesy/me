@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-23T17:46:27.000Z",
+  "generatedAt": "2026-10-24T00:18:16.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "4e0217032679ab25b2d45a055f0583fc90e22c83",
       "updatedAt": "2026-10-13T06:14:42Z",
-      "latestRuling": "2026-10-23",
+      "latestRuling": "2026-10-26",
       "metrics": {
-        "tentativeRulings": 385239,
+        "tentativeRulings": 385337,
         "cases": 1456013,
         "documents": 4082942,
         "documentsArchived": 94046,
@@ -155,15 +155,27 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-23T11:24:57.260Z",
+        "latestScrapedAt": "2026-10-24T00:22:31.614Z",
         "days": [
           {
             "date": "2026-10-26",
-            "total": 54,
+            "total": 100,
             "departments": [
               {
                 "department": "204",
                 "count": 54
+              },
+              {
+                "department": "302",
+                "count": 20
+              },
+              {
+                "department": "501",
+                "count": 20
+              },
+              {
+                "department": "301",
+                "count": 6
               }
             ]
           },
@@ -257,6 +269,126 @@
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-26",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24616576",
+            "caseTitle": "ALAN EDUARDO GARCIA ARGUETA VS. LOCAL KITCHENS CALIFORNIA, LLC ET AL",
+            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "Ross C. Moody",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The Motion for Withdrawal of Attorney of Record is granted."
+          },
+          {
+            "date": "2026-10-26",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24618659",
+            "caseTitle": "LIUDMILA NAUMIK VS. FLORA ANDREA AUGUSTIN ET AL",
+            "matter": "Plaintiff'S Motion To Restore Motion To Compel To The Court'S Calendar Pursuant To Ccp 1008(A)",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF LIUDMILA NAUMIK'S Motion to Restore Motion to Compel to the Court's Calendar Pursuant to CCP 1008(A). Plaintiff Liudmila Naumik's motion to reconsider is denied. On July 14, 2026, this court (through Visiting Judge Mayfield) denied Naumik's motion…"
+          },
+          {
+            "date": "2026-10-26",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC24614383",
+            "caseTitle": "DAVID GUTEKUNST VS. LINDSAY BRENNAN ET AL",
+            "matter": "Motion For Determination Of Good Faith Settlement",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "GUTEKUNST LIVING TRUST DTD 6/25/04 Motion For Determination Of Good Faith Settlement is DENIED without prejudice. Moving party failed to meet the initial Tech-Built factors showing. Specifically, the Court was provided with no information to be able to…"
+          },
+          {
+            "date": "2026-10-26",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24617616",
+            "caseTitle": "PATRICIA PETERSON VS. EPIC STEAK ET AL",
+            "matter": "MOTION FOR LEAVE TO File First Amended Complaint For The Purpose Of Continuing The Action By Dawn Peterson Williams As Successor In Interest To Patricia Ann Peterson, Deceased, And To Add A Cause Of Action For Survival Action",
+            "judge": "Ross C. Moody",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Motion For Leave To File First Amended Complaint For The Purpose Of Continuing The Action By Dawn Peterson Williams As Successor In Interest To Patricia Ann Peterson, Deceased, And To Add A Cause Of Action For Survival Action is Granted. Dawn Peterson…"
+          },
+          {
+            "date": "2026-10-26",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25623297",
+            "caseTitle": "VIRGINIA LA MORENA DUMAGUIN ET AL VS. RAJESH NUNE ET AL",
+            "matter": "DEFENDANT DOORDASH, INC.'S EX PARTE APPLICATION TO ADVANCE THE HEARING DATE OR STAY DEPOSITION PENDING HEARING DATE ON DOORDASH'S MOTION FOR PROTECTIVE ORDER OVER THE DEPOSITION OF MONIQUE GILLIAM",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant DoorDash, Inc.'s ex parte application to advance the hearing date on its motion for protective order over the deposition of Monique Gilliam is granted. This application is not moot notwithstanding that the court granted DoorDash's summary judgment…"
+          },
+          {
+            "date": "2026-10-26",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26632608",
+            "caseTitle": "ANDREA LOUISE PALACIOS ET AL VS. SHELLEY WIENKE ET AL",
+            "matter": "Notice Of Motion And Motion To Set Aside Default",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT'S MOTION TO SET ASIDE DEFAULT is GRANTED pursuant to CCP 473(b). No opposition filed. Defendant to file and serve an answer no later than October 30, 2026 by noon. =(501/CFH) Parties may appear in-person, telephonically or via Zoom [Webinar ID: 160…"
+          },
+          {
+            "date": "2026-10-26",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24619290",
+            "caseTitle": "MARIA REMILLA ABAD SIOSON VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
+            "matter": "Notice And Motion To Determine Good Faith Settlement",
+            "judge": "Ross C. Moody",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "CENTRE LIMITED PARTNERSHIP's Motion To Determine Good Faith Settlement. S.F. Centre Limited Partnership's Motion To Determine Good Faith Settlement is granted Defendant S.F. CENTRE LIMITED PARTNERSHIP (DOE 2) ( \"S.F. Centre\") seeks a determination that their…"
+          },
+          {
+            "date": "2026-10-26",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26632821",
+            "caseTitle": "DONNETTA PITTMAN BLUNT VS. BBB-CA, INC. ET AL",
+            "matter": "Pmotion And Unopposed Motion To Dismiss Action; Memorandum Of Points And Authorities In Support Thereof",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF'S Unopposed Motion to Dismiss Action. The unopposed motion to dismiss this action with prejudice as to Donnetta Blunt's individual PAGA claims and without prejudice as to representative PAGA claims is granted for good cause shown. Plaintiff's…"
+          },
           {
             "date": "2026-10-23",
             "time": "09:00 AM",
@@ -739,14 +871,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "d517fc831d80711694787aafaa17e69d3e59b38d",
-      "updatedAt": "2026-10-23T00:19:34Z",
+      "ref": "aaa83ead19445e6b71e97c98597ea57b7a971cf6",
+      "updatedAt": "2026-10-24T00:18:16Z",
       "metrics": {
-        "tentativeRulings": 68753,
+        "tentativeRulings": 69366,
         "parsedCounties": 34,
-        "documents": 17010,
-        "archivedFiles": 104117,
-        "documentBytes": 18956156928
+        "documents": 17186,
+        "archivedFiles": 104883,
+        "documentBytes": 19052625920
       },
       "charts": {
         "rulingsByCounty": [
@@ -1002,13 +1134,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "00887f426913bea34493c7e5ef81c1a1a16b64fb",
-      "updatedAt": "2026-10-23T17:46:27Z",
+      "ref": "0f0ed25de89c5fcd49a146d2eff2f8fb41d21b81",
+      "updatedAt": "2026-10-23T22:52:30Z",
       "metrics": {
-        "jurisdictions": 410,
-        "reports": 1383,
-        "feePrograms": 3014,
-        "figures": 6869
+        "jurisdictions": 417,
+        "reports": 1407,
+        "feePrograms": 3106,
+        "figures": 6990
       },
       "charts": {}
     },
