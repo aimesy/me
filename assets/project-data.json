@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T00:06:06.000Z",
+  "generatedAt": "2026-10-25T01:16:15.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-26",
       "metrics": {
         "tentativeRulings": 385337,
-        "cases": 1456464,
+        "cases": 1456487,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434400
+            "value": 434416
           },
           {
             "label": "CRI",
@@ -53,7 +53,7 @@
           },
           {
             "label": "CSM",
-            "value": 188062
+            "value": 188063
           },
           {
             "label": "CUD",
@@ -65,7 +65,7 @@
           },
           {
             "label": "FCS",
-            "value": 94446
+            "value": 94447
           },
           {
             "label": "PES",
@@ -77,11 +77,11 @@
           },
           {
             "label": "CPF",
-            "value": 29176
+            "value": 29179
           },
           {
             "label": "CNC",
-            "value": 25647
+            "value": 25648
           },
           {
             "label": "PDW",
@@ -101,7 +101,7 @@
           },
           {
             "label": "FMS",
-            "value": 3541
+            "value": 3542
           },
           {
             "label": "APP",
@@ -871,14 +871,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "b33ee4f449b3678190bf95fbfee71443ec4ab4d6",
-      "updatedAt": "2026-10-25T00:06:06Z",
+      "ref": "0a70c6e2b604ac61c928e30b3665b0c6d43814cf",
+      "updatedAt": "2026-10-25T01:16:15Z",
       "metrics": {
-        "tentativeRulings": 69366,
+        "tentativeRulings": 69935,
         "parsedCounties": 34,
-        "documents": 17186,
-        "archivedFiles": 104883,
-        "documentBytes": 19052625920
+        "documents": 17323,
+        "archivedFiles": 105468,
+        "documentBytes": 19127074816
       },
       "charts": {
         "rulingsByCounty": [
