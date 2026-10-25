@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T15:46:39.000Z",
+  "generatedAt": "2026-10-25T00:06:06.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -155,7 +155,7 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-24T00:22:31.614Z",
+        "latestScrapedAt": "2026-10-25T01:03:20.723Z",
         "days": [
           {
             "date": "2026-10-26",
@@ -871,8 +871,8 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "aaa83ead19445e6b71e97c98597ea57b7a971cf6",
-      "updatedAt": "2026-10-24T00:18:16Z",
+      "ref": "b33ee4f449b3678190bf95fbfee71443ec4ab4d6",
+      "updatedAt": "2026-10-25T00:06:06Z",
       "metrics": {
         "tentativeRulings": 69366,
         "parsedCounties": 34,
