@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-26T21:48:51.000Z",
+  "generatedAt": "2026-10-27T00:35:52.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "4e0217032679ab25b2d45a055f0583fc90e22c83",
       "updatedAt": "2026-10-13T06:14:42Z",
-      "latestRuling": "2026-10-26",
+      "latestRuling": "2026-10-27",
       "metrics": {
-        "tentativeRulings": 385337,
-        "cases": 1456570,
+        "tentativeRulings": 385464,
+        "cases": 1456587,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -53,19 +53,19 @@
           },
           {
             "label": "CSM",
-            "value": 188064
+            "value": 188068
           },
           {
             "label": "CUD",
-            "value": 97192
+            "value": 97194
           },
           {
             "label": "FDI",
-            "value": 98843
+            "value": 98845
           },
           {
             "label": "FCS",
-            "value": 94447
+            "value": 94448
           },
           {
             "label": "PES",
@@ -73,7 +73,7 @@
           },
           {
             "label": "FDV",
-            "value": 30071
+            "value": 30072
           },
           {
             "label": "CPF",
@@ -81,7 +81,7 @@
           },
           {
             "label": "CNC",
-            "value": 25648
+            "value": 25649
           },
           {
             "label": "PDW",
@@ -97,7 +97,7 @@
           },
           {
             "label": "PTR",
-            "value": 6525
+            "value": 6530
           },
           {
             "label": "FMS",
@@ -129,7 +129,7 @@
           },
           {
             "label": "CJC",
-            "value": 279
+            "value": 280
           },
           {
             "label": "PPF",
@@ -155,8 +155,34 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-26T00:01:44.207Z",
+        "latestScrapedAt": "2026-10-27T00:02:23.994Z",
         "days": [
+          {
+            "date": "2026-10-27",
+            "total": 137,
+            "departments": [
+              {
+                "department": "204",
+                "count": 61
+              },
+              {
+                "department": "301",
+                "count": 23
+              },
+              {
+                "department": "302",
+                "count": 22
+              },
+              {
+                "department": "501",
+                "count": 19
+              },
+              {
+                "department": "304",
+                "count": 12
+              }
+            ]
+          },
           {
             "date": "2026-10-26",
             "total": 100,
@@ -240,35 +266,129 @@
                 "count": 9
               }
             ]
-          },
-          {
-            "date": "2026-10-20",
-            "total": 98,
-            "departments": [
-              {
-                "department": "204",
-                "count": 47
-              },
-              {
-                "department": "301",
-                "count": 21
-              },
-              {
-                "department": "501",
-                "count": 16
-              },
-              {
-                "department": "302",
-                "count": 11
-              },
-              {
-                "department": "304",
-                "count": 3
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-27",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24616968",
+            "caseTitle": "CAROLYN TERESA ABATE VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
+            "matter": "DEMURRER to Amended COMPLAINT",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "overruled",
+              "label": "Overruled"
+            },
+            "text": "Defendant BNSF Railway Company's (\"BNSF\") demurrer to Plaintiff Carolyn Teresa Abate's first amended complaint (\"FAC\") is OVERRULED."
+          },
+          {
+            "date": "2026-10-27",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC15276472",
+            "caseTitle": "MARTIN GRANADOS ET AL VS. HONEYWELL INTERNATIONAL, INC. ET AL",
+            "matter": "MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-17-276590 WITH CASE CGC-15-276472",
+            "judge": "Victor M. Hwang",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion to Consolidate is GRANTED. No opposition filed. Pursuant to C.C.P. Section 1048(a), Action Nos. CGC-15-276472 and CGC-17-276590 are consolidated as Action No.CGC-15-276472 for all purposes, including trial. The consolidated action shall be…"
+          },
+          {
+            "date": "2026-10-27",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC06451935",
+            "caseTitle": "WHITE & WHITLEY GROUP, LLC, ALIMITED LIABILITY VS. DORIELL SMITH et al",
+            "matter": "HEARING ON CLAIM OF EXEMPTION",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "The claim of exemption is granted in part. The judgment debtor provides no proof of exemptions and is paid more than 96 times the San Francisco minimum wage twice a month, nor does the judgment debtor provide proof of expenses. In the Judicial Council form…"
+          },
+          {
+            "date": "2026-10-27",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC24620014",
+            "caseTitle": "5910 INVESTMENTS, LLC VS. 1000 VAN NESS LP,1000 VAN NESS OWNERS ASSOCIATION ET AL",
+            "matter": "DEMURRER to Amended CROSS COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "sustained-leave",
+              "label": "Sustained with leave"
+            },
+            "text": "CROSS DEFENDANT 5910 INVESTMENTS, LLC DEMURRER to 1ST Amended CROSS COMPLAINT is SUSTAINED with leave to amend for Cross-Complainant to allege facts in support of each element of each cause of action. Cross-Complainant shall have 10 days from notice of entry…"
+          },
+          {
+            "date": "2026-10-27",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24616968",
+            "caseTitle": "CAROLYN TERESA ABATE VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
+            "matter": "MOTION TO STRIKE Amended COMPLAINT",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant BNSF Railway Company's (\"BNSF\") motion to strike the entirety of Plaintiff Carolyn Teresa Abate's first amended complaint (\"FAC\") is DENIED."
+          },
+          {
+            "date": "2026-10-27",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC17276590",
+            "caseTitle": "RUTH ANNA LOUISE GRANADOS VS. CALIFORNIA BUILDERS HARDWARE",
+            "matter": "MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-15-276472 WITH CASE CGC-17-276590",
+            "judge": "Victor M. Hwang",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion to Consolidate is GRANTED. No opposition filed. Pursuant to C.C.P. Section 1048(a), Action Nos. CGC-15-276472 and CGC-17-276590 are consolidated as Action No.CGC-15-276472 for all purposes, including trial. The consolidated action shall be…"
+          },
+          {
+            "date": "2026-10-27",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23610609",
+            "caseTitle": "UNITED FINANCIAL CASUALTY COMPANY VS. ELENA RAZDYMAKHO ET AL",
+            "matter": "MOTION FOR JUDGMENT ON THE PLEADINGS",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Cross-defendant United Financial Casualty Company's (\"United\") unopposed motion for judgment on the pleadings is granted. \"A motion for judgment on the pleadings performs the same function as a general demurrer, and hence attacks only defects disclosed on the…"
+          },
+          {
+            "date": "2026-10-27",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC24620014",
+            "caseTitle": "5910 INVESTMENTS, LLC VS. 1000 VAN NESS LP,1000 VAN NESS OWNERS ASSOCIATION ET AL",
+            "matter": "Notice Of Motion And Moiton For Stay Of Proceedings; Memorandum Of Points And Authorities",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF 5910 INVESTMENTS, LLC Notice Of Motion And Moiton For Stay Of Proceedings is conditionally GRANTED. If Cross-Complainant fails to timely file an amended Cross-Complaint, the action shall be stayed on the 11th day after notice of entry of Demurrer…"
+          },
           {
             "date": "2026-10-26",
             "time": "09:00 AM",
@@ -748,137 +868,20 @@
               "label": "Granted"
             },
             "text": "Cross-complainant John Hofmeyer's unopposed motion to stay proceedings on his first amended cross-complaint is granted."
-          },
-          {
-            "date": "2026-10-20",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24615898",
-            "caseTitle": "MURIELLE MUTZEL VS. PEET'S COFFEE AND TEA, INC., ET AL",
-            "matter": "MOTION TO DISMISS FOR FAILURE TO PROSCECUTE",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant Peet's Coffee and Tea, Inc.'s (\"Peet's\") Motion to Dismiss for Failure to Prosecute is denied without prejudice. \"A party seeking dismissal of a case under Code of Civil Procedure sections 583.410 - 583.430 must serve and file a notice of motion at…"
-          },
-          {
-            "date": "2026-10-20",
-            "time": "09:00 AM",
-            "department": "304",
-            "calendar": "Asbestos Law and Motion",
-            "caseNumber": "CGC26277396",
-            "caseTitle": "MICHAEL FINN ET AL VS. CARRIER CORPORATION ET AL",
-            "matter": "Notice Of Motion And Motion For Order Granting Preference In Setting Case For Trial, And Extending Discovery Cutoff",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff's Motion for Order Granting Preference in Setting Case for Trial and Extending Discovery Cutoff is GRANTED under C.C.P. Section 36(a). Opposition filed by Defendants (1) Sterling Wander LLLP; (2) Metalclad Insulation and BASF Corporation; (3) Union…"
-          },
-          {
-            "date": "2026-10-20",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26632947",
-            "caseTitle": "WELLS FARGO BANK, N.A. VS. FRANCIS TSANG",
-            "matter": "MOTION FOR SUMMARY JUDGMENT",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff Wells Fargo Bank, N.A.'s motion for summary judgment is denied. Plaintiff mischaracterizes the record; defendant did not admit all of the cited facts. (See UMF 15, 30.) Defendant expressly denied that he (1) authorized all of the charges, (2) failed…"
-          },
-          {
-            "date": "2026-10-20",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC26632351",
-            "caseTitle": "JAMES PERKINS ET AL VS. FUZHOU WU ET AL",
-            "matter": "ORDER TO SHOW CAUSE RE PRELIMINARY INJUNCTION AND TEMPORARY RESTRAINING ORDER",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Line 3 ORDER TO SHOW CAUSE RE PRELIMINARY INJUNCTION AND TEMPORARY RESTRAINING ORDER is GRANTED. Plaintiffs to post $90,984 with the Court no later than November 2, 2026. Temporary Restraining Order shall remain in effect until 5:00 p.m. on November 2, 2026…"
-          },
-          {
-            "date": "2026-10-20",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25625066",
-            "caseTitle": "DARREN ODESNIK VS. EUREKA VALLEY ADVISORS, INC., A CALIFORNIA ET AL",
-            "matter": "DEMURRER to COMPLAINT",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "overruled",
-              "label": "Overruled"
-            },
-            "text": "Defendant Nathan Whittington's demurrer to Plaintiff Darren Odesnik's Fifth Cause of Action for Breach of Fiduciary Duty is overruled."
-          },
-          {
-            "date": "2026-10-20",
-            "time": "09:00 AM",
-            "department": "304",
-            "calendar": "Asbestos Law and Motion",
-            "caseNumber": "CGC26277399",
-            "caseTitle": "LAURA L. ANGELES VS. A B C AUTO PARTS ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT / Notice Of Motion And Motion For Summary Judgment",
-            "judge": "Victor M. Hwang",
-            "outcome": null,
-            "text": "Defendant GTE Operations Support Incorporated on Behalf Of Zinsco Electrical Products, incorrectly sued herein as \"Osram-Sylvania Inc., Individually and as Successor-In-Interest to General Telephone & Electronics Corporation, A/K/A Gte Corporation as…"
-          },
-          {
-            "date": "2026-10-20",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26636131",
-            "caseTitle": "MARYAM NAGHAVI VS. JAMARA JOHNSON WILSON ET AL",
-            "matter": "MOTION TO STRIKE COMPLAINT",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant Jamara Johnson Wilson's motion to strike is denied. The court's tentative ruling in its entirety has been sent to counsel via email."
-          },
-          {
-            "date": "2026-10-20",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26681710",
-            "caseTitle": "FILLMORE CENTER ASSOCIATES, LP VS. JESSICA HUNTER ET AL",
-            "matter": "Notice Of Motion, Motion, Memorandum Of Points And Authorities And Declaration In Support Of Motion To Vacate Judgment; Proposed Order",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Line 6 DEFENDANT JESSICA HUNTER , AN INDIVIDUAL Notice Of Motion, Motion, Memorandum Of Points And Authorities And Declaration In Support Of Motion To Vacate Judgment is DENIED. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video -…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "282ceff07bc28a3eba7892c18fda3dd470bb2ffa",
-      "updatedAt": "2026-10-26T00:13:15Z",
+      "ref": "e17a7516694ac2a3f88499ea89b99681d057532e",
+      "updatedAt": "2026-10-27T00:15:50Z",
       "metrics": {
-        "tentativeRulings": 69971,
+        "tentativeRulings": 69986,
         "parsedCounties": 34,
-        "documents": 17332,
-        "archivedFiles": 105518,
-        "documentBytes": 19137560576
+        "documents": 17340,
+        "archivedFiles": 105723,
+        "documentBytes": 19201523712
       },
       "charts": {
         "rulingsByCounty": [
@@ -1134,13 +1137,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "14c8eab29d9f3ea5ff60f947e3bb53b05528b176",
-      "updatedAt": "2026-10-26T21:48:51Z",
+      "ref": "e3886efc806810667249d4bc888954598a4c05e7",
+      "updatedAt": "2026-10-27T00:35:52Z",
       "metrics": {
         "jurisdictions": 485,
-        "reports": 1699,
-        "feePrograms": 4024,
-        "figures": 8678
+        "reports": 1700,
+        "feePrograms": 4028,
+        "figures": 8698
       },
       "charts": {}
     },
