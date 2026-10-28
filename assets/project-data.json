@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-27T21:59:33.000Z",
+  "generatedAt": "2026-10-28T04:25:00.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "4e0217032679ab25b2d45a055f0583fc90e22c83",
       "updatedAt": "2026-10-13T06:14:42Z",
-      "latestRuling": "2026-10-27",
+      "latestRuling": "2026-10-28",
       "metrics": {
-        "tentativeRulings": 385464,
-        "cases": 1456587,
+        "tentativeRulings": 385709,
+        "cases": 1456621,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -53,31 +53,31 @@
           },
           {
             "label": "CSM",
-            "value": 188068
+            "value": 188080
           },
           {
             "label": "CUD",
-            "value": 97194
+            "value": 97197
           },
           {
             "label": "FDI",
-            "value": 98845
+            "value": 98849
           },
           {
             "label": "FCS",
-            "value": 94448
+            "value": 94450
           },
           {
             "label": "PES",
-            "value": 42635
+            "value": 42638
           },
           {
             "label": "FDV",
-            "value": 30072
+            "value": 30075
           },
           {
             "label": "CPF",
-            "value": 29181
+            "value": 29183
           },
           {
             "label": "CNC",
@@ -85,7 +85,7 @@
           },
           {
             "label": "PDW",
-            "value": 21558
+            "value": 21562
           },
           {
             "label": "FSD",
@@ -97,7 +97,7 @@
           },
           {
             "label": "PTR",
-            "value": 6530
+            "value": 6531
           },
           {
             "label": "FMS",
@@ -155,8 +155,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-27T00:02:23.994Z",
+        "latestScrapedAt": "2026-10-28T00:02:01.772Z",
         "days": [
+          {
+            "date": "2026-10-28",
+            "total": 249,
+            "departments": [
+              {
+                "department": "301",
+                "count": 168
+              },
+              {
+                "department": "204",
+                "count": 53
+              },
+              {
+                "department": "302",
+                "count": 16
+              },
+              {
+                "department": "501",
+                "count": 12
+              }
+            ]
+          },
           {
             "date": "2026-10-27",
             "total": 137,
@@ -244,31 +266,129 @@
                 "count": 15
               }
             ]
-          },
-          {
-            "date": "2026-10-21",
-            "total": 96,
-            "departments": [
-              {
-                "department": "204",
-                "count": 57
-              },
-              {
-                "department": "301",
-                "count": 21
-              },
-              {
-                "department": "302",
-                "count": 9
-              },
-              {
-                "department": "501",
-                "count": 9
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-28",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC23609388",
+            "caseTitle": "BOUTIQUE AIR, INC, A CALIFORNIA CORPOATION VS. AIN MEDIA GROUP, INC. A COLORADO CORPORATION ET AL",
+            "matter": "Notice Of Motion And Motion To Enter Judgment",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Good cause having been shown, defendant AIN Media Group, Inc.'s (\"AIN Media\") unopposed motion for entry of judgment in its favor in the amount of $228,255.68, and against Plaintiff Boutique Air, Inc. is GRANTED. The court carefully reviewed AIN Media's…"
+          },
+          {
+            "date": "2026-10-28",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25627057",
+            "caseTitle": "CHUNLEI LIU VS. MERCEDES-BENZ FINANCIAL SERVICES USA LLC",
+            "matter": "MOTION FOR LEAVE TO File First Amended Complaint",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff Chunlei Liu's motion to file a first amended complaint is denied. Although leave to amend is liberally granted, here the court finds both inexcusable delay and prejudice."
+          },
+          {
+            "date": "2026-10-28",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25624689",
+            "caseTitle": "SARAH GEROME VS. SIDE, INC.",
+            "matter": "DEMURRER to Amended COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "sustained",
+              "label": "Sustained"
+            },
+            "text": "DEFENDANT SIDE, INC., BRETT HAMILTON DEMURRER to 3RD Amended COMPLAINT is SUSTAINED with final leave to amend. As to the cause of action for fraud/misrepresentation Plaintiff failed to allege an affirmative misrepresentation made in response to a specific…"
+          },
+          {
+            "date": "2026-10-28",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC23609388",
+            "caseTitle": "BOUTIQUE AIR, INC, A CALIFORNIA CORPOATION VS. AIN MEDIA GROUP, INC. A COLORADO CORPORATION ET AL",
+            "matter": "Motion For Entry Of Judgment In Favor Of Colleen Mondor And Against Boutique Air, Inc",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Good cause having been shown, defendant Colleen Mondor's unopposed motion for entry of judgment in her favor in the amount of $224,727.05, and against Plaintiff Boutique Air, Inc. is GRANTED. The court carefully reviewed Mondor's moving papers, including the…"
+          },
+          {
+            "date": "2026-10-28",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26633481",
+            "caseTitle": "DIVYANG VED VS. GLOBAL FITNESS VENTURES, LLC ET AL",
+            "matter": "DEMURRER to Amended COMPLAINT",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "sustained-leave",
+              "label": "Sustained with leave"
+            },
+            "text": "Defendants Global Fitness Ventures, LLC (GFV); True Capital Management, LLC (TCM); and Douglas Raetz's demurrer to Plaintiff Divyang Ved's first amended complaint (FAC), is sustained with leave to amend as to Causes of Action 1, 2, and 7; sustained without…"
+          },
+          {
+            "date": "2026-10-28",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26634747",
+            "caseTitle": "CHRISTOPHER CHOW ET AL VS. RACHEL LIN ET AL",
+            "matter": "DEMURRER to COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "sustained-leave",
+              "label": "Sustained with leave"
+            },
+            "text": "DEFENDANT RACHEL LIN AN INDIVIDUAL DEMURRER to COMPLAINT is SUSTAINED with leave to amend for Plaintiffs to allege facts, not conclusions, supporting Plaintiff's theory of liability/duty underlying the two causes of action at issue on this demurrer…"
+          },
+          {
+            "date": "2026-10-28",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24614630",
+            "caseTitle": "ALEX SALAZAR ET AL VS. AMERICAN HONDA MOTOR CO., INC., A CALIFORNIA ET AL",
+            "matter": "Notice Of Motion And Motion To Strike Memorandum Of Costs Filed By Plaintiffs",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "hearing",
+              "label": "Hearing"
+            },
+            "text": "Hearing required. For the 9:00 a.m. calendar, all attorneys and parties may appear in Department 302 remotely or in person. Remote hearings will be conducted by videoconference using Zoom. (Dept. 302 Zoom ID 160 409 7690; Passcode 516287.) To appear remotely…"
+          },
+          {
+            "date": "2026-10-28",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26633481",
+            "caseTitle": "DIVYANG VED VS. GLOBAL FITNESS VENTURES, LLC ET AL",
+            "matter": "MOTION TO STRIKE Amended COMPLAINT",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendants Global Fitness Ventures, LLC (GFV); True Capital Management, LLC (TCM); and Douglas Raetz's motion to strike Plaintiff Divyang Ved's first amended complaint (FAC), is granted. The court grants Ved leave to amend as to punitive damages but not as to…"
+          },
           {
             "date": "2026-10-27",
             "time": "09:00 AM",
@@ -748,140 +868,20 @@
               "label": "Granted"
             },
             "text": "DEFENDANT CITY AND COUNTY OF SAN FRANCISCO'S Motion for Leave to File Cross Complaint. The City and County of San Francisco's unopposed motion for leave to file a cross complaint against JDB Construction, Inc. is granted for good cause shown. The City shall…"
-          },
-          {
-            "date": "2026-10-21",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25627570",
-            "caseTitle": "CAPITAL ONE, N.A. VS. BLAINE R DENTON",
-            "matter": "Motion To Vacate Dismissal And Enter Judgment Under Terms Of Stipulated Settlement",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion by Plaintiff Capital One, N.A., to enter judgment under terms of a stipulated settlement pursuant to Code of Civil Procedure section 664.6 is granted. Capital One's request that the court take judicial notice of the Stipulation Agreement…"
-          },
-          {
-            "date": "2026-10-21",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25623753",
-            "caseTitle": "HOMIRA MRFAKHRAEI ET AL VS. YIP CHEONG ATTAR LO ET AL",
-            "matter": "Motion To Compel Plaintiffs Homira Mreakhraeis And Neda Najaafis Responses To Form Interrogatories, Set One; And Request For Sanctions In The Amount Of $1,180.00",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "2 - Defendant YIP CHEONG ATTAR LO's motion to compel plaintiffs HOMIRA MRFAKHRAEI and NEDA NAJAAFI to respond to defendant's first set of form interrogatories is granted for good cause shown. Plaintiffs shall provide complete, verified, objection-free…"
-          },
-          {
-            "date": "2026-10-21",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC26637817",
-            "caseTitle": "DENNIS VILLACRUSIS ET AL VS. REAL TIME RESOLUTIONS, INC. ET AL",
-            "matter": "DEMURRER to COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "sustained",
-              "label": "Sustained"
-            },
-            "text": "Line 3 DEFENDANT REAL TIME RESOLUTIONS, INC., RRA CP OPPORTUNITY TRUST 2, AVIATOR PROPERTIES, LLC DEMURRER to COMPLAINT is sustained. Demurrer is sustained without leave to amend as to the quiet title cause of action. Non-opposition filed. Demurrer is…"
-          },
-          {
-            "date": "2026-10-21",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25628536",
-            "caseTitle": "LINDA J. HOLL ET AL VS. ROSS CRUM ET AL",
-            "matter": "MOTION / Notice Of Motion & Motion To Disqualify Plaintiffs' Counsel Paul H. Melbostad And G3mh, Llp",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant TDG, Inc.'s motion to disqualify Plaintiffs Linda Holl and Larry Metzger's counsel, Paul H. Melbostad and g3mh, LLP, is denied."
-          },
-          {
-            "date": "2026-10-21",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25623753",
-            "caseTitle": "HOMIRA MRFAKHRAEI ET AL VS. YIP CHEONG ATTAR LO ET AL",
-            "matter": "MOTION TO COMPEL RESPONSES TO ADMISSION/INTERROGATORIES",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant YIP CHEONG ATTAR LO's motion to compel plaintiffs HOMIRA MRFAKHRAEI and NEDA NAJAAFI to respond to defendant's first set of special interrogatories is granted for good cause shown. Plaintiffs shall provide complete, verified, objection-free…"
-          },
-          {
-            "date": "2026-10-21",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26682827",
-            "caseTitle": "ROBERT B PITTS HOUSING PARTNERS, LP VS. REGINA HARRIS ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT ; Memorandum Of Points And Authorities Iso Defendant'S Motion For Summary Judgment",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Line 8 DEFENDANT REGINA HARRIS MOTION FOR SUMMARY JUDGMENT ; Memorandum Of Points And Authorities Iso Defendant'S Motion For Summary Judgment is DENIED. Defendant has failed to meet her initial burden of showing, with competent evidence, that Plaintiff cannot…"
-          },
-          {
-            "date": "2026-10-21",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25630126",
-            "caseTitle": "ISABEL R. VS. DQE ASSOCIATES, LLC ET AL",
-            "matter": "MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Intervenor Hiscox Insurance Company Inc.'s motion to set aside the entry of default against Defendant DQE Associates, LLC (\"DQE\") is denied. The court takes judicial notice of Exhibit 1 (proof of service of summons of the complaint) and Exhibit 2 (request for…"
-          },
-          {
-            "date": "2026-10-21",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25623783",
-            "caseTitle": "KERLEY SCHAFFER LLP, A CALIFORNIA CORPORATION VS. US BANK NATIONAL ASSOCIATION, A CORPORTION ET AL",
-            "matter": "Notice Of Motion And Motion Of Cross-Complainant John Hofmeyer To Stay Proceedings On First Amended-Cross Complaint Pending Further Family Court Proceedings",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Cross-complainant John Hofmeyer's unopposed motion to stay proceedings on his first amended cross-complaint is granted."
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "e17a7516694ac2a3f88499ea89b99681d057532e",
-      "updatedAt": "2026-10-27T00:15:50Z",
+      "ref": "6577643141fda20b9de66973898b58d9cd49d7c2",
+      "updatedAt": "2026-10-28T00:17:04Z",
       "metrics": {
-        "tentativeRulings": 69986,
+        "tentativeRulings": 70597,
         "parsedCounties": 34,
-        "documents": 17340,
-        "archivedFiles": 105723,
-        "documentBytes": 19201523712
+        "documents": 17508,
+        "archivedFiles": 106563,
+        "documentBytes": 19350421504
       },
       "charts": {
         "rulingsByCounty": [
@@ -1137,13 +1137,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "be87e7854692f7f9b5fc04d962183e4b338126b6",
-      "updatedAt": "2026-10-27T21:59:33Z",
+      "ref": "ad7788c117005aefa96bdda9327905620744eb2f",
+      "updatedAt": "2026-10-28T04:25:00Z",
       "metrics": {
-        "jurisdictions": 546,
-        "reports": 1869,
-        "feePrograms": 4550,
-        "figures": 9770
+        "jurisdictions": 558,
+        "reports": 1903,
+        "feePrograms": 4690,
+        "figures": 10205
       },
       "charts": {}
     },
