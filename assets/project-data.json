@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T10:09:55.000Z",
+  "generatedAt": "2026-10-28T18:24:25.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-28",
       "metrics": {
         "tentativeRulings": 385709,
-        "cases": 1456621,
+        "cases": 1456676,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434494
+            "value": 434537
           },
           {
             "label": "CRI",
@@ -61,7 +61,7 @@
           },
           {
             "label": "FDI",
-            "value": 98849
+            "value": 98851
           },
           {
             "label": "FCS",
@@ -77,7 +77,7 @@
           },
           {
             "label": "CPF",
-            "value": 29183
+            "value": 29193
           },
           {
             "label": "CNC",
@@ -1137,13 +1137,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "814ed4359318f60fde4eafaee55b7564e227430b",
-      "updatedAt": "2026-10-28T10:09:55Z",
+      "ref": "4aa548f32771f2c136e9b766d5f3a6e05f43934c",
+      "updatedAt": "2026-10-28T18:24:25Z",
       "metrics": {
-        "jurisdictions": 562,
-        "reports": 1915,
-        "feePrograms": 4719,
-        "figures": 10286
+        "jurisdictions": 567,
+        "reports": 1941,
+        "feePrograms": 4797,
+        "figures": 10521
       },
       "charts": {}
     },
