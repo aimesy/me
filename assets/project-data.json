@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-29T16:05:52.000Z",
+  "generatedAt": "2026-10-30T00:16:17.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "4e0217032679ab25b2d45a055f0583fc90e22c83",
       "updatedAt": "2026-10-13T06:14:42Z",
-      "latestRuling": "2026-10-29",
+      "latestRuling": "2026-10-30",
       "metrics": {
-        "tentativeRulings": 385772,
-        "cases": 1457105,
+        "tentativeRulings": 385832,
+        "cases": 1457128,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434943
+            "value": 434944
           },
           {
             "label": "CRI",
@@ -53,27 +53,27 @@
           },
           {
             "label": "CSM",
-            "value": 188082
+            "value": 188088
           },
           {
             "label": "CUD",
-            "value": 97199
+            "value": 97201
           },
           {
             "label": "FDI",
-            "value": 98853
+            "value": 98854
           },
           {
             "label": "FCS",
-            "value": 94453
+            "value": 94457
           },
           {
             "label": "PES",
-            "value": 42642
+            "value": 42643
           },
           {
             "label": "FDV",
-            "value": 30076
+            "value": 30077
           },
           {
             "label": "CPF",
@@ -81,7 +81,7 @@
           },
           {
             "label": "CNC",
-            "value": 25650
+            "value": 25652
           },
           {
             "label": "PDW",
@@ -89,7 +89,7 @@
           },
           {
             "label": "FSD",
-            "value": 15812
+            "value": 15813
           },
           {
             "label": "PCN",
@@ -97,7 +97,7 @@
           },
           {
             "label": "PTR",
-            "value": 6532
+            "value": 6533
           },
           {
             "label": "FMS",
@@ -105,7 +105,7 @@
           },
           {
             "label": "APP",
-            "value": 5024
+            "value": 5026
           },
           {
             "label": "PGN",
@@ -113,7 +113,7 @@
           },
           {
             "label": "FPT",
-            "value": 710
+            "value": 711
           },
           {
             "label": "FLD",
@@ -155,8 +155,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-10-29T00:02:20.584Z",
+        "latestScrapedAt": "2026-10-30T00:01:59.732Z",
         "days": [
+          {
+            "date": "2026-10-30",
+            "total": 60,
+            "departments": [
+              {
+                "department": "501",
+                "count": 24
+              },
+              {
+                "department": "302",
+                "count": 18
+              },
+              {
+                "department": "301",
+                "count": 17
+              },
+              {
+                "department": "204",
+                "count": 1
+              }
+            ]
+          },
           {
             "date": "2026-10-29",
             "total": 63,
@@ -244,31 +266,129 @@
                 "count": 6
               }
             ]
-          },
-          {
-            "date": "2026-10-23",
-            "total": 48,
-            "departments": [
-              {
-                "department": "501",
-                "count": 22
-              },
-              {
-                "department": "301",
-                "count": 13
-              },
-              {
-                "department": "302",
-                "count": 10
-              },
-              {
-                "department": "204",
-                "count": 3
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-10-30",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC19574738",
+            "caseTitle": "MAHER MEMARZADEH VS. VAL DAWSON HORNSTEIN ET AL",
+            "matter": "Notice Of Motion And Motion To Lift Stay; Memorandum Of Points And Authorities; Declaration Of Maher Memarzadeh In Support Thereof",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Maher Memarzadeh's motion to lift the stay is GRANTED. On December 20, 2022, the court granted Defendants Val Hornstein and Hornstein Law Office's motion to stay the present litigation pending final resolution of writ action CPF-22-517700…"
+          },
+          {
+            "date": "2026-10-30",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25626119",
+            "caseTitle": "JENIFER CHISM VS. CITY OF SAN FRANCISCO ET AL",
+            "matter": "Notice Of Hearing On Plaintiff'S Motion For New Trial",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff Jennifer Chism's motion for new trial is denied. A motion for new trial may be made after an order granting summary judgment. (Aguilar v. Atlantic Richfield Co. (2001) 25 Cal.4th 826, 858.) \"The new trial motion may seek reversal of the summary…"
+          },
+          {
+            "date": "2026-10-30",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26682399",
+            "caseTitle": "1532 HARRISON LENDER LLC VS. YANET PORTALES ET AL",
+            "matter": "Motion To Continue Trial Date",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT YANET PORTALES Motion To Continue Trial Date is GRANTED. No opposition filed. Reply is stricken, as it is not a reply to any opposition. The trial date of this action is continued November 23, 2026. =(501/CFH) Parties may appear in-person…"
+          },
+          {
+            "date": "2026-10-30",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC23609790",
+            "caseTitle": "RONALD GREGER VS. SAN FRANCISCO BAR PILOTS ET AL",
+            "matter": "Notice Of Hearing On Petition To Confirm Arbitration Award",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Petitioners San Francisco Bar Pilots' (\"SFBP\") unopposed Petition To Confirm Arbitration Final Award is GRANTED. Good cause appearing, the Petition to Confirm the Arbitration Award is granted and the arbitration award is confirmed in its entirety. Judgment…"
+          },
+          {
+            "date": "2026-10-30",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25626119",
+            "caseTitle": "JENIFER CHISM VS. CITY OF SAN FRANCISCO ET AL",
+            "matter": "Request For Leave To File Sur-Reply To Plaintiffs Motion For New Trial",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Denied as stated in the companion order."
+          },
+          {
+            "date": "2026-10-30",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26682555",
+            "caseTitle": "2032 POLK STREET LLC VS. NUMIA POTI ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT And Notice Of Motion",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF 2032 POLK STREET LLC MOTION FOR SUMMARY JUDGMENT And Notice Of Motion is DENIED for the reasons stated in the tentative ruling published for October 26, 2026. Additionally, the courtesy copy delivered after the issuance of the tentative ruling does…"
+          },
+          {
+            "date": "2026-10-30",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24619616",
+            "caseTitle": "MICHAEL NOLIN VS. DAVID KANG ET AL",
+            "matter": "MOTION TO QUASH SERVICE OF SUMMONS OR STAY OR DISMISS",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Specially appearing defendants Miguel Rodriguez and Justin Jarin's motion to quash service of summons and complaint, amended summons, and/or second amended complaint and to prevent entry of default is GRANTED. Plaintiff Michael Nolin is granted leave to…"
+          },
+          {
+            "date": "2026-10-30",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25626643",
+            "caseTitle": "ADRIANO BORTOLUCCI VS. MAYA PRIMAVERA GARCIA-URBANO",
+            "matter": "MOTION TO COMPEL FURTHER INTERROGATORIES",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff and cross-defendant Adriano Bortolucci's motion to compel further responses to special interrogatories, set one, numbers 7, 13, 32, 33, and 34, and special interrogatories, set two, numbers 4 and 5, and for a lodging order, is granted in part and…"
+          },
           {
             "date": "2026-10-29",
             "time": "09:00 AM",
@@ -748,140 +868,20 @@
               "label": "Granted"
             },
             "text": "PLAINTIFF'S Unopposed Motion to Dismiss Action. The unopposed motion to dismiss this action with prejudice as to Donnetta Blunt's individual PAGA claims and without prejudice as to representative PAGA claims is granted for good cause shown. Plaintiff's…"
-          },
-          {
-            "date": "2026-10-23",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23608600",
-            "caseTitle": "CUPERTINO ELECTRIC, INC., A DELAWARE CORPORATION VS. BETA ENGINEERING CALIFORNIA LP, A DELAWARE LIMITED ET AL",
-            "matter": "Motion Of Cupertino Electric, Inc. For Determination Of Good Faith Settlement; Memorandum Of Points And Authorities",
-            "judge": "Ross C. Moody",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "PLAINTIFF CUPERTINO ELECTRIC, INC.'s Motion For Determination Of Good Faith Settlement. Motion for Good Faith Settlement is Granted. Plaintiff Cupertino Electric, Inc. seeks an order determining that the Settlement Agreement and Mutual Release between CEI and…"
-          },
-          {
-            "date": "2026-10-23",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC22599451",
-            "caseTitle": "HEATHER GREGG VS. JAMES J. CUNNINGHAM ET AL",
-            "matter": "PLAINTIFF'S EX PARTE APPLICATION TO CONTINUE HEARING ON DEFENDANT JAMES J. CUNNINGHAM'S MOTION FOR SUMMARY JUDGMENT AND TO RESET BRIEFING DEADLINES",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Plaintiff Heather Gregg's ex parte application to continue the hearing on defendant James J. Cunningham's motion for summary judgment is granted in part and denied in part. Gregg initially sought this relief ex parte but did not provide any medical…"
-          },
-          {
-            "date": "2026-10-23",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC26637145",
-            "caseTitle": "JACOB MAX EISNER GUY VS. MARSHA ANN IRWIN ET AL",
-            "matter": "MOTION TO STRIKE CROSS COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "CROSS DEFENDANT JACOB EISNER GUY MOTION TO STRIKE CROSS COMPLAINT is GRANTED as requested in the Notice of Motion as to the claims arising out of protected activity contained in the 5th, 6th and 7th causes of action and prayer for relief. Opposing party…"
-          },
-          {
-            "date": "2026-10-23",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25626604",
-            "caseTitle": "FRANK EDWARD MERRITT VS. GERALDINE LYNN SMITH-WANK ET AL",
-            "matter": "Motion To Compel Further Response And Inspection Of The Physical Binder Under Request For Production No. 1; Memorandum; Declaration",
-            "judge": "Ross C. Moody",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff Frank Edward Merritt's motion to compel further response and inspection of the physical binder under request for production no. 1 is denied. On reply, Plaintiff no longer asks for a further written response. Instead, Plaintiff only asks for an order…"
-          },
-          {
-            "date": "2026-10-23",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24616887",
-            "caseTitle": "HOWARD HONG VS. HIPCAMP, A CORPORATION DOING BUSINESS IN THE ET AL",
-            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for pro hac vice admission of Edward Ciarimboli is granted."
-          },
-          {
-            "date": "2026-10-23",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25678311",
-            "caseTitle": "DE WOLF REALTY VS. KELESSERY FANNY ET AL",
-            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "DEFENDANT KELESSERY FANNY MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD is GRANTED. No opposition filed. Defendant's counsel to prepare an order.=(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password…"
-          },
-          {
-            "date": "2026-10-23",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25626604",
-            "caseTitle": "FRANK EDWARD MERRITT VS. GERALDINE LYNN SMITH-WANK ET AL",
-            "matter": "Motion To Compel Further Verified Response To Form Interrogatory General No. 17.1",
-            "judge": "Ross C. Moody",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Frank Edward Merritt's motion to compel further verified responses to Form Interrogatory General No. 17.1 is granted. On reply, Merritt withdraws the motion as it applies to RFA number 8. The court only considers Form Interrogatory number 17.1 as to…"
-          },
-          {
-            "date": "2026-10-23",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25621291",
-            "caseTitle": "MATTHEW HUTCHINSON ET AL VS. KIPP BAY AREA SCHOOLS ET AL",
-            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for pro hac vice admission of Paul J. Lukas is granted."
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "e2e834646994b614390002ca8ef09f16986d5bb3",
-      "updatedAt": "2026-10-29T00:17:20Z",
+      "ref": "af862a0ff079da87c88a09f42ea00fab3ce66719",
+      "updatedAt": "2026-10-30T00:16:17Z",
       "metrics": {
-        "tentativeRulings": 71181,
+        "tentativeRulings": 71859,
         "parsedCounties": 34,
-        "documents": 17712,
-        "archivedFiles": 107366,
-        "documentBytes": 19467862016
+        "documents": 17900,
+        "archivedFiles": 108241,
+        "documentBytes": 19611516928
       },
       "charts": {
         "rulingsByCounty": [
@@ -1137,13 +1137,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "6e7919743b8c489a0f511abbb8559ed81e720e02",
-      "updatedAt": "2026-10-29T16:05:52Z",
+      "ref": "3c66c4c49a940d474eec652ec401be4d50aace76",
+      "updatedAt": "2026-10-29T22:35:48Z",
       "metrics": {
-        "jurisdictions": 602,
-        "reports": 2054,
-        "feePrograms": 5118,
-        "figures": 11301
+        "jurisdictions": 616,
+        "reports": 2089,
+        "feePrograms": 5202,
+        "figures": 11482
       },
       "charts": {}
     },
