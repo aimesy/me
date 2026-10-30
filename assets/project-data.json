@@ -9,7 +9,7 @@
       "latestRuling": "2026-10-30",
       "metrics": {
         "tentativeRulings": 385832,
-        "cases": 1457128,
+        "cases": 1457129,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -57,7 +57,7 @@
           },
           {
             "label": "CUD",
-            "value": 97201
+            "value": 97202
           },
           {
             "label": "FDI",
