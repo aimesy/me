@@ -9,7 +9,7 @@
       "latestRuling": "2026-11-02",
       "metrics": {
         "tentativeRulings": 385933,
-        "cases": 1457163,
+        "cases": 1457165,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -61,11 +61,11 @@
           },
           {
             "label": "FDI",
-            "value": 98861
+            "value": 98862
           },
           {
             "label": "FCS",
-            "value": 94459
+            "value": 94460
           },
           {
             "label": "PES",
