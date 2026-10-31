@@ -9,7 +9,7 @@
       "latestRuling": "2026-11-02",
       "metrics": {
         "tentativeRulings": 385933,
-        "cases": 1457129,
+        "cases": 1457163,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434944
+            "value": 434945
           },
           {
             "label": "CRI",
@@ -53,7 +53,7 @@
           },
           {
             "label": "CSM",
-            "value": 188088
+            "value": 188095
           },
           {
             "label": "CUD",
@@ -61,11 +61,11 @@
           },
           {
             "label": "FDI",
-            "value": 98854
+            "value": 98861
           },
           {
             "label": "FCS",
-            "value": 94457
+            "value": 94459
           },
           {
             "label": "PES",
@@ -73,7 +73,7 @@
           },
           {
             "label": "FDV",
-            "value": 30077
+            "value": 30080
           },
           {
             "label": "CPF",
@@ -81,11 +81,11 @@
           },
           {
             "label": "CNC",
-            "value": 25652
+            "value": 25657
           },
           {
             "label": "PDW",
-            "value": 21565
+            "value": 21570
           },
           {
             "label": "FSD",
@@ -93,7 +93,7 @@
           },
           {
             "label": "PCN",
-            "value": 9462
+            "value": 9463
           },
           {
             "label": "PTR",
@@ -109,11 +109,11 @@
           },
           {
             "label": "PGN",
-            "value": 4165
+            "value": 4167
           },
           {
             "label": "FPT",
-            "value": 711
+            "value": 712
           },
           {
             "label": "FLD",
