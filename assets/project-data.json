@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T15:47:46.000Z",
+  "generatedAt": "2026-11-02T02:32:22.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-11-02",
       "metrics": {
         "tentativeRulings": 385933,
-        "cases": 1457167,
+        "cases": 1457172,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -57,11 +57,11 @@
           },
           {
             "label": "CUD",
-            "value": 97202
+            "value": 97204
           },
           {
             "label": "FDI",
-            "value": 98863
+            "value": 98864
           },
           {
             "label": "FCS",
@@ -69,7 +69,7 @@
           },
           {
             "label": "PES",
-            "value": 42643
+            "value": 42645
           },
           {
             "label": "FDV",
@@ -155,7 +155,7 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-01T00:03:02.301Z",
+        "latestScrapedAt": "2026-11-02T01:02:40.506Z",
         "days": [
           {
             "date": "2026-11-02",
@@ -874,14 +874,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "c0b20e31f0f79abfaa2d5308999e984128a2b7b6",
-      "updatedAt": "2026-11-01T08:44:43Z",
+      "ref": "01cf5dfd80bc5de7a8252a9e67102e5b81442f41",
+      "updatedAt": "2026-11-02T02:32:22Z",
       "metrics": {
-        "tentativeRulings": 73018,
+        "tentativeRulings": 73113,
         "parsedCounties": 34,
-        "documents": 18218,
-        "archivedFiles": 109575,
-        "documentBytes": 19807600640
+        "documents": 18295,
+        "archivedFiles": 109753,
+        "documentBytes": 19821232128
       },
       "charts": {
         "rulingsByCounty": [
