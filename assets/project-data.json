@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T01:28:18.000Z",
+  "generatedAt": "2026-11-03T09:22:29.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,7 +9,7 @@
       "latestRuling": "2026-11-03",
       "metrics": {
         "tentativeRulings": 386011,
-        "cases": 1457172,
+        "cases": 1457198,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434945
+            "value": 434946
           },
           {
             "label": "CRI",
@@ -53,27 +53,27 @@
           },
           {
             "label": "CSM",
-            "value": 188095
+            "value": 188101
           },
           {
             "label": "CUD",
-            "value": 97204
+            "value": 97205
           },
           {
             "label": "FDI",
-            "value": 98864
+            "value": 98867
           },
           {
             "label": "FCS",
-            "value": 94460
+            "value": 94462
           },
           {
             "label": "PES",
-            "value": 42645
+            "value": 42649
           },
           {
             "label": "FDV",
-            "value": 30080
+            "value": 30081
           },
           {
             "label": "CPF",
@@ -81,11 +81,11 @@
           },
           {
             "label": "CNC",
-            "value": 25657
+            "value": 25658
           },
           {
             "label": "PDW",
-            "value": 21570
+            "value": 21574
           },
           {
             "label": "FSD",
@@ -97,7 +97,7 @@
           },
           {
             "label": "PTR",
-            "value": 6533
+            "value": 6534
           },
           {
             "label": "FMS",
@@ -109,7 +109,7 @@
           },
           {
             "label": "PGN",
-            "value": 4167
+            "value": 4169
           },
           {
             "label": "FPT",
@@ -870,8 +870,8 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "7cdb2a68f78a26bce31fef8e638c02df850dc051",
-      "updatedAt": "2026-11-03T01:28:18Z",
+      "ref": "ce87eca10196fe6241514ca67afd8c3ca5951caa",
+      "updatedAt": "2026-11-03T09:22:29Z",
       "metrics": {
         "tentativeRulings": 73171,
         "parsedCounties": 34,
