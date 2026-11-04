@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-11-03T10:40:30.000Z",
+  "generatedAt": "2026-11-04T01:31:25.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "4e0217032679ab25b2d45a055f0583fc90e22c83",
       "updatedAt": "2026-10-13T06:14:42Z",
-      "latestRuling": "2026-11-03",
+      "latestRuling": "2026-11-04",
       "metrics": {
-        "tentativeRulings": 386011,
-        "cases": 1457199,
+        "tentativeRulings": 386082,
+        "cases": 1457235,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434946
+            "value": 434947
           },
           {
             "label": "CRI",
@@ -53,39 +53,39 @@
           },
           {
             "label": "CSM",
-            "value": 188101
+            "value": 188105
           },
           {
             "label": "CUD",
-            "value": 97205
+            "value": 97213
           },
           {
             "label": "FDI",
-            "value": 98868
+            "value": 98874
           },
           {
             "label": "FCS",
-            "value": 94462
+            "value": 94464
           },
           {
             "label": "PES",
-            "value": 42649
+            "value": 42652
           },
           {
             "label": "FDV",
-            "value": 30081
+            "value": 30086
           },
           {
             "label": "CPF",
-            "value": 29194
+            "value": 29195
           },
           {
             "label": "CNC",
-            "value": 25658
+            "value": 25659
           },
           {
             "label": "PDW",
-            "value": 21574
+            "value": 21575
           },
           {
             "label": "FSD",
@@ -93,7 +93,7 @@
           },
           {
             "label": "PCN",
-            "value": 9463
+            "value": 9464
           },
           {
             "label": "PTR",
@@ -105,11 +105,11 @@
           },
           {
             "label": "APP",
-            "value": 5026
+            "value": 5027
           },
           {
             "label": "PGN",
-            "value": 4169
+            "value": 4170
           },
           {
             "label": "FPT",
@@ -117,7 +117,7 @@
           },
           {
             "label": "FLD",
-            "value": 2814
+            "value": 2815
           },
           {
             "label": "DPO",
@@ -155,8 +155,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-03T01:02:37.759Z",
+        "latestScrapedAt": "2026-11-04T01:02:22.355Z",
         "days": [
+          {
+            "date": "2026-11-04",
+            "total": 76,
+            "departments": [
+              {
+                "department": "204",
+                "count": 32
+              },
+              {
+                "department": "501",
+                "count": 20
+              },
+              {
+                "department": "301",
+                "count": 12
+              },
+              {
+                "department": "302",
+                "count": 12
+              }
+            ]
+          },
           {
             "date": "2026-11-03",
             "total": 81,
@@ -240,31 +262,129 @@
                 "count": 15
               }
             ]
-          },
-          {
-            "date": "2026-10-28",
-            "total": 249,
-            "departments": [
-              {
-                "department": "301",
-                "count": 168
-              },
-              {
-                "department": "204",
-                "count": 53
-              },
-              {
-                "department": "302",
-                "count": 16
-              },
-              {
-                "department": "501",
-                "count": 12
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-04",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC22599208",
+            "caseTitle": "DOUGLAS JONES JR. VS. CITY AND COUNTY OF SAN FRANCISCO, A PUBLIC ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT , Or In The Alternative, Summary Adjudication",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant City and County of San Francisco (\"CCSF\")'s motion for summary judgment is DENIED. CCSF's alternative motion for summary adjudication is also DENIED."
+          },
+          {
+            "date": "2026-11-04",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23610087",
+            "caseTitle": "JASON COOK VS. CF COLLECTIVE, LLC, A CALIFORNIA LIMITED LIABILITY ET AL",
+            "matter": "Notice Of Motion And Motion To Seal Records; Memorandum Of Points And Authorities",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Defendants Joseph Talmadge et al.'s motion to seal specified documents currently in the public record is granted in part and denied in part."
+          },
+          {
+            "date": "2026-11-04",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26682849",
+            "caseTitle": "SAMUEL CHEADLE VS. DAVID ROBERTSON",
+            "matter": "Notice Of Motion And Motion To Deem Requests For Admission, Set One, Admitted Against Jeremy Cooke; Request For Monetary Sanctions; Memorandum Of Points And Authorities And Declaration Of Samuel Cheadle In Support Thereof",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF SAMUEL CHEADLE Notice Of Motion And Motion To Deem Requests For Admission, Set One, Admitted Against Jeremy Cooke; Request For Monetary Sanctions is DENIED. The Requests for Admission which Plaintiff seeks to have deemed admitted do not appear to…"
+          },
+          {
+            "date": "2026-11-04",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC26633268",
+            "caseTitle": "WELLS FARGO BANK, N.A. VS. DEAN L WITMER",
+            "matter": "MOTION FOR SUMMARY JUDGMENT Pursuant To Ccp 437c",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Wells Fargo Bank, N.A.'s (\"Wells Fargo\") unopposed motion for summary judgment is GRANTED."
+          },
+          {
+            "date": "2026-11-04",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25628885",
+            "caseTitle": "JANE DOE VS. UBER TECHNOLOGIES, INC. ET AL",
+            "matter": "Motion For Protective Order And To Quash Plaintiffs Notices Of Taking Depositions Of Hannah Nilles, Joseph Navin, Ali Rorabaugh, And Srishti Bajaj",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "1 - Defendant Uber Technologies, Inc.'s motion for protective order and to quash Plaintiff's notices of taking depositions of Hannah Nilles, Joseph Navin, Ali Rorabaugh, and Srishti Bajaj is granted in part and denied in part. No sanctions are awarded."
+          },
+          {
+            "date": "2026-11-04",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD26682849",
+            "caseTitle": "SAMUEL CHEADLE VS. DAVID ROBERTSON",
+            "matter": "Notice Of Motion And Motion To Compel Defendant David Robertson'S Responses To Form Interrogatories - General, And Unlawful Detainer - And Requests For Production Of Documents (Set One); Request For Sanctions; Memorandum Of Points And Authorities And Declaration Of Samuel Cheadle In Support Of Thereof",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF SAMUEL CHEADLE Notice Of Motion And Motion To Compel Defendant David Robertson'S Responses To Form Interrogatories - General, And Unlawful Detainer - And Requests For Production Of Documents (Set One); Request For Sanctions is DENIED. The Requests…"
+          },
+          {
+            "date": "2026-11-04",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC26634512",
+            "caseTitle": "STEPHEN MASSEY VS. PURPLE STAR MD ET AL",
+            "matter": "MOTION TO STRIKE Amended COMPLAINT",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendants Shirley Wang, Ghassan Murad, and Purple Star MD's motion to strike the Second Amended Complaint is GRANTED with 15 days leave to amend."
+          },
+          {
+            "date": "2026-11-04",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25628885",
+            "caseTitle": "JANE DOE VS. UBER TECHNOLOGIES, INC. ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Sacramento Police Department'S Responses To Deposition Subpoena For Production Of Business Records",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Defendant Uber Technologies, Inc.'s motion to compel Sacramento Police Department's responses to deposition subpoena for production of business records is granted in part and continued in part for further hearing to November 12, 2026."
+          },
           {
             "date": "2026-11-03",
             "time": "09:00 AM",
@@ -744,140 +864,20 @@
               "label": "Denied"
             },
             "text": "Plaintiff Swish Analytics, Inc.'s motion for sanctions is denied. The court credits the opposing declarations that the complaint by a third party was drafted before the production of confidential information related to the third party. That there is overlap…"
-          },
-          {
-            "date": "2026-10-28",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23609388",
-            "caseTitle": "BOUTIQUE AIR, INC, A CALIFORNIA CORPOATION VS. AIN MEDIA GROUP, INC. A COLORADO CORPORATION ET AL",
-            "matter": "Notice Of Motion And Motion To Enter Judgment",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Good cause having been shown, defendant AIN Media Group, Inc.'s (\"AIN Media\") unopposed motion for entry of judgment in its favor in the amount of $228,255.68, and against Plaintiff Boutique Air, Inc. is GRANTED. The court carefully reviewed AIN Media's…"
-          },
-          {
-            "date": "2026-10-28",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25627057",
-            "caseTitle": "CHUNLEI LIU VS. MERCEDES-BENZ FINANCIAL SERVICES USA LLC",
-            "matter": "MOTION FOR LEAVE TO File First Amended Complaint",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff Chunlei Liu's motion to file a first amended complaint is denied. Although leave to amend is liberally granted, here the court finds both inexcusable delay and prejudice."
-          },
-          {
-            "date": "2026-10-28",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC25624689",
-            "caseTitle": "SARAH GEROME VS. SIDE, INC.",
-            "matter": "DEMURRER to Amended COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "sustained",
-              "label": "Sustained"
-            },
-            "text": "DEFENDANT SIDE, INC., BRETT HAMILTON DEMURRER to 3RD Amended COMPLAINT is SUSTAINED with final leave to amend. As to the cause of action for fraud/misrepresentation Plaintiff failed to allege an affirmative misrepresentation made in response to a specific…"
-          },
-          {
-            "date": "2026-10-28",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23609388",
-            "caseTitle": "BOUTIQUE AIR, INC, A CALIFORNIA CORPOATION VS. AIN MEDIA GROUP, INC. A COLORADO CORPORATION ET AL",
-            "matter": "Motion For Entry Of Judgment In Favor Of Colleen Mondor And Against Boutique Air, Inc",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Good cause having been shown, defendant Colleen Mondor's unopposed motion for entry of judgment in her favor in the amount of $224,727.05, and against Plaintiff Boutique Air, Inc. is GRANTED. The court carefully reviewed Mondor's moving papers, including the…"
-          },
-          {
-            "date": "2026-10-28",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26633481",
-            "caseTitle": "DIVYANG VED VS. GLOBAL FITNESS VENTURES, LLC ET AL",
-            "matter": "DEMURRER to Amended COMPLAINT",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "sustained-leave",
-              "label": "Sustained with leave"
-            },
-            "text": "Defendants Global Fitness Ventures, LLC (GFV); True Capital Management, LLC (TCM); and Douglas Raetz's demurrer to Plaintiff Divyang Ved's first amended complaint (FAC), is sustained with leave to amend as to Causes of Action 1, 2, and 7; sustained without…"
-          },
-          {
-            "date": "2026-10-28",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC26634747",
-            "caseTitle": "CHRISTOPHER CHOW ET AL VS. RACHEL LIN ET AL",
-            "matter": "DEMURRER to COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "sustained-leave",
-              "label": "Sustained with leave"
-            },
-            "text": "DEFENDANT RACHEL LIN AN INDIVIDUAL DEMURRER to COMPLAINT is SUSTAINED with leave to amend for Plaintiffs to allege facts, not conclusions, supporting Plaintiff's theory of liability/duty underlying the two causes of action at issue on this demurrer…"
-          },
-          {
-            "date": "2026-10-28",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24614630",
-            "caseTitle": "ALEX SALAZAR ET AL VS. AMERICAN HONDA MOTOR CO., INC., A CALIFORNIA ET AL",
-            "matter": "Notice Of Motion And Motion To Strike Memorandum Of Costs Filed By Plaintiffs",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "hearing",
-              "label": "Hearing"
-            },
-            "text": "Hearing required. For the 9:00 a.m. calendar, all attorneys and parties may appear in Department 302 remotely or in person. Remote hearings will be conducted by videoconference using Zoom. (Dept. 302 Zoom ID 160 409 7690; Passcode 516287.) To appear remotely…"
-          },
-          {
-            "date": "2026-10-28",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26633481",
-            "caseTitle": "DIVYANG VED VS. GLOBAL FITNESS VENTURES, LLC ET AL",
-            "matter": "MOTION TO STRIKE Amended COMPLAINT",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendants Global Fitness Ventures, LLC (GFV); True Capital Management, LLC (TCM); and Douglas Raetz's motion to strike Plaintiff Divyang Ved's first amended complaint (FAC), is granted. The court grants Ved leave to amend as to punitive damages but not as to…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "4e2b98e260be21b1ec821efc53acc337246cc431",
-      "updatedAt": "2026-11-03T10:40:30Z",
+      "ref": "ea4550901c890bbf19d9dd9115375fca7b0972ae",
+      "updatedAt": "2026-11-04T01:31:25Z",
       "metrics": {
-        "tentativeRulings": 73841,
+        "tentativeRulings": 73851,
         "parsedCounties": 34,
-        "documents": 18498,
-        "archivedFiles": 110716,
-        "documentBytes": 19943915520
+        "documents": 18499,
+        "archivedFiles": 110916,
+        "documentBytes": 20006830080
       },
       "charts": {
         "rulingsByCounty": [
@@ -1066,14 +1066,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "20b7b5b8820a527219a8d14c8b9bd172ba74bfab",
-      "updatedAt": "2026-10-24T00:54:45Z",
+      "ref": "ff2f07fea7f765134c4bb09b09f2ed442a37c5d2",
+      "updatedAt": "2026-11-04T00:06:16Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 427022
+        "snapshots": 427044
       },
       "charts": {}
     },
