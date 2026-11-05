@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-11-04T13:55:09.000Z",
+  "generatedAt": "2026-11-05T01:33:14.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "4e0217032679ab25b2d45a055f0583fc90e22c83",
       "updatedAt": "2026-10-13T06:14:42Z",
-      "latestRuling": "2026-11-04",
+      "latestRuling": "2026-11-05",
       "metrics": {
-        "tentativeRulings": 386082,
-        "cases": 1457235,
+        "tentativeRulings": 386119,
+        "cases": 1457267,
         "documents": 4082942,
         "documentsArchived": 94046,
         "docketEntries": 9092102,
@@ -45,7 +45,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434947
+            "value": 434951
           },
           {
             "label": "CRI",
@@ -53,15 +53,15 @@
           },
           {
             "label": "CSM",
-            "value": 188105
+            "value": 188111
           },
           {
             "label": "CUD",
-            "value": 97213
+            "value": 97217
           },
           {
             "label": "FDI",
-            "value": 98874
+            "value": 98877
           },
           {
             "label": "FCS",
@@ -69,11 +69,11 @@
           },
           {
             "label": "PES",
-            "value": 42652
+            "value": 42655
           },
           {
             "label": "FDV",
-            "value": 30086
+            "value": 30087
           },
           {
             "label": "CPF",
@@ -81,11 +81,11 @@
           },
           {
             "label": "CNC",
-            "value": 25659
+            "value": 25660
           },
           {
             "label": "PDW",
-            "value": 21575
+            "value": 21577
           },
           {
             "label": "FSD",
@@ -97,11 +97,11 @@
           },
           {
             "label": "PTR",
-            "value": 6534
+            "value": 6538
           },
           {
             "label": "FMS",
-            "value": 3542
+            "value": 3543
           },
           {
             "label": "APP",
@@ -113,11 +113,11 @@
           },
           {
             "label": "FPT",
-            "value": 713
+            "value": 714
           },
           {
             "label": "FLD",
-            "value": 2815
+            "value": 2817
           },
           {
             "label": "DPO",
@@ -155,8 +155,26 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-04T01:02:22.355Z",
+        "latestScrapedAt": "2026-11-05T01:03:43.612Z",
         "days": [
+          {
+            "date": "2026-11-05",
+            "total": 38,
+            "departments": [
+              {
+                "department": "302",
+                "count": 16
+              },
+              {
+                "department": "301",
+                "count": 14
+              },
+              {
+                "department": "501",
+                "count": 8
+              }
+            ]
+          },
           {
             "date": "2026-11-04",
             "total": 76,
@@ -244,27 +262,129 @@
                 "count": 1
               }
             ]
-          },
-          {
-            "date": "2026-10-29",
-            "total": 63,
-            "departments": [
-              {
-                "department": "301",
-                "count": 29
-              },
-              {
-                "department": "501",
-                "count": 19
-              },
-              {
-                "department": "302",
-                "count": 15
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-05",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC22599624",
+            "caseTitle": "EDERIC LLARENA VS. CITY OF SAN FRANCISCO ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT .",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant City and County of San Francisco (CCSF)'s motion for summary judgment is denied."
+          },
+          {
+            "date": "2026-11-05",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25623859",
+            "caseTitle": "FAF LIQUIDATION SEVICES, LLC VS. DOMINIC HOLLAND ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Further Responses To Requests For Production Of Documents; Memorandum Of Law; Request For Monetary Sanctions In The Amount Of $10,921.00",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Defendants Dominic Holland, Brian Sugar, and Robert Mitchell's motion to compel further responses to Requests for Production of Documents is granted in part and denied in part."
+          },
+          {
+            "date": "2026-11-05",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26640015",
+            "caseTitle": "DANIELE NASCIMENTO SILVA ET AL VS. RALSTON CAPITAL SF MULTIFAMILY II, LLC, A ET AL",
+            "matter": "MOTION TO STRIKE COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "[Part 1 of 2] DEFENDANT RALSTON CAPITAL SF MULTIFAMILY II, LLC, A CALIFORNIA LIMITED LIABILITY COMPANY MOTION TO STRIKE COMPLAINT is GRANTED WITH LEAVE TO AMEND. A party may move to strike under CCP Section 436 \"any irrelevant, false, or improper matter…"
+          },
+          {
+            "date": "2026-11-05",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25626164",
+            "caseTitle": "JUSTIN LEE VS. TUPELO, AN UNKNOWN ENTITY ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT Or In The Alternative Summary Adjudication",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendants Mosquito, LLC dba Tupelo and Diane Rosetti as Trustee of the Diane Rosetti Revocable Trust's (\"Defendants\") motion for summary judgment or alternatively summary adjudication is denied without prejudice, based on the procedural defects with the…"
+          },
+          {
+            "date": "2026-11-05",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25625315",
+            "caseTitle": "JIAN XU VS. ALBINA KHAZAN ET AL",
+            "matter": "Motion For Monetary And Evidence Sanctions For Misuse Of The Discovery Process",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Denied as moot. Both depositions sought through this motion have occurred. The court finds that both parties acted with substantial justification and does not award sanctions."
+          },
+          {
+            "date": "2026-11-05",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CPF25519156",
+            "caseTitle": "STEPHEN KAVANAUGH VS. DOUGLASS MANOR HOMEOWNERS' ASSOCIATION ET AL",
+            "matter": "Motion For Dismissal",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT DOUGLASS MANOR HOMEOWNERS' ASSOCIATION Motion For Dismissal is GRANTED. Demurrer as to individual defendants having been sustained without leave to amend, individual defendants are dismissed. This dismissal shall be reflected in the final judgment…"
+          },
+          {
+            "date": "2026-11-05",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25626386",
+            "caseTitle": "JPMORGAN CHASE BANK, N.A. VS. FATIMA O DIALLO",
+            "matter": "Notice Of Motion And Motion To Set Aside Default And Default Judgment",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant Fatima Diallo's unopposed motion to set aside the entry of default and default judgment entered against her is GRANTED. The default judgment entered on July 1, 2026 is now vacated."
+          },
+          {
+            "date": "2026-11-05",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25625315",
+            "caseTitle": "JIAN XU VS. ALBINA KHAZAN ET AL",
+            "matter": "Motion To Compel Further Responses To Requests For Production Of Documents, And Request For Monetary Sanctions (Motions)",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Defendant and cross-complainant Albina Khazan's motion to compel Jian Xu's compliance with demand for production of documents is granted in part and denied in part. The court issues an order to show cause re: evidentiary and monetary sanctions and sets a…"
+          },
           {
             "date": "2026-11-04",
             "time": "09:00 AM",
@@ -744,140 +864,20 @@
               "label": "Granted in part"
             },
             "text": "Plaintiff and cross-defendant Adriano Bortolucci's motion to compel further responses to special interrogatories, set one, numbers 7, 13, 32, 33, and 34, and special interrogatories, set two, numbers 4 and 5, and for a lodging order, is granted in part and…"
-          },
-          {
-            "date": "2026-10-29",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25631672",
-            "caseTitle": "ESTEBAN MALDONADO VS. CLAUDIO NAVALTA, JR. ET AL",
-            "matter": "Motion To Compel Further Responses To Defendants Special Interrogatories, Set One; Memorandum Of Points And Authorities; Request For Monetary Sanctions (Motions)",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendants Claudio and Amelita Navalta's (\"Defendants\") unopposed Motion to Compel Further Responses to Defendant's Special Interrogatories, Set One is granted."
-          },
-          {
-            "date": "2026-10-29",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23610719",
-            "caseTitle": "TIMOTHY J. SLOAN VS. WELLS FARGO & COMPANY ET AL",
-            "matter": "Notice Of Motion To Seal Plaintiffs September 29, 2026, Filing",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant Wells Fargo Bank, N.A.'s motion to seal specified documents filed in connection with plaintiff Timothy J. Sloan's opposition to Wells Fargo's summary judgment motion is granted. The documents at issue concern confidential business and employee…"
-          },
-          {
-            "date": "2026-10-29",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC25627597",
-            "caseTitle": "OLD REPUBLIC NATIONAL TITLE INSURANCE COMPANY VS. FYNN PARTNERS LLC, ET AL",
-            "matter": "MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "DEFENDANT FYNN PARTNERS LLC, A CALIFORNIA LIMITED LIABILITY COMPANY MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND is GRANTED based on mandatory relief provisions under CCP 473(b). Counsel for the Defendant to remit $5,686 to Plaintiff's counsel…"
-          },
-          {
-            "date": "2026-10-29",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25631672",
-            "caseTitle": "ESTEBAN MALDONADO VS. CLAUDIO NAVALTA, JR. ET AL",
-            "matter": "Motion To Compel Further Responses To Defendants Requests For Admission, Set One; Memorandum Of Points And Authorities; Reques (Motions)",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendants Claudio and Amelita Navalta's (\"Defendants\") unopposed Motion to Compel Further Responses to Defendants' Requests for Admissions, Set One is granted."
-          },
-          {
-            "date": "2026-10-29",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23611061",
-            "caseTitle": "JISOO YOO ET AL VS. POST-MONTGOMERY ASSOCIATES, A CALIFORNAIA GENERAL ET AL",
-            "matter": "Notice Of Motion To Enforce The Court'S July 29, 2026 Order As To Request No. 17, To Set A Date Certain For Compliance",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "17, To Set A Date Certain For Compliance. Plaintiff Jisoo Yoo's motion to enforce the court's July 29, 2026 discovery order is granted in part. An order that is silent as to a production date implies a reasonable production date. Here, the court concludes…"
-          },
-          {
-            "date": "2026-10-29",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25679375",
-            "caseTitle": "99 OCEAN AVENUE LLC VS. SCARLETT HERRERA ET AL",
-            "matter": "Plaintiff'S Motion For Entry Of Judgment For Monetary Damages Pursuant To Stipulation; Declaration In Support: [Proposed] Order; [Proposed] Judgment",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF 99 OCEAN AVENUE LLC Plaintiff'S Motion For Entry Of Judgment For Monetary Damages Pursuant To Stipulation is DENIED. Under the Stipulation, in the event of breach Plaintiff is entitled to unpaid stipulation payments and unpaid monthly rent due…"
-          },
-          {
-            "date": "2026-10-29",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC26636474",
-            "caseTitle": "MARIA LUCERO RIVAS CAMACHO VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
-            "matter": "Petition To File A Late Claim Pursuant To Government Code Section 946.6; Memorandum Of Points And Authorities",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Petitioner Maria Rivas Camacho's petition for relief under Government Code section 946.6 is granted."
-          },
-          {
-            "date": "2026-10-29",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24621009",
-            "caseTitle": "SWISH ANALYTICS, INC. VS. ODDSJAM, INC. ET AL",
-            "matter": "Notice Of Motion And Motion For Sanctions [Redacted]",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff Swish Analytics, Inc.'s motion for sanctions is denied. The court credits the opposing declarations that the complaint by a third party was drafted before the production of confidential information related to the third party. That there is overlap…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "4eea763fe40cb796e8617ffa6629da1f38fc8ff9",
-      "updatedAt": "2026-11-04T10:19:53Z",
+      "ref": "3b287d4b85c0c93e155046871452a101a8e97f35",
+      "updatedAt": "2026-11-05T01:33:14Z",
       "metrics": {
-        "tentativeRulings": 74448,
+        "tentativeRulings": 74483,
         "parsedCounties": 34,
-        "documents": 18690,
-        "archivedFiles": 111551,
-        "documentBytes": 20070793216
+        "documents": 18691,
+        "archivedFiles": 111756,
+        "documentBytes": 20127416320
       },
       "charts": {
         "rulingsByCounty": [
@@ -1066,14 +1066,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "ff2f07fea7f765134c4bb09b09f2ed442a37c5d2",
-      "updatedAt": "2026-11-04T00:06:16Z",
+      "ref": "ed0539c3d581a4692b92ff3e01c25c9ccdde5ae2",
+      "updatedAt": "2026-11-05T00:05:08Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 427044
+        "snapshots": 427046
       },
       "charts": {}
     },
@@ -1133,13 +1133,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "56660bddeebe038680777f9bea4751d210a8daef",
-      "updatedAt": "2026-11-04T13:55:09Z",
+      "ref": "b7419c866b21c9abda637340f8a126262fb65c5e",
+      "updatedAt": "2026-11-05T00:33:49Z",
       "metrics": {
-        "jurisdictions": 621,
-        "reports": 2098,
-        "feePrograms": 5215,
-        "figures": 11595
+        "jurisdictions": 646,
+        "reports": 2146,
+        "feePrograms": 5290,
+        "figures": 11771
       },
       "charts": {}
     },
