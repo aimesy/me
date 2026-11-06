@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-05T22:46:18.000Z",
+  "generatedAt": "2026-11-06T01:40:30.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "4e0217032679ab25b2d45a055f0583fc90e22c83",
       "updatedAt": "2026-10-13T06:14:42Z",
-      "latestRuling": "2026-11-05",
+      "latestRuling": "2026-11-06",
       "metrics": {
-        "tentativeRulings": 386119,
+        "tentativeRulings": 386160,
         "cases": 1457267,
         "documents": 4082942,
         "documentsArchived": 94046,
@@ -155,8 +155,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-05T01:03:43.612Z",
+        "latestScrapedAt": "2026-11-06T01:08:49.566Z",
         "days": [
+          {
+            "date": "2026-11-06",
+            "total": 45,
+            "departments": [
+              {
+                "department": "301",
+                "count": 17
+              },
+              {
+                "department": "302",
+                "count": 15
+              },
+              {
+                "department": "501",
+                "count": 12
+              },
+              {
+                "department": "204",
+                "count": 1
+              }
+            ]
+          },
           {
             "date": "2026-11-05",
             "total": 38,
@@ -240,31 +262,129 @@
                 "count": 13
               }
             ]
-          },
-          {
-            "date": "2026-10-30",
-            "total": 60,
-            "departments": [
-              {
-                "department": "501",
-                "count": 24
-              },
-              {
-                "department": "302",
-                "count": 18
-              },
-              {
-                "department": "301",
-                "count": 17
-              },
-              {
-                "department": "204",
-                "count": 1
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-06",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC22599624",
+            "caseTitle": "EDERIC LLARENA VS. CITY OF SAN FRANCISCO ET AL",
+            "matter": "MOTION FOR SUMMARY ADJUDICATION / Notice Of Motion And Motion For Summary Adjudication Against Anrak Coporation",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Cross-Complainant Bay Cities Paving & Grading, Inc.'s (\"Bay Cities\") motion for summary adjudication that cross-defendant Anrak Corporation (\"Anrak\") owes a duty to defend is GRANTED. Anrak owes a duty to defend and Bay Cities is entitled to a declaration of…"
+          },
+          {
+            "date": "2026-11-06",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25623297",
+            "caseTitle": "VIRGINIA LA MORENA DUMAGUIN ET AL VS. RAJESH NUNE ET AL",
+            "matter": "Notice Of Motion And Motion For Protective Order Over The Deposition Of Monique Gilliam; Memorandum Of Points And Authorities; Declaration Of Jenn A. Bartick",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Denied as moot. The court has entered judgment on claims against DoorDash, Inc., which is therefore no longer a party."
+          },
+          {
+            "date": "2026-11-06",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25627632",
+            "caseTitle": "JANA SPOTTS VS. NEWREZ LLC ET AL",
+            "matter": "MOTION TO STRIKE Amended COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT RUSSIAN HILL COURT HOMEOWNERS ASSOCIATION, ALICIA POMPEI MOTION TO STRIKE Amended COMPLAINT DENIED. Plaintiff adequately alleges bases for attorneys' fees. She alleges attorneys' fees are recoverable not only based on her contract with the HOA and…"
+          },
+          {
+            "date": "2026-11-06",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24614186",
+            "caseTitle": "MARC GERSEN VS. WORLDNET CHARTER, INC. ET AL",
+            "matter": "MOTION / Notice Of Motion & Motion For An Order Compelling Plaintiff To Appear For Medical Examination Greater Than 75 Miles From His Residence; Memorandum Of Points & Authorities; Declaration Of Michael Kowalski; Exhibits",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Worldnet Charter, Inc.'s motion for an order compelling Plaintiff Marc Gersen to submit for a physical examination more than 75 miles from his residence is DENIED."
+          },
+          {
+            "date": "2026-11-06",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25624439",
+            "caseTitle": "TRI HUU LY ET AL VS. CHARLES KARTCHNER ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Special Interrogatories And For Sanctions",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiffs Tri Huu Ly et al.'s unopposed motion to compel responses to their special interrogatories, set one, from defendant Charles Kartchner is granted for good cause shown in the moving papers. Plaintiffs show Kartchner has not responded to the discovery…"
+          },
+          {
+            "date": "2026-11-06",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25627632",
+            "caseTitle": "JANA SPOTTS VS. NEWREZ LLC ET AL",
+            "matter": "DEMURRER to Amended COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "overruled",
+              "label": "Overruled"
+            },
+            "text": "DEFENDANT RUSSIAN HILL COURT HOMEOWNERS ASSOCIATION, ALICIA POMPEI DEMURRER to Amended COMPLAINT [Part 1 of 2] is OVERRULED. The requests for judicial notice are granted except as to Exhibit 6 of Demurring Parties' request, which is denied. Notice is limited…"
+          },
+          {
+            "date": "2026-11-06",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24619718",
+            "caseTitle": "JOSEPH BENJAMIN ET AL VS. LAUREL FERTILITY CARE ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT , Or In The Alternative, Summary Adjudication",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Cross-Defendant Conceptions Reproductive Associates, Inc.'s (\"CRA\") motion for summary judgment against Cross-Complainant CryoGam Colorado, LLC (\"CryoGam\") is granted."
+          },
+          {
+            "date": "2026-11-06",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25624439",
+            "caseTitle": "TRI HUU LY ET AL VS. CHARLES KARTCHNER ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Production Of Documents And For Sanctions",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiffs Tri Huu Ly et al.'s unopposed motion to compel responses to their requests for production of documents, set one, from defendant Charles Kartchner is granted for good cause shown in the moving papers. Plaintiffs show Kartchner has not responded to…"
+          },
           {
             "date": "2026-11-05",
             "time": "09:00 AM",
@@ -744,140 +864,20 @@
               "label": "Denied"
             },
             "text": "Matter on calendar for Monday November 2, 2026, Line 7, PLAINTIFF BEJARANO CONSTRUCTION, INC'S Motion For Leave To File Second Amended Complaint Plaintiff Bejarano Construction, Inc.'s motion for leave to file its Second Amended Complaint is denied without…"
-          },
-          {
-            "date": "2026-10-30",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC19574738",
-            "caseTitle": "MAHER MEMARZADEH VS. VAL DAWSON HORNSTEIN ET AL",
-            "matter": "Notice Of Motion And Motion To Lift Stay; Memorandum Of Points And Authorities; Declaration Of Maher Memarzadeh In Support Thereof",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Maher Memarzadeh's motion to lift the stay is GRANTED. On December 20, 2022, the court granted Defendants Val Hornstein and Hornstein Law Office's motion to stay the present litigation pending final resolution of writ action CPF-22-517700…"
-          },
-          {
-            "date": "2026-10-30",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25626119",
-            "caseTitle": "JENIFER CHISM VS. CITY OF SAN FRANCISCO ET AL",
-            "matter": "Notice Of Hearing On Plaintiff'S Motion For New Trial",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff Jennifer Chism's motion for new trial is denied. A motion for new trial may be made after an order granting summary judgment. (Aguilar v. Atlantic Richfield Co. (2001) 25 Cal.4th 826, 858.) \"The new trial motion may seek reversal of the summary…"
-          },
-          {
-            "date": "2026-10-30",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26682399",
-            "caseTitle": "1532 HARRISON LENDER LLC VS. YANET PORTALES ET AL",
-            "matter": "Motion To Continue Trial Date",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "DEFENDANT YANET PORTALES Motion To Continue Trial Date is GRANTED. No opposition filed. Reply is stricken, as it is not a reply to any opposition. The trial date of this action is continued November 23, 2026. =(501/CFH) Parties may appear in-person…"
-          },
-          {
-            "date": "2026-10-30",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23609790",
-            "caseTitle": "RONALD GREGER VS. SAN FRANCISCO BAR PILOTS ET AL",
-            "matter": "Notice Of Hearing On Petition To Confirm Arbitration Award",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Petitioners San Francisco Bar Pilots' (\"SFBP\") unopposed Petition To Confirm Arbitration Final Award is GRANTED. Good cause appearing, the Petition to Confirm the Arbitration Award is granted and the arbitration award is confirmed in its entirety. Judgment…"
-          },
-          {
-            "date": "2026-10-30",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25626119",
-            "caseTitle": "JENIFER CHISM VS. CITY OF SAN FRANCISCO ET AL",
-            "matter": "Request For Leave To File Sur-Reply To Plaintiffs Motion For New Trial",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Denied as stated in the companion order."
-          },
-          {
-            "date": "2026-10-30",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26682555",
-            "caseTitle": "2032 POLK STREET LLC VS. NUMIA POTI ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT And Notice Of Motion",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF 2032 POLK STREET LLC MOTION FOR SUMMARY JUDGMENT And Notice Of Motion is DENIED for the reasons stated in the tentative ruling published for October 26, 2026. Additionally, the courtesy copy delivered after the issuance of the tentative ruling does…"
-          },
-          {
-            "date": "2026-10-30",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24619616",
-            "caseTitle": "MICHAEL NOLIN VS. DAVID KANG ET AL",
-            "matter": "MOTION TO QUASH SERVICE OF SUMMONS OR STAY OR DISMISS",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Specially appearing defendants Miguel Rodriguez and Justin Jarin's motion to quash service of summons and complaint, amended summons, and/or second amended complaint and to prevent entry of default is GRANTED. Plaintiff Michael Nolin is granted leave to…"
-          },
-          {
-            "date": "2026-10-30",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25626643",
-            "caseTitle": "ADRIANO BORTOLUCCI VS. MAYA PRIMAVERA GARCIA-URBANO",
-            "matter": "MOTION TO COMPEL FURTHER INTERROGATORIES",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Plaintiff and cross-defendant Adriano Bortolucci's motion to compel further responses to special interrogatories, set one, numbers 7, 13, 32, 33, and 34, and special interrogatories, set two, numbers 4 and 5, and for a lodging order, is granted in part and…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "c217f091ed38c0c059de5b3486f131d8cac24518",
-      "updatedAt": "2026-11-05T10:32:04Z",
+      "ref": "98b9bb1d5db187597f4118ad5003a4cefb1d0bda",
+      "updatedAt": "2026-11-06T01:40:30Z",
       "metrics": {
-        "tentativeRulings": 75126,
+        "tentativeRulings": 75132,
         "parsedCounties": 34,
-        "documents": 18871,
-        "archivedFiles": 112433,
-        "documentBytes": 20196622336
+        "documents": 18872,
+        "archivedFiles": 112608,
+        "documentBytes": 20248002560
       },
       "charts": {
         "rulingsByCounty": [
@@ -1066,14 +1066,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "ed0539c3d581a4692b92ff3e01c25c9ccdde5ae2",
-      "updatedAt": "2026-11-05T00:05:08Z",
+      "ref": "c8a829536bef96b7233816a5fc11e5d96ad5ae52",
+      "updatedAt": "2026-11-06T01:09:30Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 427046
+        "snapshots": 427048
       },
       "charts": {}
     },
