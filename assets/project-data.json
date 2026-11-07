@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-07T00:07:10.000Z",
+  "generatedAt": "2026-11-07T01:28:12.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "af706a13eff277eb2fe096b6f44c4fd726cbd8d0",
       "updatedAt": "2026-11-06T09:44:08-08:00",
-      "latestRuling": "2026-11-06",
+      "latestRuling": "2026-11-09",
       "metrics": {
-        "tentativeRulings": 386160,
+        "tentativeRulings": 386249,
         "cases": 1457267,
         "documents": 4082942,
         "documentsArchived": 94046,
@@ -155,8 +155,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-06T01:08:49.566Z",
+        "latestScrapedAt": "2026-11-07T01:01:54.997Z",
         "days": [
+          {
+            "date": "2026-11-09",
+            "total": 91,
+            "departments": [
+              {
+                "department": "204",
+                "count": 52
+              },
+              {
+                "department": "501",
+                "count": 20
+              },
+              {
+                "department": "302",
+                "count": 12
+              },
+              {
+                "department": "301",
+                "count": 7
+              }
+            ]
+          },
           {
             "date": "2026-11-06",
             "total": 45,
@@ -240,31 +262,129 @@
                 "count": 4
               }
             ]
-          },
-          {
-            "date": "2026-11-02",
-            "total": 103,
-            "departments": [
-              {
-                "department": "204",
-                "count": 47
-              },
-              {
-                "department": "302",
-                "count": 26
-              },
-              {
-                "department": "501",
-                "count": 17
-              },
-              {
-                "department": "301",
-                "count": 13
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-09",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24614186",
+            "caseTitle": "MARC GERSEN VS. WORLDNET CHARTER, INC. ET AL",
+            "matter": "MOTION TO COMPEL FURTHER RESPONSES TO REQUEST FOR ADMISSIONS",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Marc Gersen's motion to compel Defendant Yun Choi Chow's further responses to requests for admission, set two, nos. 1-3, is granted."
+          },
+          {
+            "date": "2026-11-09",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC22598327",
+            "caseTitle": "JOHN STEPHEN GRAHAM, JR.,TRUSTEE OF THE JOHN VS. HAMMEL GREEN ET AL",
+            "matter": "MOTION FOR LEAVE TO AMEND COMPLAINT",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff's motion for leave to file a first amended complaint is denied."
+          },
+          {
+            "date": "2026-11-09",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21594119",
+            "caseTitle": "AVIAD BRACHA VS. OCEAN AVENUE REAL ESTATE FUND LLC, A CALIFORNIA ET AL",
+            "matter": "Motion For Charging Order",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF AVIAD BRACHA Motion For Charging Order is GRANTED. No opposition filed. Moving party to prepare an order. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849; or Phone Dial in…"
+          },
+          {
+            "date": "2026-11-09",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24614186",
+            "caseTitle": "MARC GERSEN VS. WORLDNET CHARTER, INC. ET AL",
+            "matter": "MOTION TO COMPEL FURTHER RESPONSE TO REQUEST, DEMAND INSPECTION, PRODUCTION OF DOCUMENTS",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Marc Gersen's motion to compel Defendant Yun Choi Chow's further responses to requests for production of documents, set six, nos. 1-2 is granted."
+          },
+          {
+            "date": "2026-11-09",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24611759",
+            "caseTitle": "STEVE LAKOVITS VS. SF MULTIFAMILY IV PROPERTY OWNER LLC, A LIMITED ET AL",
+            "matter": "Notice Of Motion And Motion For Issue, Evidence, And Monetary Sanctions Against Defendant Brick And Timber, Inc. For Failure To Obey Discovery Orders",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "For Failure To Obey Discovery Orders. Plaintiff Steve Lakovits's motion for issue, evidence, and monetary sanctions against defendant Brick and Timber, Inc. is granted in part and denied in part."
+          },
+          {
+            "date": "2026-11-09",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21596771",
+            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
+            "matter": "MOTION FOR SUMMARY ADJUDICATION / Motion For Summary Adjudication On Partial Disclosures In The San Francisco Seller Disclosure",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT CHRIS KELLY INDIVIDUALLY AND AS CO-TRUSTEE OF THE KELLY FAMILY TRUST, LARA KELLY MOTION FOR SUMMARY ADJUDICATION / Motion For Summary Adjudication On Partial Disclosures In The San Francisco Seller Disclosure is DENIED. Moving party failed to comply…"
+          },
+          {
+            "date": "2026-11-09",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25628298",
+            "caseTitle": "PORTFOLIO RECOVERY ASSOCIATES, LLC VS. LETRESSE SUDDUTH",
+            "matter": "Motion To Set Aside Dismissal And Enter Judgment Under Stipulation",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Portfolio Recovery Associates, LLC's unopposed motion to enter judgment under terms of stipulated settlement is GRANTED. As a preliminary matter, Plaintiff's request that the court take judicial notice of the Stipulation Agreement filed in this…"
+          },
+          {
+            "date": "2026-11-09",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26636559",
+            "caseTitle": "WELLS FARGO BANK, N.A. VS. ADRIEN L BAZOUNGOULA",
+            "matter": "Motion For An Order Deeming The Truth Of The Matters Specified In Plaintiffs Request For Admissions As Admitted (Motions)",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "The unopposed motion for a deemed-admitted order is denied without prejudice for lack of proper service. The proof of service has an incorrect zip code for plaintiff's counsel."
+          },
           {
             "date": "2026-11-06",
             "time": "09:00 AM",
@@ -744,140 +864,20 @@
               "label": "Off calendar"
             },
             "text": "Off calendar. Movant failed to comply with Code of Civil Procedure, section 430.41, subdivision (a)(3), and to file a meet and confer declaration as to the first amended complaint. Defendant's response to the first amended complaint is now due by December 3…"
-          },
-          {
-            "date": "2026-11-02",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC21588902",
-            "caseTitle": "CITIZENS BANK, NATIONAL ASSOCIATION FORMERLY KNOWN VS. STEPHEN M. LAVIN",
-            "matter": "Notice Of Motion And Motion For Judgment Pursuant To Stipulation",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Citizens Bank, N.A., formerly known as RBS Citizens, N.A.'s (\"Citizens Bank\") unopposed motion to enter judgment pursuant to stipulation is GRANTED. If parties to a pending litigation stipulate, in a writing signed by the parties outside the…"
-          },
-          {
-            "date": "2026-11-02",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23608547",
-            "caseTitle": "DEVIN DEUTSCH ET AL VS. FELINK INVESTMENTS & PROPERTIES USA, LLC, A ET AL",
-            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Matter on calendar for Monday November 2, 2026, Line 2, CROSS DEFENDANT WINNING COLORS, INC'S MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD The unopposed motion for withdrawal of attorney of record by counsel for Winning Colors, Inc. is granted. The court will…"
-          },
-          {
-            "date": "2026-11-02",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC20587304",
-            "caseTitle": "160 & 162 LOWER TERRACE HOMEOWNERS ASSOCIATION ET AL VS. 160 LT LLC ET AL",
-            "matter": "Joinder By Mark Joseph Forgette D.Ba. Forgette Design And Construction To Motion To Dismiss Complaint By Alexander Mazo, Lindsay Brown And 160 Lt Llc",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Forgette Design And Construction To Motion To Dismiss Complaint By Alexander Mazo, Lindsay Brown And 160 Lt Llc is GRANTED. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849; or Phone Dial…"
-          },
-          {
-            "date": "2026-11-02",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC22602624",
-            "caseTitle": "T.O. VS. DOE 1 ET AL",
-            "matter": "DEMURRER to Amended COMPLAINT",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "sustained-leave",
-              "label": "Sustained with leave"
-            },
-            "text": "Defendant Children's Home Society of California (CHS)'s demurrer to Plaintiff T.O.'s third amended complaint (TAC) is SUSTAINED with leave to amend."
-          },
-          {
-            "date": "2026-11-02",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25625409",
-            "caseTitle": "MICHAEL VIGIL VS. CLOUDFLARE, INC. ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Appointment Of A Discovery Referee; Memorandum Of Points And Authorities In Support",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Matter on calendar for Monday November 2, 2026, Line 3, 1 - DEFENDANT CLOUDFLARE, INC'S Motion To Compel Appointment Of A Discovery Referee Defendant Cloudflare, Inc.'s motion for appointment of a discovery referee is granted in part and continued in part for…"
-          },
-          {
-            "date": "2026-11-02",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC20587304",
-            "caseTitle": "160 & 162 LOWER TERRACE HOMEOWNERS ASSOCIATION ET AL VS. 160 LT LLC ET AL",
-            "matter": "Notice Of Motion And Motion To Dismiss Complaint",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "DEFENDANT 160 LT LLC, LINDSAY BROWN, ALEXANDER MAZO Notice Of Motion And Motion To Dismiss Complaint is GRANTED. This case has not been brought to trial and has been pending for over 6 years as of the date of this hearing. There is still no trial date. The…"
-          },
-          {
-            "date": "2026-11-02",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24612148",
-            "caseTitle": "MICHAEL J. NORYKO VS. PACIFIC HEIGHTS SECURITY, INC. ET AL",
-            "matter": "Motion To Strike Or Seal Exhibit C Of Defendants Motion For Summary Judgment",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "PLAINTIFF MICHAEL NORYKO, JESSICA NORYKO Motion To Strike Or Seal Exhibit C Of Defendants Motion For Summary Judgment, Based on the record, the court finds good cause to GRANT Plaintiff Michael Noryko's unopposed motion to strike Exhibit C of Defendant…"
-          },
-          {
-            "date": "2026-11-02",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26633653",
-            "caseTitle": "BEJARANO CONSTRUCTION, INC. VS. ANNIE WONG ET AL",
-            "matter": "Notice Of Motion And Motion For Leave To File Second Amended Complaint",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Matter on calendar for Monday November 2, 2026, Line 7, PLAINTIFF BEJARANO CONSTRUCTION, INC'S Motion For Leave To File Second Amended Complaint Plaintiff Bejarano Construction, Inc.'s motion for leave to file its Second Amended Complaint is denied without…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "5e33deb4f7e56ac093d3a0051c09bcbaf660bf61",
-      "updatedAt": "2026-11-06T10:02:33Z",
+      "ref": "24cff4d9aeba69678b884c7c8b38b7ac65fa8a44",
+      "updatedAt": "2026-11-07T01:28:12Z",
       "metrics": {
         "tentativeRulings": 75773,
         "parsedCounties": 34,
         "documents": 19014,
-        "archivedFiles": 113264,
-        "documentBytes": 20322451456
+        "archivedFiles": 113388,
+        "documentBytes": 20357054464
       },
       "charts": {
         "rulingsByCounty": [
