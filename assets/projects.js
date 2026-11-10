@@ -706,9 +706,14 @@ function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirecto
   const metrics = project.metrics;
 
   const departments = Array.isArray(rulingManifest?.departments) ? rulingManifest.departments : [];
+  // The viewer's manifest and table stats are rebuilt only when the viewer
+  // deploys, so they can be behind the counts the build reads from the data
+  // repository. None of these counts shrinks, so the larger figure is current.
   if (departments.length) {
-    metrics.tentativeRulings = departments.reduce((sum, department) => sum + positiveNumber(department.rulings), 0)
-      || metrics.tentativeRulings;
+    metrics.tentativeRulings = maxPositive(
+      metrics.tentativeRulings,
+      departments.reduce((sum, department) => sum + positiveNumber(department.rulings), 0),
+    );
     project.charts.rulingsByDepartment = departments.map((department) => ({
       label: department.name || `Dept. ${department.department}`,
       value: positiveNumber(department.rulings),
@@ -717,8 +722,8 @@ function applySfscAggregateSources({ rulingManifest, caseTableStats, caseDirecto
   }
 
   if (caseTableStats) {
-    metrics.documents = positiveNumber(caseTableStats.case_documents) || metrics.documents;
-    metrics.docketEntries = positiveNumber(caseTableStats.docket_entries) || metrics.docketEntries;
+    metrics.documents = maxPositive(metrics.documents, caseTableStats.case_documents);
+    metrics.docketEntries = maxPositive(metrics.docketEntries, caseTableStats.docket_entries);
   }
 
   const prefixes = Array.isArray(caseDirectoryManifest?.prefixes) ? caseDirectoryManifest.prefixes : [];
@@ -741,14 +746,18 @@ function applyLiveMetrics(key, table) {
   const metrics = project.metrics;
 
   if (key === "sfsc") {
-    metrics.tentativeRulings = parseCount(table.get("tentative rulings")) || metrics.tentativeRulings;
+    // The viewer writes its LIVE.md when it deploys; see applySfscAggregateSources.
+    metrics.tentativeRulings = maxPositive(metrics.tentativeRulings, parseCount(table.get("tentative rulings")));
     metrics.cases = firstPositive(
       parseCount(table.get("case records")),
       parseCount(table.get("dockets")),
       metrics.cases,
     );
-    metrics.documents = parseCount(table.get("documents indexed")) || parseCount(table.get("case documents")) || metrics.documents;
-    metrics.docketEntries = parseCount(table.get("docket entries")) || metrics.docketEntries;
+    metrics.documents = maxPositive(
+      metrics.documents,
+      parseCount(table.get("documents indexed")) || parseCount(table.get("case documents")),
+    );
+    metrics.docketEntries = maxPositive(metrics.docketEntries, parseCount(table.get("docket entries")));
     metrics.documentsArchived = parseCount(table.get("documents archived")) || metrics.documentsArchived;
     project.latestRuling = table.get("latest tentative ruling") || project.latestRuling;
     const bytes = parseBytes(table.get("archive size"));

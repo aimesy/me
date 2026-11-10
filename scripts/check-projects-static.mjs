@@ -778,6 +778,40 @@ applyPublicDataManifests("kcsc", new Map([["data/manifest.json", {
 assert.equal(runtimeContext.projectData.projects.sfsc.metrics.cases, 1012384);
 assert.equal(runtimeContext.projectData.projects.kcsc.metrics.documents, 15024602);
 
+// The viewer's manifest and table stats date from its last deploy. When the
+// build has counted more since, the card keeps the built figures, and the
+// department chart still comes from the manifest.
+Object.assign(runtimeContext.projectData.projects.sfsc.metrics, {
+  tentativeRulings: 386366,
+  documents: 6524689,
+  docketEntries: 28247819,
+});
+vm.runInContext(`applyLiveMetrics("sfsc", new Map([
+  ["tentative rulings", "386,249"],
+  ["documents indexed", "6,500,000"],
+  ["docket entries", "28,000,000"],
+]));
+applySfscAggregateSources({
+  rulingManifest: { departments: [
+    { department: "302", name: "Dept. 302", rulings: 300000, latest: "2026-11-06" },
+    { department: "501", name: "Dept. 501", rulings: 86249, latest: "2026-11-06" },
+  ] },
+  caseTableStats: { case_documents: 6500000, docket_entries: 28000000 },
+  caseDirectoryManifest: null,
+});`, runtimeContext);
+assert.equal(runtimeContext.projectData.projects.sfsc.metrics.tentativeRulings, 386366);
+assert.equal(runtimeContext.projectData.projects.sfsc.metrics.documents, 6524689);
+assert.equal(runtimeContext.projectData.projects.sfsc.metrics.docketEntries, 28247819);
+assert.equal(runtimeContext.projectData.projects.sfsc.charts.rulingsByDepartment.length, 2);
+vm.runInContext(`applySfscAggregateSources({
+  rulingManifest: { departments: [{ department: "302", name: "Dept. 302", rulings: 386400 }] },
+  caseTableStats: { case_documents: 6524700, docket_entries: 28247900 },
+  caseDirectoryManifest: null,
+});`, runtimeContext);
+assert.equal(runtimeContext.projectData.projects.sfsc.metrics.tentativeRulings, 386400, "a manifest ahead of the build raises the count");
+assert.equal(runtimeContext.projectData.projects.sfsc.metrics.documents, 6524700);
+assert.equal(runtimeContext.projectData.projects.sfsc.metrics.docketEntries, 28247900);
+
 // The aimesy/nysc-data common tables are older than the built figures, so the
 // live manifest must not lower the documents, files, or archive size on the card.
 runtimeContext.projectData.projects.nysc = {
