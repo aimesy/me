@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-09T13:18:30.000Z",
+  "generatedAt": "2026-11-10T01:13:54.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "af706a13eff277eb2fe096b6f44c4fd726cbd8d0",
       "updatedAt": "2026-11-06T09:44:08-08:00",
-      "latestRuling": "2026-11-09",
+      "latestRuling": "2026-11-10",
       "metrics": {
-        "tentativeRulings": 386249,
+        "tentativeRulings": 386366,
         "cases": 1457267,
         "documents": 4082942,
         "documentsArchived": 94046,
@@ -155,8 +155,34 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-09T01:02:34.308Z",
+        "latestScrapedAt": "2026-11-10T01:50:36.671Z",
         "days": [
+          {
+            "date": "2026-11-10",
+            "total": 123,
+            "departments": [
+              {
+                "department": "204",
+                "count": 58
+              },
+              {
+                "department": "501",
+                "count": 30
+              },
+              {
+                "department": "301",
+                "count": 16
+              },
+              {
+                "department": "302",
+                "count": 11
+              },
+              {
+                "department": "304",
+                "count": 8
+              }
+            ]
+          },
           {
             "date": "2026-11-09",
             "total": 91,
@@ -240,31 +266,129 @@
                 "count": 12
               }
             ]
-          },
-          {
-            "date": "2026-11-03",
-            "total": 81,
-            "departments": [
-              {
-                "department": "204",
-                "count": 38
-              },
-              {
-                "department": "302",
-                "count": 27
-              },
-              {
-                "department": "501",
-                "count": 12
-              },
-              {
-                "department": "301",
-                "count": 4
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-10",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC20582126",
+            "caseTitle": "BANK OF AMERICA, N.A. VS. WILLIAM VERNON WANN",
+            "matter": "Motion To Enter Judgment Pursuant To Stipulation",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Bank of America, N.A.'s unopposed motion to enter judgment pursuant to stipulation is GRANTED. If parties to a pending litigation stipulate, in a writing signed by the parties outside the presence of the court, for settlement of the case, the court…"
+          },
+          {
+            "date": "2026-11-10",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC24277240",
+            "caseTitle": "KIRK HAYS ET AL VS. AIR AND LIQUID SYSTEMS CORPORATION, SUCCESSOR BY ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT Or, In The Alternative, Summary Adjudicaition",
+            "judge": "Victor M. Hwang",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT GREEN TWEED & CO INC's MOTION FOR SUMMARY JUDGMENT, OR IN THE ALTERNATIVE, MOTION FOR SUMMARY ADJUDICATION Defendant Green Tweed & Co, Inc's Motion for Summary Judgment, or in the alternative, Motion for Summary Adjudication is GRANTED. No…"
+          },
+          {
+            "date": "2026-11-10",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24616417",
+            "caseTitle": "MARK SMITH ET AL VS. SUTTER BAY HOSPITALS, DBA CALIFORNIA PACIFIC ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT , Or In The Alternative, Summary Adjudication",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant Sutter Bay Hospital dba California Pacific Medical Center's motion for summary judgment is denied. Defendant's alternative motion for summary adjudication is denied as to cause of action one (negligence) and granted as to causes of action two…"
+          },
+          {
+            "date": "2026-11-10",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC24612352",
+            "caseTitle": "TIFFANY J. SPURLOCK VS. RONALD J. HILL ET AL",
+            "matter": "Notice Of Motion And Motion To Determine Manner Of Partition",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "PLAINTIFF TIFFANY SPURLOCK , AN INDIVIDUAL Notice Of Motion And Motion To Determine Manner Of Partition is GRANTED. The property located at 107 Colby St., San Francisco, CA 94134 cannot be partitioned in kind and shall be partitioned by sale per CCP…"
+          },
+          {
+            "date": "2026-11-10",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618748",
+            "caseTitle": "CITI BANK, N.A. VS. KATRINA THOMAS",
+            "matter": "Motion To Enter Judgment Under Terms Of Stipulated Settlement",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff CitiBank, N.A.'s unopposed motion to enter judgment under terms of stipulated settlement is GRANTED. If parties to a pending litigation stipulate, in a writing signed by the parties outside the presence of the court, for settlement of the case, the…"
+          },
+          {
+            "date": "2026-11-10",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC24277251",
+            "caseTitle": "CHRISTINA INGELS ET AL VS. BWDAC, INC. ET AL",
+            "matter": "MOTION TO BIFURCATE/SEVER Punitive Damages Pursuant To Civil Code 3295; Memorandum Of Points And Authorities",
+            "judge": "Victor M. Hwang",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT AMWAY'S CORP'S MOTION TO BIFURCATE PUNITIVE DAMAGES PURSUANT TO CIVIL CODE SECTION 3295 Defendant Amway Corp (\"Defendant\" or \"Amway\") Motion to Bifurcate Punitive Damages pursuant to Civil Code Section 3295 is DENIED WITHOUT PREJUDICE. The motion…"
+          },
+          {
+            "date": "2026-11-10",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25621551",
+            "caseTitle": "MOUSA FINANCIAL SERVICES, LLC VS. ABDEL HAMODA ET AL",
+            "matter": "MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The motion to set aside default is granted. The court exercises its discretion to consider the late-filed opposition. The court finds excusable neglect by cross-defendant Mohamed Mousa. Mousa shall file a responsive pleading to the Second Amended…"
+          },
+          {
+            "date": "2026-11-10",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25622463",
+            "caseTitle": "BRIDGE MELLICHAMP ET AL VS. DIANNE MORRIS ET AL",
+            "matter": "Notice Of Motion For Leave Of Court To File An Amendment To The Complaint To Designate Fictitious Doe Defendants",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF BRIDGE MELLICHAMP, JASON ROSENTHAL, ARI ROSENTHAL MELLICHAMP, MAYA ROSENTHAL MELLICHAMP Notice Of Motion For Leave Of Court To File An Amendment To The Complaint To Designate Fictitious Doe Defendants is DENIED without prejudice. Moving papers do…"
+          },
           {
             "date": "2026-11-09",
             "time": "09:00 AM",
@@ -744,140 +868,20 @@
               "label": "Granted in part"
             },
             "text": "Defendant Uber Technologies, Inc.'s motion to compel Sacramento Police Department's responses to deposition subpoena for production of business records is granted in part and continued in part for further hearing to November 12, 2026."
-          },
-          {
-            "date": "2026-11-03",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23608072",
-            "caseTitle": "SPIGA III, LLC VS. ANURADHU SINGH ET AL",
-            "matter": "Motion To Compel And For Sanctions",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Spiga's request for monetary sanctions in the amount of $7,558.15 is granted in part. Singh's failure to respond to the propounded discovery, to Spiga's outreach to meet and confer about this matter, to Spiga's outreach to set a hearing date, or to this…"
-          },
-          {
-            "date": "2026-11-03",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25630499",
-            "caseTitle": "ALICIA ALDRIDGE VS. CVS PHARMACY, INC",
-            "matter": "Notice Of Motion And Motion For Order Approving Dismissal Of Class Action Pursuant To Crc 3.770 And Pursuant To The Courts July 29, 2026 Order",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for an order approval dismissal of the action in its entirety is granted for good cause shown. Plaintiff's individual claims are dismissed with prejudice. The class claims are dismissed without prejudice. The court finds no prejudice to…"
-          },
-          {
-            "date": "2026-11-03",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC21596771",
-            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
-            "matter": "Motion To Transfer Interest; Declaration Of Counsel (Motions)",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "CROSS COMPLAINANT SOTHEBY'S INTERNATIONAL REALTY, INC., NEILL BASSI Motion To Transfer Interest is GRANTED. Having considered the stipulation between the party assigning the claims and the parties receiving the claims pursuant to the assignment, the assignee…"
-          },
-          {
-            "date": "2026-11-03",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23608072",
-            "caseTitle": "SPIGA III, LLC VS. ANURADHU SINGH ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Responses To Plaintiffs Discovery And Inspection Demands",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Spiga III, LLC's (\"Spiga\") unopposed motion to compel Defendant Anuradha Singh to respond to Plaintiff's First Set of Inspection Demands, Nos. 1 to 31, is GRANTED. The motion for sanctions against Singh is GRANTED in part and DENIED in part. While…"
-          },
-          {
-            "date": "2026-11-03",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26636499",
-            "caseTitle": "ANTHONY EVANGELISTA VS. JOHN ENTWISTLE ET AL",
-            "matter": "Notice Of Motion And Motion For Protective Order And For Sanctions",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "continued",
-              "label": "Continued"
-            },
-            "text": "Defendant John Entwhistle's motion for protective order against Plaintiff Anthony Evangelista is continued for further hearing to December 14, 2026."
-          },
-          {
-            "date": "2026-11-03",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC23611378",
-            "caseTitle": "LAURENCE F. NASEY VS. FELL HOLDINGS LLC, A DELAWARE LIMITED LIABILITY ET AL",
-            "matter": "MOTION TO EXPUNGE LIS PENDENS/PENDENCY OF ACTION",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "DEFENDANT 1215 FELL SF OWNER LLC MOTION TO EXPUNGE LIS PENDENS/PENDENCY OF ACTION is GRANTED. Fees and costs granted in the amount of $2,229.50. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password…"
-          },
-          {
-            "date": "2026-11-03",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25628154",
-            "caseTitle": "YUQI LIN VS. FARALLON CAPITAL MANAGEMENT, LLC, A DELAWARE ET AL",
-            "matter": "Notice Of Motion And Motion For Leave To File [First] Amended Complaint; Memorandum Of Points And Authorities; Declaration Of Moussa A. Helo, Esq.",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Yuqi Lin's motion for leave to file an amended complaint is granted, on the condition that Lin does not plead a separate cause of action for gross negligence."
-          },
-          {
-            "date": "2026-11-03",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25627407",
-            "caseTitle": "ANGELA MARIE NADEAU VS. AIRBNB, INC. ET AL",
-            "matter": "DEMURRER to COMPLAINT",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "off-calendar",
-              "label": "Off calendar"
-            },
-            "text": "Off calendar. Movant failed to comply with Code of Civil Procedure, section 430.41, subdivision (a)(3), and to file a meet and confer declaration as to the first amended complaint. Defendant's response to the first amended complaint is now due by December 3…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "715d59c5cadb0a56d02b67841afac4a9b661ecc8",
-      "updatedAt": "2026-11-09T01:11:51Z",
+      "ref": "8fa1c0b652b68c1fb78576f3668d0245f3ced03e",
+      "updatedAt": "2026-11-10T01:13:54Z",
       "metrics": {
-        "tentativeRulings": 76276,
+        "tentativeRulings": 76315,
         "parsedCounties": 34,
-        "documents": 19129,
-        "archivedFiles": 113932,
-        "documentBytes": 20434649088
+        "documents": 19144,
+        "archivedFiles": 114176,
+        "documentBytes": 20496515072
       },
       "charts": {
         "rulingsByCounty": [
@@ -1053,27 +1057,27 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "d9db8a206aa744a2abad9115b09a890e43aba652",
-      "updatedAt": "2026-11-09T13:18:30Z",
+      "ref": "1f2d165b95d0ba2ebc0ce157a56cfa6112e30973",
+      "updatedAt": "2026-11-09T19:46:37Z",
       "metrics": {
         "cases": 886541,
         "documents": 19887538,
         "mirroredFiles": 886549,
         "documentBytes": 205636096,
-        "snapshots": 886866
+        "snapshots": 886867
       },
       "charts": {}
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "d417c170f98975c0afcb7bdbb0131dcae2e0cf1a",
-      "updatedAt": "2026-11-09T00:45:35Z",
+      "ref": "34734eb3ceafa503feb29d9d4ed65e63fd60adea",
+      "updatedAt": "2026-11-10T00:22:17Z",
       "metrics": {
         "cases": 231173,
         "documents": 195388,
         "mirroredFiles": 30235,
         "documentBytes": 0,
-        "snapshots": 427054
+        "snapshots": 427056
       },
       "charts": {}
     },
@@ -1133,13 +1137,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "1e3510d5538a561f67172a689c173062f6fe5961",
-      "updatedAt": "2026-11-08T09:34:25Z",
+      "ref": "fdc2bf971ab4c97d99c1b17642947f4195bed2e5",
+      "updatedAt": "2026-11-10T00:31:56Z",
       "metrics": {
-        "jurisdictions": 667,
-        "reports": 2195,
-        "feePrograms": 5342,
-        "figures": 11863
+        "jurisdictions": 686,
+        "reports": 2235,
+        "feePrograms": 5387,
+        "figures": 11948
       },
       "charts": {}
     },
