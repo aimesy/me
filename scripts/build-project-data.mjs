@@ -287,10 +287,15 @@ function documentArchiveStats(repoConfig) {
     if (key) cases.add(key);
     documentBytes += Number(row.bytes_len || row.content_length || 0);
   }
+  // aimesy/nysc-data split the index into shards under archive/document-index/
+  // on 2026-10-22. The shard manifest carries the row count and no byte total.
+  const shardManifest = rows.length
+    ? null
+    : parseJson(readRepoFile(repoConfig, "archive/document-index/manifest.json"));
 
   return {
     cases: cases.size,
-    documents: rows.length,
+    documents: rows.length || Number(shardManifest?.rows || 0),
     documentBytes,
   };
 }
@@ -342,17 +347,35 @@ function publicDataDefault(repo) {
   };
 }
 
-function mergeReleaseAssetStats(project, stats) {
+// A release listing that could not be read carries the committed totals
+// forward, so a GitHub timeout never publishes an empty archive.
+function mergeReleaseAssetStats(project, stats, previousMetrics) {
   if (!project || !stats) return project;
   const metrics = project.metrics || {};
-  metrics.mirroredFiles = Math.max(Number(metrics.mirroredFiles || 0), Number(stats.assets || 0));
-  metrics.documentBytes = Math.max(Number(metrics.documentBytes || 0), Number(stats.bytes || 0));
+  const release = stats.failed
+    ? { assets: previousMetrics?.mirroredFiles, bytes: previousMetrics?.documentBytes }
+    : stats;
+  metrics.mirroredFiles = Math.max(Number(metrics.mirroredFiles || 0), Number(release.assets || 0));
+  metrics.documentBytes = Math.max(Number(metrics.documentBytes || 0), Number(release.bytes || 0));
   project.metrics = metrics;
   return project;
 }
 
-async function githubReleaseAssetStats(repoName, prefix) {
-  if (!repoName || !prefix || typeof fetch !== "function") return {};
+// GitHub answers a releases page with a 504 once the page lists too many
+// assets. For aimesy/nysc-data, 100 and 30 releases a page both time out and
+// 10 answers in about 3 seconds. At 100 a page the first request failed and
+// the tracker showed a 0 MB archive.
+const RELEASE_PAGE_SIZE = 10;
+const RELEASE_PAGE_LIMIT = 200;
+const RELEASE_PAGE_ATTEMPTS = 3;
+
+async function githubReleaseAssetStats(
+  repoName,
+  prefix,
+  fetchPage = globalThis.fetch,
+  pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+) {
+  if (!repoName || !prefix || typeof fetchPage !== "function") return {};
   const headers = {
     "Accept": "application/vnd.github+json",
     "User-Agent": "amyc-project-data",
@@ -360,25 +383,40 @@ async function githubReleaseAssetStats(repoName, prefix) {
   if (process.env.GH_TOKEN) headers.Authorization = `Bearer ${process.env.GH_TOKEN}`;
   let assets = 0;
   let bytes = 0;
-  for (let page = 1; page <= 10; page += 1) {
-    try {
-      const url = `https://api.github.com/repos/${repoName}/releases?per_page=100&page=${page}`;
-      const response = await fetch(url, { headers });
-      if (!response.ok) break;
-      const releases = await response.json();
-      if (!Array.isArray(releases) || !releases.length) break;
-      for (const release of releases) {
-        const tag = String(release.tag_name || release.name || "");
-        if (!tag.startsWith(prefix)) continue;
-        for (const asset of release.assets || []) {
-          assets += 1;
-          bytes += Number(asset.size || 0);
+  for (let page = 1; page <= RELEASE_PAGE_LIMIT; page += 1) {
+    const url = `https://api.github.com/repos/${repoName}/releases?per_page=${RELEASE_PAGE_SIZE}&page=${page}`;
+    let releases = null;
+    for (let attempt = 1; attempt <= RELEASE_PAGE_ATTEMPTS && !releases; attempt += 1) {
+      let retry = true;
+      try {
+        const response = await fetchPage(url, { headers });
+        if (response.ok) {
+          const body = await response.json();
+          if (Array.isArray(body)) releases = body;
+        } else {
+          // A refusal (401, 403, 404) will not change on a second request.
+          retry = response.status >= 500 || response.status === 429;
         }
+      } catch {
+        // A dropped connection gets the same retries as a 5xx.
       }
-      if (releases.length < 100) break;
-    } catch {
-      break;
+      if (releases || !retry) break;
+      if (attempt < RELEASE_PAGE_ATTEMPTS) await pause(attempt * 2000);
     }
+    // A partial sum would understate the archive, so report failure instead.
+    if (!releases) {
+      console.warn(`[project-data] ${repoName} releases page ${page} could not be read; keeping the committed release totals`);
+      return { failed: true };
+    }
+    for (const release of releases) {
+      const tag = String(release.tag_name || release.name || "");
+      if (!tag.startsWith(prefix)) continue;
+      for (const asset of release.assets || []) {
+        assets += 1;
+        bytes += Number(asset.size || 0);
+      }
+    }
+    if (releases.length < RELEASE_PAGE_SIZE) break;
   }
   return { assets, bytes };
 }
@@ -777,8 +815,9 @@ function buildCivProIdx(previous) {
 }
 
 function buildPublicDataProject(previous, key, repoName, repoConfig, releaseStats = {}) {
+  const previousMetrics = { ...previous?.projects?.[key]?.metrics };
   if (!repoAvailable(repoConfig.repo)) {
-    return mergeReleaseAssetStats(previous?.projects?.[key] || publicDataDefault(repoName), releaseStats);
+    return mergeReleaseAssetStats(previous?.projects?.[key] || publicDataDefault(repoName), releaseStats, previousMetrics);
   }
 
   const documentStats = documentArchiveStats(repoConfig);
@@ -801,7 +840,7 @@ function buildPublicDataProject(previous, key, repoName, repoConfig, releaseStat
       snapshots: Math.max(snapshotFiles.length, manifestStats.snapshots || 0),
     },
     charts: {},
-  }, releaseStats);
+  }, releaseStats, previousMetrics);
 }
 
 // Release counts from aimesy/mfa-data's manifest.json, which its release

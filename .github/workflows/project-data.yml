@@ -116,7 +116,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           sparse-checkout: |
             archive/case-directory/manifest.json
-            archive/document-index.ndjson
+            archive/document-index/manifest.json
             archive/promotions/*
             data/common/manifest.json
           sparse-checkout-cone-mode: false

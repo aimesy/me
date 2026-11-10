@@ -1077,9 +1077,9 @@
       "updatedAt": "2026-11-10T00:22:17Z",
       "metrics": {
         "cases": 231173,
-        "documents": 195388,
-        "mirroredFiles": 30235,
-        "documentBytes": 0,
+        "documents": 241608,
+        "mirroredFiles": 121043,
+        "documentBytes": 106108524630,
         "snapshots": 427056
       },
       "charts": {}

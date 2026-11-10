@@ -660,7 +660,10 @@ function applyPublicDataManifests(key, manifests) {
     dataManifest.documents?.rows,
     dataTables.documents?.rows,
   );
-  if (documents) metrics.documents = documents;
+  // A live manifest can be older than the hourly build: the aimesy/nysc-data
+  // common tables date from July 2026, while the build counts the current
+  // document index and release files. A live figure never lowers a built one.
+  metrics.documents = maxPositive(metrics.documents, documents);
 
   const promotedFiles = sumBy(dataManifest.promoted_runs, "promoted_file_count");
   const archiveCaseFiles = firstPositive(archive.cases_index_rows, archive.cases)
@@ -675,7 +678,7 @@ function applyPublicDataManifests(key, manifests) {
     archiveCaseFiles + tableFiles,
     caseDirectoryFiles,
   );
-  if (mirroredFiles) metrics.mirroredFiles = mirroredFiles;
+  metrics.mirroredFiles = maxPositive(metrics.mirroredFiles, mirroredFiles);
 
   const documentBytes = firstPositive(
     dataManifest.documentBytes,
@@ -687,7 +690,7 @@ function applyPublicDataManifests(key, manifests) {
     commonSummary.bytes,
     sumBy(dataManifest.promoted_runs, "promoted_bytes"),
   );
-  if (documentBytes) metrics.documentBytes = documentBytes;
+  metrics.documentBytes = maxPositive(metrics.documentBytes, documentBytes);
 
   metrics.snapshots = Math.max(
     positiveNumber(metrics.snapshots),

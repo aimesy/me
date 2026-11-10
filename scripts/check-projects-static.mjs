@@ -505,6 +505,149 @@ const sfscDataCheckoutSource = refreshWorkflowSource.slice(
 assert.match(sfscDataCheckoutSource, /sparse-checkout:\s*\|[\s\S]*^\s+LIVE\.md$/m,
   "the refresh must check out sfsc-data's LIVE.md");
 
+// The NYSC archive size comes from GitHub release assets. A listing that times
+// out must be retried, and a listing that stays unreadable must keep the
+// committed totals instead of publishing a 0 MB archive.
+const releaseStart = builderSource.indexOf("// A release listing that could not be read");
+const releaseEnd = builderSource.indexOf("\nfunction groupCount(", releaseStart);
+assert.notEqual(releaseStart, -1, "the release asset helpers must exist");
+assert.notEqual(releaseEnd, -1, "the release asset helpers must precede groupCount");
+const releaseSource = builderSource.slice(releaseStart, releaseEnd);
+assert.match(releaseSource, /const RELEASE_PAGE_SIZE = 10;/,
+  "aimesy/nysc-data release pages larger than 10 time out with a 504");
+const releasePage = (count, firstNumber) => Array.from({ length: count }, (_, index) => ({
+  tag_name: index % 2 ? `raw-webcivil-${firstNumber + index}` : `docs-${firstNumber + index}`,
+  assets: [{ size: 1000 }, { size: 24 }],
+}));
+const releaseResponse = (status, body) => ({ ok: status >= 200 && status < 300, status, json: async () => body });
+const releaseContext = {
+  process: { env: { GH_TOKEN: "test-token" } },
+  console: { warn(message) { releaseContext.warnings.push(String(message)); } },
+  warnings: [],
+  requests: [],
+  pauses: [],
+  script: [],
+  async fetchPage(url, options) {
+    releaseContext.requests.push({ url, authorization: options.headers.Authorization });
+    const next = releaseContext.script.shift();
+    if (next instanceof Error) throw next;
+    return next;
+  },
+  async pause(ms) { releaseContext.pauses.push(ms); },
+};
+vm.createContext(releaseContext);
+vm.runInContext(`${releaseSource}
+this.readReleases = () => githubReleaseAssetStats("aimesy/nysc-data", "docs-", fetchPage, pause);
+this.mergeReleaseAssetStats = mergeReleaseAssetStats;`, releaseContext);
+const runReleaseScript = async (script) => {
+  Object.assign(releaseContext, { script: [...script], requests: [], pauses: [], warnings: [] });
+  return releaseContext.readReleases();
+};
+
+const recovered = await runReleaseScript([
+  releaseResponse(504, { message: "timeout" }),
+  new Error("socket hang up"),
+  releaseResponse(200, releasePage(10, 0)),
+  releaseResponse(200, releasePage(3, 10)),
+]);
+assert.deepEqual({ ...recovered }, { assets: 14, bytes: 14 * 512 },
+  "only assets on releases with the docs- prefix count, across every page");
+assert.deepEqual(releaseContext.requests.map((request) => request.url), [
+  "https://api.github.com/repos/aimesy/nysc-data/releases?per_page=10&page=1",
+  "https://api.github.com/repos/aimesy/nysc-data/releases?per_page=10&page=1",
+  "https://api.github.com/repos/aimesy/nysc-data/releases?per_page=10&page=1",
+  "https://api.github.com/repos/aimesy/nysc-data/releases?per_page=10&page=2",
+], "a 504 and a dropped connection must each be retried on the same page");
+assert.ok(releaseContext.requests.every((request) => request.authorization === "Bearer test-token"),
+  "the private repo needs the token on every request");
+assert.equal(releaseContext.pauses.length, 2, "each retry waits first");
+assert.equal(releaseContext.warnings.length, 0);
+
+const timedOut = await runReleaseScript([
+  releaseResponse(200, releasePage(10, 0)),
+  releaseResponse(504, {}),
+  releaseResponse(504, {}),
+  releaseResponse(504, {}),
+]);
+assert.deepEqual({ ...timedOut }, { failed: true },
+  "a page that never answers must report failure, never the partial sum");
+assert.equal(releaseContext.requests.length, 4);
+assert.equal(releaseContext.warnings.length, 1);
+
+const refused = await runReleaseScript([releaseResponse(404, { message: "Not Found" })]);
+assert.deepEqual({ ...refused }, { failed: true });
+assert.equal(releaseContext.requests.length, 1, "a refusal is not retried");
+assert.equal(releaseContext.pauses.length, 0);
+
+const notAList = await runReleaseScript([
+  releaseResponse(200, { message: "unexpected" }),
+  releaseResponse(200, { message: "unexpected" }),
+  releaseResponse(200, { message: "unexpected" }),
+]);
+assert.deepEqual({ ...notAList }, { failed: true });
+
+const empty = await runReleaseScript([releaseResponse(200, [])]);
+assert.deepEqual({ ...empty }, { assets: 0, bytes: 0 });
+
+const mergeRelease = (metrics, stats, previousMetrics) =>
+  ({ ...releaseContext.mergeReleaseAssetStats({ metrics: { ...metrics } }, stats, previousMetrics).metrics });
+assert.deepEqual(
+  mergeRelease({ mirroredFiles: 30235, documentBytes: 0 }, { failed: true }, { mirroredFiles: 121043, documentBytes: 106108524630 }),
+  { mirroredFiles: 121043, documentBytes: 106108524630 },
+  "a failed release listing must keep the committed archive size and file count",
+);
+assert.deepEqual(
+  mergeRelease({ mirroredFiles: 30235, documentBytes: 0 }, { failed: true }, undefined),
+  { mirroredFiles: 30235, documentBytes: 0 },
+);
+assert.deepEqual(
+  mergeRelease({ mirroredFiles: 30235, documentBytes: 0 }, { assets: 121043, bytes: 106108524630 }, { mirroredFiles: 5, documentBytes: 5 }),
+  { mirroredFiles: 121043, documentBytes: 106108524630 },
+);
+assert.deepEqual(
+  mergeRelease({ mirroredFiles: 447, documentBytes: 4028161 }, {}, { mirroredFiles: 9000, documentBytes: 9000000000 }),
+  { mirroredFiles: 447, documentBytes: 4028161 },
+  "a project without release assets keeps the figures from its own repo",
+);
+assert.match(builderSource, /\}, releaseStats, previousMetrics\);\n\}/,
+  "buildPublicDataProject must pass the committed metrics to the release merge");
+
+// aimesy/nysc-data replaced archive/document-index.ndjson with shards whose
+// manifest carries the row count.
+const documentArchiveStart = builderSource.indexOf("function documentArchiveStats(");
+const documentArchiveSource = builderSource.slice(
+  documentArchiveStart,
+  builderSource.indexOf("\n}\n", documentArchiveStart) + 3,
+);
+const documentArchiveContext = {
+  files: {},
+  readRepoFile: (repo, filePath) => documentArchiveContext.files[filePath] || "",
+  parseNdjson: (text) => text.split("\n").filter(Boolean).map((line) => JSON.parse(line)),
+  parseJson: (text) => (text ? JSON.parse(text) : null),
+  caseKeyFromRecord: (row) => row.case || "",
+};
+vm.createContext(documentArchiveContext);
+vm.runInContext(`${documentArchiveSource}
+this.read = () => documentArchiveStats({});`, documentArchiveContext);
+documentArchiveContext.files = { "archive/document-index/manifest.json": JSON.stringify({ rows: 241608, shard_count: 256 }) };
+assert.deepEqual({ ...documentArchiveContext.read() }, { cases: 0, documents: 241608, documentBytes: 0 },
+  "the shard manifest must supply the document count when the single index file is gone");
+documentArchiveContext.files = {
+  "archive/document-index.ndjson": '{"case":"a","bytes_len":10}\n{"case":"a","content_length":5}\n',
+  "archive/document-index/manifest.json": JSON.stringify({ rows: 241608 }),
+};
+assert.deepEqual({ ...documentArchiveContext.read() }, { cases: 1, documents: 2, documentBytes: 15 },
+  "a single index file, where a repo still has one, stays the source");
+documentArchiveContext.files = {};
+assert.deepEqual({ ...documentArchiveContext.read() }, { cases: 0, documents: 0, documentBytes: 0 });
+const nyscCheckoutStart = refreshWorkflowSource.indexOf("      - name: Check out NYSC data");
+const nyscCheckoutSource = refreshWorkflowSource.slice(
+  nyscCheckoutStart,
+  refreshWorkflowSource.indexOf("\n      - name:", nyscCheckoutStart + 1),
+);
+assert.match(nyscCheckoutSource, /^\s+archive\/document-index\/manifest\.json$/m,
+  "the refresh must check out the NYSC document index shard manifest");
+
 const feedStart = builderSource.indexOf("const SFSC_FEED_DAYS");
 const feedEnd = builderSource.indexOf("\nfunction buildSfsc(", feedStart);
 assert.notEqual(feedStart, -1, "the SFSC feed builder must exist");
@@ -634,6 +777,38 @@ applyPublicDataManifests("kcsc", new Map([["data/manifest.json", {
 }]]));`, runtimeContext);
 assert.equal(runtimeContext.projectData.projects.sfsc.metrics.cases, 1012384);
 assert.equal(runtimeContext.projectData.projects.kcsc.metrics.documents, 15024602);
+
+// The aimesy/nysc-data common tables are older than the built figures, so the
+// live manifest must not lower the documents, files, or archive size on the card.
+runtimeContext.projectData.projects.nysc = {
+  metrics: { cases: 231173, documents: 241608, mirroredFiles: 121043, documentBytes: 106108524630, snapshots: 427056 },
+  charts: {},
+};
+vm.runInContext(`applyPublicDataManifests("nysc", new Map([
+  ["data/common/manifest.json", {
+    summary: { bytes: 1952333864 },
+    tables: { cases: { rows: 231173 }, documents: { rows: 195388 } },
+  }],
+  ["archive/case-directory/manifest.json", { scan: { result_files: 30000, document_byte_files: 235 } }],
+]));`, runtimeContext);
+assert.deepEqual(JSON.parse(JSON.stringify(runtimeContext.projectData.projects.nysc.metrics)), {
+  cases: 231173,
+  documents: 241608,
+  mirroredFiles: 121043,
+  documentBytes: 106108524630,
+  snapshots: 427056,
+});
+vm.runInContext(`applyPublicDataManifests("nysc", new Map([["data/common/manifest.json", {
+  summary: { bytes: 106108524631 },
+  tables: { cases: { rows: 231174 }, documents: { rows: 241609 } },
+}]]));`, runtimeContext);
+assert.deepEqual(JSON.parse(JSON.stringify(runtimeContext.projectData.projects.nysc.metrics)), {
+  cases: 231174,
+  documents: 241609,
+  mirroredFiles: 121043,
+  documentBytes: 106108524631,
+  snapshots: 427056,
+}, "a live manifest ahead of the build still raises the card's figures");
 
 // The SFSC card shows the whole archive in decimal gigabytes with the count of
 // PDFs it holds, and a live refresh leaves both figures alone.
