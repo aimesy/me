@@ -615,7 +615,24 @@ function buildSfscFeed(previousData = null) {
   };
 }
 
-function buildSfsc(previousData = null) {
+// assets/sfsc-archive.json holds the measured size of the whole SFSC document
+// archive and the count of distinct PDFs in it. No public repository carries
+// those figures, so the file is updated by hand after each measurement.
+function readSfscArchive() {
+  const archivePath = path.join(repoRoot, "assets", "sfsc-archive.json");
+  if (!existsSync(archivePath)) return null;
+  try {
+    return JSON.parse(readFileSync(archivePath, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+function buildSfsc(previousData = null, archive = null) {
+  const previousSfsc = previousData?.projects?.sfsc || {};
+  const archiveBytes = Number(archive?.bytes || 0) || Number(previousSfsc.metrics?.archiveBytes || 0);
+  const archiveDocuments = Number(archive?.documents || 0) || Number(previousSfsc.metrics?.archiveDocuments || 0);
+  const archiveMeasuredAt = archive?.measuredAt || previousSfsc.archiveMeasuredAt || null;
   const readme = readRepoFile(config.sfsc, "README.md");
   // sfsc-data's LIVE.md is rewritten by each daily tentative publication.
   // aimesy/sfsc's committed LIVE.md, then its README, are fallbacks.
@@ -640,17 +657,24 @@ function buildSfsc(previousData = null) {
     ref: repoHead(config.sfsc),
     updatedAt: repoUpdatedAt(config.sfsc),
     latestRuling,
+    archiveMeasuredAt,
     metrics: {
       tentativeRulings: live("tentative rulings") || parsed.tentativeRulings,
       cases: Number(caseDirectoryManifest?.case_count || 0)
         || live("case records", "dockets")
         || sourceRows
         || Number(previousData?.projects?.sfsc?.metrics?.cases || 0),
-      documents: live("documents indexed", "case documents")
-        || Number(caseTableStats?.case_documents || 0),
+      // The LIVE.md rows for these two counts can lag the case table stats,
+      // and neither count ever shrinks, so the larger figure is the current one.
+      documents: Math.max(
+        live("documents indexed", "case documents"),
+        Number(caseTableStats?.case_documents || 0),
+      ),
       documentsArchived: live("documents archived"),
-      docketEntries: live("docket entries") || Number(caseTableStats?.docket_entries || 0),
+      docketEntries: Math.max(live("docket entries"), Number(caseTableStats?.docket_entries || 0)),
       documentBytes: liveDocumentBytes || repoFileSize(config.sfsc, "data/documents.parquet"),
+      archiveBytes,
+      archiveDocuments,
     },
     charts: {
       rulingsByDepartment: parsed.departments,
@@ -858,7 +882,7 @@ const publicReleaseStats = {
 
 const projects = {
   sfsc: {
-    ...buildSfsc(previous),
+    ...buildSfsc(previous, readSfscArchive()),
     feed: buildSfscFeed(previous),
   },
   tentatives: buildTentatives(previous),

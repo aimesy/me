@@ -195,6 +195,7 @@ jobs:
               if ! git diff --quiet "$PAGE_BASE_SHA..origin/main" -- \
                 .github/workflows/project-data.yml \
                 assets/project-data.json \
+                assets/sfsc-archive.json \
                 assets/data-index.css \
                 assets/data-index.js \
                 contact/index.html \
@@ -206,6 +207,7 @@ jobs:
                 git diff --name-only "$PAGE_BASE_SHA..origin/main" -- \
                   .github/workflows/project-data.yml \
                   assets/project-data.json \
+                  assets/sfsc-archive.json \
                   assets/data-index.css \
                   assets/data-index.js \
                   contact/index.html \

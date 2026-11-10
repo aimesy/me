@@ -45,6 +45,8 @@ const formatArchiveSize = (bytes) => {
     : { minimumFractionDigits: 1, maximumFractionDigits: 1 };
   return `${new Intl.NumberFormat("en-US", options).format(scaled)} ${unit}`;
 };
+// The SFSC archive total is shown in whole decimal gigabytes at every size.
+const formatGigabytes = (bytes) => `${formatNumber(Math.round(Number(bytes || 0) / 1e9))} GB`;
 
 const shortHash = (hash) => (hash ? hash.slice(0, 7) : "unknown");
 const formatLabel = (value) => String(value || "").replaceAll("-", " ");
@@ -153,7 +155,12 @@ function renderMetrics(target, metrics) {
       metric("rulings", formatNumber(metrics.tentativeRulings)),
       metric("case records", formatNumber(metrics.cases)),
       metric("documents indexed", formatNumber(metrics.documents)),
-      metric("archive size", formatArchiveSize(metrics.documentBytes)),
+      Number(metrics.archiveDocuments) > 0
+        ? metric("documents archived", formatNumber(metrics.archiveDocuments))
+        : "",
+      metric("archive size", Number(metrics.archiveBytes) > 0
+        ? formatGigabytes(metrics.archiveBytes)
+        : formatArchiveSize(metrics.documentBytes)),
     ].join("");
   }
 

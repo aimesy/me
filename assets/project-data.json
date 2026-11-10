@@ -7,13 +7,16 @@
       "ref": "af706a13eff277eb2fe096b6f44c4fd726cbd8d0",
       "updatedAt": "2026-11-06T09:44:08-08:00",
       "latestRuling": "2026-11-10",
+      "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
         "tentativeRulings": 386366,
         "cases": 1457267,
-        "documents": 4082942,
+        "documents": 6524689,
         "documentsArchived": 94046,
-        "docketEntries": 9092102,
-        "documentBytes": 85544927232
+        "docketEntries": 28247819,
+        "documentBytes": 85544927232,
+        "archiveBytes": 6073195931136,
+        "archiveDocuments": 6126494
       },
       "charts": {
         "rulingsByDepartment": [

@@ -442,6 +442,61 @@ assert.equal(liveContext.fromData.metrics.tentativeRulings, 384308,
   "sfsc-data's LIVE.md, rewritten by each daily publication, must supply SFSC tentative rulings first");
 assert.equal(liveContext.fromFallback.metrics.tentativeRulings, 382361,
   "aimesy/sfsc's committed LIVE.md must remain the fallback");
+
+// A LIVE.md whose document and docket rows lag the case table stats must not
+// hold the committed counts back.
+const laggingLiveContext = {
+  config: { sfsc: sfscConfig, sfscData: sfscDataConfig },
+  readRepoFile(repo, path) {
+    if (repo !== sfscDataConfig) return "";
+    if (path === "LIVE.md") {
+      return "| Metric | Count |\n|---|---:|\n| Documents indexed | 4,082,942 |\n| Docket entries | 9,092,102 |\n";
+    }
+    if (path === "data/case-table-stats.json") {
+      return JSON.stringify({ case_documents: 6524689, docket_entries: 28247819 });
+    }
+    return "";
+  },
+  parseSfsc: () => ({ departments: [], tentativeRulings: 0 }),
+  parseJson: (value) => value ? JSON.parse(value) : null,
+  repoHead: () => "test-ref",
+  repoUpdatedAt: () => "2026-11-09T00:00:00Z",
+  repoFileSize: () => 0,
+};
+vm.createContext(laggingLiveContext);
+vm.runInContext(`${liveHelperSource}\n${buildSfscSource}
+this.lagging = buildSfsc();
+this.measured = buildSfsc(null, { measuredAt: "2026-11-09T19:58:26Z", bytes: 6073195931136, documents: 6126494 });
+this.carried = buildSfsc({
+  projects: { sfsc: { archiveMeasuredAt: "2026-11-01T00:00:00Z", metrics: { archiveBytes: 5000000000000, archiveDocuments: 6000000 } } },
+});
+this.replaced = buildSfsc(
+  { projects: { sfsc: { archiveMeasuredAt: "2026-11-01T00:00:00Z", metrics: { archiveBytes: 5000000000000, archiveDocuments: 6000000 } } } },
+  { measuredAt: "2026-11-09T19:58:26Z", bytes: 6073195931136, documents: 6126494 },
+);`, laggingLiveContext);
+assert.equal(laggingLiveContext.lagging.metrics.documents, 6524689,
+  "the case table stats must supply SFSC documents when LIVE.md lags them");
+assert.equal(laggingLiveContext.lagging.metrics.docketEntries, 28247819,
+  "the case table stats must supply SFSC docket entries when LIVE.md lags them");
+assert.equal(laggingLiveContext.lagging.metrics.archiveBytes, 0);
+assert.equal(laggingLiveContext.lagging.archiveMeasuredAt, null);
+assert.equal(laggingLiveContext.measured.metrics.archiveBytes, 6073195931136);
+assert.equal(laggingLiveContext.measured.metrics.archiveDocuments, 6126494);
+assert.equal(laggingLiveContext.measured.archiveMeasuredAt, "2026-11-09T19:58:26Z");
+assert.equal(laggingLiveContext.carried.metrics.archiveBytes, 5000000000000,
+  "a refresh without the archive file must keep the committed archive size");
+assert.equal(laggingLiveContext.carried.metrics.archiveDocuments, 6000000);
+assert.equal(laggingLiveContext.carried.archiveMeasuredAt, "2026-11-01T00:00:00Z");
+assert.equal(laggingLiveContext.replaced.metrics.archiveBytes, 6073195931136,
+  "a newer archive measurement must replace the committed one");
+assert.match(builderSource, /buildSfsc\(previous, readSfscArchive\(\)\)/,
+  "the scheduled build must pass the archive measurement to buildSfsc");
+const sfscArchive = JSON.parse(readFileSync(new URL("../assets/sfsc-archive.json", import.meta.url), "utf8"));
+assert.deepEqual(Object.keys(sfscArchive).sort(), ["bytes", "documents", "measuredAt", "schema"],
+  "the archive file carries totals only");
+assert.ok(Number.isSafeInteger(sfscArchive.bytes) && sfscArchive.bytes > 0);
+assert.ok(Number.isSafeInteger(sfscArchive.documents) && sfscArchive.documents > 0);
+assert.ok(!Number.isNaN(new Date(sfscArchive.measuredAt).getTime()));
 const sfscDataCheckoutStart = refreshWorkflowSource.indexOf("      - name: Check out SFSC data");
 const sfscDataCheckoutSource = refreshWorkflowSource.slice(
   sfscDataCheckoutStart,
@@ -579,6 +634,71 @@ applyPublicDataManifests("kcsc", new Map([["data/manifest.json", {
 }]]));`, runtimeContext);
 assert.equal(runtimeContext.projectData.projects.sfsc.metrics.cases, 1012384);
 assert.equal(runtimeContext.projectData.projects.kcsc.metrics.documents, 15024602);
+
+// The SFSC card shows the whole archive in decimal gigabytes with the count of
+// PDFs it holds, and a live refresh leaves both figures alone.
+const formatterStart = projectsSource.indexOf("const formatNumber =");
+const formatterEnd = projectsSource.indexOf("\nconst shortHash", formatterStart);
+const metricStart = projectsSource.indexOf("function metric(");
+const metricEnd = projectsSource.indexOf("\n}\n", metricStart) + 3;
+const renderMetricsStart = projectsSource.indexOf("function renderMetrics(");
+const renderMetricsEnd = projectsSource.indexOf("\n}\n", renderMetricsStart) + 3;
+for (const [name, index] of [["formatNumber", formatterStart], ["shortHash", formatterEnd], ["metric", metricStart], ["renderMetrics", renderMetricsStart]]) {
+  assert.notEqual(index, -1, `${name} must exist`);
+}
+const sfscTiles = { innerHTML: "" };
+const renderContext = {
+  Intl,
+  PUBLIC_DATA_KEYS: new Set(),
+  $: (selector) => (selector === '[data-metrics="sfsc"]' ? sfscTiles : null),
+};
+vm.createContext(renderContext);
+vm.runInContext([
+  projectsSource.slice(formatterStart, formatterEnd),
+  projectsSource.slice(metricStart, metricEnd),
+  projectsSource.slice(renderMetricsStart, renderMetricsEnd),
+].join("\n"), renderContext);
+const sfscTileText = (metrics) => {
+  renderContext.metrics = metrics;
+  vm.runInContext('renderMetrics("sfsc", metrics);', renderContext);
+  return [...sfscTiles.innerHTML.matchAll(/<b>([^<]*)<\/b>\s*<span>([^<]*)<\/span>/g)].map((match) => `${match[1]} ${match[2]}`);
+};
+assert.deepEqual(sfscTileText({
+  tentativeRulings: 386366,
+  cases: 1457267,
+  documents: 6524689,
+  documentBytes: 85544927232,
+  archiveBytes: 6073195931136,
+  archiveDocuments: 6126494,
+}), [
+  "386,366 rulings",
+  "1,457,267 case records",
+  "6,524,689 documents indexed",
+  "6,126,494 documents archived",
+  "6,073 GB archive size",
+]);
+assert.deepEqual(sfscTileText({
+  tentativeRulings: 386366,
+  cases: 1457267,
+  documents: 6524689,
+  documentBytes: 85544927232,
+}), [
+  "386,366 rulings",
+  "1,457,267 case records",
+  "6,524,689 documents indexed",
+  "80 GB archive size",
+], "without an archive measurement the card falls back to the viewer's own size");
+runtimeContext.projectData.projects.sfsc.metrics.archiveBytes = 6073195931136;
+runtimeContext.projectData.projects.sfsc.metrics.archiveDocuments = 6126494;
+vm.runInContext(`applyLiveMetrics("sfsc", new Map([
+  ["documents indexed", "6,524,689"],
+  ["documents archived", "94,867"],
+  ["archive size", "83,110 MB"],
+]));`, runtimeContext);
+assert.equal(runtimeContext.projectData.projects.sfsc.metrics.archiveBytes, 6073195931136,
+  "the viewer's LIVE.md must not overwrite the archive size");
+assert.equal(runtimeContext.projectData.projects.sfsc.metrics.archiveDocuments, 6126494,
+  "the viewer's LIVE.md must not overwrite the archive document count");
 
 const functionStart = projectsSource.indexOf("function sfscDocketSearchUrl");
 const functionEnd = projectsSource.indexOf("\n}\n", functionStart);
