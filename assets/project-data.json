@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-11-10T19:44:10.000Z",
+  "generatedAt": "2026-11-11T02:11:06.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "d2a370ef4333b10345bef8cf667d313329d6dbb9",
       "updatedAt": "2026-11-09T19:23:06-08:00",
-      "latestRuling": "2026-11-10",
+      "latestRuling": "2026-11-12",
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
-        "tentativeRulings": 386366,
+        "tentativeRulings": 386422,
         "cases": 1457267,
         "documents": 6524689,
         "documentsArchived": 94046,
@@ -158,8 +158,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-10T01:50:36.671Z",
+        "latestScrapedAt": "2026-11-11T01:02:20.087Z",
         "days": [
+          {
+            "date": "2026-11-12",
+            "total": 56,
+            "departments": [
+              {
+                "department": "501",
+                "count": 20
+              },
+              {
+                "department": "302",
+                "count": 18
+              },
+              {
+                "department": "301",
+                "count": 16
+              },
+              {
+                "department": "204",
+                "count": 2
+              }
+            ]
+          },
           {
             "date": "2026-11-10",
             "total": 123,
@@ -247,31 +269,129 @@
                 "count": 8
               }
             ]
-          },
-          {
-            "date": "2026-11-04",
-            "total": 76,
-            "departments": [
-              {
-                "department": "204",
-                "count": 32
-              },
-              {
-                "department": "501",
-                "count": 20
-              },
-              {
-                "department": "301",
-                "count": 12
-              },
-              {
-                "department": "302",
-                "count": 12
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-12",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25623868",
+            "caseTitle": "FIRST FRIENDSHIP INSTITUTIONAL BAPTIST CHURCH OF VS. YVONNE DUNKLEY ET AL",
+            "matter": "MOTION FOR JUDGMENT ON THE PLEADINGS",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendants Yvonne Dunkley and David Bonner's motion for judgment on the pleadings is denied. The motion is moot. Defendants' motion targets the Complaint filed on April 1, 2025. (See Defs.' Notice of Motion and Motion for Judgment on the Pleadings, 2:20-21…"
+          },
+          {
+            "date": "2026-11-12",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24611759",
+            "caseTitle": "STEVE LAKOVITS VS. SF MULTIFAMILY IV PROPERTY OWNER LLC, A LIMITED ET AL",
+            "matter": "NOTICE OF EX PARTE APPLICATION AND EX PARTE APPLICATION FOR ORDER SHORTENING TIME TO HEAR MOTION TO QUASH OR MODIFY TRIAL SUBPOENAS DUCES TECUM, AND FOR TEMPORARY STAY OF COMPLIANCE (SET PER EX PARTE HEARING ON NOV-09-2026)",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Defendants SF Multifamily IV Property Owner LLC et al.'s motion to quash or modify seven trial subpoenas for witnesses and documents, served by plaintiff Steve Lakovits, is granted in part as set out below."
+          },
+          {
+            "date": "2026-11-12",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21596771",
+            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
+            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT CHRIS KELLY INDIVIDUALLY AND AS CO-TRUSTEE OF THE KELLY FAMILY TRUST, LARA KELLY MOTION TO ADMIT COUNSEL PRO HAC VICE is GRANTED. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password…"
+          },
+          {
+            "date": "2026-11-12",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC26636800",
+            "caseTitle": "SAIDA SAFIULLINA VS. U-HAUL INTERNATIONAL, INC. ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Arbitration",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendants U-Haul Co. of Arizona (\"UHAZ\") and U-Haul International, Inc.'s (\"UHI\") motion to compel arbitration and stay proceedings is GRANTED."
+          },
+          {
+            "date": "2026-11-12",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24617683",
+            "caseTitle": "QUEENS SF, LLC, A LIMITED LIABILITY PARTNERSHIP ET AL VS. NICOLE DOBARRO",
+            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "The unopposed motion for withdrawal of attorney of record Marie Trimble Holvick for entity defendant Queens SF, LLC is granted for good cause shown. Moving party to prepare the proposed order on the Judicial Council form."
+          },
+          {
+            "date": "2026-11-12",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC22598225",
+            "caseTitle": "VALERIE CHEW, TRUSTEE OF THE VALERIE J.CHEW VS. RUDY KING CHEW ET AL",
+            "matter": "Notice Of Motion And Motion By Partition Referee For Discharge And For Instructions Regarding Disposition Of Remaining Money; Declaration Of Partition Referee",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "OTHER MATTHEW TAYLOR Notice Of Motion And Motion By Partition Referee For Discharge And For Instructions Regarding Disposition Of Remaining Money is GRANTED as requested. Moving party to prepare an order. =(501/CFH) Parties may appear in-person…"
+          },
+          {
+            "date": "2026-11-12",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24615682",
+            "caseTitle": "JOHN MCGREGOR VS. CUSHMAN & WAKEFIELD OF CALIFORNIA INC., A ET AL",
+            "matter": "MOTION TO DISMISS",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "hearing",
+              "label": "Hearing"
+            },
+            "text": "Hearing required. For the 9:00 a.m. calendar, all attorneys and parties may appear in Department 302 remotely or in person. Remote hearings will be conducted by videoconference using Zoom. (Dept. 302 Zoom ID 160 409 7690; Passcode 516287.) To appear remotely…"
+          },
+          {
+            "date": "2026-11-12",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24619361",
+            "caseTitle": "JANE DOE VS. GAVIN NEWSOM ET AL",
+            "matter": "MOTION TO STRIKE",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff Jane Doe's motion to strike the memorandum of costs on appeal submitted by dismissed defendant Gavin Newsom is denied. Newsom carries his burden of showing that all costs claimed in his September 28, 2026 memorandum of costs are proper and…"
+          },
           {
             "date": "2026-11-10",
             "time": "09:00 AM",
@@ -751,140 +871,20 @@
               "label": "Granted in part"
             },
             "text": "Defendant and cross-complainant Albina Khazan's motion to compel Jian Xu's compliance with demand for production of documents is granted in part and denied in part. The court issues an order to show cause re: evidentiary and monetary sanctions and sets a…"
-          },
-          {
-            "date": "2026-11-04",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC22599208",
-            "caseTitle": "DOUGLAS JONES JR. VS. CITY AND COUNTY OF SAN FRANCISCO, A PUBLIC ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT , Or In The Alternative, Summary Adjudication",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant City and County of San Francisco (\"CCSF\")'s motion for summary judgment is DENIED. CCSF's alternative motion for summary adjudication is also DENIED."
-          },
-          {
-            "date": "2026-11-04",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23610087",
-            "caseTitle": "JASON COOK VS. CF COLLECTIVE, LLC, A CALIFORNIA LIMITED LIABILITY ET AL",
-            "matter": "Notice Of Motion And Motion To Seal Records; Memorandum Of Points And Authorities",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Defendants Joseph Talmadge et al.'s motion to seal specified documents currently in the public record is granted in part and denied in part."
-          },
-          {
-            "date": "2026-11-04",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26682849",
-            "caseTitle": "SAMUEL CHEADLE VS. DAVID ROBERTSON",
-            "matter": "Notice Of Motion And Motion To Deem Requests For Admission, Set One, Admitted Against Jeremy Cooke; Request For Monetary Sanctions; Memorandum Of Points And Authorities And Declaration Of Samuel Cheadle In Support Thereof",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF SAMUEL CHEADLE Notice Of Motion And Motion To Deem Requests For Admission, Set One, Admitted Against Jeremy Cooke; Request For Monetary Sanctions is DENIED. The Requests for Admission which Plaintiff seeks to have deemed admitted do not appear to…"
-          },
-          {
-            "date": "2026-11-04",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC26633268",
-            "caseTitle": "WELLS FARGO BANK, N.A. VS. DEAN L WITMER",
-            "matter": "MOTION FOR SUMMARY JUDGMENT Pursuant To Ccp 437c",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Wells Fargo Bank, N.A.'s (\"Wells Fargo\") unopposed motion for summary judgment is GRANTED."
-          },
-          {
-            "date": "2026-11-04",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25628885",
-            "caseTitle": "JANE DOE VS. UBER TECHNOLOGIES, INC. ET AL",
-            "matter": "Motion For Protective Order And To Quash Plaintiffs Notices Of Taking Depositions Of Hannah Nilles, Joseph Navin, Ali Rorabaugh, And Srishti Bajaj",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "1 - Defendant Uber Technologies, Inc.'s motion for protective order and to quash Plaintiff's notices of taking depositions of Hannah Nilles, Joseph Navin, Ali Rorabaugh, and Srishti Bajaj is granted in part and denied in part. No sanctions are awarded."
-          },
-          {
-            "date": "2026-11-04",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD26682849",
-            "caseTitle": "SAMUEL CHEADLE VS. DAVID ROBERTSON",
-            "matter": "Notice Of Motion And Motion To Compel Defendant David Robertson'S Responses To Form Interrogatories - General, And Unlawful Detainer - And Requests For Production Of Documents (Set One); Request For Sanctions; Memorandum Of Points And Authorities And Declaration Of Samuel Cheadle In Support Of Thereof",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF SAMUEL CHEADLE Notice Of Motion And Motion To Compel Defendant David Robertson'S Responses To Form Interrogatories - General, And Unlawful Detainer - And Requests For Production Of Documents (Set One); Request For Sanctions is DENIED. The Requests…"
-          },
-          {
-            "date": "2026-11-04",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC26634512",
-            "caseTitle": "STEPHEN MASSEY VS. PURPLE STAR MD ET AL",
-            "matter": "MOTION TO STRIKE Amended COMPLAINT",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendants Shirley Wang, Ghassan Murad, and Purple Star MD's motion to strike the Second Amended Complaint is GRANTED with 15 days leave to amend."
-          },
-          {
-            "date": "2026-11-04",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25628885",
-            "caseTitle": "JANE DOE VS. UBER TECHNOLOGIES, INC. ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Sacramento Police Department'S Responses To Deposition Subpoena For Production Of Business Records",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Defendant Uber Technologies, Inc.'s motion to compel Sacramento Police Department's responses to deposition subpoena for production of business records is granted in part and continued in part for further hearing to November 12, 2026."
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "8fa1c0b652b68c1fb78576f3668d0245f3ced03e",
-      "updatedAt": "2026-11-10T01:13:54Z",
+      "ref": "764ee4acb0d27e31e74163822f23f57635e0db4f",
+      "updatedAt": "2026-11-11T01:19:07Z",
       "metrics": {
-        "tentativeRulings": 76315,
+        "tentativeRulings": 76895,
         "parsedCounties": 34,
-        "documents": 19144,
-        "archivedFiles": 114176,
-        "documentBytes": 20496515072
+        "documents": 19330,
+        "archivedFiles": 114949,
+        "documentBytes": 20627587072
       },
       "charts": {
         "rulingsByCounty": [
@@ -1060,27 +1060,27 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "add6578b471b9e190bc6d980bb67ec71d2b70846",
-      "updatedAt": "2026-11-10T19:44:10Z",
+      "ref": "2451ae8dc86c59897745149b97dbd5f3547e6d6e",
+      "updatedAt": "2026-11-11T02:11:06Z",
       "metrics": {
         "cases": 886541,
         "documents": 19887538,
         "mirroredFiles": 886549,
         "documentBytes": 205636096,
-        "snapshots": 886872
+        "snapshots": 886873
       },
       "charts": {}
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "34734eb3ceafa503feb29d9d4ed65e63fd60adea",
-      "updatedAt": "2026-11-10T00:22:17Z",
+      "ref": "a64a48d2a1b3506d829fd5d5cb5c83b0e45450bc",
+      "updatedAt": "2026-11-11T00:36:56Z",
       "metrics": {
         "cases": 231173,
         "documents": 241608,
         "mirroredFiles": 121043,
         "documentBytes": 106108524630,
-        "snapshots": 427056
+        "snapshots": 427058
       },
       "charts": {}
     },
@@ -1140,13 +1140,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "ccd19408f4fc39ac572fbed122369b66ed1fb0af",
-      "updatedAt": "2026-11-10T10:45:35Z",
+      "ref": "7eebd45c615acf7fad66e6d6ac541f51aa958bf7",
+      "updatedAt": "2026-11-11T02:01:29Z",
       "metrics": {
-        "jurisdictions": 710,
-        "reports": 2269,
-        "feePrograms": 5446,
-        "figures": 12027
+        "jurisdictions": 712,
+        "reports": 2271,
+        "feePrograms": 5449,
+        "figures": 12030
       },
       "charts": {}
     },
