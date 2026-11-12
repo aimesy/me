@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T15:49:25.000Z",
+  "generatedAt": "2026-11-12T01:08:08.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -158,7 +158,7 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-11T01:02:20.087Z",
+        "latestScrapedAt": "2026-11-12T01:02:06.077Z",
         "days": [
           {
             "date": "2026-11-12",
@@ -877,8 +877,8 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "764ee4acb0d27e31e74163822f23f57635e0db4f",
-      "updatedAt": "2026-11-11T01:19:07Z",
+      "ref": "12658dfe1664be47f095ce7e6da912afb10520c8",
+      "updatedAt": "2026-11-12T01:08:08Z",
       "metrics": {
         "tentativeRulings": 76895,
         "parsedCounties": 34,
@@ -1060,27 +1060,27 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "644c2a589ea9ed5092627471b4bd10bfe9385d15",
-      "updatedAt": "2026-11-11T15:04:21Z",
+      "ref": "0ec61b28354ed5c7daa4d87d2c5cd3459754427e",
+      "updatedAt": "2026-11-11T19:24:15Z",
       "metrics": {
         "cases": 886541,
         "documents": 19887538,
         "mirroredFiles": 886549,
         "documentBytes": 205636096,
-        "snapshots": 886876
+        "snapshots": 886877
       },
       "charts": {}
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "a64a48d2a1b3506d829fd5d5cb5c83b0e45450bc",
-      "updatedAt": "2026-11-11T00:36:56Z",
+      "ref": "be0ccb2a4afba0881d18fe1ebb7be34547689c8e",
+      "updatedAt": "2026-11-12T00:29:49Z",
       "metrics": {
         "cases": 231173,
         "documents": 241608,
         "mirroredFiles": 121043,
         "documentBytes": 106108524630,
-        "snapshots": 427058
+        "snapshots": 427060
       },
       "charts": {}
     },
@@ -1140,13 +1140,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "213a5e8b5fbd99668e0777cc10a2574e7ef761bd",
-      "updatedAt": "2026-11-11T15:49:25Z",
+      "ref": "c8c499cd2d51789baa7e4b239eb7acae7421ff06",
+      "updatedAt": "2026-11-11T22:19:51Z",
       "metrics": {
-        "jurisdictions": 728,
-        "reports": 2311,
-        "feePrograms": 5537,
-        "figures": 12159
+        "jurisdictions": 690,
+        "reports": 2322,
+        "feePrograms": 5492,
+        "figures": 12167
       },
       "charts": {}
     },
