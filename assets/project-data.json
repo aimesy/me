@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-12T20:47:07.000Z",
+  "generatedAt": "2026-11-13T01:32:26.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "60abbf1b8639fd1a29080c9392b26b17d173221f",
       "updatedAt": "2026-11-12T20:47:07Z",
-      "latestRuling": "2026-11-12",
+      "latestRuling": "2026-11-13",
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
-        "tentativeRulings": 386422,
-        "cases": 1457267,
+        "tentativeRulings": 386472,
+        "cases": 1457457,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -48,7 +48,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434951
+            "value": 434987
           },
           {
             "label": "CRI",
@@ -56,39 +56,39 @@
           },
           {
             "label": "CSM",
-            "value": 188111
+            "value": 188144
           },
           {
             "label": "CUD",
-            "value": 97217
+            "value": 97233
           },
           {
             "label": "FDI",
-            "value": 98877
+            "value": 98909
           },
           {
             "label": "FCS",
-            "value": 94464
+            "value": 94473
           },
           {
             "label": "PES",
-            "value": 42655
+            "value": 42661
           },
           {
             "label": "FDV",
-            "value": 30087
+            "value": 30095
           },
           {
             "label": "CPF",
-            "value": 29195
+            "value": 29205
           },
           {
             "label": "CNC",
-            "value": 25660
+            "value": 25672
           },
           {
             "label": "PDW",
-            "value": 21577
+            "value": 21588
           },
           {
             "label": "FSD",
@@ -100,7 +100,7 @@
           },
           {
             "label": "PTR",
-            "value": 6538
+            "value": 6543
           },
           {
             "label": "FMS",
@@ -108,19 +108,19 @@
           },
           {
             "label": "APP",
-            "value": 5027
+            "value": 5028
           },
           {
             "label": "PGN",
-            "value": 4170
+            "value": 4172
           },
           {
             "label": "FPT",
-            "value": 714
+            "value": 721
           },
           {
             "label": "FLD",
-            "value": 2817
+            "value": 2819
           },
           {
             "label": "DPO",
@@ -158,8 +158,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-12T01:02:06.077Z",
+        "latestScrapedAt": "2026-11-13T01:02:00.124Z",
         "days": [
+          {
+            "date": "2026-11-13",
+            "total": 65,
+            "departments": [
+              {
+                "department": "301",
+                "count": 28
+              },
+              {
+                "department": "302",
+                "count": 18
+              },
+              {
+                "department": "501",
+                "count": 18
+              },
+              {
+                "department": "204",
+                "count": 1
+              }
+            ]
+          },
           {
             "date": "2026-11-12",
             "total": 56,
@@ -251,27 +273,129 @@
                 "count": 1
               }
             ]
-          },
-          {
-            "date": "2026-11-05",
-            "total": 38,
-            "departments": [
-              {
-                "department": "302",
-                "count": 16
-              },
-              {
-                "department": "301",
-                "count": 14
-              },
-              {
-                "department": "501",
-                "count": 8
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-13",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC18564981",
+            "caseTitle": "TIAN ZHANG VS. APEX CONSTRUCTION ET AL",
+            "matter": "MOTION FOR SET ASIDE/VACATE JUDGMENT",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Cross-defendant Stephen Tong's motion to set aside the default and default judgment entered against him on the cross-complaint filed by cross-complainants Jonathan Padilla and Wing See Ng is granted in part. The default entered against Tong on the…"
+          },
+          {
+            "date": "2026-11-13",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC18571683",
+            "caseTitle": "BH FINANCIAL SERVICES INC A CALIFORNIA CORPORATION VS. AARON GRONER ET AL",
+            "matter": "HEARING ON CLAIM OF EXEMPTION",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "The claim of exemption is denied. Judgment debtor does not show a basis for transportation, food, pet care, and retirement saving costs. Judgment debtor's income is far in excess of the minimum wage on which exemptions are calculated. Judgment debtor reports…"
+          },
+          {
+            "date": "2026-11-13",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21596771",
+            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
+            "matter": "Notice Of Motion And Motion For Determination Of Good Faith Settlement Pursuant To California Code Of Civil Procedure Section 877 And 877.6",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT DAVID KALLMEYER , AN INDIVIDUAL, MICHAEL COMAROTO, GFDS ENGINEERS Notice Of Motion And Motion For Determination Of Good Faith Settlement Pursuant To California Code Of Civil Procedure Section 877 And 877.6 is GRANTED. Moving party carried their…"
+          },
+          {
+            "date": "2026-11-13",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24612762",
+            "caseTitle": "GARY N. NEIL ET AL VS. BAMBOO INSURANCE SERVICES, INC. ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Discovery Responses And Request For Sanctions In The Amount Of $1,610; Memorandum Of Points And Authorities In Support Thereof (Motions)",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT GOOSEHEAD INSURANCE AGENCY, LLC'S Motion To Compel Discovery Responses And Request For Sanctions In The Amount Of $1,610. Defendant Goosehead Insurance Agency, LLC's motion to compel discovery responses is denied as moot and its request for monetary…"
+          },
+          {
+            "date": "2026-11-13",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC20585409",
+            "caseTitle": "DAMON HAMMOND VS. UNITED BRANDS PRODUCT DESIGN DEVELOPMENT AND ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT / Notice Of And Motion For Summary Adjudication",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant Safia Qasem dba World of Smoke's unopposed motion for summary adjudication as to the seventh cause of action for negligence per se is is granted for good cause shown in the moving papers. The motion is denied as moot as to punitive damages because…"
+          },
+          {
+            "date": "2026-11-13",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21596771",
+            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
+            "matter": "Notice Of Motion And Motion For Determination Of Good Faith Settlement",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Notice Of Motion And Motion For Determination Of Good Faith Settlement is GRANTED. Moving party carried their burden under Tech-Built and opposing party did not carry their burden.=(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video -…"
+          },
+          {
+            "date": "2026-11-13",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24613196",
+            "caseTitle": "KELLY NOVAK VS. SONORA SENIOR LIVING, LLC, INDIVIDUALLY AND DOING ET AL",
+            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Attorney Andrew Cross's motion to be relieved as counsel for defendant Sonora Senior Living, LLC is granted. The grounds for the opposition of plaintiff Kelly Novak to the granting of this motion have been adequately addressed by Cross's reply declaration…"
+          },
+          {
+            "date": "2026-11-13",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24616745",
+            "caseTitle": "JEFFREY MOLNO VS. DAGEN MINISTERO ET AL",
+            "matter": "Notice Of Motion And Motion For Order Compelling Michelle Hogarths Attendance And Testimony At Deposition And For An Order Imposing Monetary Sanctions",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendants Dagen Ministerio and Arlene Yap's motion to compel nonparty Michelle Hogarth to appear at deposition is denied. The court lacks the power to compel a nonparty to appear without a subpoena, and defendants offer no authority that the court has this…"
+          },
           {
             "date": "2026-11-12",
             "time": "09:00 AM",
@@ -751,134 +875,14 @@
               "label": "Granted"
             },
             "text": "Plaintiffs Tri Huu Ly et al.'s unopposed motion to compel responses to their requests for production of documents, set one, from defendant Charles Kartchner is granted for good cause shown in the moving papers. Plaintiffs show Kartchner has not responded to…"
-          },
-          {
-            "date": "2026-11-05",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC22599624",
-            "caseTitle": "EDERIC LLARENA VS. CITY OF SAN FRANCISCO ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT .",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant City and County of San Francisco (CCSF)'s motion for summary judgment is denied."
-          },
-          {
-            "date": "2026-11-05",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25623859",
-            "caseTitle": "FAF LIQUIDATION SEVICES, LLC VS. DOMINIC HOLLAND ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Further Responses To Requests For Production Of Documents; Memorandum Of Law; Request For Monetary Sanctions In The Amount Of $10,921.00",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Defendants Dominic Holland, Brian Sugar, and Robert Mitchell's motion to compel further responses to Requests for Production of Documents is granted in part and denied in part."
-          },
-          {
-            "date": "2026-11-05",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC26640015",
-            "caseTitle": "DANIELE NASCIMENTO SILVA ET AL VS. RALSTON CAPITAL SF MULTIFAMILY II, LLC, A ET AL",
-            "matter": "MOTION TO STRIKE COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "[Part 1 of 2] DEFENDANT RALSTON CAPITAL SF MULTIFAMILY II, LLC, A CALIFORNIA LIMITED LIABILITY COMPANY MOTION TO STRIKE COMPLAINT is GRANTED WITH LEAVE TO AMEND. A party may move to strike under CCP Section 436 \"any irrelevant, false, or improper matter…"
-          },
-          {
-            "date": "2026-11-05",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25626164",
-            "caseTitle": "JUSTIN LEE VS. TUPELO, AN UNKNOWN ENTITY ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT Or In The Alternative Summary Adjudication",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendants Mosquito, LLC dba Tupelo and Diane Rosetti as Trustee of the Diane Rosetti Revocable Trust's (\"Defendants\") motion for summary judgment or alternatively summary adjudication is denied without prejudice, based on the procedural defects with the…"
-          },
-          {
-            "date": "2026-11-05",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25625315",
-            "caseTitle": "JIAN XU VS. ALBINA KHAZAN ET AL",
-            "matter": "Motion For Monetary And Evidence Sanctions For Misuse Of The Discovery Process",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Denied as moot. Both depositions sought through this motion have occurred. The court finds that both parties acted with substantial justification and does not award sanctions."
-          },
-          {
-            "date": "2026-11-05",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CPF25519156",
-            "caseTitle": "STEPHEN KAVANAUGH VS. DOUGLASS MANOR HOMEOWNERS' ASSOCIATION ET AL",
-            "matter": "Motion For Dismissal",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "DEFENDANT DOUGLASS MANOR HOMEOWNERS' ASSOCIATION Motion For Dismissal is GRANTED. Demurrer as to individual defendants having been sustained without leave to amend, individual defendants are dismissed. This dismissal shall be reflected in the final judgment…"
-          },
-          {
-            "date": "2026-11-05",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25626386",
-            "caseTitle": "JPMORGAN CHASE BANK, N.A. VS. FATIMA O DIALLO",
-            "matter": "Notice Of Motion And Motion To Set Aside Default And Default Judgment",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant Fatima Diallo's unopposed motion to set aside the entry of default and default judgment entered against her is GRANTED. The default judgment entered on July 1, 2026 is now vacated."
-          },
-          {
-            "date": "2026-11-05",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25625315",
-            "caseTitle": "JIAN XU VS. ALBINA KHAZAN ET AL",
-            "matter": "Motion To Compel Further Responses To Requests For Production Of Documents, And Request For Monetary Sanctions (Motions)",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Defendant and cross-complainant Albina Khazan's motion to compel Jian Xu's compliance with demand for production of documents is granted in part and denied in part. The court issues an order to show cause re: evidentiary and monetary sanctions and sets a…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "12658dfe1664be47f095ce7e6da912afb10520c8",
-      "updatedAt": "2026-11-12T01:08:08Z",
+      "ref": "394b0bd039549ef3ee3adfd836653860689efb0c",
+      "updatedAt": "2026-11-13T01:10:32Z",
       "metrics": {
         "tentativeRulings": 76895,
         "parsedCounties": 34,
@@ -1060,27 +1064,27 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "41d8c3009e8617bc1cb2f697a86e2ed1eff8c938",
-      "updatedAt": "2026-11-12T19:09:11Z",
+      "ref": "ff3a8df5f4297133759584a2f77488746da82c4d",
+      "updatedAt": "2026-11-13T01:32:26Z",
       "metrics": {
         "cases": 886541,
         "documents": 19887538,
         "mirroredFiles": 886549,
         "documentBytes": 205636096,
-        "snapshots": 886882
+        "snapshots": 886883
       },
       "charts": {}
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "be0ccb2a4afba0881d18fe1ebb7be34547689c8e",
-      "updatedAt": "2026-11-12T00:29:49Z",
+      "ref": "4ec4fcd9d6f6c4fe289a382ec935970023da9ea2",
+      "updatedAt": "2026-11-13T00:36:44Z",
       "metrics": {
         "cases": 231173,
         "documents": 241608,
         "mirroredFiles": 121043,
         "documentBytes": 106108524630,
-        "snapshots": 427060
+        "snapshots": 427062
       },
       "charts": {}
     },
