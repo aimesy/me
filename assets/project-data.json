@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T16:02:35.000Z",
+  "generatedAt": "2026-11-14T21:17:07.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -1064,14 +1064,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "afeda8c97ba2ae9622e0d3e7da5c8962bd586ced",
-      "updatedAt": "2026-11-14T14:31:23Z",
+      "ref": "2369a4bb8ec0d8aa906dbe94e6feb371f94b9ae3",
+      "updatedAt": "2026-11-14T21:06:04Z",
       "metrics": {
         "cases": 886541,
         "documents": 19887538,
         "mirroredFiles": 886549,
         "documentBytes": 205636096,
-        "snapshots": 886890
+        "snapshots": 886891
       },
       "charts": {}
     },
@@ -1144,13 +1144,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "443eb2ceb702d58dfa033bf563e16987e18d9436",
-      "updatedAt": "2026-11-14T16:02:35Z",
+      "ref": "bdb9a7c95b4f1f7c75e0a0b54cc2246b5cad9143",
+      "updatedAt": "2026-11-14T21:17:07Z",
       "metrics": {
-        "jurisdictions": 722,
-        "reports": 2373,
-        "feePrograms": 5636,
-        "figures": 12464
+        "jurisdictions": 729,
+        "reports": 2402,
+        "feePrograms": 5721,
+        "figures": 12576
       },
       "charts": {}
     },
