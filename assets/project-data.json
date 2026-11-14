@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T08:01:00.000Z",
+  "generatedAt": "2026-11-14T16:02:35.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -10,7 +10,7 @@
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
         "tentativeRulings": 386554,
-        "cases": 1457483,
+        "cases": 1457485,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -64,7 +64,7 @@
           },
           {
             "label": "FDI",
-            "value": 98917
+            "value": 98919
           },
           {
             "label": "FCS",
@@ -1064,14 +1064,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "bbda74337658a561e6bc56dddb1be61df4e0183b",
-      "updatedAt": "2026-11-14T07:53:23Z",
+      "ref": "afeda8c97ba2ae9622e0d3e7da5c8962bd586ced",
+      "updatedAt": "2026-11-14T14:31:23Z",
       "metrics": {
         "cases": 886541,
         "documents": 19887538,
         "mirroredFiles": 886549,
         "documentBytes": 205636096,
-        "snapshots": 886889
+        "snapshots": 886890
       },
       "charts": {}
     },
@@ -1144,23 +1144,23 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "9da7b816c327be12b6a11753c21daed78d7bb8e9",
-      "updatedAt": "2026-11-14T08:01:00Z",
+      "ref": "443eb2ceb702d58dfa033bf563e16987e18d9436",
+      "updatedAt": "2026-11-14T16:02:35Z",
       "metrics": {
-        "jurisdictions": 710,
-        "reports": 2341,
-        "feePrograms": 5557,
-        "figures": 12324
+        "jurisdictions": 722,
+        "reports": 2373,
+        "feePrograms": 5636,
+        "figures": 12464
       },
       "charts": {}
     },
     "cfhe": {
       "repo": "aimesy/cfhe-data",
-      "ref": "46f5d139d2315a71839b68abda3c181162c2a2b7",
-      "updatedAt": "2026-11-07T15:47:58Z",
+      "ref": "e0f6d6c62c281c5a04982abac16229be65803b69",
+      "updatedAt": "2026-11-14T15:45:28Z",
       "metrics": {
         "jurisdictions": 539,
-        "units": 495470,
+        "units": 495447,
         "duplicateUnits": 63909,
         "throughYear": 2025
       },
