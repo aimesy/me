@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T21:17:07.000Z",
+  "generatedAt": "2026-11-15T01:26:53.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -10,7 +10,7 @@
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
         "tentativeRulings": 386554,
-        "cases": 1457485,
+        "cases": 1457488,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -88,7 +88,7 @@
           },
           {
             "label": "PDW",
-            "value": 21590
+            "value": 21592
           },
           {
             "label": "FSD",
@@ -96,7 +96,7 @@
           },
           {
             "label": "PCN",
-            "value": 9464
+            "value": 9465
           },
           {
             "label": "PTR",
@@ -158,7 +158,7 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-14T01:02:15.959Z",
+        "latestScrapedAt": "2026-11-15T01:02:07.791Z",
         "days": [
           {
             "date": "2026-11-16",
@@ -881,8 +881,8 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "7d4168228cd7c9a68508a4f8a59d4f8b44b05c5b",
-      "updatedAt": "2026-11-14T01:09:47Z",
+      "ref": "e09b4cf856af8ec9d3708ff8be196b9c68e788fe",
+      "updatedAt": "2026-11-15T01:08:38Z",
       "metrics": {
         "tentativeRulings": 76895,
         "parsedCounties": 34,
@@ -1064,27 +1064,27 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "2369a4bb8ec0d8aa906dbe94e6feb371f94b9ae3",
-      "updatedAt": "2026-11-14T21:06:04Z",
+      "ref": "c6c1435312e3a9a8996406a0613d40f0a4620ec4",
+      "updatedAt": "2026-11-15T01:26:53Z",
       "metrics": {
         "cases": 886541,
         "documents": 19887538,
         "mirroredFiles": 886549,
         "documentBytes": 205636096,
-        "snapshots": 886891
+        "snapshots": 886892
       },
       "charts": {}
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "6a2ce12fa9febf143924311c0fa221cdcaafba4a",
-      "updatedAt": "2026-11-14T00:08:01Z",
+      "ref": "d4ff18d0890feb6b7a82340a077948dc435da074",
+      "updatedAt": "2026-11-15T00:18:50Z",
       "metrics": {
         "cases": 231173,
         "documents": 241608,
         "mirroredFiles": 121043,
         "documentBytes": 106108524630,
-        "snapshots": 427064
+        "snapshots": 427066
       },
       "charts": {}
     },
