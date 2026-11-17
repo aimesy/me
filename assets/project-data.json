@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-16T19:49:49.000Z",
+  "generatedAt": "2026-11-17T01:56:23.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "60abbf1b8639fd1a29080c9392b26b17d173221f",
       "updatedAt": "2026-11-12T20:47:07Z",
-      "latestRuling": "2026-11-16",
+      "latestRuling": "2026-11-17",
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
-        "tentativeRulings": 386554,
-        "cases": 1457490,
+        "tentativeRulings": 386673,
+        "cases": 1457525,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -48,7 +48,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434989
+            "value": 434991
           },
           {
             "label": "CRI",
@@ -56,35 +56,35 @@
           },
           {
             "label": "CSM",
-            "value": 188151
+            "value": 188160
           },
           {
             "label": "CUD",
-            "value": 97233
+            "value": 97234
           },
           {
             "label": "FDI",
-            "value": 98920
+            "value": 98929
           },
           {
             "label": "FCS",
-            "value": 94473
+            "value": 94474
           },
           {
             "label": "PES",
-            "value": 42662
+            "value": 42665
           },
           {
             "label": "FDV",
-            "value": 30097
+            "value": 30101
           },
           {
             "label": "CPF",
-            "value": 29205
+            "value": 29206
           },
           {
             "label": "CNC",
-            "value": 25675
+            "value": 25678
           },
           {
             "label": "PDW",
@@ -92,7 +92,7 @@
           },
           {
             "label": "FSD",
-            "value": 15813
+            "value": 15814
           },
           {
             "label": "PCN",
@@ -132,7 +132,7 @@
           },
           {
             "label": "CJC",
-            "value": 280
+            "value": 281
           },
           {
             "label": "PPF",
@@ -158,8 +158,34 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-16T01:02:20.429Z",
+        "latestScrapedAt": "2026-11-17T01:02:21.001Z",
         "days": [
+          {
+            "date": "2026-11-17",
+            "total": 125,
+            "departments": [
+              {
+                "department": "204",
+                "count": 63
+              },
+              {
+                "department": "301",
+                "count": 21
+              },
+              {
+                "department": "501",
+                "count": 20
+              },
+              {
+                "department": "302",
+                "count": 15
+              },
+              {
+                "department": "304",
+                "count": 6
+              }
+            ]
+          },
           {
             "date": "2026-11-16",
             "total": 83,
@@ -251,31 +277,129 @@
                 "count": 8
               }
             ]
-          },
-          {
-            "date": "2026-11-09",
-            "total": 91,
-            "departments": [
-              {
-                "department": "204",
-                "count": 52
-              },
-              {
-                "department": "501",
-                "count": 20
-              },
-              {
-                "department": "302",
-                "count": 12
-              },
-              {
-                "department": "301",
-                "count": 7
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-17",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24614290",
+            "caseTitle": "DAVID MILLSTEIN VS. TERESA WONG ET AL",
+            "matter": "Notice Of Motion And Motion To Confirm Effect Of Bankruptcy Order And Set Default Prove Up Hearing; Memorandum Of Points And Authorities",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff David Millstein's motion to confirm the effect of a bankruptcy order and to set a default prove-up hearing is granted in part. The court confirms that the effect of the September 17, 2026 bankruptcy order is that Millstein is entitled to seek entry…"
+          },
+          {
+            "date": "2026-11-17",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC25277361",
+            "caseTitle": "WILLIAM BACK VS. AIR & LIQUID SYSTEMS CORPORATION ET AL",
+            "matter": "Notice Of Motion And Motion For Order Substituting Janet Back As Successor-In-Interest To, And Substituting Successor-In-Interest For, Deceased Plaintiff; For Leave To File First Amended Complaint",
+            "judge": "Victor M. Hwang",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion for an Order Substituting Janet Back as Successor-In-Interest to, and Substituting Successor-In-Interest for, Deceased Plaintiff; and for Leave to File First Amended Complaint is GRANTED. No opposition filed. The Court has executed…"
+          },
+          {
+            "date": "2026-11-17",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23609517",
+            "caseTitle": "OSCAR RODRIGUEZ ZULUAGA VS. ANTHONY DRAYTON ET AL",
+            "matter": "Mtion To Compel Responses To Special Interrogatories",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT ANTHONY DRAYTON'S Motion to Compel Responses to Special Interrogatories. The discovery motion is denied as moot. Plaintiff has responded to the discovery at issue, and it appears that defendant's discovery and the motion was initially directed to…"
+          },
+          {
+            "date": "2026-11-17",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD25678504",
+            "caseTitle": "CRYSTAL R. FLORIDA VS. MICHAEL D. RAGO ET AL",
+            "matter": "Notice Of Motion And Motion To Set Aside And Vacate Default; Memorandum Of Points And Authorities; Exhibits A-E",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT DARIA DAVALLOU, MARC SUTTER Notice Of Motion And Motion To Set Aside And Vacate Default is DENIED. The defaults of Defendants Davallou and Sutter, entered May 26, 2026, are not void under CCP 473(d). Defendants Davallou and Sutter's demurrers were…"
+          },
+          {
+            "date": "2026-11-17",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24619156",
+            "caseTitle": "JENNIFER MARSHALL ET AL VS. AIRBNB, INC. ET AL",
+            "matter": "Notice Of Motion And Motion For Relief From Protective Order And To Remove Confidentiality Designations Pertaining To Airbnb'S Prior Carbon Monoxide Incident Disclosures; Memorandum Of Points And Authorities; Declaration Of Pedro P. Echarte Iii ***Redacted***",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff Jennifer Marshall's motion for relief from protective order and to remove confidentiality designations pertaining to Airbnb's prior carbon monoxide incident disclosures is denied in part and granted in part. To the extent that Marshall seeks to be…"
+          },
+          {
+            "date": "2026-11-17",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC26277416",
+            "caseTitle": "MARIAN BREITZKE ET AL VS. GENERAL ELECTRIC COMPANY ET AL",
+            "matter": "Notice Of Motion And Motion For Order Granting Preference In Setting Case For Trial, And Extending Discovery Cutoff",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion for Order Granting Preference in Setting Case for Trial and Extending Discovery Cutoff under C.C.P. Section 36(a) is GRANTED. No opposition filed. 1. The trial date is March 8, 2027, at 11:15 a.m. in Department 206. a. Last day pursuant to…"
+          },
+          {
+            "date": "2026-11-17",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23609517",
+            "caseTitle": "OSCAR RODRIGUEZ ZULUAGA VS. ANTHONY DRAYTON ET AL",
+            "matter": "Notice Of Motion To Deem Requests For Admission As Admitted: Request For Monetary Sanctions In The Amount Of $1,660",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT ANTHONY DRAYTON'S Motion to Deem Requests for Admission as Admitted: Request for Monetary Sanctions in the Amount of $1,660. The discovery motion is denied as moot. Plaintiff has responded to the discovery at issue, and it appears that defendant's…"
+          },
+          {
+            "date": "2026-11-17",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD25680824",
+            "caseTitle": "BRIDGE PROPERTY MANAGEMENT COMPANY VS. NELY B ARGUELLO PEREZ",
+            "matter": "Defendant Nely B. Arguello Perez'S Notice Of Motion To Vacate Judgement And Recall Writ Of Execution",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Arguello Perez'S Notice Of Motion To Vacate Judgement And Recall Writ Of Execution is GRANTED, pursuant to CCP 473(b), based on Defendant's representation that she did not receive the purportedly posted notice of Plaintiff's August 26, 2026 ex parte…"
+          },
           {
             "date": "2026-11-16",
             "time": "09:00 AM",
@@ -755,134 +879,14 @@
               "label": "Denied"
             },
             "text": "PLAINTIFF BRIDGE MELLICHAMP, JASON ROSENTHAL, ARI ROSENTHAL MELLICHAMP, MAYA ROSENTHAL MELLICHAMP Notice Of Motion For Leave Of Court To File An Amendment To The Complaint To Designate Fictitious Doe Defendants is DENIED without prejudice. Moving papers do…"
-          },
-          {
-            "date": "2026-11-09",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24614186",
-            "caseTitle": "MARC GERSEN VS. WORLDNET CHARTER, INC. ET AL",
-            "matter": "MOTION TO COMPEL FURTHER RESPONSES TO REQUEST FOR ADMISSIONS",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Marc Gersen's motion to compel Defendant Yun Choi Chow's further responses to requests for admission, set two, nos. 1-3, is granted."
-          },
-          {
-            "date": "2026-11-09",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC22598327",
-            "caseTitle": "JOHN STEPHEN GRAHAM, JR.,TRUSTEE OF THE JOHN VS. HAMMEL GREEN ET AL",
-            "matter": "MOTION FOR LEAVE TO AMEND COMPLAINT",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff's motion for leave to file a first amended complaint is denied."
-          },
-          {
-            "date": "2026-11-09",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC21594119",
-            "caseTitle": "AVIAD BRACHA VS. OCEAN AVENUE REAL ESTATE FUND LLC, A CALIFORNIA ET AL",
-            "matter": "Motion For Charging Order",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "PLAINTIFF AVIAD BRACHA Motion For Charging Order is GRANTED. No opposition filed. Moving party to prepare an order. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849; or Phone Dial in…"
-          },
-          {
-            "date": "2026-11-09",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24614186",
-            "caseTitle": "MARC GERSEN VS. WORLDNET CHARTER, INC. ET AL",
-            "matter": "MOTION TO COMPEL FURTHER RESPONSE TO REQUEST, DEMAND INSPECTION, PRODUCTION OF DOCUMENTS",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Marc Gersen's motion to compel Defendant Yun Choi Chow's further responses to requests for production of documents, set six, nos. 1-2 is granted."
-          },
-          {
-            "date": "2026-11-09",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24611759",
-            "caseTitle": "STEVE LAKOVITS VS. SF MULTIFAMILY IV PROPERTY OWNER LLC, A LIMITED ET AL",
-            "matter": "Notice Of Motion And Motion For Issue, Evidence, And Monetary Sanctions Against Defendant Brick And Timber, Inc. For Failure To Obey Discovery Orders",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "For Failure To Obey Discovery Orders. Plaintiff Steve Lakovits's motion for issue, evidence, and monetary sanctions against defendant Brick and Timber, Inc. is granted in part and denied in part."
-          },
-          {
-            "date": "2026-11-09",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC21596771",
-            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
-            "matter": "MOTION FOR SUMMARY ADJUDICATION / Motion For Summary Adjudication On Partial Disclosures In The San Francisco Seller Disclosure",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "DEFENDANT CHRIS KELLY INDIVIDUALLY AND AS CO-TRUSTEE OF THE KELLY FAMILY TRUST, LARA KELLY MOTION FOR SUMMARY ADJUDICATION / Motion For Summary Adjudication On Partial Disclosures In The San Francisco Seller Disclosure is DENIED. Moving party failed to comply…"
-          },
-          {
-            "date": "2026-11-09",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25628298",
-            "caseTitle": "PORTFOLIO RECOVERY ASSOCIATES, LLC VS. LETRESSE SUDDUTH",
-            "matter": "Motion To Set Aside Dismissal And Enter Judgment Under Stipulation",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Portfolio Recovery Associates, LLC's unopposed motion to enter judgment under terms of stipulated settlement is GRANTED. As a preliminary matter, Plaintiff's request that the court take judicial notice of the Stipulation Agreement filed in this…"
-          },
-          {
-            "date": "2026-11-09",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26636559",
-            "caseTitle": "WELLS FARGO BANK, N.A. VS. ADRIEN L BAZOUNGOULA",
-            "matter": "Motion For An Order Deeming The Truth Of The Matters Specified In Plaintiffs Request For Admissions As Admitted (Motions)",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "The unopposed motion for a deemed-admitted order is denied without prejudice for lack of proper service. The proof of service has an incorrect zip code for plaintiff's counsel."
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "b4d8a442766282ac7237a3814711ae9370bb2e57",
-      "updatedAt": "2026-11-16T01:09:48Z",
+      "ref": "926700569a4e9e47d8cf842fa5c57e2b0fd54ea0",
+      "updatedAt": "2026-11-17T01:10:08Z",
       "metrics": {
         "tentativeRulings": 76895,
         "parsedCounties": 34,
@@ -1064,27 +1068,27 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "00a541a12a613b8c28ebce28b76cc362cb2937dc",
-      "updatedAt": "2026-11-16T19:49:49Z",
+      "ref": "ec6ad674f631ca79578bf5a96c73cb096b59726e",
+      "updatedAt": "2026-11-17T01:56:23Z",
       "metrics": {
         "cases": 938854,
         "documents": 21063968,
         "mirroredFiles": 938862,
         "documentBytes": 377589066,
-        "snapshots": 939214
+        "snapshots": 939215
       },
       "charts": {}
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "594f0401d6c080219dd69097d0d65869c65d06de",
-      "updatedAt": "2026-11-16T00:42:43Z",
+      "ref": "13f36b7c592cf9d0c866c2e84761c89651bf19ea",
+      "updatedAt": "2026-11-17T00:31:02Z",
       "metrics": {
         "cases": 231173,
         "documents": 241608,
         "mirroredFiles": 121043,
         "documentBytes": 106108524630,
-        "snapshots": 427068
+        "snapshots": 427070
       },
       "charts": {}
     },
