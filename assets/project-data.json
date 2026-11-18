@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-18T08:12:09.000Z",
+  "generatedAt": "2026-11-18T21:04:15.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
       "repo": "aimesy/sfsc",
       "ref": "60abbf1b8639fd1a29080c9392b26b17d173221f",
       "updatedAt": "2026-11-12T20:47:07Z",
-      "latestRuling": "2026-11-18",
+      "latestRuling": "2026-11-19",
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
-        "tentativeRulings": 386757,
-        "cases": 1457557,
+        "tentativeRulings": 386781,
+        "cases": 1457583,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -48,7 +48,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434992
+            "value": 434994
           },
           {
             "label": "CRI",
@@ -56,11 +56,11 @@
           },
           {
             "label": "CSM",
-            "value": 188165
+            "value": 188167
           },
           {
             "label": "CUD",
-            "value": 97236
+            "value": 97240
           },
           {
             "label": "FDI",
@@ -68,15 +68,15 @@
           },
           {
             "label": "FCS",
-            "value": 94475
+            "value": 94481
           },
           {
             "label": "PES",
-            "value": 42667
+            "value": 42670
           },
           {
             "label": "FDV",
-            "value": 30104
+            "value": 30106
           },
           {
             "label": "CPF",
@@ -84,7 +84,7 @@
           },
           {
             "label": "CNC",
-            "value": 25684
+            "value": 25685
           },
           {
             "label": "PDW",
@@ -92,15 +92,15 @@
           },
           {
             "label": "FSD",
-            "value": 15815
+            "value": 15816
           },
           {
             "label": "PCN",
-            "value": 9466
+            "value": 9467
           },
           {
             "label": "PTR",
-            "value": 6543
+            "value": 6545
           },
           {
             "label": "FMS",
@@ -108,11 +108,11 @@
           },
           {
             "label": "APP",
-            "value": 5028
+            "value": 5029
           },
           {
             "label": "PGN",
-            "value": 4174
+            "value": 4175
           },
           {
             "label": "FPT",
@@ -158,8 +158,18 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-18T01:02:16.027Z",
+        "latestScrapedAt": "2026-11-18T20:01:21.892Z",
         "days": [
+          {
+            "date": "2026-11-19",
+            "total": 24,
+            "departments": [
+              {
+                "department": "302",
+                "count": 24
+              }
+            ]
+          },
           {
             "date": "2026-11-18",
             "total": 91,
@@ -251,31 +261,105 @@
                 "count": 1
               }
             ]
-          },
-          {
-            "date": "2026-11-12",
-            "total": 56,
-            "departments": [
-              {
-                "department": "501",
-                "count": 20
-              },
-              {
-                "department": "302",
-                "count": 18
-              },
-              {
-                "department": "301",
-                "count": 16
-              },
-              {
-                "department": "204",
-                "count": 2
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC23609388",
+            "caseTitle": "BOUTIQUE AIR, INC, A CALIFORNIA CORPOATION VS. AIN MEDIA GROUP, INC. A COLORADO CORPORATION ET AL",
+            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "",
+            "outcome": null,
+            "text": "PLAINTIFF BOUTIQUE AIR, INC.'s MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD."
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC23609388",
+            "caseTitle": "BOUTIQUE AIR, INC, A CALIFORNIA CORPOATION VS. AIN MEDIA GROUP, INC. A COLORADO CORPORATION ET AL",
+            "matter": "Amended MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "",
+            "outcome": null,
+            "text": "Amended MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD."
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24616822",
+            "caseTitle": "NUR MARC ATASH VS. DANNY & AIDA LIVING TRUST ET AL",
+            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "",
+            "outcome": null,
+            "text": "PLAINTIFF NUR ATASH's MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD."
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618592",
+            "caseTitle": "JANE DOE VS. SAN FRANCISCO HEALTH CARE AND REHAB, INC ET AL",
+            "matter": "Notice Of Motion For Leave To Amend Complaint To Add Alter Ego And Personal Liability Allegations Against Svetlana Stukov And Stan Stukov, And Allegations Concerning Newly Discovered Evidence In Support Of Liability Against All Defendants",
+            "judge": "",
+            "outcome": null,
+            "text": "PLAINTIFF JANE DOE's Motion For Leave To Amend Complaint To Add Alter Ego And Personal Liability Allegations Against Svetlana Stukov And Stan Stukov, And Allegations Concerning Newly Discovered Evidence In Support Of Liability Against All Defendants."
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618998",
+            "caseTitle": "MOR FLEISHER LEACH VS. DEEL US LLC, ALSO REFERRED TO AS DEEL, AND LETS ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Further Responses To Requests For Admission",
+            "judge": "",
+            "outcome": null,
+            "text": "PLAINTIFF MOR LEACH's Motion To Compel Further Responses To Requests For Admission."
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618998",
+            "caseTitle": "MOR FLEISHER LEACH VS. DEEL US LLC, ALSO REFERRED TO AS DEEL, AND LETS ET AL",
+            "matter": "Notice Of Motion To Compel Further Responses To Form Interrogatories - Employment",
+            "judge": "",
+            "outcome": null,
+            "text": "PLAINTIFF MOR LEACH's Motion To Compel Further Responses To Form Interrogatories - Employment."
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24620236",
+            "caseTitle": "RED OAK REALTY VS. VANGUARD PROPERTIES, INC. ET AL",
+            "matter": "Notice Of Motion And Motion For Protective Order And For Monetary Sanctions",
+            "judge": "",
+            "outcome": null,
+            "text": "DEFENDANTs VANGUARD PROPERTIES, INC., JAMES NUNEMACHER, FRANK NOLAN,and PAMELA HOFFMAN's Motion For Protective Order And For Monetary Sanctions"
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24620762",
+            "caseTitle": "MARTE J. BASSI VS. JOSEPH B. ADAMS ET AL",
+            "matter": "DEMURRER to CROSS COMPLAINT",
+            "judge": "",
+            "outcome": null,
+            "text": "EDLIN, and FRED BLUM DEMURRER to CROSS COMPLAINT."
+          },
           {
             "date": "2026-11-18",
             "time": "09:00 AM",
@@ -755,140 +839,20 @@
               "label": "Denied"
             },
             "text": "Defendants Dagen Ministerio and Arlene Yap's motion to compel nonparty Michelle Hogarth to appear at deposition is denied. The court lacks the power to compel a nonparty to appear without a subpoena, and defendants offer no authority that the court has this…"
-          },
-          {
-            "date": "2026-11-12",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25623868",
-            "caseTitle": "FIRST FRIENDSHIP INSTITUTIONAL BAPTIST CHURCH OF VS. YVONNE DUNKLEY ET AL",
-            "matter": "MOTION FOR JUDGMENT ON THE PLEADINGS",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendants Yvonne Dunkley and David Bonner's motion for judgment on the pleadings is denied. The motion is moot. Defendants' motion targets the Complaint filed on April 1, 2025. (See Defs.' Notice of Motion and Motion for Judgment on the Pleadings, 2:20-21…"
-          },
-          {
-            "date": "2026-11-12",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24611759",
-            "caseTitle": "STEVE LAKOVITS VS. SF MULTIFAMILY IV PROPERTY OWNER LLC, A LIMITED ET AL",
-            "matter": "NOTICE OF EX PARTE APPLICATION AND EX PARTE APPLICATION FOR ORDER SHORTENING TIME TO HEAR MOTION TO QUASH OR MODIFY TRIAL SUBPOENAS DUCES TECUM, AND FOR TEMPORARY STAY OF COMPLIANCE (SET PER EX PARTE HEARING ON NOV-09-2026)",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Defendants SF Multifamily IV Property Owner LLC et al.'s motion to quash or modify seven trial subpoenas for witnesses and documents, served by plaintiff Steve Lakovits, is granted in part as set out below."
-          },
-          {
-            "date": "2026-11-12",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC21596771",
-            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
-            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "DEFENDANT CHRIS KELLY INDIVIDUALLY AND AS CO-TRUSTEE OF THE KELLY FAMILY TRUST, LARA KELLY MOTION TO ADMIT COUNSEL PRO HAC VICE is GRANTED. =(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password…"
-          },
-          {
-            "date": "2026-11-12",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC26636800",
-            "caseTitle": "SAIDA SAFIULLINA VS. U-HAUL INTERNATIONAL, INC. ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Arbitration",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendants U-Haul Co. of Arizona (\"UHAZ\") and U-Haul International, Inc.'s (\"UHI\") motion to compel arbitration and stay proceedings is GRANTED."
-          },
-          {
-            "date": "2026-11-12",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24617683",
-            "caseTitle": "QUEENS SF, LLC, A LIMITED LIABILITY PARTNERSHIP ET AL VS. NICOLE DOBARRO",
-            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for withdrawal of attorney of record Marie Trimble Holvick for entity defendant Queens SF, LLC is granted for good cause shown. Moving party to prepare the proposed order on the Judicial Council form."
-          },
-          {
-            "date": "2026-11-12",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC22598225",
-            "caseTitle": "VALERIE CHEW, TRUSTEE OF THE VALERIE J.CHEW VS. RUDY KING CHEW ET AL",
-            "matter": "Notice Of Motion And Motion By Partition Referee For Discharge And For Instructions Regarding Disposition Of Remaining Money; Declaration Of Partition Referee",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "OTHER MATTHEW TAYLOR Notice Of Motion And Motion By Partition Referee For Discharge And For Instructions Regarding Disposition Of Remaining Money is GRANTED as requested. Moving party to prepare an order. =(501/CFH) Parties may appear in-person…"
-          },
-          {
-            "date": "2026-11-12",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24615682",
-            "caseTitle": "JOHN MCGREGOR VS. CUSHMAN & WAKEFIELD OF CALIFORNIA INC., A ET AL",
-            "matter": "MOTION TO DISMISS",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "hearing",
-              "label": "Hearing"
-            },
-            "text": "Hearing required. For the 9:00 a.m. calendar, all attorneys and parties may appear in Department 302 remotely or in person. Remote hearings will be conducted by videoconference using Zoom. (Dept. 302 Zoom ID 160 409 7690; Passcode 516287.) To appear remotely…"
-          },
-          {
-            "date": "2026-11-12",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24619361",
-            "caseTitle": "JANE DOE VS. GAVIN NEWSOM ET AL",
-            "matter": "MOTION TO STRIKE",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff Jane Doe's motion to strike the memorandum of costs on appeal submitted by dismissed defendant Gavin Newsom is denied. Newsom carries his burden of showing that all costs claimed in his September 28, 2026 memorandum of costs are proper and…"
           }
         ]
       }
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "145c8a9041bb1d6ae4aea6c0f4032d20e0e8654f",
-      "updatedAt": "2026-11-18T01:14:59Z",
+      "ref": "c4c3958712116cedd2ae07bfd10939a893c9eb9d",
+      "updatedAt": "2026-11-18T19:57:57Z",
       "metrics": {
-        "tentativeRulings": 79979,
+        "tentativeRulings": 80413,
         "parsedCounties": 34,
-        "documents": 20205,
-        "archivedFiles": 118972,
-        "documentBytes": 21319647232
+        "documents": 20401,
+        "archivedFiles": 119482,
+        "documentBytes": 21390950400
       },
       "charts": {
         "rulingsByCounty": [
@@ -1064,14 +1028,14 @@
     },
     "kcsc": {
       "repo": "aimesy/kcsc-data",
-      "ref": "0788b594f2e2414fa47a6f3f8e809202f8045dc8",
-      "updatedAt": "2026-11-18T08:12:09Z",
+      "ref": "1eaab1a13c8f98f98c31d18b2a2682f18255e44e",
+      "updatedAt": "2026-11-18T21:04:15Z",
       "metrics": {
         "cases": 938854,
         "documents": 21063968,
         "mirroredFiles": 938862,
         "documentBytes": 377589066,
-        "snapshots": 939222
+        "snapshots": 939224
       },
       "charts": {}
     },
