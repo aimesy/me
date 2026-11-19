@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T21:04:15.000Z",
+  "generatedAt": "2026-11-19T01:33:01.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -9,8 +9,8 @@
       "latestRuling": "2026-11-19",
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
-        "tentativeRulings": 386781,
-        "cases": 1457583,
+        "tentativeRulings": 386845,
+        "cases": 1457587,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -76,11 +76,11 @@
           },
           {
             "label": "FDV",
-            "value": 30106
+            "value": 30107
           },
           {
             "label": "CPF",
-            "value": 29207
+            "value": 29208
           },
           {
             "label": "CNC",
@@ -108,7 +108,7 @@
           },
           {
             "label": "APP",
-            "value": 5029
+            "value": 5030
           },
           {
             "label": "PGN",
@@ -116,7 +116,7 @@
           },
           {
             "label": "FPT",
-            "value": 721
+            "value": 722
           },
           {
             "label": "FLD",
@@ -158,15 +158,23 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-18T20:01:21.892Z",
+        "latestScrapedAt": "2026-11-19T02:23:30.351Z",
         "days": [
           {
             "date": "2026-11-19",
-            "total": 24,
+            "total": 64,
             "departments": [
+              {
+                "department": "301",
+                "count": 25
+              },
               {
                 "department": "302",
                 "count": 24
+              },
+              {
+                "department": "501",
+                "count": 15
               }
             ]
           },
@@ -271,34 +279,43 @@
             "calendar": "Civil Law and Motion",
             "caseNumber": "CGC23609388",
             "caseTitle": "BOUTIQUE AIR, INC, A CALIFORNIA CORPOATION VS. AIN MEDIA GROUP, INC. A COLORADO CORPORATION ET AL",
-            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "",
-            "outcome": null,
-            "text": "PLAINTIFF BOUTIQUE AIR, INC.'s MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD."
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23609388",
-            "caseTitle": "BOUTIQUE AIR, INC, A CALIFORNIA CORPOATION VS. AIN MEDIA GROUP, INC. A COLORADO CORPORATION ET AL",
             "matter": "Amended MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "",
-            "outcome": null,
-            "text": "Amended MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD."
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Amended MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD. Unopposed amended motion by plaintiff's counsel David Schwartz and Nancy Chung for withdrawal of attorney of record for plaintiff Boutique Air, Inc. is granted, based on good cause established in moving…"
           },
           {
             "date": "2026-11-19",
             "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24616822",
-            "caseTitle": "NUR MARC ATASH VS. DANNY & AIDA LIVING TRUST ET AL",
-            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26633481",
+            "caseTitle": "DIVYANG VED VS. GLOBAL FITNESS VENTURES, LLC ET AL",
+            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Divyang Ved's application for the pro hac vice admission of Brett Buterick is granted. Good cause shown and no opposition filed."
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26634856",
+            "caseTitle": "ALI KAMAREI ET AL VS. MATT FINLEY ET AL",
+            "matter": "DEMURRER to Amended COMPLAINT",
             "judge": "",
-            "outcome": null,
-            "text": "PLAINTIFF NUR ATASH's MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD."
+            "outcome": {
+              "key": "sustained",
+              "label": "Sustained"
+            },
+            "text": "DEMURRER to 1ST Amended COMPLAINT is SUSTAINED in part and OVERRULED in part. Demurrer is sustained with leave to amend based on uncertainty grounds as to negligence cause of action. (The Court does not reach any other grounds raised in connection with this…"
           },
           {
             "date": "2026-11-19",
@@ -308,57 +325,72 @@
             "caseNumber": "CGC24618592",
             "caseTitle": "JANE DOE VS. SAN FRANCISCO HEALTH CARE AND REHAB, INC ET AL",
             "matter": "Notice Of Motion For Leave To Amend Complaint To Add Alter Ego And Personal Liability Allegations Against Svetlana Stukov And Stan Stukov, And Allegations Concerning Newly Discovered Evidence In Support Of Liability Against All Defendants",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Jane Does's motion for leave to amend the complaint is GRANTED. Plaintiff to file the proposed First Amended Complaint within 10 days of notice of entry of this order. \"Great liberality is indulged in matters of amendment to the end that lawsuits…"
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26635191",
+            "caseTitle": "FABIOLA AVILA VS. ELISE FREUND D.C. ET AL",
+            "matter": "MOTION TO STRIKE Amended COMPLAINT",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT ELISE FREUND'S Motion to Strike 1st Amended Complaint. Defendant Elise Freund's motion to strike the first amended complaint is denied. Plaintiff Fabiola Avila was granted leave to amend after the demurrer to her intentional misrepresentation claim…"
+          },
+          {
+            "date": "2026-11-19",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CUD25680685",
+            "caseTitle": "YI MAN CHAN VS. ANGELA MITCHEL ET AL",
+            "matter": "Notice Of Motion And Motion For Entry Of Judgment Pursuant To Stipulation; Memorandum Of Points And Authorities",
             "judge": "",
-            "outcome": null,
-            "text": "PLAINTIFF JANE DOE's Motion For Leave To Amend Complaint To Add Alter Ego And Personal Liability Allegations Against Svetlana Stukov And Stan Stukov, And Allegations Concerning Newly Discovered Evidence In Support Of Liability Against All Defendants."
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF YI CHAN Notice Of Motion And Motion For Entry Of Judgment Pursuant To Stipulation is DENIED without prejudice. No competent evidence of breach. Declaration of Yi Man, dated November 13, 2026 but filed three weeks earlier on October 22, 2026, is not…"
           },
           {
             "date": "2026-11-19",
             "time": "09:00 AM",
             "department": "302",
             "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24618998",
-            "caseTitle": "MOR FLEISHER LEACH VS. DEEL US LLC, ALSO REFERRED TO AS DEEL, AND LETS ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Further Responses To Requests For Admission",
-            "judge": "",
-            "outcome": null,
-            "text": "PLAINTIFF MOR LEACH's Motion To Compel Further Responses To Requests For Admission."
+            "caseNumber": "CGC25632416",
+            "caseTitle": "U.S. BANK NATIONAL ASSOCIATION VS. JONATHAN P HERNANDEZ ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT Or In The Alternative Summary Adjudication",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff U.S. Bank National Association's (\"U.S. Bank\") unopposed motion for summary judgment against defendant Jonathan P. Hernandez is GRANTED."
           },
           {
             "date": "2026-11-19",
             "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24618998",
-            "caseTitle": "MOR FLEISHER LEACH VS. DEEL US LLC, ALSO REFERRED TO AS DEEL, AND LETS ET AL",
-            "matter": "Notice Of Motion To Compel Further Responses To Form Interrogatories - Employment",
-            "judge": "",
-            "outcome": null,
-            "text": "PLAINTIFF MOR LEACH's Motion To Compel Further Responses To Form Interrogatories - Employment."
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24620236",
-            "caseTitle": "RED OAK REALTY VS. VANGUARD PROPERTIES, INC. ET AL",
-            "matter": "Notice Of Motion And Motion For Protective Order And For Monetary Sanctions",
-            "judge": "",
-            "outcome": null,
-            "text": "DEFENDANTs VANGUARD PROPERTIES, INC., JAMES NUNEMACHER, FRANK NOLAN,and PAMELA HOFFMAN's Motion For Protective Order And For Monetary Sanctions"
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24620762",
-            "caseTitle": "MARTE J. BASSI VS. JOSEPH B. ADAMS ET AL",
-            "matter": "DEMURRER to CROSS COMPLAINT",
-            "judge": "",
-            "outcome": null,
-            "text": "EDLIN, and FRED BLUM DEMURRER to CROSS COMPLAINT."
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26635915",
+            "caseTitle": "ALEJANDRA GARCIA ET AL VS. LINDA R HARRINGTON ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Responses To Interrogatories, For Production Of Documents, And For Monetary Sanctions",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiffs Alejandra Garcia and Michael Luchi's motion responses to interrogatories and document requests and for monetary sanctions is granted. No later than December 18, 2026 defendant Linda Harrington must serve verified code-compliant responses without…"
           },
           {
             "date": "2026-11-18",
@@ -845,14 +877,14 @@
     },
     "tentatives": {
       "repo": "aimesy/tentatives-data",
-      "ref": "c4c3958712116cedd2ae07bfd10939a893c9eb9d",
-      "updatedAt": "2026-11-18T19:57:57Z",
+      "ref": "9b933a90a9257e8a2f83e4a9a285267f11431415",
+      "updatedAt": "2026-11-19T01:33:01Z",
       "metrics": {
-        "tentativeRulings": 80413,
+        "tentativeRulings": 80466,
         "parsedCounties": 34,
-        "documents": 20401,
-        "archivedFiles": 119482,
-        "documentBytes": 21390950400
+        "documents": 20416,
+        "archivedFiles": 119673,
+        "documentBytes": 21434990592
       },
       "charts": {
         "rulingsByCounty": [
@@ -1041,14 +1073,14 @@
     },
     "nysc": {
       "repo": "aimesy/nysc-data",
-      "ref": "eb8c9cd613e7ca0a482049aa384416d72aff8811",
-      "updatedAt": "2026-11-18T00:09:53Z",
+      "ref": "526f6789649b1f11e599fd270f8dff04de558a0c",
+      "updatedAt": "2026-11-19T00:14:16Z",
       "metrics": {
         "cases": 231173,
         "documents": 241608,
         "mirroredFiles": 121043,
         "documentBytes": 106108524630,
-        "snapshots": 427093
+        "snapshots": 427095
       },
       "charts": {}
     },
