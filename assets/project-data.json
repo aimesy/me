@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T01:23:23.000Z",
+  "generatedAt": "2026-11-20T19:16:49.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -1140,8 +1140,8 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "bdb9a7c95b4f1f7c75e0a0b54cc2246b5cad9143",
-      "updatedAt": "2026-11-14T21:17:07Z",
+      "ref": "281186d8b621c664a311f8b02379c34342d3f1da",
+      "updatedAt": "2026-11-20T19:16:49Z",
       "metrics": {
         "jurisdictions": 729,
         "reports": 2402,
