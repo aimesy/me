@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T01:24:37.000Z",
+  "generatedAt": "2026-11-21T09:52:13.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -158,8 +158,28 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-19T02:23:30.351Z",
+        "latestScrapedAt": "2026-11-21T02:54:51.794Z",
         "days": [
+          {
+            "date": "2026-11-23",
+            "total": 21,
+            "departments": [
+              {
+                "department": "204",
+                "count": 21
+              }
+            ]
+          },
+          {
+            "date": "2026-11-20",
+            "total": 2,
+            "departments": [
+              {
+                "department": "204",
+                "count": 2
+              }
+            ]
+          },
           {
             "date": "2026-11-19",
             "total": 64,
@@ -223,50 +243,6 @@
               {
                 "department": "304",
                 "count": 6
-              }
-            ]
-          },
-          {
-            "date": "2026-11-16",
-            "total": 83,
-            "departments": [
-              {
-                "department": "204",
-                "count": 40
-              },
-              {
-                "department": "302",
-                "count": 18
-              },
-              {
-                "department": "301",
-                "count": 16
-              },
-              {
-                "department": "501",
-                "count": 9
-              }
-            ]
-          },
-          {
-            "date": "2026-11-13",
-            "total": 65,
-            "departments": [
-              {
-                "department": "301",
-                "count": 28
-              },
-              {
-                "department": "302",
-                "count": 18
-              },
-              {
-                "department": "501",
-                "count": 18
-              },
-              {
-                "department": "204",
-                "count": 1
               }
             ]
           }
@@ -631,246 +607,6 @@
               "label": "Granted"
             },
             "text": "Arguello Perez'S Notice Of Motion To Vacate Judgement And Recall Writ Of Execution is GRANTED, pursuant to CCP 473(b), based on Defendant's representation that she did not receive the purportedly posted notice of Plaintiff's August 26, 2026 ex parte…"
-          },
-          {
-            "date": "2026-11-16",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23607342",
-            "caseTitle": "BRIAN MACGREGOR ET AL VS. SUNSHINE TRANSPORTATION ET AL",
-            "matter": "DEMURRER to Amended CROSS COMPLAINT",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "overruled",
-              "label": "Overruled"
-            },
-            "text": "Cross-defendant StoragePro Management, Inc.'s demurrer to all three causes of action alleged in the cross-complaint filed by defendant and cross-complainant Forward Air, Inc. is overruled as to the first cause of action for equitable indemnity and sustained…"
-          },
-          {
-            "date": "2026-11-16",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC18563989",
-            "caseTitle": "TIEMING YAO VS. YANYING LIU ET AL",
-            "matter": "Notice Of Motion And Motion To Enforce Settlement And For Entry Of Judgment Pursuant To Stipulation; Memorandum Of Points And Authorities",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion for entry of judgment pursuant to a stipulation that reserved the court's jurisdiction to enter judgment under Code of Civil Procedure, section 664.6, is granted. Plaintiff shall prepare a proposed judgment in the amount of $818,084.82…"
-          },
-          {
-            "date": "2026-11-16",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC23610891",
-            "caseTitle": "SARAH LEWIS VS. KENNETH RUNYON ET AL",
-            "matter": "MOTION TO STRIKE Amended COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Line 1.4. DEFENDANT ENA REALES MOTION TO STRIKE Amended COMPLAINT is DENIED. Plaintiff obtained a leave to file a supplemental complaint. Plaintiff further was granted leave to amend the Supplemental Complaint after the hearing on co-defendant Magallon's…"
-          },
-          {
-            "date": "2026-11-16",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24615738",
-            "caseTitle": "ADEENA ELLISON VS. JEWISH LEARNINGWORKS, INC. ET AL",
-            "matter": "MOTION TO DISMISS",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff Adeena Ellison's motion to dismiss the entire action without prejudice is denied without prejudice to being refiled with a fuller evidentiary record. Ellison fails to present sufficient information for the court to exercise its oversight role that…"
-          },
-          {
-            "date": "2026-11-16",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24616373",
-            "caseTitle": "JPMORGAN CHASE BANK, N.A. VS. ROSSILVAM LINHARES",
-            "matter": "Motion To Enter Judgment Under Terms Of Stipulated Settlement",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "The motion for entry of judgment is denied without prejudice. Plaintiff does not provide a copy of the stipulated settlement, and the court has not located the stipulation in the court's register of actions."
-          },
-          {
-            "date": "2026-11-16",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC23610891",
-            "caseTitle": "SARAH LEWIS VS. KENNETH RUNYON ET AL",
-            "matter": "DEMURRER to Amended COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "overruled",
-              "label": "Overruled"
-            },
-            "text": "Line 1.3. DEFENDANT ENA REALES DEMURRER to Amended COMPLAINT is OVERRULED. The demurrer is not supported by Points and Authorities. The body of the Notice of Motion and the Points and Authorities appear to be a duplicate of the Motion to Strike.=(501/CFH)…"
-          },
-          {
-            "date": "2026-11-16",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25622880",
-            "caseTitle": "CHARLES OWEN VS. WALGREEN CO. ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT Or In Alternative Motion For Summary Adjudication Of Issues",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant Walgreen Co.'s motion for summary judgment is granted. \"A party may move for summary judgment in an action or proceeding if it is contended that the action has no merit or that there is no defense to the action or proceeding.\" (Code of Civil…"
-          },
-          {
-            "date": "2026-11-16",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25631755",
-            "caseTitle": "JOAN CRUZ VS. LYFT, INC. ET AL",
-            "matter": "MOTION TO TRANSFER",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant Lyft, Inc.'s motion to transfer venue to Riverside County Superior Court is granted for good cause shown in the moving papers."
-          },
-          {
-            "date": "2026-11-13",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC18564981",
-            "caseTitle": "TIAN ZHANG VS. APEX CONSTRUCTION ET AL",
-            "matter": "MOTION FOR SET ASIDE/VACATE JUDGMENT",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Cross-defendant Stephen Tong's motion to set aside the default and default judgment entered against him on the cross-complaint filed by cross-complainants Jonathan Padilla and Wing See Ng is granted in part. The default entered against Tong on the…"
-          },
-          {
-            "date": "2026-11-13",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC18571683",
-            "caseTitle": "BH FINANCIAL SERVICES INC A CALIFORNIA CORPORATION VS. AARON GRONER ET AL",
-            "matter": "HEARING ON CLAIM OF EXEMPTION",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "The claim of exemption is denied. Judgment debtor does not show a basis for transportation, food, pet care, and retirement saving costs. Judgment debtor's income is far in excess of the minimum wage on which exemptions are calculated. Judgment debtor reports…"
-          },
-          {
-            "date": "2026-11-13",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC21596771",
-            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
-            "matter": "Notice Of Motion And Motion For Determination Of Good Faith Settlement Pursuant To California Code Of Civil Procedure Section 877 And 877.6",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "DEFENDANT DAVID KALLMEYER , AN INDIVIDUAL, MICHAEL COMAROTO, GFDS ENGINEERS Notice Of Motion And Motion For Determination Of Good Faith Settlement Pursuant To California Code Of Civil Procedure Section 877 And 877.6 is GRANTED. Moving party carried their…"
-          },
-          {
-            "date": "2026-11-13",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24612762",
-            "caseTitle": "GARY N. NEIL ET AL VS. BAMBOO INSURANCE SERVICES, INC. ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Discovery Responses And Request For Sanctions In The Amount Of $1,610; Memorandum Of Points And Authorities In Support Thereof (Motions)",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "DEFENDANT GOOSEHEAD INSURANCE AGENCY, LLC'S Motion To Compel Discovery Responses And Request For Sanctions In The Amount Of $1,610. Defendant Goosehead Insurance Agency, LLC's motion to compel discovery responses is denied as moot and its request for monetary…"
-          },
-          {
-            "date": "2026-11-13",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC20585409",
-            "caseTitle": "DAMON HAMMOND VS. UNITED BRANDS PRODUCT DESIGN DEVELOPMENT AND ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT / Notice Of And Motion For Summary Adjudication",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Defendant Safia Qasem dba World of Smoke's unopposed motion for summary adjudication as to the seventh cause of action for negligence per se is is granted for good cause shown in the moving papers. The motion is denied as moot as to punitive damages because…"
-          },
-          {
-            "date": "2026-11-13",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC21596771",
-            "caseTitle": "MHYF HOLDINGS, LLC, A DELAWARE LIMITED LIABILITY ET AL VS. CHRIS V. KELLY ET AL",
-            "matter": "Notice Of Motion And Motion For Determination Of Good Faith Settlement",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Notice Of Motion And Motion For Determination Of Good Faith Settlement is GRANTED. Moving party carried their burden under Tech-Built and opposing party did not carry their burden.=(501/CFH) Parties may appear in-person, telephonically or via Zoom (Video -…"
-          },
-          {
-            "date": "2026-11-13",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24613196",
-            "caseTitle": "KELLY NOVAK VS. SONORA SENIOR LIVING, LLC, INDIVIDUALLY AND DOING ET AL",
-            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Attorney Andrew Cross's motion to be relieved as counsel for defendant Sonora Senior Living, LLC is granted. The grounds for the opposition of plaintiff Kelly Novak to the granting of this motion have been adequately addressed by Cross's reply declaration…"
-          },
-          {
-            "date": "2026-11-13",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC24616745",
-            "caseTitle": "JEFFREY MOLNO VS. DAGEN MINISTERO ET AL",
-            "matter": "Notice Of Motion And Motion For Order Compelling Michelle Hogarths Attendance And Testimony At Deposition And For An Order Imposing Monetary Sanctions",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendants Dagen Ministerio and Arlene Yap's motion to compel nonparty Michelle Hogarth to appear at deposition is denied. The court lacks the power to compel a nonparty to appear without a subpoena, and defendants offer no authority that the court has this…"
           }
         ]
       }
@@ -1140,13 +876,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "401b6567c288baefad68be0ce2bb5c8dcb303b27",
-      "updatedAt": "2026-11-20T21:32:53Z",
+      "ref": "5b77f7624369e823c6642df83a2b0cf7afc19a4b",
+      "updatedAt": "2026-11-21T09:52:13Z",
       "metrics": {
-        "jurisdictions": 729,
-        "reports": 2402,
-        "feePrograms": 5721,
-        "figures": 12576
+        "jurisdictions": 734,
+        "reports": 2418,
+        "feePrograms": 5795,
+        "figures": 12706
       },
       "charts": {}
     },
