@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T09:52:13.000Z",
+  "generatedAt": "2026-11-21T15:45:42.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -888,12 +888,12 @@
     },
     "cfhe": {
       "repo": "aimesy/cfhe-data",
-      "ref": "e0f6d6c62c281c5a04982abac16229be65803b69",
-      "updatedAt": "2026-11-14T15:45:28Z",
+      "ref": "4f2f7313cca5fe05906fbe5732204392cc7091e1",
+      "updatedAt": "2026-11-21T15:45:42Z",
       "metrics": {
         "jurisdictions": 539,
-        "units": 495447,
-        "duplicateUnits": 63909,
+        "units": 495472,
+        "duplicateUnits": 63910,
         "throughYear": 2025
       },
       "charts": {}
