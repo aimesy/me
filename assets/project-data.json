@@ -10,7 +10,7 @@
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
         "tentativeRulings": 386845,
-        "cases": 1457587,
+        "cases": 1457620,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -48,7 +48,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434994
+            "value": 434996
           },
           {
             "label": "CRI",
@@ -56,19 +56,19 @@
           },
           {
             "label": "CSM",
-            "value": 188167
+            "value": 188174
           },
           {
             "label": "CUD",
-            "value": 97240
+            "value": 97241
           },
           {
             "label": "FDI",
-            "value": 98936
+            "value": 98941
           },
           {
             "label": "FCS",
-            "value": 94481
+            "value": 94484
           },
           {
             "label": "PES",
@@ -76,19 +76,19 @@
           },
           {
             "label": "FDV",
-            "value": 30107
+            "value": 30111
           },
           {
             "label": "CPF",
-            "value": 29208
+            "value": 29211
           },
           {
             "label": "CNC",
-            "value": 25685
+            "value": 25687
           },
           {
             "label": "PDW",
-            "value": 21594
+            "value": 21598
           },
           {
             "label": "FSD",
@@ -116,11 +116,11 @@
           },
           {
             "label": "FPT",
-            "value": 722
+            "value": 723
           },
           {
             "label": "FLD",
-            "value": 2819
+            "value": 2820
           },
           {
             "label": "DPO",
