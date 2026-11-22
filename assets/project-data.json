@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T22:25:06.000Z",
+  "generatedAt": "2026-11-22T02:40:47.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -158,22 +158,42 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-21T02:54:51.794Z",
+        "latestScrapedAt": "2026-11-22T02:20:24.443Z",
         "days": [
           {
             "date": "2026-11-23",
-            "total": 21,
+            "total": 53,
             "departments": [
               {
                 "department": "204",
                 "count": 21
+              },
+              {
+                "department": "501",
+                "count": 13
+              },
+              {
+                "department": "302",
+                "count": 12
+              },
+              {
+                "department": "301",
+                "count": 7
               }
             ]
           },
           {
             "date": "2026-11-20",
-            "total": 2,
+            "total": 33,
             "departments": [
+              {
+                "department": "302",
+                "count": 18
+              },
+              {
+                "department": "301",
+                "count": 13
+              },
               {
                 "department": "204",
                 "count": 2
@@ -248,6 +268,243 @@
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-23",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24619718",
+            "caseTitle": "JOSEPH BENJAMIN ET AL VS. LAUREL FERTILITY CARE ET AL",
+            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant MVE Biological Solutions US, LLC's unopposed application for the pro hac vice admission of attorney Jessica R. Garrity in this matter is GRANTED. Good cause shown in the moving papers and no opposition filed. Court will sign the proposed order."
+          },
+          {
+            "date": "2026-11-23",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24620541",
+            "caseTitle": "ARNOLD LEVINE VS. SHARYN LOEB ET AL",
+            "matter": "Motion And Notice Of Hearing For Issuance Of Writ Of Possession",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Court appointed partition referee Kevin Singer's motion for a writ of possession and related relief is granted in its entirety. Good cause shown and no opposition filed. Singer must submit a proposed order identifying all the relief sought by this motion and…"
+          },
+          {
+            "date": "2026-11-23",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC21589724",
+            "caseTitle": "KEITH PULLIAM VS. FRANCISCO MEXICAN FOODS, LLC ET AL",
+            "matter": "MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT FRANCISCO'S MEXICAN FOOD, LLC MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND is DENIED. Seaver v. Fitzgerald (1863) 23 Cal. 85. Hennesy's Tavern, Inc. v. American Air Filter Co. (1988) 204 Cal. App. 3d 1351 and Earl W. Schott, Inc. v…"
+          },
+          {
+            "date": "2026-11-23",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25621798",
+            "caseTitle": "GOLDEN PAPAYA LIVING TRUST ET AL VS. VELOX DESIGN AND CONSTRUCTION ET AL",
+            "matter": "MOTION FOR LEAVE TO File A Cross-Complaint; Declaration Of Points And Authorities And Declaration Of Sean Y. Ma",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant/Velox Costruction Inc.dba Velox Design and Construction Inc.'s unopposed motion for leave to file a cross-complaint is GRANTED. Good cause shown in the moving papers, including the stipulation of all parties agreeing to the filing of said…"
+          },
+          {
+            "date": "2026-11-23",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25631863",
+            "caseTitle": "BEJARANO CONSTRUCTION, INC. VS. KIZUKI STONESTOWN LLC ET AL",
+            "matter": "MOTION FOR LEAVE TO File Second Amended Complaint",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Bejarano Construction, Inc.s' motion for leave to file a second amended complaint is granted. Bejarano may file its proposed second amended complaint no later than December 4, 2026. Bejarano's delay in seeking leave to file a second amended…"
+          },
+          {
+            "date": "2026-11-23",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25627963",
+            "caseTitle": "JOHN TEDESCO VS. MC 2800 3RD REALTY LLC, A DELAWARE LIMITED ET AL",
+            "matter": "MOTION FOR JUDGMENT ON THE PLEADINGS",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT AVANT GROUP INC., 2800 THIRD ST LLC MOTION FOR JUDGMENT ON THE PLEADINGS is GRANTED without leave to amend. Meredith v. Dardarian (1978) 83 Cal. App. 3d 248 =(501/REQ) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160…"
+          },
+          {
+            "date": "2026-11-23",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC26633806",
+            "caseTitle": "CREDITORS ADJUSTMENT BUREAU, INC. VS. AMIN S. DDS CORPORATION AKA AMIN S DDS CORP ET AL",
+            "matter": "MOTION TO STRIKE ANSWER to COMPLAINT",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff Creditors Adjustment Bureau, Inc.'s motion to strike Defendant Amin S. DDS Corporation AKA Amin S DDS Corp.'s answer to its complaint is DENIED as moot. A party may move to strike under Code of Civil Procedure section 436 \"any irrelevant, false, or…"
+          },
+          {
+            "date": "2026-11-23",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25621297",
+            "caseTitle": "NATHANEL LOWE VS. CHRISTIN CREIGHTON ET AL",
+            "matter": "Notice Of Motion And Motion For Order Permitting Pretrial Discovery Of Defendant Christin Creightons Financial Condition; Memorandum Of Points And Authorities; Declarations Of Blake Bostwick And Nathanel Lowe",
+            "judge": "Harold E. Kahn",
+            "outcome": null,
+            "text": "PLAINTIFF NATHANEL LOWE'S Motion for Order Permitting Pretrial Discovery of Defendant Christin Creighton's Financial Condition. Plaintiff Nathanel Lowe's motion for order permitting pretrial discovery of Defendant Christin Creighton's financial condition is…"
+          },
+          {
+            "date": "2026-11-20",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC16554402",
+            "caseTitle": "SHACUAN SHARON SETO VS. CSAA INSURANCE GROUP, AN UNKNOWN ENTITY",
+            "matter": "Re-Noted Notice Of Motion And Motion To Compel Further Responses To Defendants Requests For Production, Set One",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant David J. Samuelsen's motion to compel further responses to his Requests for Production, Set One, joined by Defendants CSAA Fire & Casualty Insurance Company and CSAA Insurance Exchange, is GRANTED."
+          },
+          {
+            "date": "2026-11-20",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23604357",
+            "caseTitle": "DARREN KRAMER ET AL VS. COINBASE, INC. ET AL",
+            "matter": "DEMURRER to COMPLAINT",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "sustained-leave",
+              "label": "Sustained with leave"
+            },
+            "text": "Defendants Coinbase, Inc. and Coinbase Global, Inc.'s demurrer to all three causes of action alleged in plaintiff Amish Shah's complaint is sustained with leave to amend no later than December 18, 2026 as to all three causes of action. Shah does not dispute…"
+          },
+          {
+            "date": "2026-11-20",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC18571386",
+            "caseTitle": "CHARLES LI VS. MEI LING FANG ET AL",
+            "matter": "Motion To Set Aside Attorney'S Fee Award In Default Judgment Entered On 2026-04-29 (Motions)",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendants Mei Ling Fang and Vi Dan Tran's motion to set aside the attorney's fees award in the default judgment entered on April 29, 2026 is denied."
+          },
+          {
+            "date": "2026-11-20",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC23608687",
+            "caseTitle": "NIKCOLE CUNNINGHAM VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
+            "matter": "Notice Of Motion And Motionf Or Monetary Sanctions Under Claifornia Rule Of Court 2.30; Memorandum Of Points And Authorities; Declaration Of Nikcole Cunningham",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff Nikcole Cunningham's motion for monetary sanctions against Adam Shapiro per CRC 2.30 is denied. Assuming without deciding that proofs of service signed by persons other than Shapiro violated CRC 2.51 and/or CRC 2.253 by checking boxes stating that…"
+          },
+          {
+            "date": "2026-11-20",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618494",
+            "caseTitle": "HARRY HA VS. GOLDEN GATE BELL, LLC ET AL",
+            "matter": "Motion To Dismiss Entire Action",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Good cause appearing, Plaintiff Harry Ha's unopposed motion to dismiss entire action without prejudice is GRANTED. After extensive meet and confer discussions, the parties agreed that the only cause of action alleged in this action for violation of the…"
+          },
+          {
+            "date": "2026-11-20",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25624035",
+            "caseTitle": "KARIN OLILA VS. CITY AND COUNTY OF SAN FRANCISCO, A GOVERNMENT ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT Or In The Alternative For Summary Adjudication",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Defendant City and County of San Francisco's motion for summary judgment is denied and its alternate motion for summary adjudication is denied as to the first cause of action for dangerous condition of public property and granted as to the second cause of…"
+          },
+          {
+            "date": "2026-11-20",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25624832",
+            "caseTitle": "CHRISTOPHER LUNSFORD ET AL VS. PAUL H. KONG ET AL",
+            "matter": "MOTION TO STRIKE COMPLAINT/NOTICE OF MOTION AND MOTION TO STRIKE PORTIONS OF DEFENDANTS' EXPERT, TIMUR SHAH DURRANI'S DECLARATION",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiffs' motion to strike the declaration of Dr. Durrani is denied. As explained in the order on the companion motion, plaintiffs do not convincingly show that Christopher Lunsford was acting as an attorney when he communicated with Dr. Durrani or that a…"
+          },
+          {
+            "date": "2026-11-20",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25625399",
+            "caseTitle": "ROBERT YBARRA VS. SAN FRANCISCO BAY AREA RAPID TRANSIT DISTRICT ET AL",
+            "matter": "Plaintiff Robert Ybarras Notice Of Motion, And Motion, For Leave To File Second Amended Complaint; And Memorandum Of Points And Authorities",
+            "judge": "Christine Van Aken",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Robert Ybarra's motion for leave to file a second amended complaint is granted. Ybarra must file and e-serve his second amended complaint by the end of the day November 20, 2026. Defendant San Francisco Bay Area Rapid Transit District may file a…"
+          },
           {
             "date": "2026-11-19",
             "time": "09:00 AM",
@@ -876,13 +1133,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "a8b6f5eaa10522a5a75dd1a2369be1dc4b4887f7",
-      "updatedAt": "2026-11-21T22:25:06Z",
+      "ref": "56ab6f725f2a70627901170f900c63bb1a463b92",
+      "updatedAt": "2026-11-22T02:40:47Z",
       "metrics": {
-        "jurisdictions": 734,
-        "reports": 2418,
-        "feePrograms": 5795,
-        "figures": 12706
+        "jurisdictions": 738,
+        "reports": 2428,
+        "feePrograms": 5905,
+        "figures": 12850
       },
       "charts": {}
     },
