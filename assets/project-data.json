@@ -10,7 +10,7 @@
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
         "tentativeRulings": 386845,
-        "cases": 1457629,
+        "cases": 1457665,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -48,7 +48,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434996
+            "value": 434998
           },
           {
             "label": "CRI",
@@ -56,19 +56,19 @@
           },
           {
             "label": "CSM",
-            "value": 188175
+            "value": 188179
           },
           {
             "label": "CUD",
-            "value": 97248
+            "value": 97254
           },
           {
             "label": "FDI",
-            "value": 98941
+            "value": 98947
           },
           {
             "label": "FCS",
-            "value": 94485
+            "value": 94487
           },
           {
             "label": "PES",
@@ -76,19 +76,19 @@
           },
           {
             "label": "FDV",
-            "value": 30111
+            "value": 30114
           },
           {
             "label": "CPF",
-            "value": 29211
+            "value": 29212
           },
           {
             "label": "CNC",
-            "value": 25687
+            "value": 25690
           },
           {
             "label": "PDW",
-            "value": 21598
+            "value": 21604
           },
           {
             "label": "FSD",
@@ -96,11 +96,11 @@
           },
           {
             "label": "PCN",
-            "value": 9467
+            "value": 9468
           },
           {
             "label": "PTR",
-            "value": 6545
+            "value": 6547
           },
           {
             "label": "FMS",
@@ -158,8 +158,34 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-23T02:59:02.019Z",
+        "latestScrapedAt": "2026-11-24T05:36:41.769Z",
         "days": [
+          {
+            "date": "2026-11-24",
+            "total": 80,
+            "departments": [
+              {
+                "department": "204",
+                "count": 31
+              },
+              {
+                "department": "302",
+                "count": 21
+              },
+              {
+                "department": "501",
+                "count": 18
+              },
+              {
+                "department": "304",
+                "count": 7
+              },
+              {
+                "department": "301",
+                "count": 3
+              }
+            ]
+          },
           {
             "date": "2026-11-23",
             "total": 53,
@@ -239,35 +265,129 @@
                 "count": 12
               }
             ]
-          },
-          {
-            "date": "2026-11-17",
-            "total": 125,
-            "departments": [
-              {
-                "department": "204",
-                "count": 63
-              },
-              {
-                "department": "301",
-                "count": 21
-              },
-              {
-                "department": "501",
-                "count": 20
-              },
-              {
-                "department": "302",
-                "count": 15
-              },
-              {
-                "department": "304",
-                "count": 6
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-24",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24612476",
+            "caseTitle": "GLENDA VALEGA VS. TEFERI TECLE ET AL",
+            "matter": "Notice Of Motion To Set Aside Court'S April 14, 2026 Orders Deeming Certain Requests For Admissions Admitted And Granting Motions To Compel Responses To Requests For Production Of Documents, Special Interrogatories, And Form Interrogatories Pursuant To Ccp Section 473(B) And (D)",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Glenda Valega's motion to set aside the court's April 14, 2026 orders is granted. Sanctions ordered against Valega in connection with the orders issued on the prior motions are vacated."
+          },
+          {
+            "date": "2026-11-24",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC26277411",
+            "caseTitle": "FREEMAN FRANKLIN VS. GENERAL ELECTRIC COMPANY ET AL",
+            "matter": "Notice Of Motion And Motion For Order Granting Preference In Setting Case For Trial, And Extending Discovery Cutoff",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion for Order Granting Preference in Setting Case for Trial and Extending Discovery Cutoff under C.C.P. Section 36(a) is GRANTED. No opposition filed. 1. The trial date is March 15, 2027, at 11:15 a.m. in Department 206. a. Last day pursuant to…"
+          },
+          {
+            "date": "2026-11-24",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25628921",
+            "caseTitle": "CAPITAL ONE, N.A. VS. ADRIANA C FERRER",
+            "matter": "Notice Of Motion And Motion To Enter Judgment Under Terms Of Stipulated Settlement; Memorandum Of Points And Authorities; Declaration In Support; Request For Judical Notice",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Capital One, N.A.'s motion to enter judgment under terms of stipulated settlement is granted. Capital One has shown that it is entitled to judgment in its favor and against defendant Adriana Ferrer in the amount of $6,384, comprised of the principal…"
+          },
+          {
+            "date": "2026-11-24",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC20586851",
+            "caseTitle": "MALCOLM DRILLING COMPANY, INC. VS. SWINERTON WEBCOR ET AL",
+            "matter": "MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT OCEANWIDE CENTER LLC FKA TOHIGH PROPERTY INVESTMENT, LLC MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD is GRANTED. No opposition filed. Counsel to prepare an order =(501/REQ) Parties may appear in-person, telephonically or via Zoom (Video - Webinar…"
+          },
+          {
+            "date": "2026-11-24",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25622978",
+            "caseTitle": "GEORGE TIU ET AL VS. DAIRYLAND PRODUCE, LLC ET AL",
+            "matter": "MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-25-625738 WITH CASE CGC-25-622978",
+            "judge": "A. Marisa Chun",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiffs George Tiu and Judy Tiu's motion to consolidate related actions for trial is GRANTED."
+          },
+          {
+            "date": "2026-11-24",
+            "time": "09:00 AM",
+            "department": "304",
+            "calendar": "Asbestos Law and Motion",
+            "caseNumber": "CGC26277433",
+            "caseTitle": "DAVID BERNDT VS. GENERAL ELECTRIC COMPANY ET AL",
+            "matter": "Notice Of Motion And Motion For Order Granting Preference In Setting Case For Trial, And Extending Discovery Cutoff",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's Motion for Order Granting Preference in Setting Case for Trial and Extending Discovery Cutoff under C.C.P. Sectuib 36(a) is GRANTED. No opposition filed. 1. The trial date is March 15, 2027, at 11:15 a.m. in Department 206. a. Last day pursuant to…"
+          },
+          {
+            "date": "2026-11-24",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26635905",
+            "caseTitle": "VISTACORE PARTNERS, LLC, A DELAWARE LIMITED VS. TERNWHEEL, INC., A DELAWARE CORPORATION",
+            "matter": "MOTION TO STRIKE ANSWER to COMPLAINT",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff Vistacore Partners, LLC's motion for defendant Ternwheel, Inc. to show cause why its answer should not be stricken is granted. This motion is continued to January 6, 2007 for Ternwheel to show cause, if it is able to do so, why its answer should not…"
+          },
+          {
+            "date": "2026-11-24",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25626859",
+            "caseTitle": "GARY ERWIN VS. BRIDGE HOUSING CORPORATION ET AL",
+            "matter": "Motion To Waive Undertaking And Stay Enforcement Pending Appeal",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF GARY ERWIN Motion To Waive Undertaking And Stay Enforcement Pending Appeal is DENIED. Plaintiff has not shown that he is unable to obtain a surety, which is required for an undertaking, which is required to stay a money judgment pending appeal…"
+          },
           {
             "date": "2026-11-23",
             "time": "09:00 AM",
@@ -744,126 +864,6 @@
               "label": "Granted"
             },
             "text": "The unopposed motion by Mobilitas Insurance Company of Arizona for leave to intervene in this action to litigate liability and damages is granted for good cause shown. Mobilitas has leave to file its Answers-In-Intervention within 10 days of this order."
-          },
-          {
-            "date": "2026-11-17",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24614290",
-            "caseTitle": "DAVID MILLSTEIN VS. TERESA WONG ET AL",
-            "matter": "Notice Of Motion And Motion To Confirm Effect Of Bankruptcy Order And Set Default Prove Up Hearing; Memorandum Of Points And Authorities",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "partial",
-              "label": "Granted in part"
-            },
-            "text": "Plaintiff David Millstein's motion to confirm the effect of a bankruptcy order and to set a default prove-up hearing is granted in part. The court confirms that the effect of the September 17, 2026 bankruptcy order is that Millstein is entitled to seek entry…"
-          },
-          {
-            "date": "2026-11-17",
-            "time": "09:00 AM",
-            "department": "304",
-            "calendar": "Asbestos Law and Motion",
-            "caseNumber": "CGC25277361",
-            "caseTitle": "WILLIAM BACK VS. AIR & LIQUID SYSTEMS CORPORATION ET AL",
-            "matter": "Notice Of Motion And Motion For Order Substituting Janet Back As Successor-In-Interest To, And Substituting Successor-In-Interest For, Deceased Plaintiff; For Leave To File First Amended Complaint",
-            "judge": "Victor M. Hwang",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff's Motion for an Order Substituting Janet Back as Successor-In-Interest to, and Substituting Successor-In-Interest for, Deceased Plaintiff; and for Leave to File First Amended Complaint is GRANTED. No opposition filed. The Court has executed…"
-          },
-          {
-            "date": "2026-11-17",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23609517",
-            "caseTitle": "OSCAR RODRIGUEZ ZULUAGA VS. ANTHONY DRAYTON ET AL",
-            "matter": "Mtion To Compel Responses To Special Interrogatories",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "DEFENDANT ANTHONY DRAYTON'S Motion to Compel Responses to Special Interrogatories. The discovery motion is denied as moot. Plaintiff has responded to the discovery at issue, and it appears that defendant's discovery and the motion was initially directed to…"
-          },
-          {
-            "date": "2026-11-17",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25678504",
-            "caseTitle": "CRYSTAL R. FLORIDA VS. MICHAEL D. RAGO ET AL",
-            "matter": "Notice Of Motion And Motion To Set Aside And Vacate Default; Memorandum Of Points And Authorities; Exhibits A-E",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "DEFENDANT DARIA DAVALLOU, MARC SUTTER Notice Of Motion And Motion To Set Aside And Vacate Default is DENIED. The defaults of Defendants Davallou and Sutter, entered May 26, 2026, are not void under CCP 473(d). Defendants Davallou and Sutter's demurrers were…"
-          },
-          {
-            "date": "2026-11-17",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24619156",
-            "caseTitle": "JENNIFER MARSHALL ET AL VS. AIRBNB, INC. ET AL",
-            "matter": "Notice Of Motion And Motion For Relief From Protective Order And To Remove Confidentiality Designations Pertaining To Airbnb'S Prior Carbon Monoxide Incident Disclosures; Memorandum Of Points And Authorities; Declaration Of Pedro P. Echarte Iii ***Redacted***",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Plaintiff Jennifer Marshall's motion for relief from protective order and to remove confidentiality designations pertaining to Airbnb's prior carbon monoxide incident disclosures is denied in part and granted in part. To the extent that Marshall seeks to be…"
-          },
-          {
-            "date": "2026-11-17",
-            "time": "09:00 AM",
-            "department": "304",
-            "calendar": "Asbestos Law and Motion",
-            "caseNumber": "CGC26277416",
-            "caseTitle": "MARIAN BREITZKE ET AL VS. GENERAL ELECTRIC COMPANY ET AL",
-            "matter": "Notice Of Motion And Motion For Order Granting Preference In Setting Case For Trial, And Extending Discovery Cutoff",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff's Motion for Order Granting Preference in Setting Case for Trial and Extending Discovery Cutoff under C.C.P. Section 36(a) is GRANTED. No opposition filed. 1. The trial date is March 8, 2027, at 11:15 a.m. in Department 206. a. Last day pursuant to…"
-          },
-          {
-            "date": "2026-11-17",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC23609517",
-            "caseTitle": "OSCAR RODRIGUEZ ZULUAGA VS. ANTHONY DRAYTON ET AL",
-            "matter": "Notice Of Motion To Deem Requests For Admission As Admitted: Request For Monetary Sanctions In The Amount Of $1,660",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "DEFENDANT ANTHONY DRAYTON'S Motion to Deem Requests for Admission as Admitted: Request for Monetary Sanctions in the Amount of $1,660. The discovery motion is denied as moot. Plaintiff has responded to the discovery at issue, and it appears that defendant's…"
-          },
-          {
-            "date": "2026-11-17",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25680824",
-            "caseTitle": "BRIDGE PROPERTY MANAGEMENT COMPANY VS. NELY B ARGUELLO PEREZ",
-            "matter": "Defendant Nely B. Arguello Perez'S Notice Of Motion To Vacate Judgement And Recall Writ Of Execution",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Arguello Perez'S Notice Of Motion To Vacate Judgement And Recall Writ Of Execution is GRANTED, pursuant to CCP 473(b), based on Defendant's representation that she did not receive the purportedly posted notice of Plaintiff's August 26, 2026 ex parte…"
           }
         ]
       }
