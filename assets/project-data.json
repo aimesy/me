@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T14:17:17.000Z",
+  "generatedAt": "2026-11-24T16:24:15.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -1133,13 +1133,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "d5100da1af1197eb3f5a822f455e1669268c4fc0",
-      "updatedAt": "2026-11-23T14:17:17Z",
+      "ref": "7110d713a4b97dac92eb4c4848025d6c79a97776",
+      "updatedAt": "2026-11-24T16:24:15Z",
       "metrics": {
-        "jurisdictions": 752,
-        "reports": 2516,
-        "feePrograms": 6132,
-        "figures": 13239
+        "jurisdictions": 769,
+        "reports": 2576,
+        "feePrograms": 6202,
+        "figures": 13371
       },
       "charts": {}
     },
