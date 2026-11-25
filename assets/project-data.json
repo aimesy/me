@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T16:24:15.000Z",
+  "generatedAt": "2026-11-25T06:39:50.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -10,7 +10,7 @@
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
         "tentativeRulings": 386845,
-        "cases": 1457665,
+        "cases": 1457693,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -48,7 +48,7 @@
         "casesByPrefix": [
           {
             "label": "CGC",
-            "value": 434998
+            "value": 435000
           },
           {
             "label": "CRI",
@@ -56,15 +56,15 @@
           },
           {
             "label": "CSM",
-            "value": 188179
+            "value": 188185
           },
           {
             "label": "CUD",
-            "value": 97254
+            "value": 97257
           },
           {
             "label": "FDI",
-            "value": 98947
+            "value": 98952
           },
           {
             "label": "FCS",
@@ -72,11 +72,11 @@
           },
           {
             "label": "PES",
-            "value": 42670
+            "value": 42674
           },
           {
             "label": "FDV",
-            "value": 30114
+            "value": 30118
           },
           {
             "label": "CPF",
@@ -88,11 +88,11 @@
           },
           {
             "label": "PDW",
-            "value": 21604
+            "value": 21606
           },
           {
             "label": "FSD",
-            "value": 15816
+            "value": 15817
           },
           {
             "label": "PCN",
@@ -116,7 +116,7 @@
           },
           {
             "label": "FPT",
-            "value": 723
+            "value": 724
           },
           {
             "label": "FLD",
@@ -158,8 +158,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-24T05:36:41.769Z",
+        "latestScrapedAt": "2026-11-25T06:40:35.952Z",
         "days": [
+          {
+            "date": "2026-11-25",
+            "total": 57,
+            "departments": [
+              {
+                "department": "204",
+                "count": 24
+              },
+              {
+                "department": "501",
+                "count": 21
+              },
+              {
+                "department": "302",
+                "count": 8
+              },
+              {
+                "department": "301",
+                "count": 4
+              }
+            ]
+          },
           {
             "date": "2026-11-24",
             "total": 80,
@@ -243,31 +265,129 @@
                 "count": 15
               }
             ]
-          },
-          {
-            "date": "2026-11-18",
-            "total": 91,
-            "departments": [
-              {
-                "department": "204",
-                "count": 51
-              },
-              {
-                "department": "302",
-                "count": 15
-              },
-              {
-                "department": "301",
-                "count": 13
-              },
-              {
-                "department": "501",
-                "count": 12
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-25",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24620108",
+            "caseTitle": "LAMONTE JOHNSON VS. CITY AND COUNTY OF SAN FRANCISCO ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Production Of Documents And For Monetary Sanctions",
+            "judge": "Cindee Mayfield",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant City and County of San Francisco's motion to compel production of documents and for monetary sanctions is granted. Plaintiff Lamonte Johnson shall provide all documents responsive documents to the City's Requests for Production, Set One, within 14…"
+          },
+          {
+            "date": "2026-11-25",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC24620199",
+            "caseTitle": "ARDEN WHIPS VS. IME RESOURCES, LLC ET AL",
+            "matter": "Notice Of Motion And Motion To Approve Paga Settlement; Memorandum Of Points And Authorities In Suppor Tof Motion To Approve Paga Settlement",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff Arden Whips' motion to approve PAGA settlement is denied without prejudice to being refiled with sufficient information about the settlement of Whips' individual claims for the court to exercise its role to determine if the PAGA settlement is fair…"
+          },
+          {
+            "date": "2026-11-25",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25625748",
+            "caseTitle": "KEVIN DEDE VS. JUDITH K. GROVES ET AL",
+            "matter": "DEMURRER to Amended COMPLAINT",
+            "judge": "",
+            "outcome": {
+              "key": "sustained",
+              "label": "Sustained"
+            },
+            "text": "DEFENDANT JUDITH GROVES , TRUSTEE OF THE JUDITH GROVES LIVING TRUST, DATED DECEMBER 14, 2020, 290 FREDERICK STREET, LLC, A CALIFORNIA LIMITED DEMURRER to 2ND Amended COMPLAINT is SUSTAINED. Demurrer to the cause of action for partition is sustained with leave…"
+          },
+          {
+            "date": "2026-11-25",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25625950",
+            "caseTitle": "YI-CHEN, CHIEN VS. YUEZI, XU",
+            "matter": "MOTION TO QUASH SERVICE OF SUMMONS OR STAY OR DISMISS",
+            "judge": "Cindee Mayfield",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Defendant's unopposed motion to quash service of process is granted. The court takes no action on Defendant's request to stay or dismiss the action."
+          },
+          {
+            "date": "2026-11-25",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25623107",
+            "caseTitle": "JESSICA BLACK VS. GOLDEN GATE BRIDGE HIGHWAY TRANSPORTATION DISTRICT ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Further Deposition Of Plaintiff Jessica Black; Request For Order Awarding Monetary Sanctions",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Defendant Golden Gate Bridge, Highway and Transportation District's motion to compel further deposition and request for monetary sanctions is granted in part. If she still intends to file an amended complaint, Black must do so by December 11, 2026 or is…"
+          },
+          {
+            "date": "2026-11-25",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC26633036",
+            "caseTitle": "SHELLEY WIENKE VS. MAGDALENA ESPERANZATE ET AL",
+            "matter": "MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "DEFENDANT MAGDALENA ESPERANZATE MOTION TO SET ASIDE DEFAULT/DEFAULT JUDGMENT/LEAVE TO DEFEND is GRANTED based on mandatory relief. Defendant to file and serve an answer by 5:00 p.m. on November 25, 2026. No later than December 11, 2026 Mr. Kelly to remit…"
+          },
+          {
+            "date": "2026-11-25",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC25627042",
+            "caseTitle": "LAURO ARIAS GONZALEZ VS. FILLMORE MERCHANTS ANDIMPROVEMENT ASSOCIATION,INC. ET AL",
+            "matter": "DEMURRER to Amended CROSS COMPLAINT",
+            "judge": "Cindee Mayfield",
+            "outcome": {
+              "key": "overruled",
+              "label": "Overruled"
+            },
+            "text": "Cross-defendant Gonzalez's (\"Gonzalez\") demurrer to cross-complainant Fillmore Merchants and Improvement Association, Inc.'s (\"Fillmore\") first amended cross-complaint (\"FACC\") is overruled."
+          },
+          {
+            "date": "2026-11-25",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC26638151",
+            "caseTitle": "ALEXANDER RICHARDS VS. ANASTASIA BRONSKI ET AL",
+            "matter": "DEFENDANT ANASTASIA BRONSKI AN INDIVIDUAL, BRONSKI PC NOTICE OF MOTION AND MOTION TO STAY ACTION PENDING RESOLUTION OF EARLIER- FILED FLORIDA PROCEEDINGS",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "continued",
+              "label": "Continued"
+            },
+            "text": "Continued to December 2, 2026, to be heard by Judge Van Aken."
+          },
           {
             "date": "2026-11-24",
             "time": "09:00 AM",
@@ -744,126 +864,6 @@
               "label": "Granted"
             },
             "text": "Plaintiffs Alejandra Garcia and Michael Luchi's motion responses to interrogatories and document requests and for monetary sanctions is granted. No later than December 18, 2026 defendant Linda Harrington must serve verified code-compliant responses without…"
-          },
-          {
-            "date": "2026-11-18",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24617778",
-            "caseTitle": "RODNEY HAMPTON, JR. VS. LUKE O’BRIEN ET AL",
-            "matter": "Notice And Motion To Set Aside Defendants Request For Entry Of Default",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff and cross-defendant Hampton's motion to vacate the default entered on September 28, 2026, is granted. A party seeking to vacate a default under CCP 473(b) must make the motion within a reasonable time, provide a proposed pleading, and demonstrate…"
-          },
-          {
-            "date": "2026-11-18",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC06451935",
-            "caseTitle": "WHITE & WHITLEY GROUP, LLC, ALIMITED LIABILITY VS. DORIELL SMITH et al",
-            "matter": "HEARING ON CLAIM OF EXEMPTION",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The claim of exemption is granted. The judgment debtor shows that the entirety of her earnings are necessary for the support of the judgment debtor and her family."
-          },
-          {
-            "date": "2026-11-18",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC21589703",
-            "caseTitle": "WEI OUYANG ET AL VS. JENNIFER CHEUNG",
-            "matter": "MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-24-614737 WITH CASE CGC-21-589703",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "ASSIGNEE GREEN MATRIX SECURITIES LLC MOTION TO CONSOLIDATE ACTIONS OF CASE(S) CGC-24-614737 WITH CASE CGC-21-589703 is DENIED without prejudice. Moving party fails to show that the cases subject to this motion are \"pending\" before the Court within the meaning…"
-          },
-          {
-            "date": "2026-11-18",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25625380",
-            "caseTitle": "METRUS ENERGY - BINGO, LLC, A DELAWARE LIMITED ET AL VS. CHARLES E. TREFZGER ET AL",
-            "matter": "Application For Separate Judgments Pursuant To Code Of Civil Procedure 579",
-            "judge": "",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiffs' application for separate judgment pursuant to Code Civ. Proc., 579 is granted. \"In an action against several defendants, the Court may, in its discretion, render judgment against one or more of them, leaving the action to proceed against the…"
-          },
-          {
-            "date": "2026-11-18",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25622781",
-            "caseTitle": "KIMBERLY P. HYTRY VS. CHRISTOPHER LOVOY ET AL",
-            "matter": "First Amended Notice Of Motion And Motion For Evidentiary And Issue Sanctions For Violating The Court?S Order Granting Defendant?S Motion For Leave To Perform A Neuropsychological Medical Examination And Request For Sanctions (Motions)",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "First Amended Motion for Evidentiary and Issue Sanctions for Violating the Court's Order Granting Defendant's Motion for Leave to Perform a Neuropsychological Medical Examination and Request for Sanctions. The unopposed motion for sanctions is denied. Moving…"
-          },
-          {
-            "date": "2026-11-18",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC24618761",
-            "caseTitle": "WINDY R. CHERRY VS. DELPHINE CHERRY ET AL",
-            "matter": "Notice Of Motion And Motion For Order Determining Good Faith Of Settlement",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF WINDY CHERRY Notice Of Motion And Motion For Order Determining Good Faith Of Settlement is DENIED without prejudice. Moving party failed to show that a ruling on this motion is appropriate while the joint tortfeasors' appeal from an order Denying…"
-          },
-          {
-            "date": "2026-11-18",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC26634512",
-            "caseTitle": "STEPHEN MASSEY VS. PURPLE STAR MD ET AL",
-            "matter": "Notice Of Motion And Motion For Sanctions Under Code Of Civil Procedure Sec. 128.7",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "Defendant MWG Holdings Group, Inc. (\"MWG\")'s motion for sanctions under Code of Civil Procedure section 128.7 is DENIED."
-          },
-          {
-            "date": "2026-11-18",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC25627281",
-            "caseTitle": "FIKRET MIRZOYEV VS. LYFT, INC. ET AL",
-            "matter": "Motion For Leave To Intervene",
-            "judge": "Christine Van Aken",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "The unopposed motion by Mobilitas Insurance Company of Arizona for leave to intervene in this action to litigate liability and damages is granted for good cause shown. Mobilitas has leave to file its Answers-In-Intervention within 10 days of this order."
           }
         ]
       }
@@ -1133,13 +1133,13 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "7110d713a4b97dac92eb4c4848025d6c79a97776",
-      "updatedAt": "2026-11-24T16:24:15Z",
+      "ref": "850ca27b7e57d725af30c162036e49b2458c9e7a",
+      "updatedAt": "2026-11-25T06:39:50Z",
       "metrics": {
-        "jurisdictions": 769,
-        "reports": 2576,
-        "feePrograms": 6202,
-        "figures": 13371
+        "jurisdictions": 778,
+        "reports": 2606,
+        "feePrograms": 6251,
+        "figures": 13477
       },
       "charts": {}
     },
