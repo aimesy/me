@@ -158,8 +158,30 @@
       },
       "feed": {
         "source": "aimesy/sfsc-data raw tentative captures",
-        "latestScrapedAt": "2026-11-25T06:40:35.952Z",
+        "latestScrapedAt": "2026-11-26T08:04:41.152Z",
         "days": [
+          {
+            "date": "2026-11-30",
+            "total": 47,
+            "departments": [
+              {
+                "department": "204",
+                "count": 14
+              },
+              {
+                "department": "302",
+                "count": 14
+              },
+              {
+                "department": "501",
+                "count": 12
+              },
+              {
+                "department": "301",
+                "count": 7
+              }
+            ]
+          },
           {
             "date": "2026-11-25",
             "total": 57,
@@ -247,27 +269,129 @@
                 "count": 2
               }
             ]
-          },
-          {
-            "date": "2026-11-19",
-            "total": 64,
-            "departments": [
-              {
-                "department": "301",
-                "count": 25
-              },
-              {
-                "department": "302",
-                "count": 24
-              },
-              {
-                "department": "501",
-                "count": 15
-              }
-            ]
           }
         ],
         "rulings": [
+          {
+            "date": "2026-11-30",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618998",
+            "caseTitle": "MOR FLEISHER LEACH VS. DEEL US LLC, ALSO REFERRED TO AS DEEL, AND LETS ET AL",
+            "matter": "Notice Of Motion To Compel Further Responses To Form Interrogatories - Employment",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "PLAINTIFF MOR LEACH'S Motion to Compel Further Responses to Form Interrogatories - Employment. Plaintiff's motion to compel further responses to the form interrogatories is denied as moot. On November 9, 2026, defendant served supplemental responses, which…"
+          },
+          {
+            "date": "2026-11-30",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25624931",
+            "caseTitle": "TBJ INVESTMENTS, LLC VS. MUHAMMED A. ZUGHAIYIR ET AL",
+            "matter": "Motion To Deem Admitted Plaintiffs Requests For Admission, Set One Served On Defendant Oasis Grill, Llc And For Monetary Sanctions",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "4 - Plaintiff TBJ Investments, LLC's motion to deem that defendant Oasis Grill, LLC admitted all of TBJ's first set of requests for admission and for monetary sanctions is granted in part. Oasis is deemed to admit all of TBJ's first set of requests for…"
+          },
+          {
+            "date": "2026-11-30",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC24620511",
+            "caseTitle": "RASMI NASER ZEIDAN ET AL VS. METROPOLITAN BANK ET AL",
+            "matter": "MOTION FOR SUMMARY JUDGMENT OR IN THE ALTERNATIVE, SUMMARY ADJUDICATION",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "is GRANTED. Moving party shifted their burden. Opposing party failed to create a triable issue of fact with competent admissible evidence. =(501/REQ) Parties may appear in-person, telephonically or via Zoom (Video - Webinar ID: 160 560 5023; Password: 172849…"
+          },
+          {
+            "date": "2026-11-30",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24618998",
+            "caseTitle": "MOR FLEISHER LEACH VS. DEEL US LLC, ALSO REFERRED TO AS DEEL, AND LETS ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Further Responses To Requests For Admission",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "Plaintiff's motion to compel further responses to the requests for admission is denied as moot. On November 9, 2026, defendant served supplemental responses, which comported with the parties' stipulation. (Riley Decl., Exs. K, L.) Per CRC 3.1348(a), the court…"
+          },
+          {
+            "date": "2026-11-30",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25624931",
+            "caseTitle": "TBJ INVESTMENTS, LLC VS. MUHAMMED A. ZUGHAIYIR ET AL",
+            "matter": "Motion To Compel: Defendant Responses To Plaintiffs Requests For Production Of Documents, Set One",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "partial",
+              "label": "Granted in part"
+            },
+            "text": "Plaintiff TBJ Investments, LLC's motion to compel defendants Oasis Grill, LLC, Muhammed Zughaiyir and Muna Azzghayer to serve responses to TBJ's first set of document requests and for monetary sanctions is granted in part. No later than December 10, 2026 all…"
+          },
+          {
+            "date": "2026-11-30",
+            "time": "09:30 AM",
+            "department": "501",
+            "calendar": "Real Property Court",
+            "caseNumber": "CGC25630772",
+            "caseTitle": "PHYSICAL CULTURE ATHLETIC CLUB LLC VS. 1000 VAN NESS LP ET AL",
+            "matter": "Notice Of Motion And Motion To Enforce Agreement Of Counsel And For Order Dismissing Action Without Prejudice; Memorandum Of Points And Authorities",
+            "judge": "",
+            "outcome": {
+              "key": "denied",
+              "label": "Denied"
+            },
+            "text": "DEFENDANT 1000 VAN NESS LP, JAMES KILPATRICK Notice Of Motion And Motion To Enforce Agreement Of Counsel And For Order Dismissing Action Without Prejudice is DENIED. The parties did not agree to dismiss the 772 case. =(501/REQ) Parties may appear in-person…"
+          },
+          {
+            "date": "2026-11-30",
+            "time": "09:00 AM",
+            "department": "302",
+            "calendar": "Civil Law and Motion",
+            "caseNumber": "CGC24619120",
+            "caseTitle": "JOSUE CEBALLES VS. UNITED SECURITY SPECIALISTS, INC. ET AL",
+            "matter": "MOTION TO DISMISS",
+            "judge": "",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "Plaintiff's unopposed motion to dismiss action without prejudice is granted. The court will sign the proposed order in the form presented."
+          },
+          {
+            "date": "2026-11-30",
+            "time": "09:00 AM",
+            "department": "301",
+            "calendar": "Discovery",
+            "caseNumber": "CGC25628885",
+            "caseTitle": "JANE DOE VS. UBER TECHNOLOGIES, INC. ET AL",
+            "matter": "Notice Of Motion And Motion To Compel Defendant Uber Technologies, Inc.'S Further Responses To Plaintiff'S Special Interrogatories, Set Two",
+            "judge": "Harold E. Kahn",
+            "outcome": {
+              "key": "granted",
+              "label": "Granted"
+            },
+            "text": "(Updated) Plaintiff Jane Doe's motion to compel further responses to her set two special interrogatories is granted as to special interrogatories 29-34. No later than December 3, 2026 defendant Uber Technologies, Inc. must serve verified code-compliant…"
+          },
           {
             "date": "2026-11-25",
             "time": "09:00 AM",
@@ -744,126 +868,6 @@
               "label": "Granted"
             },
             "text": "Plaintiff Robert Ybarra's motion for leave to file a second amended complaint is granted. Ybarra must file and e-serve his second amended complaint by the end of the day November 20, 2026. Defendant San Francisco Bay Area Rapid Transit District may file a…"
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC23609388",
-            "caseTitle": "BOUTIQUE AIR, INC, A CALIFORNIA CORPOATION VS. AIN MEDIA GROUP, INC. A COLORADO CORPORATION ET AL",
-            "matter": "Amended MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Amended MOTION FOR WITHDRAWAL OF ATTORNEY OF RECORD. Unopposed amended motion by plaintiff's counsel David Schwartz and Nancy Chung for withdrawal of attorney of record for plaintiff Boutique Air, Inc. is granted, based on good cause established in moving…"
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26633481",
-            "caseTitle": "DIVYANG VED VS. GLOBAL FITNESS VENTURES, LLC ET AL",
-            "matter": "MOTION TO ADMIT COUNSEL PRO HAC VICE",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Divyang Ved's application for the pro hac vice admission of Brett Buterick is granted. Good cause shown and no opposition filed."
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CGC26634856",
-            "caseTitle": "ALI KAMAREI ET AL VS. MATT FINLEY ET AL",
-            "matter": "DEMURRER to Amended COMPLAINT",
-            "judge": "",
-            "outcome": {
-              "key": "sustained",
-              "label": "Sustained"
-            },
-            "text": "DEMURRER to 1ST Amended COMPLAINT is SUSTAINED in part and OVERRULED in part. Demurrer is sustained with leave to amend based on uncertainty grounds as to negligence cause of action. (The Court does not reach any other grounds raised in connection with this…"
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC24618592",
-            "caseTitle": "JANE DOE VS. SAN FRANCISCO HEALTH CARE AND REHAB, INC ET AL",
-            "matter": "Notice Of Motion For Leave To Amend Complaint To Add Alter Ego And Personal Liability Allegations Against Svetlana Stukov And Stan Stukov, And Allegations Concerning Newly Discovered Evidence In Support Of Liability Against All Defendants",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff Jane Does's motion for leave to amend the complaint is GRANTED. Plaintiff to file the proposed First Amended Complaint within 10 days of notice of entry of this order. \"Great liberality is indulged in matters of amendment to the end that lawsuits…"
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26635191",
-            "caseTitle": "FABIOLA AVILA VS. ELISE FREUND D.C. ET AL",
-            "matter": "MOTION TO STRIKE Amended COMPLAINT",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "DEFENDANT ELISE FREUND'S Motion to Strike 1st Amended Complaint. Defendant Elise Freund's motion to strike the first amended complaint is denied. Plaintiff Fabiola Avila was granted leave to amend after the demurrer to her intentional misrepresentation claim…"
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:30 AM",
-            "department": "501",
-            "calendar": "Real Property Court",
-            "caseNumber": "CUD25680685",
-            "caseTitle": "YI MAN CHAN VS. ANGELA MITCHEL ET AL",
-            "matter": "Notice Of Motion And Motion For Entry Of Judgment Pursuant To Stipulation; Memorandum Of Points And Authorities",
-            "judge": "",
-            "outcome": {
-              "key": "denied",
-              "label": "Denied"
-            },
-            "text": "PLAINTIFF YI CHAN Notice Of Motion And Motion For Entry Of Judgment Pursuant To Stipulation is DENIED without prejudice. No competent evidence of breach. Declaration of Yi Man, dated November 13, 2026 but filed three weeks earlier on October 22, 2026, is not…"
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:00 AM",
-            "department": "302",
-            "calendar": "Civil Law and Motion",
-            "caseNumber": "CGC25632416",
-            "caseTitle": "U.S. BANK NATIONAL ASSOCIATION VS. JONATHAN P HERNANDEZ ET AL",
-            "matter": "MOTION FOR SUMMARY JUDGMENT Or In The Alternative Summary Adjudication",
-            "judge": "A. Marisa Chun",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiff U.S. Bank National Association's (\"U.S. Bank\") unopposed motion for summary judgment against defendant Jonathan P. Hernandez is GRANTED."
-          },
-          {
-            "date": "2026-11-19",
-            "time": "09:00 AM",
-            "department": "301",
-            "calendar": "Discovery",
-            "caseNumber": "CGC26635915",
-            "caseTitle": "ALEJANDRA GARCIA ET AL VS. LINDA R HARRINGTON ET AL",
-            "matter": "Notice Of Motion And Motion To Compel Responses To Interrogatories, For Production Of Documents, And For Monetary Sanctions",
-            "judge": "Harold E. Kahn",
-            "outcome": {
-              "key": "granted",
-              "label": "Granted"
-            },
-            "text": "Plaintiffs Alejandra Garcia and Michael Luchi's motion responses to interrogatories and document requests and for monetary sanctions is granted. No later than December 18, 2026 defendant Linda Harrington must serve verified code-compliant responses without…"
           }
         ]
       }
