@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T21:45:29.000Z",
+  "generatedAt": "2026-11-25T23:23:51.000Z",
   "generator": "scripts/build-project-data.mjs",
   "projects": {
     "sfsc": {
@@ -10,7 +10,7 @@
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
         "tentativeRulings": 386845,
-        "cases": 1457693,
+        "cases": 1457719,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -56,27 +56,27 @@
           },
           {
             "label": "CSM",
-            "value": 188185
+            "value": 188188
           },
           {
             "label": "CUD",
-            "value": 97257
+            "value": 97260
           },
           {
             "label": "FDI",
-            "value": 98952
+            "value": 98958
           },
           {
             "label": "FCS",
-            "value": 94487
+            "value": 94488
           },
           {
             "label": "PES",
-            "value": 42674
+            "value": 42675
           },
           {
             "label": "FDV",
-            "value": 30118
+            "value": 30125
           },
           {
             "label": "CPF",
@@ -92,7 +92,7 @@
           },
           {
             "label": "FSD",
-            "value": 15817
+            "value": 15818
           },
           {
             "label": "PCN",
@@ -112,11 +112,11 @@
           },
           {
             "label": "PGN",
-            "value": 4175
+            "value": 4176
           },
           {
             "label": "FPT",
-            "value": 724
+            "value": 727
           },
           {
             "label": "FLD",
@@ -1133,8 +1133,8 @@
     },
     "mfa": {
       "repo": "aimesy/mfa-data",
-      "ref": "bc18b757a739f927ec71d095900af1ba6f44cb56",
-      "updatedAt": "2026-11-25T21:45:29Z",
+      "ref": "22ef87743928361426579c4b16d0b6ff34db1e18",
+      "updatedAt": "2026-11-25T15:23:51-08:00",
       "metrics": {
         "jurisdictions": 821,
         "reports": 2703,
