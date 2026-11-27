@@ -10,7 +10,7 @@
       "archiveMeasuredAt": "2026-11-09T19:58:26Z",
       "metrics": {
         "tentativeRulings": 386845,
-        "cases": 1457719,
+        "cases": 1457720,
         "documents": 6524689,
         "documentsArchived": 94046,
         "docketEntries": 28247819,
@@ -72,7 +72,7 @@
           },
           {
             "label": "PES",
-            "value": 42675
+            "value": 42676
           },
           {
             "label": "FDV",
